@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Gabriel Poça</title>
+    <description>Gabriel Poça's Blog</description>
+    <link>https://gabrielpoca.com</link>
+    <language>en-us</language>
+    <%= Enum.map sort_posts(get_collections("post")), fn post -> %>
+      <item>
+        <title><%= post[:variables][:title] %></title>
+        <link><%= url_for(post[:output_file]) %></link>
+        <guid isPermaLink="false"><%= url_for(post[:output_file]) %></guid>
+        <pubDate><%= pub_date(post[:variables][:date]) %></pubDate>
+      </item>
+    <% end %>
+  </channel>
+</rss>

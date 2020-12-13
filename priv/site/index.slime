@@ -1,0 +1,27 @@
+---
+layout: _layout.slime
+---
+
+.Content
+  h1 Hi! <br /> I'm Gabriel Poça!
+
+  p.P
+     | I'm a software developer working in the Fintech and Medtech industries. I'm
+       into all kinds of things, such as books, making music or customizing my
+       editor.
+
+  h2 Now
+
+  p.P
+    | I always have a couple of projects ongoing (Notedown, learning music
+      production) but right now I'm focusing most of my time in a static site
+      generator for the Elixir community.
+
+  h2 Blog
+
+  ul.BlogList
+    = Enum.map sort_posts(get_collections("post")), fn post ->
+      li.BlogListItem
+        = link post[:variables][:title], to: post[:output_file]
+        .BlogListItem-date
+          = post[:variables][:date]

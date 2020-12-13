@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title Gabriel Poça
+    meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = link_to_css "site.css"
+  body
+    nav.Nav
+      = link "Home", to: "/"
+      .Nav-links
+        = link "RSS", to: "rss.xml"
+        = link "Music", to: "/music"
+    =  @children

@@ -1,0 +1,9 @@
+---
+files:
+  - ./files/jazzy_mind_f.mp3
+tag:
+  - music
+layout: music/_music_layout.slime
+---
+
+div Test

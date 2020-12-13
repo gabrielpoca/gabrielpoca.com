@@ -1,0 +1,6 @@
+.Content
+  h1 Music
+
+  ul
+    li
+      = include("music/_jazz-mind-f.slime")

@@ -1,0 +1,13 @@
+---
+layout: _layout.slime
+---
+div.PostHeader
+  h1.title
+    = @title
+
+  = if assigns[:cover] do
+    .overlay
+    img.cover src="#{@cover}"
+
+.Post
+  = @children
