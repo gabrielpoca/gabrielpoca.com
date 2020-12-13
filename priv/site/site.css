@@ -1,0 +1,2 @@
+<%= include("_fonts.css") %>
+<%= include("_global.scss") %>

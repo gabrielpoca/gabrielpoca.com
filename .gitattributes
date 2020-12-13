@@ -1,0 +1,2 @@
+priv/site/books/covers/*.img filter=lfs diff=lfs merge=lfs -text
+priv/site/books/covers/*.jpg filter=lfs diff=lfs merge=lfs -text
