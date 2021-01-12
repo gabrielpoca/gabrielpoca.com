@@ -16,6 +16,8 @@ current: music
 
   ul.list
     li
+      = include("music/_beats_2020.slime")
+    li
       = include("music/_mixed_feelings_piano.slime")
     li
       = include("music/_jazz_mind_f.slime")
