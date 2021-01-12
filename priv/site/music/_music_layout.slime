@@ -1,4 +1,0 @@
-= @children
-= Enum.map @files, fn file ->
-  audio controls=true
-    source src="#{file}" type="audio/mp3"

@@ -31,8 +31,8 @@ defmodule GabrielPoca.MixProject do
       {:still, path: "../still"},
       {:slime, "~> 1.2"},
       {:sass, github: "scottdavis/sass.ex", submodules: true},
-      {:timex, "~> 3.5"},
-      {:imageflow, github: "naps62/imageflow_ex"}
+      {:imageflow, "~> 0.4.0"},
+      {:timex, "~> 3.5"}
     ]
   end
 end

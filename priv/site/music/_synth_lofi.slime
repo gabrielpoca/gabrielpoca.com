@@ -1,0 +1,10 @@
+---
+files:
+  - music/files/lofi_piano.mp3
+layout: music/_layout.slime
+title: "Synth: Lo-Fi Piano"
+---
+
+p.P
+  | In this experiment I made a Lo-Fi Piano Synthesizer. No audio samples in
+    that piano. I think it sounds awesome.

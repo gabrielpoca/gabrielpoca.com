@@ -1,0 +1,9 @@
+.Music
+  h2.title = @title
+  .details
+    = @children
+  ul.files
+    = Enum.map @files, fn file ->
+      li.file
+        audio controls=true
+          source src="#{url_for(file)}" type="audio/mp3"

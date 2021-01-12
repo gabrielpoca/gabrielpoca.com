@@ -1,0 +1,97 @@
+@use "sass:math";
+
+body {
+  background-color: #fff;
+  color: var(--color-black);
+  font-family: IBMPlexMono, monospace;
+  font-size: 16px;
+}
+
+.MusicPage {
+  > .title {
+    margin: 0 1rem 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    @media (min-width: 600px) {
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+  }
+
+  .intro {
+    padding: 0 1rem 2rem;
+    width: 100%;
+    max-width: 400px;
+
+    @media (min-width: 600px) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .list {
+    list-style-type: none;
+    padding-bottom: 4rem;
+
+    > li {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    > li:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 600px) {
+      > li:not(:last-child) {
+        margin-bottom: 4rem;
+      }
+
+      @for $i from 1 through 9 {
+        > li:nth-child(9n + #{$i}) {
+          margin-left: calc(#{random(4)} * 2rem);
+        }
+      }
+    }
+
+    @for $i from 1 through 13 {
+      > li:nth-child(#{$i}) .Music {
+        background: hsl(floor(random(360)), 100%, 91%);
+      }
+    }
+  }
+}
+
+.Music {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-family: IBMPlexMono, monospace;
+  width: 100%;
+  max-width: 450px;
+
+  .title {
+    padding: 1rem 1rem 0;
+    font-size: inherit;
+    font-weight: bold;
+  }
+
+  .files {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .details {
+    padding: 1rem;
+
+    p:last-child {
+      margin: 0;
+    }
+  }
+
+  audio {
+    width: 100%;
+    background-color: var(--color-black);
+    display: block;
+  }
+}

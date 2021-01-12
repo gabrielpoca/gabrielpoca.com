@@ -4,11 +4,22 @@ body {
   font-family: IBMPlexSans;
   background-color: var(--color-black);
   color: var(--color-white);
+
+  @media (max-width: 600px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 16px;
+  }
 }
+
 :root {
   --color-black: #090909;
-  --color-white: #dfdfdf;
-  --color-accent: #d5a0ff;
+  --color-black1: #151515;
+  --color-white: #ffceae;
+  --color-accent: #cb90f9;
+  --color-accent2: #ff6500;
 }
 
 a {
@@ -22,6 +33,8 @@ a {
   margin: 0;
   padding: 0;
   line-height: 1.4em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ul,
@@ -29,122 +42,10 @@ ol {
   list-style-position: inside;
 }
 
-.Content {
-  padding: 1rem;
-  margin: 0 auto;
-  max-width: 800px;
-}
-
-.BlogList {
-  list-style-type: none;
-}
-
-.BlogListItem {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-}
-
-.BlogListItem-date {
-  font-size: 0.75rem;
-}
-
-.PostHeader {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin-top: -4rem;
-  min-height: 80vh;
-  overflow: hidden;
-  padding-bottom: 8rem;
-  padding-top: 8rem;
-  position: relative;
-  z-index: 0;
-
-  > .title {
-    font-size: 3rem;
-    font-weight: normal;
-    text-align: center;
-    padding: 0 2rem;
-    position: relative;
-    z-index: 1;
-    max-width: 1200px;
-  }
-
-  > .overlay {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 1000%;
-    background-color: black;
-    opacity: 0.5;
-  }
-
-  > img.cover {
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
-}
-
-.Post {
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 4rem 2rem 0;
-}
-
-.Post > * {
-  letter-spacing: 0.5px;
-}
-
-.Post p {
-  margin-bottom: 1.5rem;
-}
-
-.Post li {
-  margin-bottom: 1rem;
-}
-.Post li:last-child {
-  margin-bottom: 1.5rem;
-}
-
-.Post img {
-  max-width: 100%;
-  margin: 0 auto;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 0.25rem;
-}
-
-.Post code {
-  font-family: IBMPlexMono;
+code {
+  font-family: IBMPlexMono, monospace;
   line-height: 1.1em;
-  font-size: 18px;
-}
-
-.Post pre {
-  background-color: #151515;
-  padding: 1rem;
-  overflow-x: scroll;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  border-left: 1rem solid black;
-  margin-left: -1rem;
-}
-
-.Post h2 {
-  font-size: 2rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.Post h3 {
-  font-size: 1.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
 }
 
 .Nav {
@@ -155,22 +56,30 @@ ol {
   display: grid;
   grid-column-gap: 1rem;
   grid-template-columns: repeat(2, min-content);
-  justify-content: space-between;
+  justify-content: flex-end;
   z-index: 1;
   position: relative;
 
-  .Nav-links {
+  .links {
     display: grid;
     grid-template-columns: none;
     grid-column-gap: 1rem;
     grid-auto-flow: column;
   }
-}
 
-.P {
-  margin-bottom: 1.5rem;
+  a.current {
+    opacity: 1;
+  }
 
   a {
-    background-color: red;
+    opacity: 0.5;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }

@@ -1,6 +1,15 @@
 import Config
 
-alias Still.Preprocessor.{Frontmatter, EEx, Markdown, OutputPath, AddLayout, Save, AddContent}
+alias Still.Preprocessor.{
+  Frontmatter,
+  EEx,
+  Markdown,
+  OutputPath,
+  AddLayout,
+  Save,
+  AddContent,
+  Image
+}
 
 config :still,
   base_url: "http://localhost:3000",
@@ -11,11 +20,12 @@ config :still,
   pass_through_copy: ["fonts", "music/files"],
   url_fingerprinting: false,
   preprocessors: %{
-    ".jpg" => [GabrielPoca.BlogPath, GabrielPoca.ImgPreprocessor],
-    ".png" => [GabrielPoca.BlogPath, GabrielPoca.ImgPreprocessor],
+    ".svg" => [AddContent],
+    ".jpg" => [GabrielPoca.BlogPath, Image],
+    ".png" => [GabrielPoca.BlogPath, Image],
     ".scss" => [AddContent, GabrielPoca.SassPreprocessor, OutputPath, Save],
     ".xml" => [AddContent, EEx, GabrielPoca.XMLPreprocessor, OutputPath, Save],
-    ".md" => [AddContent, Frontmatter, EEx, Markdown, GabrielPoca.BlogPath, AddLayout, Save]
+    ".md" => [AddContent, EEx, Frontmatter, Markdown, GabrielPoca.BlogPath, AddLayout, Save]
   }
 
 import_config("#{Mix.env()}.exs")
