@@ -7,10 +7,10 @@
     <language>en-us</language>
     <%= Enum.map sort_posts(get_collections("post")), fn post -> %>
       <item>
-        <title><%= post[:variables][:title] %></title>
+        <title><%= post[:metadata][:title] %></title>
         <link><%= url_for(post[:output_file]) %></link>
         <guid isPermaLink="false"><%= url_for(post[:output_file]) %></guid>
-        <pubDate><%= pub_date(post[:variables][:date]) %></pubDate>
+        <pubDate><%= pub_date(post[:metadata][:date]) %></pubDate>
       </item>
     <% end %>
   </channel>

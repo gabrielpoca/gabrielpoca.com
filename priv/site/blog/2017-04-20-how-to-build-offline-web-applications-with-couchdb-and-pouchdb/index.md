@@ -1,7 +1,7 @@
 ---
 title: "How to build offline web applications with CouchDB and PouchDB"
 date: 2017-04-20
-cover: ./bg.jpg
+cover: "<%= Path.dirname(@input_file) <> "/_bg.jpg" %>"
 layout: "_post_layout.slime"
 tag:
   - post

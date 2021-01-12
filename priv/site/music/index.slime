@@ -1,6 +1,31 @@
-.Content
-  h1 Music
+---
+layout: _layout.slime
+current: music
+---
 
-  ul
+= link_to_css "music.css"
+
+.MusicPage
+  h1.title Music
+
+  p.intro
+    | I’m trying to get back into music production. I used to make and sell
+      hip-hop beats. It's been a while, and I no longer have the same taste in
+      music. I'm trying to understand what do I like right now, and I'm documenting
+      my progress here, one audio clip at a time.
+
+  ul.list
     li
-      = include("music/_jazz-mind-f.slime")
+      = include("music/_mixed_feelings_piano.slime")
+    li
+      = include("music/_jazz_mind_f.slime")
+    li
+      = include("music/_night_bass.slime")
+    li
+      = include("music/_synth_lofi.slime")
+    li
+      = include("music/_loop_kill_piano.slime")
+    li
+      = include("music/_nothing_left_to_prove.slime")
+    li
+      = include("music/_pico.slime")

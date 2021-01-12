@@ -1,10 +1,12 @@
 defmodule GabrielPoca.ImgPreprocessor do
   use Still.Preprocessor
 
-  alias Imageflow.Job
+  alias Imageflow.Graph
 
   @impl true
   def render(file) do
+    IO.inspect(file)
+
     input_file_path =
       file.input_file
       |> Still.Utils.get_input_path()
@@ -13,16 +15,16 @@ defmodule GabrielPoca.ImgPreprocessor do
       file.output_file
       |> Still.Utils.get_output_path()
 
-    {:ok, job} = Job.create()
-
-    :ok = Job.add_input_file(job, 0, input_file_path)
-    :ok = Job.add_output_buffer(job, 1)
-
-    {:ok, response} = Job.message(job, "v0.1/execute", task_for(file))
-
-    :ok = Job.save_output_to_file(job, 1, output_file_path)
+    Graph.new()
+    |> Graph.decode_file(input_file_path)
+    |> Graph.color_filter("grayscale_bt709")
+    |> Graph.encode_to_file(output_file_path)
+    |> Graph.run()
 
     file
+  end
+
+  defp apply_metadata(graph, image_processing) do
   end
 
   defp task_for(%{input_file: input_file}) do

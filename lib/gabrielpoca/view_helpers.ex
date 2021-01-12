@@ -1,6 +1,6 @@
 defmodule GabrielPoca.ViewHelpers do
   def sort_posts(posts) do
-    posts |> Enum.sort_by(& &1[:variables][:date]) |> Enum.reverse()
+    posts |> Enum.sort_by(& &1[:metadata][:date]) |> Enum.reverse()
   end
 
   def pub_date(date) do

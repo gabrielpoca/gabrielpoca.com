@@ -1,0 +1,20 @@
+---
+layout: _layout.slime
+current: about
+---
+
+.Content
+  h1 About
+
+  p.P
+    | I'm currently working at Subvisual. In fact, I've been at Subvisual since 2013, but during that time I've worked for long periods of time for other companies, such as Utrust, where I was for two years.
+
+  p.P
+    | I'm a software developer building products. I've acquired many skills over the years, but my focus at the moment is Elixir and Cloud Infrastructure. I also have a lot of experience with Ruby, Node.js, and even front-end.
+
+  p.P
+    | I'm not looking for job offers, but I'm available as a consultant and advisor. Feel free to reach out on <%= link "Twitter", to: "https://twitter.com/gabrielgpoca" %>.
+
+  p.P
+    | I've had (too) many personal projects, from  an <%= link "offline-first journals", to: "https://github.com/gabrielpoca/plain_journal" %>, to a <%= link "midi instrument", to: "https://github.com/gabrielpoca/keyboard-midi-playground" %>, a <%= link "manga reader", to: "https://github.com/gabrielpoca/manga_reader" %> or <%= link "colaborative online editor", to: "https://github.com/subvisual/better-writer" %>.
+    | Recently I've been focusing my energy on <%= link "Notedown", to: "https://github.com/subvisual/notedown/" %> (my note-taking app that I use daily), <%= link "Still", to: "https://github.com/still-ex/still/" %> (a static site generator that powers this website) and my custom hardware groovebox (more information to come!).

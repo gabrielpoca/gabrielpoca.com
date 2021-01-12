@@ -7,7 +7,7 @@ div.PostHeader
 
   = if assigns[:cover] do
     .overlay
-    img.cover src="#{@cover}"
+    = @cover |> responsive_image(image_opts: %{transformations: [color_filter: "grayscale_bt709"]}, class: "cover")
 
 .Post
   = @children
