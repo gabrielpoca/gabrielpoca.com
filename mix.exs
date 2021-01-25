@@ -28,7 +28,8 @@ defmodule GabrielPoca.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:still, "~> 0.1.1"},
+      {:still, github: "still-ex/still"},
+      {:markdown, "~> 0.1.1", hex: :still_markdown, override: true},
       {:slime, "~> 1.2"},
       {:sass, git: "https://github.com/scottdavis/sass.ex", submodules: true},
       {:imageflow, "~> 0.4.0"},
