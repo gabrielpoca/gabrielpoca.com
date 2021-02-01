@@ -3,7 +3,7 @@
   .details
     = @children
   ul.files
-    = Enum.map @files, fn file ->
+    = Enum.map Map.get(assigns, :files, []), fn file ->
       li.file
         audio controls=true
           source src="#{url_for(file)}" type="audio/mp3"
