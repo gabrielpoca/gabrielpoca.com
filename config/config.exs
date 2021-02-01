@@ -17,7 +17,7 @@ config :still,
   view_helpers: [GabrielPoca.ViewHelpers],
   input: Path.join(Path.dirname(__DIR__), "priv/site"),
   output: Path.join(Path.dirname(__DIR__), "_site"),
-  pass_through_copy: ["fonts", "music/files"],
+  pass_through_copy: ["fonts", "music/files", "CNAME"],
   url_fingerprinting: false,
   preprocessors: %{
     ".svg" => [AddContent],
