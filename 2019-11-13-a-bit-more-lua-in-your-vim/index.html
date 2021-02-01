@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><title>Gabriel Poça</title><meta charset="UTF-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link rel="stylesheet"  href=http://localhost:3000/site-pWlzciG6rvMpcbV-F0hZMA==.css />
+</head><body><nav class="Nav"><div class="links"><a href="http://localhost:3000/" class="">Home</a><a href="http://localhost:3000/music" class="">Music</a><a href="http://localhost:3000/about" class="">About</a><a href="http://localhost:3000/rss.xml">RSS</a></div></nav><div class="PostHeader"><h1 class="title">A bit more lua in your vim</h1></div><div class="Post"><p>Following up on the
+<a href="https://gabrielpoca.com/2019-11-02-a-little-bit-of-lua-in-your-vim/">previous entry about lua in vim</a>,
+in this one I document other ways in which I used lua to improve my setup.</p>
+
+<p>Anyone using Neovim should know that it has support for floating windows: real
+windows that can float around. You can do all kinds of cool stuff with it. Here
+it is in action:</p>
+
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/neovim?src=hash&amp;ref_src=twsrc%5Etfw">#neovim</a> floating window test with vim-iced (part 2)<br>Floating debugger info<a href="https://t.co/wAITDpmvip">https://t.co/wAITDpmvip</a><a href="https://twitter.com/hashtag/clojure?src=hash&amp;ref_src=twsrc%5Etfw">#clojure</a> <a href="https://t.co/5lebGKybiD">pic.twitter.com/5lebGKybiD</a></p>&mdash; 飯塚将志@にびいろClojure (@uochan) <a href="https://twitter.com/uochan/status/1101445517865771013?ref_src=twsrc%5Etfw">March 1, 2019</a></blockquote>
+
+<p>So this is how the story begins: one day my friend, and teammate,
+<a href="https://twitter.com/naps62">Miguel</a> was showing me something on his computer,
+when I saw him doing something like this:</p>
+
+<p><a href="https://asciinema.org/a/278565"><img src="https://asciinema.org/a/278565.svg" alt="asciicast"></a></p>
+
+<p>He was opening fzf inside a floating window! I immediately ran to my desk and
+copied the code that does this from his dotfiles. The relevant parts are
+<a href="https://github.com/naps62/dotfiles/blob/b6df1166ce3b65ab408147a58201aa9c2cccd691/config/nvim/rc/functions.vim#L69-L87">here</a>
+and
+<a href="https://github.com/naps62/dotfiles/blob/f5a3ed135ce210ae3b29268b6122cb5d863375cc/config/nvim/rc/plugins.vim#L226">here</a>.
+He got it somewhere from the Github.</p>
+
+<p>I was in love with this for a while!... Until I realized that it didn&#39;t work
+great when I was using Vim in smaller tmux splits. I need something more
+<q>intelligent</q> that took into account the editor&#39;s size. Since my VimScript
+skills are non-existent, I replaced his implementation with Lua.</p>
+
+<p>Here&#39;s what I want:</p>
+
+<ul>
+<li>if the editor is small (when I&#39;m in a split with 1/4 of the screen&#39;s size) it
+uses a full window instead of a floating one.</li>
+<li>the floating window&#39;s width is 90% of the editor&#39;s width, but if the editor&#39;s
+width is small, it uses full width minus 4 columns from each side.</li>
+<li>a floating window&#39;s height is 3/4 of the editor&#39;s height to a max of 30 lines.</li>
+</ul>
+
+<p>The code, with comments, so it&#39;s easier to understand:</p>
+
+<pre><code class="language-lua">function NavigationFloatingWin()
+  -- get the editor&#39;s max width and height
+  local width = vim.api.nvim_get_option(&quot;columns&quot;)
+  local height = vim.api.nvim_get_option(&quot;lines&quot;)
+
+  -- create a new, scratch buffer, for fzf
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_buf_set_option(buf, &#39;buftype&#39;, &#39;nofile&#39;)
+
+  -- if the editor is big enough
+  if (width &gt; 150 or height &gt; 35) then
+    -- fzf&#39;s window height is 3/4 of the max height, but not more than 30
+    local win_height = math.min(math.ceil(height * 3 / 4), 30)
+    local win_width
+
+    -- if the width is small
+    if (width &lt; 150) then
+      -- just subtract 8 from the editor&#39;s width
+      win_width = math.ceil(width - 8)
+    else
+      -- use 90% of the editor&#39;s width
+      win_width = math.ceil(width * 0.9)
+    end
+
+    -- settings for the fzf window
+    local opts = {
+      relative = &quot;editor&quot;,
+      width = win_width,
+      height = win_height,
+      row = math.ceil((height - win_height) / 2),
+      col = math.ceil((width - win_width) / 2)
+    }
+
+    -- create a new floating window, centered in the editor
+    local win = vim.api.nvim_open_win(buf, true, opts)
+  end
+end
+</code></pre>
+
+<p>To make it work, place the code in a file such as
+<code>~/.config/nvim/lua/navigation/init.lua</code>, and in your vim configuration put
+something like this:</p>
+
+<pre><code class="language-vim">&quot; load lua functions for navigation
+lua require(&quot;navigation&quot;)
+let g:fzf_layout = { &#39;window&#39;: &#39;lua NavigationFloatingWin()&#39; }
+</code></pre>
+
+<p>Once again, I know that you can do this with VimScript, but I can&#39;t. And,
+because I know there are more like me out there, I hope this helps you, and my
+future self as well.</p>
+</div></body></html>
