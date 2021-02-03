@@ -11,6 +11,9 @@
         <link><%= url_for(post[:output_file]) %></link>
         <guid isPermaLink="false"><%= url_for(post[:output_file]) %></guid>
         <pubDate><%= pub_date(post[:metadata][:date]) %></pubDate>
+        <description>
+          <![CDATA[<%= include(post[:input_file], %{layout: nil}, subscribe: false) %>]]>
+        </description>
       </item>
     <% end %>
   </channel>
