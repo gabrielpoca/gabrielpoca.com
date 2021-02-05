@@ -28,10 +28,10 @@ defmodule GabrielPoca.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:still, "~> 0.1.2"},
+      {:still, "~> 0.2.0"},
       {:slime, "~> 1.2"},
       {:sass, git: "https://github.com/scottdavis/sass.ex", submodules: true},
-      {:imageflow, "~> 0.4.0"},
+      {:still_imageflow, "~> 0.1.0"},
       {:timex, "~> 3.5"}
     ]
   end

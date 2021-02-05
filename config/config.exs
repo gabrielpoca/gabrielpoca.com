@@ -12,6 +12,7 @@ alias Still.Preprocessor.{
 }
 
 config :still,
+  image_adapter: Still.Preprocessor.Image.Imageflow,
   base_url: "http://localhost:3000",
   dev_layout: true,
   view_helpers: [GabrielPoca.ViewHelpers],
