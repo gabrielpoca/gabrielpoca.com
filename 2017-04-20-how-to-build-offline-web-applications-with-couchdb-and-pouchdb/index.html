@@ -1,5 +1,113 @@
 <!DOCTYPE html><html><head><title>Gabriel Poça</title><meta charset="UTF-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link rel="stylesheet"  href=https://gabrielpoca.com/site-ViiPO3lwz2bMNEJmjnjhzg==.css />
-</head><body><nav class="Nav"><div class="links"><a href="https://gabrielpoca.com/" class="">Home</a><a href="https://gabrielpoca.com/music" class="">Music</a><a href="https://gabrielpoca.com/about" class="">About</a><a href="https://gabrielpoca.com/rss.xml">RSS</a></div></nav><div class="PostHeader"><h1 class="title">How to build offline web applications with CouchDB and PouchDB</h1><div class="overlay"></div><img src="https://gabrielpoca.com/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/_bg-15133764-3000w.jpg" srcset="https://gabrielpoca.com/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/_bg-15133764-750w.jpg 750w, https://gabrielpoca.com/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/_bg-15133764-1500w.jpg 1500w, https://gabrielpoca.com/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/_bg-15133764-2250w.jpg 2250w, https://gabrielpoca.com/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/_bg-15133764-3000w.jpg 3000w" class="cover"/></div><div class="Post"><p>You may have heard about
+</head><body><nav class="Nav"><div class="links"><a href="https://gabrielpoca.com/" class="">Home</a><a href="https://gabrielpoca.com/music" class="">Music</a><a href="https://gabrielpoca.com/about" class="">About</a><a href="https://gabrielpoca.com/rss.xml">RSS</a></div></nav><style>/*
+
+Gruvbox style (dark) (c) Pavel Pertsev (original style at https://github.com/morhetz/gruvbox)
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #282828;
+}
+
+.hljs,
+.hljs-subst {
+  color: #ebdbb2;
+}
+
+/* Gruvbox Red */
+.hljs-deletion,
+.hljs-formula,
+.hljs-keyword,
+.hljs-link,
+.hljs-selector-tag {
+  color: #fb4934;
+}
+
+/* Gruvbox Blue */
+.hljs-built_in,
+.hljs-emphasis,
+.hljs-name,
+.hljs-quote,
+.hljs-strong,
+.hljs-title,
+.hljs-variable {
+  color: #83a598;
+}
+
+/* Gruvbox Yellow */
+.hljs-attr,
+.hljs-params,
+.hljs-template-tag,
+.hljs-type {
+  color: #fabd2f;
+}
+
+/* Gruvbox Purple */
+.hljs-builtin-name,
+.hljs-doctag,
+.hljs-literal,
+.hljs-number {
+  color: #8f3f71;
+}
+
+/* Gruvbox Orange */
+.hljs-code,
+.hljs-meta,
+.hljs-regexp,
+.hljs-selector-id,
+.hljs-template-variable {
+  color: #fe8019;
+}
+
+/* Gruvbox Green */
+.hljs-addition,
+.hljs-meta-string,
+.hljs-section,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-string,
+.hljs-symbol {
+  color: #b8bb26;
+}
+
+/* Gruvbox Aqua */
+.hljs-attribute,
+.hljs-bullet,
+.hljs-class,
+.hljs-function,
+.hljs-function .hljs-keyword,
+.hljs-meta-keyword,
+.hljs-selector-pseudo,
+.hljs-tag {
+  color: #8ec07c;
+}
+
+/* Gruvbox Gray */
+.hljs-comment {
+  color: #928374;
+}
+
+/* Gruvbox Purple */
+.hljs-link_label,
+.hljs-literal,
+.hljs-number {
+  color: #d3869b;
+}
+
+.hljs-comment,
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-section,
+.hljs-strong,
+.hljs-tag {
+  font-weight: bold;
+}
+</style><div class="PostHeader"><h1 class="title">How to build offline web applications with CouchDB and PouchDB</h1><div class="overlay"></div><img src="https://gabrielpoca.com/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/_bg-15133764-3000w.jpg" srcset="https://gabrielpoca.com/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/_bg-15133764-750w.jpg 750w, https://gabrielpoca.com/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/_bg-15133764-1500w.jpg 1500w, https://gabrielpoca.com/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/_bg-15133764-2250w.jpg 2250w, https://gabrielpoca.com/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/_bg-15133764-3000w.jpg 3000w" class="cover"/></div><div class="Post"><p>You may have heard about
 <a href="https://developers.google.com/web/fundamentals/getting-started/codelabs/your-first-pwapp/">Progressive Web Apps (PWAs)</a>.
 These are web applications that leverage the new Web APIs to look and feel like
 native applications. There is plenty
