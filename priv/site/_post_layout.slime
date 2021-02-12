@@ -1,6 +1,9 @@
 ---
 layout: _layout.slime
 ---
+style
+  = highlight_styles()
+
 div.PostHeader
   h1.title
     = @title
