@@ -15,7 +15,8 @@ defmodule GabrielPoca.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger],
+      mod: {GabrielPoca.Application, []}
     ]
   end
 
@@ -28,11 +29,12 @@ defmodule GabrielPoca.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:still, "~> 0.2.0"},
+      {:still, github: "still-ex/still", ref: "gp/start-all", override: true},
       {:slime, "~> 1.2"},
       {:sass, git: "https://github.com/scottdavis/sass.ex", submodules: true},
       {:still_imageflow, "~> 0.1.0"},
-      {:timex, "~> 3.5"}
+      {:timex, "~> 3.5"},
+      {:nodejs, "~> 2.0"}
     ]
   end
 end

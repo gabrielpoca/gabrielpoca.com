@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+http-server _site -p 3000
