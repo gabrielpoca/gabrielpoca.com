@@ -23,3 +23,5 @@ erl_crash.dump
 demo-*.tar
 
 _site/
+
+/node_modules/

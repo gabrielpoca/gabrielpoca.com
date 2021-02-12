@@ -29,4 +29,7 @@ config :still,
     ".md" => [AddContent, EEx, Frontmatter, Markdown, GabrielPoca.BlogPath, AddLayout, Save]
   }
 
+config :logger,
+  level: :info
+
 import_config("#{Mix.env()}.exs")
