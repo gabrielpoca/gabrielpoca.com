@@ -23,3 +23,7 @@ current: home
           = link post[:metadata][:title], to: post[:output_file], class: "link"
           .date
             = post[:metadata][:date]
+
+
+  footer.Footer
+    = link "Source code for this website", to: "https://github.com/gabrielpoca/gabrielpoca.com/"

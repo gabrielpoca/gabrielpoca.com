@@ -29,7 +29,7 @@ defmodule GabrielPoca.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:still, github: "still-ex/still", ref: "gp/start-all", override: true},
+      {:still, github: "still-ex/still", ref: "gp/cache-recompile", override: true},
       {:slime, "~> 1.2"},
       {:sass, git: "https://github.com/scottdavis/sass.ex", submodules: true},
       {:still_imageflow, "~> 0.1.0"},
