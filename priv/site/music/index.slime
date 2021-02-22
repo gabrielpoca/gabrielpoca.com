@@ -15,21 +15,6 @@ current: music
       my progress here, one audio clip at a time.
 
   ul.list
-    li
-      = include("music/_2021_01_jamuary.slime")
-    li
-      = include("music/_beats_2020.slime")
-    li
-      = include("music/_mixed_feelings_piano.slime")
-    li
-      = include("music/_jazz_mind_f.slime")
-    li
-      = include("music/_night_bass.slime")
-    li
-      = include("music/_synth_lofi.slime")
-    li
-      = include("music/_loop_kill_piano.slime")
-    li
-      = include("music/_nothing_left_to_prove.slime")
-    li
-      = include("music/_pico.slime")
+    = Enum.map sort_by_date(get_collections("music")), fn post ->
+      li
+        = post.content

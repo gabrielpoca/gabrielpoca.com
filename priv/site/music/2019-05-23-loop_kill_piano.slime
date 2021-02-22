@@ -3,7 +3,10 @@ files:
   - music/files/kill_the_piano.mp3
   - music/files/before.mp3
 layout: music/_layout.slime
+date: 2019-05-23
 title: "Loop: Kill the piano & Before"
+tag:
+  - music
 ---
 
 p.P

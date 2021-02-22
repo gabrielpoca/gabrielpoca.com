@@ -5,8 +5,6 @@ defmodule GabrielPoca.ImgPreprocessor do
 
   @impl true
   def render(file) do
-    IO.inspect(file)
-
     input_file_path =
       file.input_file
       |> Still.Utils.get_input_path()

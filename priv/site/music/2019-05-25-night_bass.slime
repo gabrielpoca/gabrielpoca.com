@@ -2,7 +2,10 @@
 files:
   - music/files/night_bass.mp3
 layout: music/_layout.slime
+date: 2019-05-25
 title: "Loop: Night Bass"
+tag:
+  - music
 ---
 
 p.P

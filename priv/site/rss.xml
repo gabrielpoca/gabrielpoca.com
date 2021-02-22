@@ -5,7 +5,7 @@
     <description>Gabriel Poça's Blog</description>
     <link>https://gabrielpoca.com</link>
     <language>en-us</language>
-    <%= Enum.map sort_posts(get_collections("post")), fn post -> %>
+    <%= Enum.map sort_by_date(get_collections("post") ++ get_collections("music")), fn post -> %>
       <item>
         <title><%= post[:metadata][:title] %></title>
         <link><%= url_for(post[:output_file]) %></link>
@@ -14,6 +14,14 @@
         <description>
           <![CDATA[<%= include(post[:input_file], %{layout: nil}, subscribe: false) %>]]>
         </description>
+        <%= if Enum.member?(post[:metadata][:tag], "music") do %>
+          <%= Enum.map Map.get(post[:metadata], :files, []), fn file -> %>
+          <enclosure
+            url="<%= url_for(file) %>"
+            length="<%= file_size(Still.Utils.get_input_path(file)) %>"
+            type="audio/mpeg" />
+          <% end %>
+        <% end %>
       </item>
     <% end %>
   </channel>

@@ -18,7 +18,7 @@ current: home
     h2.title My blog
 
     ul.list
-      = Enum.map sort_posts(get_collections("post")), fn post ->
+      = Enum.map sort_by_date(get_collections("post")), fn post ->
         li.item
           = link post[:metadata][:title], to: post[:output_file], class: "link"
           .date
