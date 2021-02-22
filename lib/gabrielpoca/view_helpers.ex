@@ -1,6 +1,6 @@
 defmodule GabrielPoca.ViewHelpers do
-  def sort_posts(posts) do
-    posts |> Enum.sort_by(& &1[:metadata][:date]) |> Enum.reverse()
+  def sort_by_date(items) do
+    items |> Enum.sort_by(& &1[:metadata][:date]) |> Enum.reverse()
   end
 
   def pub_date(date) do
@@ -32,5 +32,10 @@ defmodule GabrielPoca.ViewHelpers do
     {:ok, styles} = NodeJS.call({"index", :highlight_styles}, [])
 
     styles
+  end
+
+  def file_size(file) do
+    %{size: size} = File.stat!(file)
+    size
   end
 end

@@ -2,7 +2,10 @@
 files:
   - music/files/mixed_feelings_piano.mp3
 layout: music/_layout.slime
+date: 2019-05-27
 title: Mixed Feelings Piano
+tag:
+  - music
 ---
 
 p.P

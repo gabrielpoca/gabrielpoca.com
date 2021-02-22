@@ -3,6 +3,9 @@ files:
   - music/files/nothing_left_to_prove.mp3
 layout: music/_layout.slime
 title: "Nothing left to prove"
+date: 2019-05-22
+tag:
+  - music
 ---
 
 p.P
