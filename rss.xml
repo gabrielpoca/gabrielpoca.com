@@ -7,7 +7,9 @@
     <language>en-us</language>
     
       <item>
-        <title>Groove</title>
+        <title>
+          <![CDATA[Groove]]>
+        </title>
         <link>https://gabrielpoca.com/music/2021-02-01-groove.html</link>
         <guid isPermaLink="false">https://gabrielpoca.com/music/2021-02-01-groove.html</guid>
         <pubDate>Mon,  1 Feb 2021 00:00:00 GMT</pubDate>
@@ -26,7 +28,9 @@
       </item>
     
       <item>
-        <title>2021 Jamuary</title>
+        <title>
+          <![CDATA[2021 Jamuary]]>
+        </title>
         <link>https://gabrielpoca.com/music/2021-01-25_jamuary.html</link>
         <guid isPermaLink="false">https://gabrielpoca.com/music/2021-01-25_jamuary.html</guid>
         <pubDate>Mon, 25 Jan 2021 00:00:00 GMT</pubDate>
@@ -47,7 +51,9 @@ with Music After 30 for now.</p>
       </item>
     
       <item>
-        <title>Beats from 2020 on the MC707</title>
+        <title>
+          <![CDATA[Beats from 2020 on the MC707]]>
+        </title>
         <link>https://gabrielpoca.com/music/2020-12-20-beats-2020.html</link>
         <guid isPermaLink="false">https://gabrielpoca.com/music/2020-12-20-beats-2020.html</guid>
         <pubDate>Sun, 20 Dec 2020 00:00:00 GMT</pubDate>
@@ -84,7 +90,9 @@ made with the MC707 and recorded into a DAW where I made some final touches.</p>
       </item>
     
       <item>
-        <title>The Worst Decision Of My Career</title>
+        <title>
+          <![CDATA[The Worst Decision Of My Career]]>
+        </title>
         <link>https://gabrielpoca.com/2020-09-25-the-worst-decision-of-my-career/</link>
         <guid isPermaLink="false">https://gabrielpoca.com/2020-09-25-the-worst-decision-of-my-career/</guid>
         <pubDate>Fri, 25 Sep 2020 00:00:00 GMT</pubDate>
@@ -244,7 +252,9 @@ doesn&#39;t compromise our ability to change once we know what the business need
       </item>
     
       <item>
-        <title>React state management and side-effects with Redux and RxJS</title>
+        <title>
+          <![CDATA[React state management and side-effects with Redux and RxJS]]>
+        </title>
         <link>https://gabrielpoca.com/2020-06-09-react-state-management-and-side-effects-with-redux-and-rxjs/</link>
         <guid isPermaLink="false">https://gabrielpoca.com/2020-06-09-react-state-management-and-side-effects-with-redux-and-rxjs/</guid>
         <pubDate>Tue,  9 Jun 2020 00:00:00 GMT</pubDate>
@@ -432,7 +442,9 @@ Let's start with the action:
       </item>
     
       <item>
-        <title>A bit more lua in your vim</title>
+        <title>
+          <![CDATA[A bit more lua in your vim]]>
+        </title>
         <link>https://gabrielpoca.com/2019-11-13-a-bit-more-lua-in-your-vim/</link>
         <guid isPermaLink="false">https://gabrielpoca.com/2019-11-13-a-bit-more-lua-in-your-vim/</guid>
         <pubDate>Wed, 13 Nov 2019 00:00:00 GMT</pubDate>
@@ -534,7 +546,9 @@ future self as well.</p>
       </item>
     
       <item>
-        <title>A little bit of lua in your vim</title>
+        <title>
+          <![CDATA[A little bit of lua in your vim]]>
+        </title>
         <link>https://gabrielpoca.com/2019-11-02-a-little-bit-of-lua-in-your-vim/</link>
         <guid isPermaLink="false">https://gabrielpoca.com/2019-11-02-a-little-bit-of-lua-in-your-vim/</guid>
         <pubDate>Sat,  2 Nov 2019 00:00:00 GMT</pubDate>
@@ -615,7 +629,9 @@ future self).</p>
       </item>
     
       <item>
-        <title>Mixed Feelings Piano</title>
+        <title>
+          <![CDATA[Mixed Feelings Piano]]>
+        </title>
         <link>https://gabrielpoca.com/music/2019-05-27-mixed_feelings_piano.html</link>
         <guid isPermaLink="false">https://gabrielpoca.com/music/2019-05-27-mixed_feelings_piano.html</guid>
         <pubDate>Mon, 27 May 2019 00:00:00 GMT</pubDate>
@@ -638,7 +654,9 @@ drums because I got tired of it before I had time to get there.</p>]]>
       </item>
     
       <item>
-        <title>Loop: Jazzy Mind F***</title>
+        <title>
+          <![CDATA[Loop: Jazzy Mind F***]]>
+        </title>
         <link>https://gabrielpoca.com/music/2019-05-26-jazz_mind_f.html</link>
         <guid isPermaLink="false">https://gabrielpoca.com/music/2019-05-26-jazz_mind_f.html</guid>
         <pubDate>Sun, 26 May 2019 00:00:00 GMT</pubDate>
@@ -659,7 +677,9 @@ crazy by th end. It was a good session.</p>]]>
       </item>
     
       <item>
-        <title>Loop: Night Bass</title>
+        <title>
+          <![CDATA[Loop: Night Bass]]>
+        </title>
         <link>https://gabrielpoca.com/music/2019-05-25-night_bass.html</link>
         <guid isPermaLink="false">https://gabrielpoca.com/music/2019-05-25-night_bass.html</guid>
         <pubDate>Sat, 25 May 2019 00:00:00 GMT</pubDate>
@@ -680,7 +700,9 @@ drop.</p>]]>
       </item>
     
       <item>
-        <title>Synth: Lo-Fi Piano</title>
+        <title>
+          <![CDATA[Synth: Lo-Fi Piano]]>
+        </title>
         <link>https://gabrielpoca.com/music/2019-05-24-synth_lofi.html</link>
         <guid isPermaLink="false">https://gabrielpoca.com/music/2019-05-24-synth_lofi.html</guid>
         <pubDate>Fri, 24 May 2019 00:00:00 GMT</pubDate>
@@ -699,7 +721,9 @@ that piano. I think it sounds awesome.</p>]]>
       </item>
     
       <item>
-        <title>Loop: Kill the piano & Before</title>
+        <title>
+          <![CDATA[Loop: Kill the piano & Before]]>
+        </title>
         <link>https://gabrielpoca.com/music/2019-05-23-loop_kill_piano.html</link>
         <guid isPermaLink="false">https://gabrielpoca.com/music/2019-05-23-loop_kill_piano.html</guid>
         <pubDate>Thu, 23 May 2019 00:00:00 GMT</pubDate>
@@ -726,7 +750,9 @@ skills.</p>]]>
       </item>
     
       <item>
-        <title>Nothing left to prove</title>
+        <title>
+          <![CDATA[Nothing left to prove]]>
+        </title>
         <link>https://gabrielpoca.com/music/2019-05-22-nothing_left_to_prove.html</link>
         <guid isPermaLink="false">https://gabrielpoca.com/music/2019-05-22-nothing_left_to_prove.html</guid>
         <pubDate>Wed, 22 May 2019 00:00:00 GMT</pubDate>
@@ -748,7 +774,9 @@ girlfriend happen to be watching at the time.</p>]]>
       </item>
     
       <item>
-        <title>Pico 8 Experiments</title>
+        <title>
+          <![CDATA[Pico 8 Experiments]]>
+        </title>
         <link>https://gabrielpoca.com/music/2019-05-21-pico.html</link>
         <guid isPermaLink="false">https://gabrielpoca.com/music/2019-05-21-pico.html</guid>
         <pubDate>Tue, 21 May 2019 00:00:00 GMT</pubDate>
@@ -787,7 +815,9 @@ liberating.</p>
       </item>
     
       <item>
-        <title>Apps on the P2P Web - DatSplit</title>
+        <title>
+          <![CDATA[Apps on the P2P Web - DatSplit]]>
+        </title>
         <link>https://gabrielpoca.com/2018-08-25-apps-on-the-p2p-web-datsplit/</link>
         <guid isPermaLink="false">https://gabrielpoca.com/2018-08-25-apps-on-the-p2p-web-datsplit/</guid>
         <pubDate>Sat, 25 Aug 2018 00:00:00 GMT</pubDate>
@@ -1039,7 +1069,9 @@ systems.</p>
       </item>
     
       <item>
-        <title>Apps on the P2P Web - Beaker Browser</title>
+        <title>
+          <![CDATA[Apps on the P2P Web - Beaker Browser]]>
+        </title>
         <link>https://gabrielpoca.com/2018-06-04-apps-on-the-p2p-web-beaker-browser/</link>
         <guid isPermaLink="false">https://gabrielpoca.com/2018-06-04-apps-on-the-p2p-web-beaker-browser/</guid>
         <pubDate>Mon,  4 Jun 2018 00:00:00 GMT</pubDate>
@@ -1082,7 +1114,9 @@ peer-to-peer fashion.</p>
       </item>
     
       <item>
-        <title>How to program Vim using Ruby</title>
+        <title>
+          <![CDATA[How to program Vim using Ruby]]>
+        </title>
         <link>https://gabrielpoca.com/2017-09-04-vim-ruby/</link>
         <guid isPermaLink="false">https://gabrielpoca.com/2017-09-04-vim-ruby/</guid>
         <pubDate>Mon,  4 Sep 2017 00:00:00 GMT</pubDate>
@@ -1196,7 +1230,9 @@ more ideas for your Vim setup, check out
       </item>
     
       <item>
-        <title>How to build offline web applications with CouchDB and PouchDB</title>
+        <title>
+          <![CDATA[How to build offline web applications with CouchDB and PouchDB]]>
+        </title>
         <link>https://gabrielpoca.com/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/</link>
         <guid isPermaLink="false">https://gabrielpoca.com/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/</guid>
         <pubDate>Thu, 20 Apr 2017 00:00:00 GMT</pubDate>
@@ -1537,7 +1573,9 @@ from CouchDB, but I would like to know if it shines where CouchDB falls short.</
       </item>
     
       <item>
-        <title>A bridge between Redux and Meteor</title>
+        <title>
+          <![CDATA[A bridge between Redux and Meteor]]>
+        </title>
         <link>https://gabrielpoca.com/2016-04-28-a-bridge-between-redux-and-meteor/</link>
         <guid isPermaLink="false">https://gabrielpoca.com/2016-04-28-a-bridge-between-redux-and-meteor/</guid>
         <pubDate>Thu, 28 Apr 2016 00:00:00 GMT</pubDate>
@@ -1873,7 +1911,9 @@ leave your feedback, and for more <a href="https://subvisual.co/newsletter/">sub
       </item>
     
       <item>
-        <title>Offline Web Apps with Meteor</title>
+        <title>
+          <![CDATA[Offline Web Apps with Meteor]]>
+        </title>
         <link>https://gabrielpoca.com/2014-11-26-offline-web-apps-with-meteor/</link>
         <guid isPermaLink="false">https://gabrielpoca.com/2014-11-26-offline-web-apps-with-meteor/</guid>
         <pubDate>Wed, 26 Nov 2014 00:00:00 GMT</pubDate>
@@ -1998,7 +2038,9 @@ code. It&#39;s a mobile application that works offline.</p>
       </item>
     
       <item>
-        <title>Tutorial: HTML Audio Capture streaming to Node.js (no browser extensions)</title>
+        <title>
+          <![CDATA[Tutorial: HTML Audio Capture streaming to Node.js (no browser extensions)]]>
+        </title>
         <link>https://gabrielpoca.com/2014-06-24-streaming-microphone-from-browser-to-nodejs-no-plugin/</link>
         <guid isPermaLink="false">https://gabrielpoca.com/2014-06-24-streaming-microphone-from-browser-to-nodejs-no-plugin/</guid>
         <pubDate>Tue, 24 Jun 2014 00:00:00 GMT</pubDate>
