@@ -7,7 +7,9 @@
     <language>en-us</language>
     <%= Enum.map sort_by_date(get_collections("post") ++ get_collections("music")), fn post -> %>
       <item>
-        <title><%= post[:metadata][:title] %></title>
+        <title>
+          <![CDATA[<%= post[:metadata][:title] %>]]>
+        </title>
         <link><%= url_for(post[:output_file]) %></link>
         <guid isPermaLink="false"><%= url_for(post[:output_file]) %></guid>
         <pubDate><%= pub_date(post[:metadata][:date]) %></pubDate>
