@@ -1,4 +1,8 @@
 defmodule GabrielPoca.ViewHelpers do
+  def item_files(post) do
+    Map.get(post[:metadata], :files, [])
+  end
+
   def sort_by_date(items) do
     items |> Enum.sort_by(& &1[:metadata][:date]) |> Enum.reverse()
   end
