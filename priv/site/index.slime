@@ -5,7 +5,7 @@ current: home
 
 .Content
   .HomeHeader
-    = include "_includes/me.svg"
+    = include @env, "_includes/me.svg"
     div
       h1.title Hi! <br /> I'm Gabriel Poça!
 
@@ -15,15 +15,17 @@ current: home
            editor.
 
   .HomeBlog
-    h2.title My blog
+    h2.title
+      | My blog
+      = link @env, "RSS Feed", to: "rss.xml"
 
     ul.list
-      = Enum.map sort_by_date(get_collections("post")), fn post ->
+      = Enum.map sort_by_date(get_collections(@env, "post")), fn post ->
         li.item
-          = link post[:metadata][:title], to: post[:output_file], class: "link"
+          = link @env, post[:metadata][:title], to: post[:output_file], class: "link"
           .date
             = post[:metadata][:date]
 
 
   footer.Footer
-    = link "Source code for this website", to: "https://github.com/gabrielpoca/gabrielpoca.com/"
+    = link @env, "Source code for this website", to: "https://github.com/gabrielpoca/gabrielpoca.com/"

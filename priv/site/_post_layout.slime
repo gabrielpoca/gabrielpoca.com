@@ -10,7 +10,7 @@ div.PostHeader
 
   = if assigns[:cover] do
     .overlay
-    = @cover |> responsive_image(class: "cover")
+    = responsive_image(@cover, class: "cover")
 
 .Post
   = @children

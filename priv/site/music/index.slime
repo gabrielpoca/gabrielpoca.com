@@ -6,7 +6,9 @@ current: music
 = link_to_css "music.css"
 
 .MusicPage
-  h1.title Music
+  h1.title
+    | Music
+    = link @env, "RSS Feed", to: "music_rss.xml"
 
   p.intro
     | I’m trying to get back into music production. I used to make and sell
@@ -15,6 +17,6 @@ current: music
       my progress here, one audio clip at a time.
 
   ul.list
-    = Enum.map sort_by_date(get_collections("music")), fn post ->
+    = Enum.map sort_by_date(get_collections(@env, "music")), fn post ->
       li
         = post.content

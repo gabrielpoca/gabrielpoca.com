@@ -14,7 +14,7 @@ alias Still.Preprocessor.{
 config :still,
   base_url: "http://localhost:3000",
   dev_layout: true,
-  view_helpers: [GabrielPoca.ViewHelpers],
+  template_helpers: [GabrielPoca.ViewHelpers],
   input: Path.join(Path.dirname(__DIR__), "priv/site"),
   output: Path.join(Path.dirname(__DIR__), "_site"),
   pass_through_copy: ["fonts", "music/files", "CNAME"],
