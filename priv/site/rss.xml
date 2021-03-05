@@ -5,39 +5,18 @@
     <description>Gabriel Poça's Blog</description>
     <link>https://gabrielpoca.com</link>
     <language>en-us</language>
-    <%= Enum.map sort_by_date(get_collections("post") ++ get_collections("music")), fn post -> %>
-      <%= cond do %>
-        <% Enum.member?(post[:metadata][:tag], "music") -> %>
-          <%= Enum.map Enum.with_index(item_files(post)), fn {file, index} -> %>
-            <item>
-              <title>
-                <![CDATA[<%= post[:metadata][:title] %>]]>
-              </title>
-              <link><%= url_for(post[:output_file]) %>#<%= index + 1 %></link>
-              <guid isPermaLink="false"><%= url_for(post[:output_file]) %>#<%= index + 1 %></guid>
-              <pubDate><%= pub_date(post[:metadata][:date]) %></pubDate>
-              <description>
-                <![CDATA[<%= include(post[:input_file], %{layout: nil}, subscribe: false) %>]]>
-              </description>
-              <enclosure
-                url="<%= url_for(file) %>"
-                length="<%= file_size(Still.Utils.get_input_path(file)) %>"
-                type="audio/mpeg" />
-            </item>
-          <% end %>
-        <% Enum.member?(post[:metadata][:tag], "post") -> %>
-          <item>
-            <title>
-              <![CDATA[<%= post[:metadata][:title] %>]]>
-            </title>
-            <link><%= url_for(post[:output_file]) %></link>
-            <guid isPermaLink="false"><%= url_for(post[:output_file]) %></guid>
-            <pubDate><%= pub_date(post[:metadata][:date]) %></pubDate>
-            <description>
-              <![CDATA[<%= include(post[:input_file], %{layout: nil}, subscribe: false) %>]]>
-            </description>
-          </item>
-      <% end %>
+    <%= Enum.map sort_by_date(get_collections(@env, "post")), fn post -> %>
+      <item>
+        <title>
+          <![CDATA[<%= post[:metadata][:title] %>]]>
+        </title>
+        <link><%= url_for(post[:output_file]) %></link>
+        <guid isPermaLink="false"><%= url_for(post[:output_file]) %></guid>
+        <pubDate><%= pub_date(post[:metadata][:date]) %></pubDate>
+        <description>
+          <![CDATA[<%= include(@env, post[:input_file], %{layout: nil}, subscribe: false) %>]]>
+        </description>
+      </item>
     <% end %>
   </channel>
 </rss>

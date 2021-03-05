@@ -8,8 +8,7 @@ html
   body
     nav.Nav
       .links
-        = link "Home", to: "/", class: if assigns[:current] == "home", do: "current", else: nil
-        = link "Music", to: "/music", class: if assigns[:current] == "music", do: "current", else: nil
-        = link "About", to: "/about", class: if assigns[:current] == "about", do: "current", else: nil
-        = link "RSS", to: "rss.xml"
+        = link @env, "Home", to: "/", class: if assigns[:current] == "home", do: "current", else: nil
+        = link @env, "Music", to: "/music", class: if assigns[:current] == "music", do: "current", else: nil
+        = link @env, "About", to: "/about", class: if assigns[:current] == "about", do: "current", else: nil
     =  @children
