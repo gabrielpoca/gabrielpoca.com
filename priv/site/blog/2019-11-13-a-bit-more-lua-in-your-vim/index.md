@@ -1,7 +1,7 @@
 ---
 title: A bit more lua in your vim
 date: 2019-11-13
-layout: "_post_layout.slime"
+layout: "_includes/post_layout.slime"
 tag:
   - post
 ---

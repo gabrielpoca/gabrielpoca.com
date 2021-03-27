@@ -1,7 +1,7 @@
 ---
 title: "How to program Vim using Ruby"
 date: 2017-09-04
-layout: "_post_layout.slime"
+layout: "_includes/post_layout.slime"
 tag:
   - post
 ---

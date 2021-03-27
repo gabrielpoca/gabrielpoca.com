@@ -25,3 +25,5 @@ demo-*.tar
 _site/
 
 /node_modules/
+.snowpack/
+assets/build

@@ -2,7 +2,7 @@ name: Deploy Site
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   site:
@@ -28,7 +28,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '15'
+          node-version: "15"
 
       - uses: erlef/setup-elixir@v1
         with:
@@ -56,6 +56,8 @@ jobs:
       - run: cd assets && npm install
 
       - run: mix deps.get
+
+      - run: MIX_ENV=prod mix compile
 
       - run: MIX_ENV=prod mix still.compile
 

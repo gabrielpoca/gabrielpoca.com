@@ -23,12 +23,11 @@ config :still,
     ".svg" => [AddContent],
     ".jpg" => [GabrielPoca.BlogPath, Image],
     ".png" => [GabrielPoca.BlogPath, Image],
-    ".scss" => [AddContent, GabrielPoca.SassPreprocessor, OutputPath, Save],
     ".xml" => [AddContent, EEx, GabrielPoca.XMLPreprocessor, OutputPath, Save],
     ".md" => [AddContent, EEx, Frontmatter, Markdown, GabrielPoca.BlogPath, AddLayout, Save]
   }
 
 config :logger,
-  level: :info
+  level: :warn
 
 import_config("#{Mix.env()}.exs")

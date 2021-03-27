@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: HTML Audio Capture streaming to Node.js (no browser extensions)"
 date: 2014-06-24
-layout: "_post_layout.slime"
+layout: "_includes/post_layout.slime"
 tag:
   - post
 ---

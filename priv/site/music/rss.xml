@@ -11,7 +11,7 @@
           <title>
             <![CDATA[<%= post[:metadata][:title] %>]]>
           </title>
-          <link><%= url_for(post[:output_file]) %>#<%= index + 1 %></link>
+          <link><%= url_for("music\##{post[:input_file]}") %></link>
           <guid isPermaLink="false"><%= url_for(post[:output_file]) %>#<%= index + 1 %></guid>
           <pubDate><%= pub_date(post[:metadata][:date]) %></pubDate>
           <description>

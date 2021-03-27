@@ -1,7 +1,7 @@
 ---
 title: React state management and side-effects with Redux and RxJS
 date: 2020-06-09
-layout: "_post_layout.slime"
+layout: "_includes/post_layout.slime"
 tag:
   - post
 ---
@@ -18,8 +18,6 @@ Back to Redux for state management, and RxJS for side effects. We just need one 
 
 In redux-observarbles we work with epics. An epic is a function which takes a stream of actions and returns a stream of actions. **Actions in, actions out.** Let's take this example from the docs:
 
-<%= code_highlight do %>
-
 ```js
 const pingEpic = (action$) =>
   action$.pipe(
@@ -31,22 +29,14 @@ const pingEpic = (action$) =>
 dispatch({ type: "PING" });
 ```
 
-<% end %>
-
 In this example, the `pingEpic` listens for actions `PING` and dispatches a `PONG` action when it finds one. This would be the same as:
-
-<%= code_highlight do %>
 
 ```js
 dispatch({ type: "PING" });
 dispatch({ type: "PONG" });
 ```
 
-<% end %>
-
 Keep in mind that you're not transforming the first action into the second. Actions that you receive in the epic have already finished running through the reducers. Here's an epic I wrote recently to debounce search requests:
-
-<%= code_highlight do %>
 
 ```js
 export const notesSearchEpic = (action$) =>
@@ -57,8 +47,6 @@ export const notesSearchEpic = (action$) =>
   );
 ```
 
-<% end %>
-
 In this one, we listen for actions of type `NOTES_SEARCH`, throttle them, run the search, and dispatch the results. The `notesSearchResult` is an action creator. The action `NOTES_SEARCH` is used both to update the reducer with the current search query, but also to initialize this side-effect.
 
 ## Similar libraries
@@ -68,8 +56,6 @@ Before we move to more advanced examples, you should know that if the only thing
 One question that shows up all the time is, how does it compare to redux-sagas? Having also used redux-sagas in production, I can say that I find the declarative style of redux-observables a lot nicer. It's also important to remember that RxJS is a generic async library, which you can use in a lot of contexts. That being said, there's value in learning redux-sagas, as the concepts behind it are useful, for instance when you're working with event sourcing.
 
 I was looking for a nice example to show the difference between a flow written in sagas and RxJS. I found [this website](https://hackmd.io/@2qVnJRlJRHCk20dvVxsySA/H1xLHUQ8e?type=view) with a bunch of them. Here's a user session flow written in sagas:
-
-<%= code_highlight do %>
 
 ```js
 import { take, put, call, fork, cancel } from "redux-saga/effects";
@@ -96,11 +82,7 @@ function* authorize(user, password) {
 }
 ```
 
-<% end %>
-
 The exact same flow, now written in redux-observarbles:
-
-<%= code_highlight do %>
 
 ```js
 const authEpic = action$ =>
@@ -115,8 +97,6 @@ const authEpic = action$ =>
                 .catch(error => of({ type: 'login_error', error }))
 ```
 
-<% end %>
-
 I'm sure you can find examples that benefit sagas in terms of readability, but I like this example because it showcases how different both styles are. The redux-sagas example is pretty similar to something I had in production 3 years ago.
 
 ## TypeScript
@@ -126,8 +106,6 @@ TypeScript is one of those things that can transform a JavaScript hater into a p
 The first time I tried to use TypeScript in a React project was a shitshow. This was years ago when using high-order components was the real deal. We weren't even using render props at the time. Using TypeScript was terrible. Just trying to figure out the type for a component that was connected to the router was a headache. Things are much nicer now, as you can see in the following examples.
 
 Let's start with the action:
-
-<%= code_highlight do %>
 
 ```ts
 export const notesSearch = createAction("NOTES_SEARCH")<string>();
@@ -141,11 +119,7 @@ export type NotesActionTypes =
 // actions
 ```
 
-<% end %>
-
 The `createAction` function is a little helper I wrote. It creates an action creator function with a `type` property using the dispatched type.
-
-<%= code_highlight do %>
 
 ```ts
 type BaseType = string;
@@ -166,11 +140,7 @@ export default function createAction<T extends BaseType>(type: T) {
 }
 ```
 
-<% end %>
-
 The reducer saves the actions' payloads to the store.
-
-<%= code_highlight do %>
 
 ```ts
 // reducer
@@ -195,11 +165,7 @@ export function notesReducer(
 }
 ```
 
-<% end %>
-
 The component uses a selector to fetch the search query parameter we set in the reducer and dispatches the search action when the input changes.
-
-<%= code_highlight do %>
 
 ```ts
 export function HomePage() {
@@ -219,11 +185,7 @@ export function HomePage() {
 }
 ```
 
-<% end %>
-
 The action that transforms a search query into search results is the one you saw above, now in TypeScript:
-
-<%= code_highlight do %>
 
 ```ts
 export const notesSearchEpic = (
@@ -235,8 +197,6 @@ export const notesSearchEpic = (
     mergeMap(({ payload }) => Notes.search(payload).then(notesSearchResult))
   );
 ```
-
-<% end %>
 
 This setup works for me and for the people I worked with. I've tried a few libraries for state management and side-effects, but these are the most pleasant ones to work with. If you're curious about how this works in practice, [we've published the source code for an app that uses all of these libraries](https://github.com/subvisual/notedown).
 

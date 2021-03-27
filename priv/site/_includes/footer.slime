@@ -1,0 +1,7 @@
+footer.mt-16.pb-7.flex.items-end.flex-col.text-xs.mr-4 class="sm:text-sm #{if @env[:dark], do: "text-my-white", else: "text-my-black"}"
+  nav.flex.items-end.flex-col
+    = link @env, "Twitter", to: "https://twitter.com/gabrielgpoca", class: "underline text-my-purple opacity-95"
+    = link @env, "Github", to: "https://github.com/gabrielpoca/", class: "underline text-my-purple opacity-95"
+  p.opacity-95
+    | #{link @env, "This website", to: "https://github.com/gabrielpoca/gabrielpoca.com", class: "underline text-my-purple"}
+    |  was built with #{link @env, "Still", to: "http://stillstatic.io/", class: "underline text-my-purple"}

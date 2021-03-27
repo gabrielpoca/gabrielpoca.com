@@ -1,0 +1,15 @@
+doctype html
+html.min-h-full.h-full.w-full
+  head
+    title Gabriel Poça
+    meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = import_css_file("global.css")
+    = link_to_css("site.css")
+
+  body.overscroll-none.antialiased.font-sans.min-h-full.h-full.overflow-x-hidden.w-full
+    nav.flex.justify-end.space-x-4.px-8.uppercase.tracking-wide.h-16.items-center.z-40.relative.text-sm.font-bold class="#{if @env[:dark], do: "text-my-purple", else: "text-my-purple"}"
+      = link @env, "Home", to: "/", class: if assigns[:current] != "home", do: "opacity-60"
+      = link @env, "Music", to: "/music", class: if assigns[:current] != "music", do: "opacity-60"
+      = link @env, "About", to: "/about", class: if assigns[:current] != "about", do: "opacity-60"
+    =  @children

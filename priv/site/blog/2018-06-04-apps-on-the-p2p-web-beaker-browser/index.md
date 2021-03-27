@@ -2,7 +2,7 @@
 title: Apps on the P2P Web - Beaker Browser
 date: 2018-06-04
 cover: "<%= Path.dirname(@input_file) <> "/_bg.jpg" %>"
-layout: "_post_layout.slime"
+layout: "_includes/post_layout.slime"
 tag:
   - post
 ---

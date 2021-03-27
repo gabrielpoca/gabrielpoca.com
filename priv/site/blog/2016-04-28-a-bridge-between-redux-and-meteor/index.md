@@ -1,7 +1,7 @@
 ---
 title: "A bridge between Redux and Meteor"
 date: 2016-04-28
-layout: "_post_layout.slime"
+layout: "_includes/post_layout.slime"
 tag:
   - post
 ---
