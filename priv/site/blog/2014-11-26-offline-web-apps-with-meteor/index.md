@@ -1,7 +1,7 @@
 ---
 title: "Offline Web Apps with Meteor"
 date: 2014-11-26
-layout: "_post_layout.slime"
+layout: "_includes/post_layout.slime"
 tag:
   - post
 ---

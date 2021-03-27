@@ -1,3 +1,0 @@
-<%= include(@env, "_fonts.css") %>
-<%= include(@env, "_global.scss") %>
-<%= include(@env, "_music.scss") %>

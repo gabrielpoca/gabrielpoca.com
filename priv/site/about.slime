@@ -1,20 +1,24 @@
 ---
-layout: _layout.slime
+layout: _includes/layout.slime
 current: about
 ---
 
-.Content
-  h1 About
+.bg-black.min-h-full
+  .container.text-my-white.mx-auto.-mt-16.pt-20.px-4 style="min-height:85vh"
+    h1.text-2xl.mb-6.tracking-wide.font-bold About Me
 
-  p.P
-    | I'm currently working at Subvisual. In fact, I've been at Subvisual since 2013, but during that time I've worked for long periods of time for other companies, such as Utrust, where I was for two years.
+    .prose.prose-lg
+      p.mb-4
+        | I'm currently working at #{link @env, "Subvisual", to: "https://subvisual.com/"}. In fact, I've been at Subvisual since 2013, but during that time I've worked for long periods of time for other companies, such as #{link @env, "Utrust", to: "https://utrust.com/"}, where I was for two years.
 
-  p.P
-   | I'm a software developer building products. I've acquired many skills over the years, but my focus at the moment is Elixir and Cloud Infrastructure. I also have a lot of experience with Ruby, Node.js, and even front-end.
+      p.mb-4
+      | I'm a software developer building products. I've acquired many skills over the years, but my focus at the moment is Elixir and Cloud Infrastructure. I also have a lot of experience with Ruby, Node.js, and even front-end.
 
-  p.P
-    | I'm not looking for job offers, but I'm available as a consultant and advisor. Feel free to reach out on <%= link @env, "Twitter", to: "https://twitter.com/gabrielgpoca" %>.
+      p.mb-4
+        | I'm not looking for job offers, but I'm available as a consultant and advisor. Feel free to reach out on #{link @env, "Twitter", to: "https://twitter.com/gabrielgpoca"}
 
-  p.P
-    | I've had (too) many personal projects, from  an <%= link @env, "offline-first journals", to: "https://github.com/gabrielpoca/plain_journal" %>, to a <%= link @env, "midi instrument", to: "https://github.com/gabrielpoca/keyboard-midi-playground" %>, a <%= link @env, "manga reader", to: "https://github.com/gabrielpoca/manga_reader" %> or <%= link @env, "colaborative online editor", to: "https://github.com/subvisual/better-writer" %>.
-    | Recently I've been focusing my energy on <%= link @env, "Notedown", to: "https://github.com/subvisual/notedown/" %> (my note-taking app that I use daily), <%= link @env, "Still", to: "https://github.com/still-ex/still/" %> (a static site generator that powers this website) and my custom hardware groovebox (more information to come!).
+      p.mb-4
+        | I've had (too) many personal projects, from  an <%= link @env, "offline-first journals", to: "https://github.com/gabrielpoca/plain_journal" %>, to a <%= link @env, "midi instrument", to: "https://github.com/gabrielpoca/keyboard-midi-playground" %>, a <%= link @env, "manga reader", to: "https://github.com/gabrielpoca/manga_reader" %> or <%= link @env, "colaborative online editor", to: "https://github.com/subvisual/better-writer" %>.
+        | Recently I've been focusing my energy on <%= link @env, "Notedown", to: "https://github.com/subvisual/notedown/" %> (my note-taking app that I use daily), <%= link @env, "Still", to: "https://github.com/still-ex/still/" %> (a static site generator that powers this website) and my custom hardware groovebox (more information to come!).
+
+  = include(@env, "_includes/footer.slime", dark: true)

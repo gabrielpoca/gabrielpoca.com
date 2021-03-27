@@ -1,31 +1,33 @@
 ---
-layout: _layout.slime
+layout: _includes/layout.slime
 current: home
+dark: true
 ---
 
-.Content
-  .HomeHeader
-    = include @env, "_includes/me.svg"
+.bg-black
+  .text-my-white.mx-auto.-mt-16.pt-20.px-4 class="md:container"
+    .flex.mb-12.flex-col.items-start class="sm:flex-row sm:space-x-8 sm:mb-16"
+      .w-64.mb-8 class="sm:w-none sm:flex-1 sm:mb-0"
+        = include @env, "_includes/me.svg"
+      .max-w-96 class="sm:max-w-none sm:flex-1 sm:pt-6"
+        h1.text-2xl.mb-4.font-bold class="sm:text-3xl"
+          | Hi! <br /> I'm Gabriel Poça!
+
+        p.text-sm class="sm:text-base"
+          | I'm a software developer working in the Fintech and Medtech industries. I'm
+            into all kinds of things, such as books, making music or customizing my
+            editor.
+
     div
-      h1.title Hi! <br /> I'm Gabriel Poça!
+      h2.text-xl.mb-6.tracking-wide.font-bold class="sm:text-2xl"
+        | My blog
+        = link @env, "RSS", to: "rss.xml", class: "text-lg ml-4 text-my-purple font-bold"
 
-      p.P
-         | I'm a software developer working in the Fintech and Medtech industries. I'm
-           into all kinds of things, such as books, making music or customizing my
-           editor.
+      ul
+        = Enum.map sort_by_date(get_collections(@env, "post")), fn post ->
+          li.mb-4
+            = link @env, post[:metadata][:title], to: post[:output_file], class: "text-base text-my-purple sm:text-xl"
+            .text-xs class="sm:text-sm"
+              = post[:metadata][:date]
 
-  .HomeBlog
-    h2.title
-      | My blog
-      = link @env, "RSS Feed", to: "rss.xml"
-
-    ul.list
-      = Enum.map sort_by_date(get_collections(@env, "post")), fn post ->
-        li.item
-          = link @env, post[:metadata][:title], to: post[:output_file], class: "link"
-          .date
-            = post[:metadata][:date]
-
-
-  footer.Footer
-    = link @env, "Source code for this website", to: "https://github.com/gabrielpoca/gabrielpoca.com/"
+  = include(@env, "_includes/footer.slime", dark: true)

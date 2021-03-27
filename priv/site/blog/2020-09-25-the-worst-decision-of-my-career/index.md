@@ -1,7 +1,7 @@
 ---
 title: "The Worst Decision Of My Career"
 date: 2020-09-25
-layout: "_post_layout.slime"
+layout: "_includes/post_layout.slime"
 tag:
   - post
 ---
