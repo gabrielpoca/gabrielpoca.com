@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "wavesurfer.js": "./wavesurferjs.js"
+  }
+}
