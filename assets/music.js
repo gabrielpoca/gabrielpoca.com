@@ -1,7 +1,7 @@
 import * as __SNOWPACK_ENV__ from './_snowpack/env.js';
 import.meta.env = __SNOWPACK_ENV__;
 
-import WaveSurfer from "./_snowpack/pkg/wavesurferjs.js";
+import WaveSurfer from "./_snowpack/pkg/wavesurfer.js";
 
 const playerEl = document.querySelector(".Player");
 

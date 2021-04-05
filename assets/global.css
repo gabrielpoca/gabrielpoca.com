@@ -1739,8 +1739,16 @@ body {
     margin-left: 1.5rem;
   }
 
+  .sm\:ml-8 {
+    margin-left: 2rem;
+  }
+
   .sm\:ml-10 {
     margin-left: 2.5rem;
+  }
+
+  .sm\:ml-12 {
+    margin-left: 3rem;
   }
 
   .sm\:mb-16 {
