@@ -1727,10 +1727,6 @@ body {
     margin-left: 0px;
   }
 
-  .sm\:ml-2 {
-    margin-left: 0.5rem;
-  }
-
   .sm\:ml-4 {
     margin-left: 1rem;
   }
@@ -1747,16 +1743,8 @@ body {
     margin-left: 2.5rem;
   }
 
-  .sm\:ml-12 {
-    margin-left: 3rem;
-  }
-
   .sm\:mb-16 {
     margin-bottom: 4rem;
-  }
-
-  .sm\:ml-16 {
-    margin-left: 4rem;
   }
 
   .sm\:max-w-none {
