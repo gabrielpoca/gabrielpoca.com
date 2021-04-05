@@ -28,7 +28,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: "15"
+          node-version: "14"
 
       - uses: erlef/setup-elixir@v1
         with:
@@ -37,15 +37,15 @@ jobs:
 
       - name: Restore Cache
         uses: actions/cache@v2
-        id: mix-cache
+        id: npm-cache
         with:
           path: |
             assets/node_modules
-          key: npm-v1-${{ hashFiles('assets/package-lock.json') }}
+          key: npm-v3-${{ hashFiles('assets/package-lock.json') }}
 
       - name: Restore Cache
         uses: actions/cache@v2
-        id: npm-cache
+        id: mix-cache
         with:
           path: |
             deps
@@ -53,9 +53,9 @@ jobs:
             _site
           key: ${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-mix-v3-${{ hashFiles('mix.lock') }}
 
-      - run: cd assets && npm install
-
       - run: mix deps.get
+
+      - run: cd assets && npm install
 
       - run: MIX_ENV=prod mix compile
 

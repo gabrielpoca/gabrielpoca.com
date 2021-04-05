@@ -1,13 +1,12 @@
 defmodule GabrielPoca.Application do
   use Application
 
-  @js_path Path.dirname(__DIR__) |> Path.join("../assets/") |> Path.expand()
-  @js_file_path Path.dirname(__DIR__) |> Path.join("../assets/snowpack.js") |> Path.expand()
+  # @js_file Application.app_dir(:gabrielpoca, "assets/index.js")
+  @js_file Path.dirname(__DIR__) |> Path.join("../assets/index.js") |> Path.expand()
 
   def start(_type, _args) do
     children = [
-      {GabrielPoca.NodeProcess, [module_path: @js_path, file_path: @js_file_path]},
-      GabrielPoca.Snowpack
+      {Still.Snowpack.Supervisor, @js_file}
     ]
 
     opts = [strategy: :one_for_one, name: Still.NodeJS.Supervisor]

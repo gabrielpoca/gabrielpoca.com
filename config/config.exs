@@ -14,7 +14,7 @@ alias Still.Preprocessor.{
 config :still,
   base_url: "http://localhost:3000",
   dev_layout: true,
-  template_helpers: [GabrielPoca.ViewHelpers],
+  template_helpers: [GabrielPoca.ViewHelpers, Still.Snowpack.TemplateHelpers],
   input: Path.join(Path.dirname(__DIR__), "priv/site"),
   output: Path.join(Path.dirname(__DIR__), "_site"),
   pass_through_copy: ["fonts", "music/files", "CNAME"],
@@ -26,6 +26,10 @@ config :still,
     ".xml" => [AddContent, EEx, GabrielPoca.XMLPreprocessor, OutputPath, Save],
     ".md" => [AddContent, EEx, Frontmatter, Markdown, GabrielPoca.BlogPath, AddLayout, Save]
   }
+
+config :still_snowpack,
+  input: Path.join(Path.dirname(__DIR__), "assets"),
+  output: Path.join([Path.dirname(__DIR__), "_site", "assets"])
 
 config :logger,
   level: :warn
