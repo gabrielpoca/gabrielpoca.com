@@ -1,7 +1,7 @@
 import * as __SNOWPACK_ENV__ from './_snowpack/env.js';
 import.meta.env = __SNOWPACK_ENV__;
 
-import WaveSurfer from "./_snowpack/pkg/wavesurfer.js";
+import WaveSurfer from "./_snowpack/pkg/wavesurferjs.js";
 
 const playerEl = document.querySelector(".Player");
 
@@ -26,14 +26,12 @@ if (playerEl) {
       wavesurfer.load(el.dataset.src);
     });
   });
-  
+
   function setupWavesurfer() {
     if (wavesurfer) return;
-    
+
     playerEl.style.display = "flex";
 
-    console.log('vamos');
-    
     wavesurfer = WaveSurfer.create({
       container: playerEl.querySelector(".waveform"),
       waveColor: "#fca5a5",
@@ -41,8 +39,6 @@ if (playerEl) {
       cursorColor: "#cb90f9",
       mediaControls: true,
     });
-
-    // console.log(playerEl, playerEl.querySelector('.waveform'));
 
     wavesurfer.on("play", () => {
       playerEl.getElementsByClassName("play")[0].classList.add("hidden");
