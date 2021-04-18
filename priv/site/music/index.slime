@@ -18,11 +18,12 @@ current: music
     | Music
     = link @env, "RSS", to: "music/rss.xml", class: "text-lg ml-4 text-my-purple font-bold"
 
-  p.max-w-xs.mb-16
-    | I’m trying to get back into music production. I used to make and sell
-      hip-hop beats. It's been a while, and I no longer have the same taste in
-      music. I'm trying to understand what do I like right now, and I'm documenting
-      my progress here, one audio clip at a time.
+  p.max-w-xs
+    | Hello there! Welcome to my music-making diary. I used to make and sell hip-hop beats, but it's been a long time,
+      and I no longer have the same taste in music.
+  p.max-w-xs.mb-16      
+    | I know what kinds of music I enjoy listening too, but I'm not sure which music I would like to make.
+      I'm using this diary to document my progress and my explorations, one audio clip at a time.
 
   ul
     = Enum.map sort_by_date(get_collections(@env, "music")), fn post ->
