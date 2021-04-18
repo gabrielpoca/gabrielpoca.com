@@ -1,5 +1,5 @@
 h2.pt-3.px-4.font-bold = @title
-.p-4
+article.prose.prose-music.p-4
   = @children
 ul
   = Enum.map Enum.with_index(Map.get(assigns, :files, [])), fn {file, index} ->

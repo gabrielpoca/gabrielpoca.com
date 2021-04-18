@@ -21,6 +21,12 @@ module.exports = {
         'mono': ['IBMPlexMono', 'monospace']
       },
       typography: (theme) => ({
+        music: {
+          css: {
+            lineHeight: 1.3,
+            fontSize: 16,
+          }
+        },
         lg: {
           css: {
             color: theme('colors.my-white'),
