@@ -21,7 +21,7 @@ config :still,
   url_fingerprinting: false,
   preprocessors: %{
     ".svg" => [AddContent],
-    ".jpg" => [GabrielPoca.BlogPath, Image],
+    ~r/\.jpe?g/ => [GabrielPoca.BlogPath, Image],
     ".png" => [GabrielPoca.BlogPath, Image],
     ".xml" => [AddContent, EEx, GabrielPoca.XMLPreprocessor, OutputPath, Save],
     ".md" => [AddContent, EEx, Frontmatter, Markdown, GabrielPoca.BlogPath, AddLayout, Save]
