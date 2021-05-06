@@ -24,7 +24,8 @@ config :still,
     ~r/\.jpe?g/ => [GabrielPoca.BlogPath, Image],
     ".png" => [GabrielPoca.BlogPath, Image],
     ".xml" => [AddContent, EEx, GabrielPoca.XMLPreprocessor, OutputPath, Save],
-    ".md" => [AddContent, EEx, Frontmatter, Markdown, GabrielPoca.BlogPath, AddLayout, Save]
+    ".md" => [AddContent, EEx, Frontmatter, Markdown, GabrielPoca.BlogPath, AddLayout, Save],
+    ".html" => [AddContent, Frontmatter, EEx, OutputPath, AddLayout, Save]
   }
 
 config :still_snowpack,
