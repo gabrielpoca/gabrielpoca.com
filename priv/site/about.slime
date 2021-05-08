@@ -4,7 +4,10 @@ current: about
 ---
 
 .bg-black.min-h-full
-  .container.text-my-white.mx-auto.-mt-16.pt-20.px-4 style="min-height:85vh"
+  .w-full.max-w-lg.mx-auto.text-my-white.mx-auto.-mt-16.pt-20.px-4 style="min-height:85vh"
+    .relative.rounded-full.w-32.h-32.mx-auto.mb-8.mt-6.overflow-hidden
+      = responsive_image("_includes/eu.jpg", class: "w-full h-full relative")
+
     h1.text-2xl.mb-6.tracking-wide.font-bold About Me
 
     .prose.prose-lg
@@ -19,6 +22,6 @@ current: about
 
       p.mb-4
         | I've had (too) many personal projects, from  an <%= link @env, "offline-first journals", to: "https://github.com/gabrielpoca/plain_journal" %>, to a <%= link @env, "midi instrument", to: "https://github.com/gabrielpoca/keyboard-midi-playground" %>, a <%= link @env, "manga reader", to: "https://github.com/gabrielpoca/manga_reader" %> or <%= link @env, "colaborative online editor", to: "https://github.com/subvisual/better-writer" %>.
-        | Recently I've been focusing my energy on <%= link @env, "Notedown", to: "https://github.com/subvisual/notedown/" %> (my note-taking app that I use daily), <%= link @env, "Still", to: "https://github.com/still-ex/still/" %> (a static site generator that powers this website) and my custom hardware groovebox (more information to come!).
+        |  Recently I've been focusing my energy on <%= link @env, "Notedown", to: "https://github.com/subvisual/notedown/" %> (my note-taking app that I use daily), <%= link @env, "Still", to: "https://github.com/still-ex/still/" %> (a static site generator that powers this website) and my custom hardware groovebox (more information to come!).
 
   = include(@env, "_includes/footer.slime", dark: true)
