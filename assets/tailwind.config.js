@@ -1,10 +1,14 @@
 const { inherit } = require("highlight.js");
 
 module.exports = {
-  purge: ["../_site/**/*.html"],
+  purge: ["../priv/site/**/*.slime"],
   darkMode: false,
   theme: {
     extend: {
+      height: {
+        "almost-full": "80vh",
+        "almost-almost-full": "90vh",
+      },
       colors: {
         "my-white": "#ffceae",
         "my-purple": "#cb90f9",
