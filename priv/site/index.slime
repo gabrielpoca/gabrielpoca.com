@@ -5,11 +5,11 @@ dark: true
 ---
 
 .bg-black
-  .text-my-white.mx-auto.-mt-16.pt-20.px-4 class="md:container"
-    .flex.mb-12.flex-col.items-start class="sm:flex-row sm:space-x-8 sm:mb-16"
-      .w-64.mb-8 class="sm:w-none sm:flex-1 sm:mb-0"
-        = include @env, "_includes/me.svg"
-      .max-w-96 class="sm:max-w-none sm:flex-1 sm:pt-6"
+  .relative.p-4.pt-20.text-my-white.-mt-16.h-almost-almost-full class="md:pt-36 md:h-almost-full"
+    .absolute.left-0.w-full.bottom-0.h-full
+      = responsive_image "_includes/banner.jpeg", class: "object-cover object-left-bottom h-full w-full"
+    .container.mx-auto.flex.justify-end
+      .w-80.relative
         h1.text-2xl.mb-4.font-bold class="sm:text-3xl"
           | Hi! <br /> I'm Gabriel Poça!
 
@@ -18,6 +18,7 @@ dark: true
             into all kinds of things, such as books, making music or customizing my
             editor.
 
+  .text-my-white.mx-auto.-mt-16.pt-28.px-4 class="md:container"
     div
       h2.text-xl.mb-6.tracking-wide.font-bold class="sm:text-2xl"
         | My blog
