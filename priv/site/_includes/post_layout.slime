@@ -4,7 +4,7 @@ dark: true
 ---
 .bg-black.text-my-white
   .text-center.relative.flex.items-center.justify-center.-mt-16 style="height:80vh"
-    h1.mb-8.text-5xl.z-20.relative.mx-auto.px-16
+    h1.mb-8.text-4xl.z-20.relative.mx-auto.px-8 class="sm:text-5xl sm:px-16"
       = @title
 
     = if assigns[:cover] do
