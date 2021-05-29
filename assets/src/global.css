@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.has-tooltip {
+}
+
+.tooltip {
+  @apply invisible absolute -mt-6 -ml-1 p-1 bg-gray-800 rounded-sm;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
+}
+
 html,
 body {
   font-size: 20px;
