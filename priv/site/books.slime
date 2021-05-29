@@ -1,0 +1,36 @@
+---
+layout: _includes/layout.slime
+current: reading
+dark: true
+---
+
+- alias GabrielPoca.Books
+
+.bg-black.text-my-white
+  .mx-auto class="md:container"
+    .pt-20.-mt-16.px-4
+      h1.text-2xl.mt-4.mb-8.font-bold class="sm:text-3xl"
+        | Reading
+
+      p.mb-8.max-w-md
+        | This is a list of most of the books I read since I started keeping track. Some of the dates are messed up because Goodreads.
+
+      = for book <- Books.all do
+        .pb-6.relative.overflow-hidden
+          .flex.flex-col class="md:flex-row md:items-center"
+            .text-sm.pr-2.flex-1 class="md:w-3/6"
+              .truncate
+                = book["Title"]
+            .text-sm class="md:w-1/6"
+              .truncate
+                = book["Author"]
+            .pr-2.mb-1.text-xs class="md:w-1/6 md:text-right"
+              time.italic.text-sm datetime="#{book["Date Read"]}"
+                = book["Date Read"]
+            div class="md:w-1/6"
+              = if book["My Rating"] != "0" do
+                .flex
+                  = for _ <- 0..(Integer.parse(book["My Rating"]) |> elem(0)) do
+                    <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 0L9.18386 5.18237H14.6329L10.2245 8.38525L11.9084 13.5676L7.5 10.3647L3.09161 13.5676L4.77547 8.38525L0.367076 5.18237H5.81614L7.5 0Z" fill="#FFE3CF"/>
+                    </svg>

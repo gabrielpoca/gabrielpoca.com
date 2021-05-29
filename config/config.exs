@@ -12,7 +12,6 @@ alias Still.Preprocessor.{
 }
 
 config :still,
-  base_url: "http://localhost:3000",
   dev_layout: true,
   template_helpers: [GabrielPoca.ViewHelpers, Still.Snowpack.TemplateHelpers],
   input: Path.join(Path.dirname(__DIR__), "priv/site"),
