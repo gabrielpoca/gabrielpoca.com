@@ -7,7 +7,7 @@ dark: true
 .bg-black
   .relative.p-4.pt-20.text-my-white.-mt-16.h-almost-almost-full class="md:pt-36 md:h-almost-full"
     .absolute.left-0.w-full.bottom-0.h-full
-      = responsive_image "_includes/banner.jpeg", class: "object-cover object-left-bottom h-full w-full"
+      = responsive_image "_includes/banner.jpeg", class: "object-cover object-left-bottom h-full w-full", transformations: {"interlace", "plane"}
     .container.mx-auto.flex.justify-end
       .w-80.relative
         h1.text-2xl.mb-4.font-bold class="sm:text-3xl"
