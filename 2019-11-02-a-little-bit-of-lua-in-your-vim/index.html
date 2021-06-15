@@ -1,0 +1,73 @@
+<!DOCTYPE html><html class="min-h-full h-full w-full"><head><title>Gabriel Poça</title><link href="/icon.png" rel="icon" type="image/png"><meta charset="UTF-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link rel="stylesheet" href="/assets/global.css" />
+<link rel="stylesheet"  href=/site-c8a8qP0TGnHaKO_lcE0P3Q==.css />
+</head><body class="overscroll-none antialiased font-sans min-h-full h-full overflow-x-hidden w-full"><nav class="flex justify-end space-x-4 px-8 uppercase tracking-wide h-16 items-center z-40 relative text-xs font-bold md:text-sm text-my-purple"><a href="/" class="opacity-60">Home</a><a href="/books" class="opacity-60">Reading</a><a href="/music" class="opacity-60">Music</a><a href="/about" class="opacity-60">About</a></nav><div class="bg-black text-my-white"><div class="text-center relative flex items-center justify-center -mt-16" style="height:80vh"><h1 class="mb-8 text-4xl z-20 relative mx-auto px-8 sm:text-5xl sm:px-16">A little bit of lua in your vim</h1></div><div class="mx-auto py-8 px-4 md:container"><article class="prose max-w-none prose-lg"><p>One of the reasons why I love Vim so much is because I can easily change it to
+my needs. My Vim configuration is a living organism that evolves with my
+knowledge, taste and career.</p>
+
+<p>Unfortunately, VimScript never clicked for me, so whenever I needed to do
+something more complex in Vim, I would
+<a href="https://gabrielpoca.com/2017-09-04-vim-ruby/">rely in other languages, like Ruby</a>.
+This has worked reasonably well for me, but since Neovim
+<a href="https://neovim.io/roadmap/">added built-in support for a lua</a>, I&#39;ve been
+waiting to have the time, and the use-case, to try it out.</p>
+
+<p>This is what I want to accomplish: four shortcuts that open up four different
+neovim terminals. Whenever I hit one of the shortcuts, I get a new terminal. If
+this terminal was already created, I want to open it instead. I also don&#39;t want
+to see these terminals in my buffer list.</p>
+
+<p>This is something I already have with tmux, but the ergonomics are a bit weird.
+Doing it in neovim would be great for my workflow, but that&#39;s not the topic of
+this blog post. On with the code.</p>
+
+<p>The following piece of code is everything there is. I added some comments to
+make it easier to understand.</p>
+
+<pre><code class="language-lua">-- to save terminals
+list_of_terms = {}
+
+function Terminal(nr, ...)
+  -- if the terminal with nr exists, set the current buffer to it
+  if list_of_terms[nr] then
+    -- change to the terminal
+    vim.api.nvim_set_current_buf(list_of_terms[nr])
+  -- if the terminal doesn&#39;t exist
+  else
+    -- create a buffer that&#39;s is unlisted and not a scratch buffer
+    local buf = vim.api.nvim_create_buf(false, false)
+    -- change to that buffer
+    vim.api.nvim_set_current_buf(buf)
+    -- create a terinal in the new buffer using my favorite shell
+    vim.api.nvim_call_function(&quot;termopen&quot;, {&quot;/bin/zsh&quot;})
+    -- save a reference to that buffer
+    list_of_terms[nr] = buf
+  end
+  -- change to insert mode
+  vim.api.nvim_command(&quot;:startinsert&quot;)
+end
+</code></pre>
+
+<p>I save this code in <code>~/.config/nvim/lua/navigation/init.lua</code>. Now, in one of my
+Vim configuration files, I import the lua navigation package, and map the
+function created in Lua to the shortcuts.</p>
+
+<pre><code class="language-vim">&quot; require the lua module
+lua require(&quot;navigation&quot;)
+&quot; map the Terminal function in the lua module to some shortcuts
+nnoremap &lt;silent&gt; &lt;leader&gt;kh :lua Terminal(1)&lt;cr&gt;
+nnoremap &lt;silent&gt; &lt;leader&gt;kj :lua Terminal(2)&lt;cr&gt;
+nnoremap &lt;silent&gt; &lt;leader&gt;kk :lua Terminal(3)&lt;cr&gt;
+nnoremap &lt;silent&gt; &lt;leader&gt;kl :lua Terminal(4)&lt;cr&gt;
+</code></pre>
+
+<p>That is all! One of my ideas to improve this is changing of the shortcuts to
+immediately open up programs that I used more frequently. For that I could
+change the function to accept a new argument to use instead of <code>/bin/zsh</code>. I
+could do something like <code>nnoremap &lt;silent&gt; &lt;leader&gt;kl :lua Terminal(2, &quot;tig&quot;)</code>
+to get <em>tig</em>.</p>
+
+<p>I&#39;m sharing this not because this is a great use-case to use lua, I&#39;m sure you
+can do this easily with VimScript (I can&#39;t), but because it wasn&#39;t easy to
+figure out which functions to call and how. I hope F˝ helps someone (or my
+future self).</p>
+</article></div></div><script data-goatcounter="https://gabrielpoca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body></html>

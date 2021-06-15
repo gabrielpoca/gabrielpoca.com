@@ -1,0 +1,117 @@
+<!DOCTYPE html><html class="min-h-full h-full w-full"><head><title>Gabriel Poça</title><link href="/icon.png" rel="icon" type="image/png"><meta charset="UTF-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link rel="stylesheet" href="/assets/global.css" />
+<link rel="stylesheet"  href=/site-c8a8qP0TGnHaKO_lcE0P3Q==.css />
+</head><body class="overscroll-none antialiased font-sans min-h-full h-full overflow-x-hidden w-full"><nav class="flex justify-end space-x-4 px-8 uppercase tracking-wide h-16 items-center z-40 relative text-xs font-bold md:text-sm text-my-purple"><a href="/" class="opacity-60">Home</a><a href="/books" class="opacity-60">Reading</a><a href="/music" class="opacity-60">Music</a><a href="/about" class="opacity-60">About</a></nav><div class="bg-black text-my-white"><div class="text-center relative flex items-center justify-center -mt-16" style="height:80vh"><h1 class="mb-8 text-4xl z-20 relative mx-auto px-8 sm:text-5xl sm:px-16">Offline Web Apps with Meteor</h1></div><div class="mx-auto py-8 px-4 md:container"><article class="prose max-w-none prose-lg"><p>This blog post was written for
+<a href="http://blog.groupbuddies.com/posts/45-offline-web-apps-with-meteor">Group Buddies Blog</a>.</p>
+
+<p>In this blog post I&#39;m presenting a solution to make Meteor apps work completely
+offline. In fact, Meteor apps already work offline, as long as the user doesn&#39;t
+close the browser.</p>
+
+<p>If you don&#39;t know what Meteor is or how it works, I recommend that you take a
+look at the <a href="http://docs.meteor.com/#/basic/">meteor docs</a> before moving
+forward.</p>
+
+<p>One of the principles of Meteor is <q>Data on the Wire</q>, i.e., each client
+receives all assets upon connection, after which only data is sent between the
+client and the server.</p>
+
+<p>Another principle is <q>Database Everywhere</q>, i.e., each client has a subset of
+the server database that responds to the same operations with the same api.</p>
+
+<p>When offline, a client has everything needed to keep the app running. This
+article focuses on how to allow a user to reopen the application, while being
+offline, after the browser has been closed.</p>
+
+<h2>Persisting assets</h2>
+
+<p>HTML5 made some progress in allowing web applications to be accessible offline.
+The result of it is the ApplicationCache interface. Since many people don&#39;t
+know, or understand,
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache">AppCache</a>,
+here&#39;s how it is defined in MDN (Mozilla Developer Network).</p>
+
+<blockquote>
+<p>Developers can use the Application Cache (AppCache) interface to specify
+resources that the browser should cache and make available to offline users.
+Applications that are cached load and work correctly even if users click the
+refresh button when they are offline.</p>
+</blockquote>
+
+<p>AppCache stores all the application assets and allows a user to open them when
+there is no internet connection. For more details on AppCache I recommend
+<a href="http://www.html5rocks.com/en/tutorials/appcache/beginner/">this guide</a>.</p>
+
+<p>To start using AppCache on a Meteor application just add the package:</p>
+
+<pre><code>meteor add appcache
+</code></pre>
+
+<p>Don&#39;t worry if the console logs say the app has more that 5 MB ( which is the
+recommended maximum). When Meteor builds for production it concatenates and
+minifies the assets. If it&#39;s still more that 5 MB maybe you need to exclude some
+assets from AppCache.</p>
+
+<p>For instance, you can tell AppCache not to save an image:</p>
+
+<pre><code>Meteor.AppCache.config
+  onlineOnly: [
+    &#39;/bg.png&#39;
+    ]
+</code></pre>
+
+<p>The <a href="https://github.com/meteor/meteor/wiki/AppCache">documentation</a> is a good
+follow up on this topic.</p>
+
+<h2>Persisting data</h2>
+
+<p>The client side database is in-memory. When offline, Meteor will store both the
+current working database and a list of messages to send to the server on
+reconnect. There is no (official) way to persist this data to disk, and for this
+reason the information is lost when the browser is closed.</p>
+
+<p>To overcome this limitation, there is
+<a href="https://github.com/GroundMeteor/db">GroundDB</a>, a fast and thin layer providing
+Meteor with offline database and methods, saving them into the
+<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage#localStorage"><code>localStorage</code></a>.</p>
+
+<p>To start using GroundDB add the package.</p>
+
+<pre><code>meteor add ground:db
+</code></pre>
+
+<p>Now your subscriptions will be available when you&#39;re offline. If you&#39;re using
+IronRouter you should not use the <code>waitOn</code> feature, since this is going to make
+the application hold until the server responds. Instead, subscribe to the data
+you want offline on the application startup. For instance, in the file
+<code>lib/router.coffee</code> you can have something like the following:</p>
+
+<pre><code>if Meteor.isClient
+  subscribed = false
+  Tracker.autorun () -&gt;
+    if Meteor.user() &amp;&amp; !subscribed
+      Meteor.subscribe &#39;users&#39;
+      Meteor.subscribe &#39;trips&#39;
+      Meteor.subscribe &#39;expenses&#39;
+      Meteor.subscribe &#39;notifications&#39;
+      subscribed = true
+</code></pre>
+
+<p>This way the data will always be on <code>localStorage</code> when the user goes offline.
+This also means that you need to care about the amount of information that you
+save locally.</p>
+
+<p>If you are interested in this topic, this
+<a href="https://groups.google.com/forum/#!searchin/meteor-talk/minimongo$20offline/meteor-talk/tGto0cCsvXA/dH3uZjEd9y4J">google groups thread</a>
+is a good follow up.</p>
+
+<h2>Summary</h2>
+
+<p>Making an offline web application requires a different ways of thinking about a
+solution, and there are many plenty problems to solve. These packages help
+pushing forward on making offline web applications. Feel free to ask questions,
+I&#39;m not an expert but I&#39;ll try my best to answer.</p>
+
+<p>As an example, you can run
+<a href="https://github.com/groupbuddies/tripl.it.git">tripl.it</a> and see it&#39;s source
+code. It&#39;s a mobile application that works offline.</p>
+</article></div></div><script data-goatcounter="https://gabrielpoca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body></html>
