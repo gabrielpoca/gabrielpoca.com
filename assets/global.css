@@ -1683,6 +1683,30 @@ video {
   }
 }
 
+@-webkit-keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
 .has-tooltip {
 }
 
@@ -1700,6 +1724,16 @@ video {
 .has-tooltip:hover .tooltip {
   visibility: visible;
   z-index: 50;
+}
+
+.playing-audio {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: #ef4444;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(239, 68, 68, 0));
+  --tw-gradient-stops: var(--tw-gradient-from), #cb90f9, var(--tw-gradient-to, rgba(203, 144, 249, 0));
+  --tw-gradient-to: #ec4899;
+  -webkit-animation: gradient-x 7s ease infinite;
+          animation: gradient-x 7s ease infinite;
 }
 
 html,

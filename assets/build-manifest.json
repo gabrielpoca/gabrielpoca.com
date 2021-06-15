@@ -9,7 +9,7 @@
       "imports": []
     },
     "music.js": {
-      "bytes": 1800,
+      "bytes": 2125,
       "imports": [
         {
           "path": "_snowpack/env.js",
@@ -35,10 +35,10 @@
           "bytesInOutput": 67628
         },
         "music.js": {
-          "bytesInOutput": 954
+          "bytesInOutput": 1106
         }
       },
-      "bytes": 68872
+      "bytes": 69024
     }
   }
 }
