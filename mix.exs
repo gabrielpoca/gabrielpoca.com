@@ -5,7 +5,7 @@ defmodule GabrielPoca.MixProject do
     [
       app: :gabrielpoca,
       version: "0.1.0",
-      elixir: "~> 1.10",
+      elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       elixirc_paths: elixirc_paths(Mix.env()),
       deps: deps()
@@ -25,8 +25,7 @@ defmodule GabrielPoca.MixProject do
   defp deps do
     [
       {:still, git: "https://github.com/still-ex/still", ref: "master", override: true},
-      {:still_node, "~> 0.1.0"},
-      {:still_snowpack, github: "still-ex/still_snowpack"},
+      {:still_snowpack, github: "still-ex/still_snowpack", ref: "master"},
       {:jason, "~> 1.2"},
       {:timex, "~> 3.5"},
       {:csv, "~> 2.4"}
