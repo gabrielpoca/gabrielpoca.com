@@ -34,19 +34,42 @@ I repeated the cycle, and in the end, I had 4 sections that I felt went well tog
       
         <item>
           <title>
+            <![CDATA[Fall]]>
+          </title>
+          <link>/music#music/2021-05-28-wah.md</link>
+          <guid isPermaLink="false">/music/2021-05-28-wah.html#1</guid>
+          <pubDate>Sun, 18 Apr 2021 00:00:00 GMT</pubDate>
+          <description>
+            <![CDATA[<p>I got a feeling that I&#39;m not very good at naming things. This one also exists in Youtube.</p>
+
+<div class="mt-4" style="position:relative;padding-top:56.25%;">
+  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/lxvOqPqA_ho" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+]]>
+          </description>
+          <enclosure
+            url="/music/files/210528_wah.mp3"
+            length="4185442"
+            type="audio/mpeg" />
+        </item>
+      
+    
+      
+        <item>
+          <title>
             <![CDATA[Bells]]>
           </title>
           <link>/music#music/2021-03-23-bells.md</link>
           <guid isPermaLink="false">/music/2021-03-23-bells.html#1</guid>
           <pubDate>Tue, 23 Mar 2021 00:00:00 GMT</pubDate>
           <description>
-            <![CDATA[<p>For this one, I built most of all of the sections on the MC707 and then
-recorded them into Reaper to arrange and mix. I wanted to move everything
-into reaper because I struggle a lot with transitions between sections and
-work on it on the computer feels easier. I&#39;m not sure whether these
-sections don&#39;t work well together or I don&#39;t know how to make them work
-together. You can also see that my drums still suck. My next one is almost
-finished and I&#39;m pretty confident that I improved in both of these areas.</p>
+            <![CDATA[<p>I built most of the sections on the MC707 and recorded them into Reaper to
+arrange and mix. I wanted to move everything into reaper because
+I struggle with transitions between sections, and working on it on the
+computer feels easier. I&#39;m not sure whether these sections don&#39;t work well
+together, or I don&#39;t know how to make them work together. You can also see
+that my drums still suck. My next one is almost finished, and I&#39;m pretty
+confident that I improved in both of these areas.</p>
 ]]>
           </description>
           <enclosure
