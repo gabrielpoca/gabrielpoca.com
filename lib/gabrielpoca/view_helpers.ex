@@ -23,7 +23,7 @@ defmodule GabrielPoca.ViewHelpers do
       0..360
       |> Enum.random()
 
-    "background-color:hsl(#{color}deg 100% 91%)"
+    "background-color:hsl(#{color}deg 100% 95%)"
   end
 
   def music_item_offset do
