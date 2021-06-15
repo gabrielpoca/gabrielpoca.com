@@ -24,8 +24,8 @@ defmodule GabrielPoca.MixProject do
 
   defp deps do
     [
-      {:still, git: "https://github.com/still-ex/still", ref: "master", override: true},
-      {:still_snowpack, github: "still-ex/still_snowpack", ref: "master"},
+      {:still, "~> 0.6"},
+      {:still_snowpack, "~> 0.2"},
       {:jason, "~> 1.2"},
       {:timex, "~> 3.5"},
       {:csv, "~> 2.4"}
