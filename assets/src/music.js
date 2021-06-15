@@ -15,12 +15,19 @@ if (playerEl) {
       }
     });
 
-  const audioEls = document.getElementsByClassName("audioFile");
+  const audioEls = Array.from(document.getElementsByClassName("audioFile"));
+  let currentAudioEl = null;
 
-  Array.from(audioEls).map((el) => {
+  audioEls.map((el) => {
     el.addEventListener("click", () => {
+      currentAudioEl?.classList?.remove("playing-audio");
+
+      currentAudioEl = el;
+      currentAudioEl.classList.add("playing-audio");
+
       setupWavesurfer();
-      wavesurfer.load(el.dataset.src);
+
+      wavesurfer.load(currentAudioEl.dataset.src);
     });
   });
 
@@ -48,8 +55,14 @@ if (playerEl) {
     });
 
     wavesurfer.on("finish", () => {
-      playerEl.getElementsByClassName("play")[0].classList.remove("hidden");
-      playerEl.getElementsByClassName("pause")[0].classList.add("hidden");
+      const nextEl = audioEls[audioEls.indexOf(currentAudioEl) + 1];
+
+      if (!!nextEl) {
+        nextEl.click();
+      } else {
+        playerEl.getElementsByClassName("play")[0].classList.remove("hidden");
+        playerEl.getElementsByClassName("pause")[0].classList.add("hidden");
+      }
     });
 
     wavesurfer.on("ready", () => {

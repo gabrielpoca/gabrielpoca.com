@@ -5,6 +5,21 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
+      animation: {
+        "gradient-x": "gradient-x 7s ease infinite",
+      },
+      keyframes: {
+        "gradient-x": {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
+      },
       height: {
         "almost-full": "80vh",
         "almost-almost-full": "90vh",
