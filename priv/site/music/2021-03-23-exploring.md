@@ -1,15 +1,16 @@
 ---
 files:
-  - "music/files/210323 Bells.mp3"
+  - name: "Exploring"
+    file: "music/files/210323 Exploring.mp3"
 date: 2021-03-23
 layout: music/_layout.slime
-title: "Bells"
+title: "Exploring"
 tag:
   - music
 ---
 
 I built most of the sections on the MC707 and recorded them into Reaper to
-arrange and mix. I wanted to move everything into reaper because
+arrange and mix. I wanted to move everything into Reaper because
 I struggle with transitions between sections, and working on it on the
 computer feels easier. I'm not sure whether these sections don't work well
 together, or I don't know how to make them work together. You can also see

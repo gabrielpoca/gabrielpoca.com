@@ -1,9 +1,10 @@
 ---
 files:
-  - "music/files/210402_ah.mp3"
+  - name: "Monster Trap"
+    file: "music/files/210402 Monster Trap.mp3"
 date: 2021-04-18
 layout: music/_layout.slime
-title: "Ah"
+title: "Monster Trap"
 tag:
   - music
 ---

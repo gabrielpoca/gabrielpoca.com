@@ -1,6 +1,7 @@
 ---
 files:
-  - music/files/lofi_piano.mp3
+  - name: "Synth: Lo-Fi Piano"
+    file: music/files/lofi_piano.mp3
 layout: music/_layout.slime
 date: 2019-05-24
 title: "Synth: Lo-Fi Piano"

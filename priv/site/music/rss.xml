@@ -6,7 +6,7 @@
     <link>https://gabrielpoca.com</link>
     <language>en-us</language>
     <%= Enum.map sort_by_date(get_collections(@env, "music")), fn post -> %>
-      <%= Enum.map Enum.with_index(item_files(post)), fn {file, index} -> %>
+      <%= Enum.map Enum.with_index(item_files(post)), fn {track, index} -> %>
         <item>
           <title>
             <![CDATA[<%= post[:metadata][:title] %>]]>
@@ -18,8 +18,8 @@
             <![CDATA[<%= include(@env, post[:input_file], %{layout: nil}) %>]]>
           </description>
           <enclosure
-            url="<%= url_for(file) %>"
-            length="<%= file_size(Still.Utils.get_input_path(file)) %>"
+            url="<%= url_for(track["file"]) %>"
+            length="<%= file_size(Still.Utils.get_input_path(track["file"])) %>"
             type="audio/mpeg" />
         </item>
       <% end %>
