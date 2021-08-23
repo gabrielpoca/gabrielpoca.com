@@ -3,7 +3,7 @@ files:
   - name: "Exploring"
     file: "music/files/210323 Exploring.mp3"
 date: 2021-03-23
-layout: music/_layout.slime
+layout: _includes/music_layout.html.eex
 title: "Exploring"
 tag:
   - music

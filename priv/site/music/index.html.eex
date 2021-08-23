@@ -1,0 +1,61 @@
+---
+layout: _includes/layout.slime
+current: music
+dark: true
+---
+
+<div class="bg-black pb-32 sm:pb-0">
+  <div class="relative min-h-screen">
+    <div
+      class="pt-20 -mt-16 font-mono text-xs text-my-white mx-auto md:container md:text-sm"
+      x-data="{open: false, state: 'play'}">
+      <div class="mb-8 pl-6 md:-ml-6">
+        <%= link @env, "RSS", to: "music/rss.xml" %>
+        <%= link @env, "Youtube", to: "https://www.youtube.com/channel/UCU6kRMDjfbSdP25r9xQBusA", class: "ml-4" %>
+      </div>
+      <div class="relative">
+        <div
+          style="background: rgba(46, 8, 82, 0.3);"
+          class="h-full w-1/2 absolute top-0 right-0 pointer-events-none invisible sm:visible"></div>
+        <ul
+          style="background: linear-gradient(180deg, #C283F6 0%, #72409C 0.01%, #4A107F 48.96%, #370863 77.08%, #1D0631 100%);"
+          class="max-h-full sm:h-60 overflow-y-scroll">
+          <%= Enum.map sort_by_date(get_collections(@env, "music")), fn post -> %>
+            <li class="w-full" id="#{post.input_file}">
+              <%= include(@env, post.input_file) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      x-data
+      x-cloak
+      x-show="$store.player.src"
+      class="z-10 bg-black mt-16 fixed sm:absolute left-0 bottom-0 sm:bottom-4 w-full px-2 sm:px-4 flex items-center">
+      <button
+        @click="$store.player.toggle()"
+        class="focus:outline-none focus:ring-2 focus:ring-purple-800 flex-shrink-0 w-8 sm:w-12 h-8 sm:h-12 border-2 border-white display flex items-center justify-center rounded-full">
+        <svg x-show="$store.player.isPlaying" style="margin-left:4px;" class="h-4 sm:h-6 w-4 sm:w-6" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
+        </svg>
+        <svg x-show="!$store.player.isPlaying" viewbox="0 0 30 30" class="h-6 w-6">
+          <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
+          <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
+        </svg>
+        <span x-show="$store.player.isPlaying" class="sr-only">Play</span>
+        <span x-show="!$store.player.isPlaying" class="sr-only">Pause</span>
+      </button>
+      <div id="Player-wave" class="ml-2 sm:ml-4 h-24 w-full"></div>
+      <div class="text-white pl-4 font-bold text-xs md:text-base">
+        <div class="">Playing</div>
+        <div class="whitespace-nowrap w-20 sm:w-auto truncate text-my-pink-light" x-data x-text="$store.player.title"></div>
+      </div>
+    </div>
+  </div>
+
+  <%= include(@env, "_includes/footer.slime", dark: true) %>
+</div>
+
+<%= import_js_file("music.js") %>

@@ -1,7 +1,10 @@
 const { inherit } = require("highlight.js");
 
 module.exports = {
-  purge: ["../priv/site/**/*.slime"],
+  purge: [
+    "../priv/site/**/*.slime",
+    "../priv/site/**/*.eex"
+  ],
   darkMode: false,
   theme: {
     extend: {
@@ -21,12 +24,16 @@ module.exports = {
         },
       },
       height: {
+        60: "60vh",
         "almost-full": "80vh",
         "almost-almost-full": "90vh",
       },
       colors: {
         "my-white": "#ffceae",
+        "my-pink-light": "#fca5a5",
+        "my-purple-light": "#DFC7F4",
         "my-purple": "#cb90f9",
+        "my-purple-darker": "#1D0631",
         "my-orange": "#ff6500",
         black: {
           DEFAULT: "#090909",
@@ -40,8 +47,16 @@ module.exports = {
       typography: (theme) => ({
         music: {
           css: {
-            lineHeight: 1.3,
-            fontSize: 16,
+            fontFamily: theme('fontFamily.sans'),
+            color: theme("colors.white"),
+            lineHeight: 1.4,
+            fontSize: theme('fontSize.base'),
+            a: {
+              color: theme("colors.my-purple"),
+              "&:hover": {
+                color: theme("colors.my-orange"),
+              },
+            }
           },
         },
         lg: {

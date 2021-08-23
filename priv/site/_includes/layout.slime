@@ -16,4 +16,5 @@ html.min-h-full.h-full.w-full
       = link @env, "Music", to: "/music", class: if assigns[:current] != "music", do: "opacity-60"
       = link @env, "About", to: "/about", class: if assigns[:current] != "about", do: "opacity-60"
     =  @children
-    <script data-goatcounter="https://gabrielpoca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    = if Mix.env() == :prod do
+      <script data-goatcounter="https://gabrielpoca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

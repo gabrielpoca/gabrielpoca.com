@@ -23,6 +23,8 @@ config :still,
     ~r/\.jpe?g/ => [GabrielPoca.BlogPath, Image],
     ".png" => [GabrielPoca.BlogPath, Image],
     ".xml" => [AddContent, EEx, GabrielPoca.XMLPreprocessor, OutputPath, Save],
+    ".html" => [AddContent, EEx, Frontmatter, OutputPath, AddLayout, Save],
+    ".eex" => [AddContent, EEx, Frontmatter, OutputPath, AddLayout, Save],
     ".md" => [AddContent, EEx, Frontmatter, Markdown, GabrielPoca.BlogPath, AddLayout, Save]
   }
 
@@ -32,6 +34,6 @@ config :still_snowpack,
   output: Path.join([Path.dirname(__DIR__), "_site", "assets"])
 
 config :logger,
-  level: :warn
+  level: :debug
 
 import_config("#{Mix.env()}.exs")

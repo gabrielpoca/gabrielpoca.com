@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+name = ARGV.join(" ") || "New Post"
+formatted_name = name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+
+now = Time.now
+year = now.year.to_s
+month = now.month.to_s
+day = now.day.to_s
+
+if month.length == 1
+  month = "0#{month}"
+end
+
+formatted_date = "#{year}-#{month}-#{day}"
+
+folder = "priv/site/blog/#{formatted_date}-#{formatted_name}"
+Dir.mkdir(folder)
+
+file = "#{folder}/index.md"
+out_file = File.new(file, "w")
+out_file.puts(
+%{---
+title: "#{name}"
+date: #{formatted_date}
+  layout: "_includes/post_layout.slime"
+tag:
+  - post
+---
+})
+out_file.close

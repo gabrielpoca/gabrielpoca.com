@@ -1,4 +1,4 @@
 import Config
 
 config :still,
-  profiler: true
+  profiler: false

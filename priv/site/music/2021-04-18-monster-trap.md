@@ -3,7 +3,7 @@ files:
   - name: "Monster Trap"
     file: "music/files/210402 Monster Trap.mp3"
 date: 2021-04-18
-layout: music/_layout.slime
+layout: _includes/music_layout.html.eex
 title: "Monster Trap"
 tag:
   - music

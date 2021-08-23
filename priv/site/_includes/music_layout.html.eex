@@ -1,0 +1,28 @@
+<ul class="sm:w-1/2 px-4">
+  <%= Enum.map Map.get(assigns, :files, []), fn track -> %>
+    <% url =  url_for(track["file"]) %>
+    <% title = track["name"] %>
+    <li>
+      <article class="py-2 text-white">
+        <div
+          x-cloak
+          class="prose overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
+          x-show="$store.player.src === `<%= url %>`">
+          <%= @children %>
+        </div>
+        <button
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent px-2 py-2 w-full text-left flex items-center"
+          @click="$store.player.set(`<%= url %>`, `<%= title %>`)">
+
+          <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center">
+            <svg style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
+            </svg>
+          </div>
+
+          <span class=""><%= track["name"] %></span>
+        </button>
+      </article>
+    </li>
+  <% end %>
+</ul>
