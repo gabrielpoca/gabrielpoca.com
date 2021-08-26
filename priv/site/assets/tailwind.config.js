@@ -1,9 +1,9 @@
-const { inherit } = require("highlight.js");
-
 module.exports = {
   purge: [
-    "../priv/site/**/*.slime",
-    "../priv/site/**/*.eex"
+    "../*.slime",
+    "../*.eex",
+    "../**/*.slime",
+    "../**/*.eex"
   ],
   darkMode: false,
   theme: {

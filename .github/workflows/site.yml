@@ -41,7 +41,7 @@ jobs:
         with:
           path: |
             assets/node_modules
-          key: npm-v3-${{ hashFiles('assets/package-lock.json') }}
+          key: npm-v3-${{ hashFiles('priv/site/assets/package-lock.json') }}
 
       - name: Restore Cache
         uses: actions/cache@v2
@@ -55,7 +55,9 @@ jobs:
 
       - run: mix deps.get
 
-      - run: cd assets && npm install
+      - run: cd priv/site/assets && npm install
+
+      - run: cd priv/site/assets && NODE_ENV=production npx tailwindcss -o ../global.css -i global.css --minify
 
       - run: MIX_ENV=prod mix compile
 

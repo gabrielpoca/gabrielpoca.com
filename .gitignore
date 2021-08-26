@@ -27,3 +27,4 @@ _site/
 /node_modules/
 .snowpack/
 assets/build
+priv/site/global.css

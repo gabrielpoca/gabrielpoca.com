@@ -58,4 +58,8 @@ dark: true
   <%= include(@env, "_includes/footer.slime", dark: true) %>
 </div>
 
-<%= import_js_file("music.js") %>
+
+<script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
+<script src="https://unpkg.com/wavesurfer.js"></script>
+
+<%= link_to_js "music/index.js" %>

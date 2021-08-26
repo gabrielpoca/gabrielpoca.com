@@ -1,8 +1,3 @@
-import WaveSurfer from "wavesurfer.js";
-import Alpine from "alpinejs";
-
-window.Alpine = Alpine;
-
 const playerEl = document.querySelector("#Player-wave");
 
 let wavesurfer;
@@ -22,8 +17,6 @@ document.addEventListener("alpine:init", () => {
     },
   });
 });
-
-Alpine.start();
 
 function onPlay(src) {
   setupWavesurfer();
@@ -55,6 +48,6 @@ function setupWavesurfer() {
   wavesurfer.on("ready", () => wavesurfer.play());
 }
 
-if (import.meta.hot) {
-  import.meta.hot.accept(() => window.location.reload());
-}
+//if (import.meta.hot) {
+  //import.meta.hot.accept(() => window.location.reload());
+//}

@@ -14,8 +14,7 @@ defmodule GabrielPoca.MixProject do
 
   def application do
     [
-      extra_applications: [:logger],
-      mod: {GabrielPoca.Application, []}
+      extra_applications: [:logger]
     ]
   end
 
@@ -24,8 +23,7 @@ defmodule GabrielPoca.MixProject do
 
   defp deps do
     [
-      {:still, github: "still-ex/still", ref: "0872c5ce7481b64c77b17bb75d63c550a08e80a9", override: true},
-      {:still_snowpack, "~> 0.2"},
+      {:still, github: "still-ex/still", ref: "0fc9b43c4b852cebffc7a3d24f94e30a22a632c0", override: true},
       {:jason, "~> 1.2"},
       {:timex, "~> 3.5"},
       {:csv, "~> 2.4"}
