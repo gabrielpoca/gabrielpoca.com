@@ -1,0 +1,73 @@
+---
+hide_nav: true
+layout: _includes/layout.slime
+title: "Launchpad 2nd Life"
+favicon: "<%= url_for("projects/launchpad/icon.png") %>"
+address: "0xF180611CFd4841690275fE4F56840116dB7ECeDE"
+email: "mail@gabrielpoca.com"
+---
+
+nav.flex.justify-start.px-8.uppercase.tracking-wide.h-16.items-center.z-40.relative.text-xs.font-bold.text-my-white class="md:text-sm"
+  = link @env, to: "/", class: "flex items-center" do
+    = responsive_image("icon.png", class: "w-8")
+    span.ml-2 Gabriel Poça
+
+.bg-black.min-h-full
+  .w-full.max-w-lg.mx-auto.text-my-white.mx-auto.-mt-16.py-32.px-4 style="min-height:85vh"
+    .flex.mb-8.items-center
+      = include(@env, "projects/launchpad/icon.svg")
+      h1.ml-8.text-4xl.tracking-wide.font-bold.font-condensed.w-60.uppercase Launchpad 2nd Life
+
+    = link @env, "Download for MacOS", to: "/", class: "underline uppercase tracking-wide block mb-6"
+
+    p.mb-8 Launchpad 2n Life is an attempt to turn an old Launchpad Mini into an instrument without Ableton.
+
+    = responsive_image("projects/launchpad/launchpad.png", alt: "A picture of a Launchpad Mini", class: "w-64 border-4 m-auto border-white rounded-lg")
+    .flex.justify-center.mt-2
+      .text-xs.opacity-80(aria-hidden="true") The Launchpad Mini
+
+    p.my-8
+      | The Launchpad Mini works well on Ableton, and some projects
+        to unlock more power with it, but none of it is possible outside of Ableton. With
+        the Launchpad 2nd Life app you get some of the nice things you have in
+        Ableton: Scale Mode, Drum Layout, Isomorphic keyboard and more.
+
+    h2.text-xl.font-bold Modes
+
+    h3.font-bold.mb-1.mt-6 Chromatic
+
+    p In chromatic mode, you play any note, and notes on the selected scale are highlighted.
+
+    h3.font-bold.mb-1.mt-6 Scale
+
+    p In scale mode, only notes in the scale are available.
+
+    h3.font-bold.mb-1.mt-6 Drums
+
+    p In drum mode, the notes are organized sequentially in two sections. This mode is useful for playing drums or samples.
+
+    h3.font-bold.mb-1.mt-6 Chords
+
+    p In this mode, each button of the grid is a chord. In each row we can find the same chord, changing the root note for on each column. The root notes are the notes of the selected scale. You can also move all the chords to different octaves, and you can also change the voicing of each chord.
+
+    h3.font-bold.mb-1.mt-6 Settings
+
+    p You can change the selected scale and root note. You can also select the MIDI output and channel where the app sends notes.
+
+    h2.text-xl.font-bold.mt-8.mb-4 FAQ
+
+    h3.font-bold.mb-1 Can a get this on Windows or Linux?
+
+    p I don't use Windows or Linux, but if you're interested, consider supporting this project (you can send ETH to <code class="bg-gray-800 px-1 rounded">#{@address}</code>) and send me an <a class="underline" href="mailto:#{@email}">email</a> asking for the builds.
+
+    h3.font-bold.mb-1.mt-6 How can I suppport this project?
+
+    p You can send ETH to <code class="bg-gray-800 px-1 rounded">#{@address}</code>. If there's a feature you would like to see, send me an <a class="underline" href="mailto:#{@email}">email</a>.
+
+    h3.font-bold.mb-1.mt-6 Who are you?
+
+    p My name is Gabriel Poça. You can find more information about me on my #{link @env, "website", to: "https://gabrielpoca.com", class: "underline"}, #{link @env, "Twitter", to: "https://twitter.com/gabrielgpoca", class: "underline"} and #{link @env, "Github", to: "https://github.com/gabrielpoca", class: "underline"}.
+
+    h3.font-bold.mb-1.mt-6 Does it work with a Launchpad PLACEHOLDER?
+
+    p I don't know. I only have a Launchpad Mini, but I guess not.

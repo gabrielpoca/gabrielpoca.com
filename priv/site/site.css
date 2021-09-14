@@ -5,6 +5,11 @@
 
 @font-face {
   font-family: IBMPlexSans;
+  src: url(<%=url_for("/fonts/IBMPlexSansCondensed-Regular.ttf")%>);
+}
+
+@font-face {
+  font-family: IBMPlexSansCondensed;
   src: url(<%=url_for("/fonts/IBMPlexSans-Regular.ttf")%>);
 }
 
@@ -18,4 +23,10 @@
   font-family: IBMPlexSans;
   font-weight: 600;
   src: url(<%=url_for("/fonts/IBMPlexSans-Bold.ttf")%>);
+}
+
+@font-face {
+  font-family: IBMPlexSansCondensed;
+  font-weight: bold;
+  src: url(<%=url_for("/fonts/IBMPlexSansCondensed-Bold.ttf")%>);
 }

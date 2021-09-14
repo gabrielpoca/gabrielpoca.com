@@ -1,10 +1,5 @@
 module.exports = {
-  purge: [
-    "../*.slime",
-    "../*.eex",
-    "../**/*.slime",
-    "../**/*.eex"
-  ],
+  purge: ["../*.slime", "../*.eex", "../**/*.slime", "../**/*.eex"],
   darkMode: false,
   theme: {
     extend: {
@@ -43,20 +38,21 @@ module.exports = {
       fontFamily: {
         sans: ["IBMPlexSans", "system-ui"],
         mono: ["IBMPlexMono", "monospace"],
+        condensed: ["IBMPlexSansCondensed", "system-ui"],
       },
       typography: (theme) => ({
         music: {
           css: {
-            fontFamily: theme('fontFamily.sans'),
+            fontFamily: theme("fontFamily.sans"),
             color: theme("colors.white"),
             lineHeight: 1.4,
-            fontSize: theme('fontSize.base'),
+            fontSize: theme("fontSize.base"),
             a: {
               color: theme("colors.my-purple"),
               "&:hover": {
                 color: theme("colors.my-orange"),
               },
-            }
+            },
           },
         },
         lg: {
