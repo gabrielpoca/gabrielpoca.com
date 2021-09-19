@@ -5,6 +5,8 @@ title: "Launchpad 2nd Life"
 favicon: "<%= url_for("projects/launchpad/icon.png") %>"
 address: "0xF180611CFd4841690275fE4F56840116dB7ECeDE"
 email: "mail@gabrielpoca.com"
+seo_img: "<%= Application.get_env(:still, :domain) %><%= url_for("projects/launchpad/seo.jpeg") %>"
+seo_description: "Turn a Launchpad Mini into a powerful instrument on any DAW or synth"
 ---
 
 nav.flex.justify-start.px-8.uppercase.tracking-wide.h-16.items-center.z-40.relative.text-xs.font-bold.text-my-white class="md:text-sm"
@@ -18,7 +20,7 @@ nav.flex.justify-start.px-8.uppercase.tracking-wide.h-16.items-center.z-40.relat
       = include(@env, "projects/launchpad/icon.svg")
       h1.ml-8.text-4xl.tracking-wide.font-bold.font-condensed.w-60.uppercase Launchpad 2nd Life
 
-    = link @env, "Download for MacOS", to: "/", class: "underline uppercase tracking-wide block mb-6"
+    = link @env, "Download for MacOS", to: url_for("projects/launchpad/launchpad.dmg"), class: "underline uppercase tracking-wide block mb-6"
 
     p.mb-8 Launchpad 2n Life is an attempt to turn an old Launchpad Mini into an instrument without Ableton.
 
@@ -30,7 +32,10 @@ nav.flex.justify-start.px-8.uppercase.tracking-wide.h-16.items-center.z-40.relat
       | The Launchpad Mini works well on Ableton, and some projects
         to unlock more power with it, but none of it is possible outside of Ableton. With
         the Launchpad 2nd Life app you get some of the nice things you have in
-        Ableton: Scale Mode, Drum Layout, Isomorphic keyboard and more.
+        Ableton: Scale Mode, Drum Layout, Isomorphic keyboard and more. Watch the video for a demo:
+
+    p.mb-8
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/72iUlB2g3XA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     h2.text-xl.font-bold Modes
 

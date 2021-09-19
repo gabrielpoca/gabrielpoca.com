@@ -12,11 +12,12 @@ alias Still.Preprocessor.{
 }
 
 config :still,
+  domain: "http://localhost:3000",
   dev_layout: true,
   template_helpers: [GabrielPoca.ViewHelpers],
   input: Path.join(Path.dirname(__DIR__), "priv/site"),
   output: Path.join(Path.dirname(__DIR__), "_site"),
-  pass_through_copy: ["fonts", "music/files", "CNAME"],
+  pass_through_copy: ["fonts", "music/files", "CNAME", ~r/\.dmg/],
   url_fingerprinting: false,
   ignore_files: ["assets"],
   watchers: [
