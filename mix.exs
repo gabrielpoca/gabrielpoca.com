@@ -26,7 +26,8 @@ defmodule GabrielPoca.MixProject do
       {:still, github: "still-ex/still", ref: "master", override: true},
       {:jason, "~> 1.2"},
       {:timex, "~> 3.5"},
-      {:csv, "~> 2.4"}
+      {:csv, "~> 2.4"},
+      {:slugify, "~> 1.3"}
     ]
   end
 end
