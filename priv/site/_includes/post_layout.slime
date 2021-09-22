@@ -8,8 +8,9 @@ dark: true
       = @title
 
     = if assigns[:cover] do
+      - cover_file = @dependency_chain |> List.last() |> Path.dirname() |> Path.join(@cover)
       .overlay.absolute.top-0.left-0.w-full.h-full.bg-black.z-10.opacity-70
-      = responsive_image(@cover, class: "absolute top-0 left-0 w-full h-full bg-indigo-50 z-0 object-cover object-center")
+      = responsive_image(cover_file, class: "absolute top-0 left-0 w-full h-full bg-indigo-50 z-0 object-cover object-center")
 
   .mx-auto.py-8.px-4 class="md:container"
     article.prose.max-w-none.prose-lg

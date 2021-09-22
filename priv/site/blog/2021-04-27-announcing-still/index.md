@@ -8,7 +8,7 @@ tag:
 
 You know the saying: _You don't get to 500 million users without making a few static sites_.
 
-<%= responsive_image(Path.dirname(@input_file ) |> Path.join("\_millions.jpeg"), alt: "You don't get to 500 million users without making a few static sites") %>
+![You don't get to 500 million users without making a few static sites](./millions.jpeg)
 
 I enjoy building a website every once in a while, and I've been doing it since we designed websites in Photoshop, sliced them, and imported the slices to Dreamweaver.
 Things have come a long way, and now it’s easier than ever to make websites with drag-and-drop tools, a simple editor, or custom-made scripts.
