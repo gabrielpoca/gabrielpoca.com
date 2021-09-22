@@ -1,0 +1,86 @@
+backend:
+  name: github
+  repo: gabrielpoca/gabrielpoca.com
+  base_url: https://auth.gabrielpoca.com
+
+media_folder: ''
+public_folder: ''
+
+collections:
+  - name: 'post'
+    label: 'Post'
+    folder: 'priv/site/blog'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{year}}-{{month}}-{{day}}-{{title}}/{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - name: 'layout'
+        widget: 'hidden'
+        default: "_includes/post_layout.slime"
+      - name: 'tag'
+        widget: 'hidden'
+        default: ["post"]
+      - label: 'Cover'
+        name: 'cover'
+        widget: 'image'
+        allow_multiple: false
+        required: false
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Publish Date'
+        name: 'date'
+        widget: 'date'
+        format: 'YYYY-MM-DD'
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
+
+  - name: 'books'
+    label: 'Book Review'
+    folder: 'priv/site/books'
+    create: true
+    slug: '{{year}}{{month}}{{day}}_{{title}}'
+    editor:
+      preview: false
+    fields:
+      - name: 'layout'
+        widget: 'hidden'
+        default: "_includes/book_layout.slime"
+      - name: 'dark'
+        widget: 'hidden'
+        default: true
+      - name: 'tag'
+        widget: 'hidden'
+        default: ["book"]
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Author'
+        name: 'author'
+        widget: 'string'
+      - label: 'ISBN'
+        name: 'isbn'
+        widget: 'string'
+        required: false
+      - label: 'Date'
+        name: 'date'
+        widget: 'date'
+        format: 'YYYY-MM-DD'
+      - label: 'Rating'
+        name: 'rating'
+        widget: 'number'
+        min: 1
+        max: 5
+      - label: 'Has Review?'
+        name: 'has_review'
+        widget: 'boolean'
+        default: false
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
+        required: false
