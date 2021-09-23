@@ -1,9 +1,9 @@
 ---
-title: "Still building static websites in Elixir"
-date: 2021-04-27
-layout: "_includes/post_layout.slime"
+layout: _includes/post_layout.slime
 tag:
   - post
+title: Still building static websites in Elixir!
+date: 2021-04-27
 ---
 
 You know the saying: _You don't get to 500 million users without making a few static sites_.
