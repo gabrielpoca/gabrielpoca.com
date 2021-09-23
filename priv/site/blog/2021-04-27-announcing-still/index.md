@@ -2,7 +2,7 @@
 layout: _includes/post_layout.slime
 tag:
   - post
-title: Still building static websites in Elixir!
+title: Still building static websites in Elixir
 date: 2021-04-27
 ---
 
