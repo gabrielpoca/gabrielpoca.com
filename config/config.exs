@@ -21,7 +21,15 @@ config :still,
   url_fingerprinting: false,
   ignore_files: ["assets"],
   watchers: [
-    npx: ["tailwindcss", "-o", "../global.css", "--watch", "-i", "global.css", cd: "priv/site/assets"]
+    npx: [
+      "tailwindcss",
+      "-o",
+      "../global.css",
+      "--watch",
+      "-i",
+      "global.css",
+      cd: "priv/site/assets"
+    ]
   ],
   preprocessors: %{
     ".svg" => [AddContent],
@@ -30,7 +38,16 @@ config :still,
     ".xml" => [AddContent, EEx, GabrielPoca.XMLPreprocessor, OutputPath, Save],
     ".html" => [AddContent, EEx, Frontmatter, OutputPath, AddLayout, Save],
     ".eex" => [AddContent, EEx, Frontmatter, OutputPath, AddLayout, Save],
-    ".md" => [AddContent, EEx, Frontmatter, Markdown, GabrielPoca.BlogPath, AddLayout, Save]
+    ".md" => [
+      AddContent,
+      EEx,
+      Frontmatter,
+      Markdown,
+      GabrielPoca.BlogPath,
+      GabrielPoca.Seo,
+      AddLayout,
+      Save
+    ]
   }
 
 config :logger,
