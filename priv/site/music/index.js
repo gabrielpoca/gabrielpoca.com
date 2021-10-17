@@ -8,9 +8,14 @@ document.addEventListener("alpine:init", () => {
     title: null,
     isPlaying: true,
     set(src, title) {
-      onPlay(src);
-      this.src = src;
-      this.title = title;
+      console.log(src, this.src);
+      if (src === this.src) {
+        wavesurfer.playPause();
+      } else {
+        onPlay(src);
+        this.src = src;
+        this.title = title;
+      }
     },
     toggle() {
       wavesurfer.playPause();
@@ -49,5 +54,5 @@ function setupWavesurfer() {
 }
 
 //if (import.meta.hot) {
-  //import.meta.hot.accept(() => window.location.reload());
+//import.meta.hot.accept(() => window.location.reload());
 //}
