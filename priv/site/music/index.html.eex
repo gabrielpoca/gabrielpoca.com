@@ -35,6 +35,7 @@ dark: true
       x-show="$store.player.src"
       class="z-10 bg-black mt-16 fixed sm:absolute left-0 bottom-0 sm:bottom-4 w-full px-2 sm:px-4 flex items-center">
       <button
+        x-show="!$store.player.isLoading"
         @click="$store.player.toggle()"
         class="focus:outline-none focus:ring-2 focus:ring-purple-800 flex-shrink-0 w-8 sm:w-12 h-8 sm:h-12 border-2 border-white display flex items-center justify-center rounded-full">
         <svg x-show="!$store.player.isPlaying" style="margin-left:4px;" class="h-4 sm:h-6 w-4 sm:w-6" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,7 +50,8 @@ dark: true
       </button>
       <div id="Player-wave" class="ml-2 sm:ml-4 h-24 w-full"></div>
       <div class="text-white pl-4 font-bold text-xs md:text-base">
-        <div class="">Playing</div>
+        <div x-show="!$store.player.isLoading">Playing</div>
+        <div x-show="$store.player.isLoading">Loading</div>
         <div class="whitespace-nowrap w-20 sm:w-auto truncate text-my-pink-light" x-data x-text="$store.player.title"></div>
       </div>
     </div>

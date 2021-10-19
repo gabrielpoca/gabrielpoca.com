@@ -6,13 +6,14 @@ document.addEventListener("alpine:init", () => {
   Alpine.store("player", {
     src: null,
     title: null,
+    isLoading: false,
     isPlaying: true,
     set(src, title) {
-      console.log(src, this.src);
       if (src === this.src) {
         wavesurfer.playPause();
       } else {
         onPlay(src);
+        this.isLoading = true;
         this.src = src;
         this.title = title;
       }
@@ -50,7 +51,10 @@ function setupWavesurfer() {
 
   wavesurfer.on("finish", () => {});
 
-  wavesurfer.on("ready", () => wavesurfer.play());
+  wavesurfer.on("ready", () => {
+    Alpine.store("player").isLoading = false;
+    wavesurfer.play();
+  });
 }
 
 //if (import.meta.hot) {
