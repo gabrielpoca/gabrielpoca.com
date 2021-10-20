@@ -28,7 +28,8 @@ config :still,
       "--watch",
       "-i",
       "global.css",
-      cd: "priv/site/assets"
+      cd: "priv/site/assets",
+      env: [{"NODE_ENV", if(Mix.env() == :prod, do: "production", else: "development")}]
     ]
   ],
   preprocessors: %{

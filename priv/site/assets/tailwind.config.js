@@ -1,5 +1,8 @@
 module.exports = {
-  purge: ["../*.slime", "../*.eex", "../**/*.slime", "../**/*.eex"],
+  purge:
+    process.env.NODE_ENV === "production"
+      ? ["../*.slime", "../*.eex", "../**/*.slime", "../**/*.eex"]
+      : [],
   darkMode: false,
   theme: {
     extend: {
