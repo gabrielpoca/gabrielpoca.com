@@ -4,7 +4,7 @@ title: Gabriel Poça
 seo_url: https://gabrielpoca.com
 ---
 
-doctype html
+/*doctype html*/
 html.min-h-full.h-full.w-full lang="en"
   - title_prefix = assigns[:title_prefix] || ""
   - title = title_prefix <> @title

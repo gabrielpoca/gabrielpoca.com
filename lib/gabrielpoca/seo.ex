@@ -62,7 +62,6 @@ defmodule GabrielPoca.Seo do
     "composite -geometry +100+100 #{tmp}/icon.png #{tmp}/bg.png #{file}"
     |> String.to_charlist()
     |> :os.cmd()
-    |> IO.inspect()
   end
 
   defp multiline_title(title) do
