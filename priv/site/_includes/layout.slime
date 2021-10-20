@@ -1,30 +1,33 @@
 ---
 seo_description: "Hi! I'm a professional software engineer / amateur music maker / avid reader in the process of learning everything I can. This is a place where I organize some information about what I'm doing."
-title: Hi! I'm Gabriel Poça
+title: Gabriel Poça
 seo_url: https://gabrielpoca.com
 ---
+
 doctype html
-html.min-h-full.h-full.w-full
+html.min-h-full.h-full.w-full lang="en"
+  - title_prefix = assigns[:title_prefix] || ""
+  - title = title_prefix <> @title
   head
-    title #{assigns[:title] || "Gabriel Poça"}
-    meta name="title" content="#{@title}"
+    title #{title}
+    meta name="title" content="#{title}"
     meta name="description" content="#{@seo_description}"
 
     meta property="og:type" content="website"
     meta property="og:url" content="#{@seo_url}"
-    meta property="og:title" content="#{@title}"
+    meta property="og:title" content="#{title}"
     meta property="og:description" content="#{@seo_description}"
     meta property="og:image" content="#{assigns[:seo_img]}"
 
     meta property="twitter:card" content="summary_large_image"
     meta property="twitter:url" content="#{@seo_url}"
-    meta property="twitter:title" content="#{@title}"
+    meta property="twitter:title" content="#{title}"
     meta property="twitter:description" content="#{@seo_description}"
     meta property="twitter:image" content="#{assigns[:seo_img]}"
 
     link rel="icon" type="image/png" href="#{assigns[:favicon] || url_for("icon.png")}"
 
-    meta charset="UTF-8"
+    meta http-equiv="Content-Type" content="text/html; charset=utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
 
     = link_to_css("global.css")

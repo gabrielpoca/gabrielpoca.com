@@ -1,6 +1,7 @@
 ---
 layout: _includes/layout.slime
 dark: true
+title_prefix: "Gabriel Poça | "
 ---
 .bg-black.text-my-white
   .text-center.relative.flex.items-center.justify-center.-mt-16 style="height:80vh"

@@ -1,5 +1,6 @@
 ---
 layout: _includes/layout.slime
+title_prefix: "Gabriel Poça | Book Review | "
 ---
 
 .bg-black.text-my-white.min-h-screen
@@ -10,9 +11,9 @@ layout: _includes/layout.slime
     h1.mb-1.text-2xl.font-bold.font-condensed class="sm:text-xl"
       = @title
 
-    = if @isbn != "" do
-      .text-sm.opacity-70.mb-4 
-        | isbn: #{@isbn}
+    = if assigns[:isbn] != "" do
+      .text-sm.opacity-70.mb-4
+        | isbn: #{assigns[:isbn]}
     - else
       .block.mb-4
 

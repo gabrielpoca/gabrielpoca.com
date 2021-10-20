@@ -2,6 +2,7 @@
 layout: _includes/layout.slime
 current: music
 dark: true
+title: "Gabriel Poça | Music"
 ---
 
 <div class="bg-black pb-32 sm:pb-0">

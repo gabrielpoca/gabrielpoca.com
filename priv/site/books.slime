@@ -2,6 +2,7 @@
 layout: _includes/layout.slime
 current: reading
 dark: true
+title: Gabriel Poça | Reading
 ---
 
 - alias GabrielPoca.Books
@@ -21,7 +22,7 @@ dark: true
             .flex.flex-col class="md:flex-row md:items-center"
               .text-sm.pr-2.flex-1 class="md:w-3/6"
                 = if book_has_content?(book) do
-                  = link @env, book[:metadata][:title], to: book[:output_file], class: "truncate block underline"                  
+                  = link @env, book[:metadata][:title], to: book[:output_file], class: "truncate block underline"
                 - else
                   .truncate
                     = book[:metadata][:title]
