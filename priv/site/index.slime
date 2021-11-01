@@ -26,9 +26,7 @@ dark: true
 
       ul
         = Enum.map sort_by_date(get_collections(@env, "post")), fn post ->
-          li.mb-4
+          li.pb-4
             = link @env, post[:metadata][:title], to: post[:output_file], class: "text-base text-my-purple sm:text-xl"
             .text-xs class="sm:text-sm"
               = post[:metadata][:date]
-
-  = include(@env, "_includes/footer.slime", dark: true)

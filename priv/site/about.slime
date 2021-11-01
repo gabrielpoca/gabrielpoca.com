@@ -24,5 +24,3 @@ title: "Gabriel Poça | About"
       p.mb-4
         | I've had (too) many personal projects, from  an <%= link @env, "offline-first journals", to: "https://github.com/gabrielpoca/plain_journal" %>, to a <%= link @env, "midi instrument", to: "https://github.com/gabrielpoca/keyboard-midi-playground" %>, a <%= link @env, "manga reader", to: "https://github.com/gabrielpoca/manga_reader" %> or <%= link @env, "colaborative online editor", to: "https://github.com/subvisual/better-writer" %>.
         |  Recently I've been focusing my energy on <%= link @env, "Notedown", to: "https://github.com/subvisual/notedown/" %> (my note-taking app that I use daily), <%= link @env, "Still", to: "https://github.com/still-ex/still/" %> (a static site generator that powers this website) and my custom hardware groovebox (more information to come!).
-
-  = include(@env, "_includes/footer.slime", dark: true)

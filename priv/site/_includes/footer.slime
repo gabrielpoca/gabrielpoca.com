@@ -1,7 +1,12 @@
-footer.mt-16.pb-7.flex.items-end.flex-col.text-xs.mr-4 class="sm:text-sm #{if @env[:dark], do: "text-my-white", else: "text-my-black"}"
-  nav.flex.items-end.flex-col
-    = link @env, "Twitter", to: "https://twitter.com/gabrielgpoca", class: "underline text-my-purple opacity-95"
-    = link @env, "Github", to: "https://github.com/gabrielpoca/", class: "underline text-my-purple opacity-95"
-  p.opacity-95
-    | #{link @env, "This website", to: "https://github.com/gabrielpoca/gabrielpoca.com", class: "underline text-my-purple"}
-    |  was built with #{link @env, "Still", to: "http://stillstatic.io/", class: "underline text-my-purple"}
+footer.py-20.items-end class="sm:text-sm #{if @env[:dark], do: "bg-black", else: ""}"
+  .bg-my-purple.mx-auto.px-4.py-10 class="md:p-8 md:rounded md:container"
+    .flex.flex-col class="sm:flex-row sm:flex-start"
+      .border-2.border-my-purple-darker.rounded-full.w-24.h-24.overflow-hidden.flex-shrink-0.mb-4 class="sm:mx-auto sm:mb-0"
+        = responsive_image("_includes/eu.jpg", class: "w-full h-full")
+      .flex-grow class="sm:ml-8"
+        p.font-bold.mb-1
+          | Hey! <br /> Thanks for stopping by.
+        p.flex-grow
+          | And feel free to reach out to me on #{link @env, "Twitter", to: "https://twitter.com/gabrielgpoca", class: "underline"} or <a class="underline" href="mailto:mail@gabrielpoca.com">e-mail</a>.<br />
+          | I'm always available to listen, talk, share, or brainstorm.
+        p.flex-grow For more information see the #{link @env, "about page", to: "/about", class: "underline"}.

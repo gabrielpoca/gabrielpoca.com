@@ -57,8 +57,6 @@ title: "Gabriel Poça | Music"
       </div>
     </div>
   </div>
-
-  <%= include(@env, "_includes/footer.slime", dark: true) %>
 </div>
 
 

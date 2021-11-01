@@ -40,7 +40,8 @@ html.min-h-full.h-full.w-full lang="en"
         = link @env, "Reading", to: "/books", class: if assigns[:current] != "reading", do: "opacity-60"
         = link @env, "Music", to: "/music", class: if assigns[:current] != "music", do: "opacity-60"
         = link @env, "About", to: "/about", class: if assigns[:current] != "about", do: "opacity-60"
-    =  @children
+    = @children
+    = include(@env, "_includes/footer.slime", dark: true)
     = if Mix.env() == :prod do
       <script data-goatcounter="https://gabrielpoca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <link href="https://github.com/gabrielpoca" rel="me" />
