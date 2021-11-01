@@ -23,7 +23,8 @@ defmodule GabrielPoca.MixProject do
 
   defp deps do
     [
-      {:still, github: "still-ex/still", ref: "master", override: true},
+      {:still,
+       github: "still-ex/still", ref: "4f7c617329ceadda015c75f5985def3303f0d159", override: true},
       {:jason, "~> 1.2"},
       {:timex, "~> 3.5"},
       {:csv, "~> 2.4"},

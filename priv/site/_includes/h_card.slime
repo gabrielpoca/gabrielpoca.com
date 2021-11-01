@@ -1,0 +1,4 @@
+span.h-card.hidden.p-author
+  a.p-name.u-url rel="author me" href="/" Gabriel Poça
+  a.u-photo href="#{url_for("icon.png")}"
+  span.p-note Professional software engineer / amateur music maker / avid reader in the process of learning everything I can.
