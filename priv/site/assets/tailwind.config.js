@@ -39,9 +39,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["IBMPlexSans", "system-ui"],
-        mono: ["IBMPlexMono", "monospace"],
-        condensed: ["IBMPlexSansCondensed", "system-ui"],
+        sans: ["FiraSansCondensed", "system-ui"],
+        mono: ["FiraMono", "monospace"],
       },
       typography: (theme) => ({
         music: {
@@ -61,12 +60,15 @@ module.exports = {
         lg: {
           css: {
             color: theme("colors.my-white"),
-            lineHeight: 1.3,
+            lineHeight: 1.4,
             fontSize: 20,
             a: {
-              color: theme("colors.my-purple"),
+              color: "inherit",
+              textDecorationThickness: "0.15rem",
+              textDecorationColor: theme("colors.my-purple"),
+              transition: ".25s ease-in-out",
               "&:hover": {
-                color: theme("colors.my-orange"),
+                color: theme("colors.my-purple"),
               },
             },
             h1: {
@@ -85,6 +87,12 @@ module.exports = {
               color: theme("colors.my-white"),
               fontWeight: "600",
             },
+            "h1, h2, h3, h4": {
+              marginTop: "3.6rem",
+            },
+            "h1, h2, h3, h4, p": {
+              marginBottom: "1.3rem",
+            },
             strong: {
               color: theme("colors.my-white"),
               fontWeight: "600",
@@ -96,14 +104,17 @@ module.exports = {
             code: {
               color: theme("colors.my-white"),
               fontWeight: "600",
+              backgroundColor: theme("colors.black.light"),
             },
             pre: {
               backgroundColor: theme("colors.black.light"),
               color: "inherit",
               lineHeight: 1.3,
+              marginLeft: `-${theme("spacing.3")}`,
+              marginRight: `-${theme("spacing.3")}`,
             },
             "pre code": {
-              fontFamily: "IBMPlexMono, monospace",
+              fontFamily: "FiraMono, monospace",
               backgroundColor: "transparent",
               borderWidth: "0",
               borderRadius: "0",
@@ -140,5 +151,31 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    function ({ addUtilities, theme } = opts) {
+      const extendUnderline = {
+        ".underline": {
+          textDecoration: "underline",
+          textDecorationThickness: "0.15rem",
+          textDecorationColor: theme("colors.my-purple"),
+          transition: ".25s ease-in-out",
+          "&:hover": {
+            color: theme("colors.my-purple"),
+          },
+        },
+        ".underline-current-color": {
+          textDecorationColor: "currentColor",
+        },
+        ".text-hover-none": {
+          "&:hover": {
+            textDecorationColor: "currentColor",
+            color: "currentColor",
+          },
+        },
+      };
+
+      addUtilities(extendUnderline);
+    },
+  ],
 };

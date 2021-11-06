@@ -19,7 +19,7 @@ nav.flex.justify-start.px-8.uppercase.tracking-wide.h-16.items-center.z-40.relat
   .w-full.max-w-lg.mx-auto.text-my-white.mx-auto.-mt-16.py-32.px-4 style="min-height:85vh"
     .flex.mb-8.items-center
       = include(@env, "projects/launchpad/icon.svg")
-      h1.ml-8.text-4xl.tracking-wide.font-bold.font-condensed.w-60.uppercase Launchpad 2nd Life
+      h1.ml-8.text-4xl.tracking-wide.font-bold.w-60.uppercase Launchpad 2nd Life
 
     = link @env, "Download for MacOS", to: url_for("projects/launchpad/launchpad.dmg"), class: "underline uppercase tracking-wide block mb-6"
 
@@ -38,42 +38,42 @@ nav.flex.justify-start.px-8.uppercase.tracking-wide.h-16.items-center.z-40.relat
     p.mb-8
       <iframe width="560" height="315" src="https://www.youtube.com/embed/72iUlB2g3XA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-    h2.text-xl.font-bold Modes
+    h2.text-3xl.font-bold Modes
 
-    h3.font-bold.mb-1.mt-6 Chromatic
+    h3.text-lg.font-bold.mb-1.mt-6 Chromatic
 
     p In chromatic mode, you play any note, and notes on the selected scale are highlighted.
 
-    h3.font-bold.mb-1.mt-6 Scale
+    h3.text-lg.font-bold.mb-1.mt-6 Scale
 
     p In scale mode, only notes in the scale are available.
 
-    h3.font-bold.mb-1.mt-6 Drums
+    h3.text-lg.font-bold.mb-1.mt-6 Drums
 
     p In drum mode, the notes are organized sequentially in two sections. This mode is useful for playing drums or samples.
 
-    h3.font-bold.mb-1.mt-6 Chords
+    h3.text-lg.font-bold.mb-1.mt-6 Chords
 
     p In this mode, each button of the grid is a chord. In each row we can find the same chord, changing the root note for on each column. The root notes are the notes of the selected scale. You can also move all the chords to different octaves, and you can also change the voicing of each chord.
 
-    h3.font-bold.mb-1.mt-6 Settings
+    h3.text-lg.font-bold.mb-1.mt-6 Settings
 
     p You can change the selected scale and root note. You can also select the MIDI output and channel where the app sends notes.
 
-    h2.text-xl.font-bold.mt-8.mb-4 FAQ
+    h2.text-3xl.font-bold.mt-8.mb-4 FAQ
 
-    h3.font-bold.mb-1 Can a get this on Windows or Linux?
+    h3.text-lg.font-bold.mb-1 Can a get this on Windows or Linux?
 
     p I don't use Windows or Linux, but if you're interested, consider supporting this project (you can send ETH to <code class="bg-gray-800 px-1 rounded">#{@address}</code>) and send me an <a class="underline" href="mailto:#{@email}">email</a> asking for the builds.
 
-    h3.font-bold.mb-1.mt-6 How can I suppport this project?
+    h3.text-lg.font-bold.mb-1.mt-6 How can I suppport this project?
 
     p You can send ETH to <code class="bg-gray-800 px-1 rounded">#{@address}</code>. If there's a feature you would like to see, send me an <a class="underline" href="mailto:#{@email}">email</a>.
 
-    h3.font-bold.mb-1.mt-6 Who are you?
+    h3.text-lg.font-bold.mb-1.mt-6 Who are you?
 
     p My name is Gabriel Poça. You can find more information about me on my #{link @env, "website", to: "https://gabrielpoca.com", class: "underline"}, #{link @env, "Twitter", to: "https://twitter.com/gabrielgpoca", class: "underline"} and #{link @env, "Github", to: "https://github.com/gabrielpoca", class: "underline"}.
 
-    h3.font-bold.mb-1.mt-6 Does it work with a Launchpad PLACEHOLDER?
+    h3.text-lg.font-bold.mb-1.mt-6 Does it work with a Launchpad PLACEHOLDER?
 
     p I don't know. I only have a Launchpad Mini, but I guess not.

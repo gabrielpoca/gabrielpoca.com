@@ -13,7 +13,7 @@ article.bg-black.text-my-white.h-entry
       .overlay.absolute.top-0.left-0.w-full.h-full.bg-black.z-10.opacity-70
       = responsive_image(cover_file, class: "absolute top-0 left-0 w-full h-full bg-indigo-50 z-0 object-cover object-center")
 
-  .mx-auto.py-8.px-4 class="md:container"
+  .mx-auto.py-8.px-6 class="sm:max-w-screen-sm"
     div.prose.max-w-none.prose-lg.e-content
       = @children
   = include(@env, "_includes/h_card.slime")

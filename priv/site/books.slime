@@ -17,20 +17,20 @@ title: Gabriel Poça | Reading
         | This is a list of most of the books I read since I started keeping track. Some of the dates are messed up because Goodreads.
 
       = Enum.map sort_by_date(get_collections(@env, "book")), fn book ->
-        .text-base.text-my-purple class="sm:text-xl"
-          .pb-6.relative.overflow-hidden
+        .text-base.border-b.border-gray-500
+          .py-3.relative.overflow-hidden
             .flex.flex-col class="md:flex-row md:items-center"
-              .text-sm.pr-2.flex-1 class="md:w-3/6"
+              .pr-2.flex-1 class="md:w-3/6"
                 = if book_has_content?(book) do
                   = link @env, book[:metadata][:title], to: book[:output_file], class: "truncate block underline"
                 - else
                   .truncate
                     = book[:metadata][:title]
-              .text-sm class="md:w-1/6"
+              div class="md:w-1/6"
                 .truncate
                   = book[:metadata][:author]
               .pr-2.mb-1.text-xs class="md:w-1/6 md:text-right"
-                time.italic.text-sm datetime="#{book[:metadata][:date]}"
+                time.italic datetime="#{book[:metadata][:date]}"
                   = book[:metadata][:date]
               div class="md:w-1/6"
                 - rating = book_rating(book)

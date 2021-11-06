@@ -1,32 +1,21 @@
 @font-face {
-  font-family: IBMPlexMono;
-  src: url(<%=url_for("/fonts/IBMPlexMono-Regular.ttf")%>);
+  font-family: FiraMono;
+  src: url(<%=url_for("/fonts/FiraMono-Regular.ttf")%>);
 }
 
 @font-face {
-  font-family: IBMPlexSans;
-  src: url(<%=url_for("/fonts/IBMPlexSansCondensed-Regular.ttf")%>);
+  font-family: FiraSansCondensed;
+  src: url(<%=url_for("/fonts/FiraSansCondensed-Regular.ttf")%>);
 }
 
 @font-face {
-  font-family: IBMPlexSansCondensed;
-  src: url(<%=url_for("/fonts/IBMPlexSans-Regular.ttf")%>);
-}
-
-@font-face {
-  font-family: IBMPlexSans;
+  font-family: FiraSansCondensed;
   font-style: italic;
-  src: url(<%=url_for("/fonts/IBMPlexSans-Italic.ttf")%>);
+  src: url(<%=url_for("/fonts/FiraSansCondensed-Italic.ttf")%>);
 }
 
 @font-face {
-  font-family: IBMPlexSans;
-  font-weight: 600;
-  src: url(<%=url_for("/fonts/IBMPlexSans-Bold.ttf")%>);
-}
-
-@font-face {
-  font-family: IBMPlexSansCondensed;
+  font-family: FiraSansCondensed;
   font-weight: bold;
-  src: url(<%=url_for("/fonts/IBMPlexSansCondensed-Bold.ttf")%>);
+  src: url(<%=url_for("/fonts/FiraSansCondensed-Bold.ttf")%>);
 }
