@@ -1,0 +1,18 @@
+---
+layout: _includes/layout.slime
+current: now
+title: "Gabriel Poça | Now"
+---
+
+.bg-black.min-h-full
+  .w-full.max-w-lg.mx-auto.text-my-white.mx-auto.-mt-16.pt-20.px-4 style="min-height:85vh"
+    h1.text-2xl.mb-6.tracking-wide.font-bold What I'm doing now
+
+    p.mb-4
+      | I spent the first part of the year (2021) at #{link @env, "Qonto", to: "https://qonto.com/en", class: "underline"},
+      |  building and launching their new secure customer authentication (SCA) mechanisms to follow the industry standards and comply with regulations.
+    p.mb-4
+      | I'm now at #{link @env, "Sandclock", to: "https://www.sandclock.org/", class: "underline"},
+      |  working in a platform to help users grow their wealth responibly.
+    p My side project right is a ringtone NFT that's generated on-chain. I'll have something to show at some point.
+
