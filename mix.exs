@@ -28,7 +28,8 @@ defmodule GabrielPoca.MixProject do
       {:jason, "~> 1.2"},
       {:timex, "~> 3.5"},
       {:csv, "~> 2.4"},
-      {:slugify, "~> 1.3"}
+      {:slugify, "~> 1.3"},
+      {:floki, "~> 0.32.0", override: true}
     ]
   end
 end

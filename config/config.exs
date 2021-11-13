@@ -46,6 +46,7 @@ config :still,
       Markdown,
       GabrielPoca.BlogPath,
       GabrielPoca.Seo,
+      GabrielPoca.Images,
       AddLayout,
       Save
     ]
