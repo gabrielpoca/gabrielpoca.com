@@ -11,6 +11,8 @@ alias Still.Preprocessor.{
   Image
 }
 
+config :still, Still.Preprocessor.Markdown, use_responsive_images: true
+
 config :still,
   domain: "http://localhost:3000",
   dev_layout: true,
@@ -46,7 +48,6 @@ config :still,
       Markdown,
       GabrielPoca.BlogPath,
       GabrielPoca.Seo,
-      GabrielPoca.Images,
       AddLayout,
       Save
     ]
