@@ -22,7 +22,7 @@ title: Gabriel Poça | Reading
             .flex.flex-col class="md:flex-row md:items-center"
               .pr-2.flex-1 class="md:w-3/6"
                 = if book_has_content?(book) do
-                  = link @env, book[:metadata][:title], to: book[:output_file], class: "truncate block underline"
+                  = link @env, book[:metadata][:title], to: book[:output_file], class: "truncate block text-my-purple"
                 - else
                   .truncate
                     = book[:metadata][:title]

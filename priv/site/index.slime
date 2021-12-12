@@ -21,12 +21,11 @@ dark: true
   .text-my-white.mx-auto.-mt-16.pt-28.px-4 class="md:container"
     div
       h2.uppercase.text-xl.mb-6.tracking-wide.font-bold class="sm:text-2xl"
-        | My blog
-        = link @env, "RSS", to: "rss.xml", class: "text-lg ml-4 underline font-bold"
+        | Blog
 
       ul
         = Enum.map sort_by_date(get_collections(@env, "post")), fn post ->
           li.pb-4
-            = link @env, post[:metadata][:title], to: post[:output_file], class: "text-base underline sm:text-xl"
+            = link @env, post[:metadata][:title], to: post[:output_file], class: "text-base text-my-purple sm:text-xl"
             .text-xs class="sm:text-sm"
               = post[:metadata][:date]

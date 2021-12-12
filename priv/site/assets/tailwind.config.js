@@ -159,7 +159,7 @@ module.exports = {
           textDecoration: "underline",
           textDecorationThickness: "0.15rem",
           textDecorationColor: theme("colors.my-purple"),
-          transition: ".25s ease-in-out",
+          transition: ".15s ease-in-out",
           "&:hover": {
             color: theme("colors.my-purple"),
           },

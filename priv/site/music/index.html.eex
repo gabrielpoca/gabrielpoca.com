@@ -11,8 +11,8 @@ title: "Gabriel Poça | Music"
       class="pt-20 -mt-16 font-mono text-xs text-my-white mx-auto md:container md:text-sm"
       x-data="{open: false, state: 'play'}">
       <div class="mb-8 pl-6 md:-ml-6">
-        <%= link @env, "RSS", to: "music/rss.xml", class: "underline" %>
-        <%= link @env, "Youtube", to: "https://www.youtube.com/channel/UCU6kRMDjfbSdP25r9xQBusA", class: "ml-4 underline" %>
+        <%= link @env, "RSS", to: "music/rss.xml", class: "text-my-purple tracking-wide font-bold uppercase" %>
+        <%= link @env, "Youtube", to: "https://www.youtube.com/channel/UCU6kRMDjfbSdP25r9xQBusA", class: "ml-4 text-my-purple tracking-wide font-bold uppercase" %>
       </div>
       <div class="relative">
         <div
