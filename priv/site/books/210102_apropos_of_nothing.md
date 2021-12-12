@@ -11,4 +11,4 @@ title: "Apropos of Nothing"
 has_review: true
 ---
 
-The writing was captivating, but there's so much name dropping that I can't follow the narrative. So I dropped it when I was in the middle of it and realized I still didn't know who did what.
+The writing was captivating, but there's so much name-dropping that I can't follow the narrative. So I dropped it when I was in the middle of it and realized I still didn't know who did what.

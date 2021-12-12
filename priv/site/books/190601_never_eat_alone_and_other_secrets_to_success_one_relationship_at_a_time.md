@@ -4,7 +4,7 @@ dark: true
 date: 2019-06-01
 isbn: "0385512058"
 layout: _includes/book_layout.slime
-rating: 0
+rating: 1
 tag:
   - book
 title: "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time"

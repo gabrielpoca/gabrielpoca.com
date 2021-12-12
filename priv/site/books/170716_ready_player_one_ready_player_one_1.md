@@ -11,4 +11,4 @@ title: "Ready Player One (Ready Player One, #1)"
 has_review: true
 ---
 
-This book is 5 stars. It got me hooked on the story. I kept turning pages. I was reading more than 3 hours in a row each time. The book appeals to nostalgia, like most of the superhero movies these days, but I don't see anything wrong with that, it's a great book. <br/><br/>PS: don't check out the cast for the movie, there's a huge spoiler there.
+This book is five stars. It got me hooked on the story. I kept turning pages. I was reading more than 3 hours in a row each time. Like most superhero movies these days, the book appeals to nostalgia, but I don't see anything wrong with that. It's a great book. <br/><br/>PS: don't check out the cast for the movie; there's a huge spoiler there.

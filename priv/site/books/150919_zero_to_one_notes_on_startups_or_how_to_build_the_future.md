@@ -11,4 +11,4 @@ title: "Zero to One: Notes on Startups, or How to Build the Future"
 has_review: true
 ---
 
-A great book. It has a sharp perspective on how businesses work, and how they shape the world. It's a must read to understand how startups are created.
+A great book. It has a sharp perspective on how businesses work and shape the world. It's a must-read to understand how startups are created.

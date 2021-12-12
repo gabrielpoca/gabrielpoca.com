@@ -11,4 +11,4 @@ title: "Never Split the Difference: Negotiating As If Your Life Depended On It"
 has_review: true
 ---
 
-Some of the insights in this book allowed me to better analyze my life and my interactions. I find myself remembering the advice and recommendations in it. I think I understand myself and others a little better.
+Some of the insights in this book allowed me to analyze my life and my interactions better. I find myself remembering the advice and recommendations in it. I think I understand myself and others a little better.

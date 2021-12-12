@@ -11,4 +11,4 @@ title: "The Design of Everyday Things"
 has_review: true
 ---
 
-an interesting reading for someone who knows little about user experience.
+A fascinating book for anyone who doesn't know much about user experience.

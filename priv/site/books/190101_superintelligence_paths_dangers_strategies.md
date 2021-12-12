@@ -1,7 +1,7 @@
 ---
 author: "Nick Bostrom"
 dark: true
-date: 
+date: 2019-01-01
 isbn: "0199678111"
 layout: _includes/book_layout.slime
 rating: 3
@@ -11,4 +11,4 @@ title: "Superintelligence: Paths, Dangers, Strategies"
 has_review: true
 ---
 
-I didn't finish it. It was very interesting until the middle of the book. Then it got boring so I didn't finish it. It still recommend the first half.
+I didn't finish it. It was exciting until the middle of the book. Then it got boring, so I didn't finish it. I still recommend the first half.

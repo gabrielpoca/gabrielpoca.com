@@ -11,4 +11,4 @@ title: "Três retratos : Salazar, Cunhal, Soares"
 has_review: true
 ---
 
-É um bom livro, cheio de detalhes interessantes e com um bom paralelismo entre os três. Infelizmente, as ideias do livro repetem-se em demasia. Há páginas inteiras onde nada se desenvolve. A certa altura até começa a parcer que estamos a ler uma coisa que já lemos.
+É um bom livro, e está cheio de detalhes interessantes. Infelizmente, as ideias do livro repetem-se. Há páginas inteiras onde nada se desenvolve. A certa altura, até começa a parecer que estamos a ler um parágrafo pela segunda vez mas nāo, é apenas uma repetiçāo.
