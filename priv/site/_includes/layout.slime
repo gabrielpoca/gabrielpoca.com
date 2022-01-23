@@ -35,14 +35,15 @@ html.min-h-full.h-full.w-full lang="en"
 
   body.overscroll-none.antialiased.font-sans.min-h-full.h-full.overflow-x-hidden.w-full
     = unless assigns[:hide_nav] do
-      nav.flex.justify-end.space-x-4.px-8.uppercase.tracking-wide.h-16.items-center.z-40.relative.text-xs.font-bold class="md:text-sm #{if @env[:dark], do: "text-my-purple", else: "text-my-purple"}"
+      nav.flex.justify-end.space-x-3.px-4.uppercase.tracking-wide.h-16.items-center.z-40.relative.text-xs.font-bold class="md:px-8 md:space-x-4 md:text-sm #{if @env[:dark], do: "text-my-purple", else: "text-my-purple"}"
         = link @env, "Home", to: "/", class: if assigns[:current] != "home", do: "opacity-60"
         = link @env, "Reading", to: "/books", class: if assigns[:current] != "reading", do: "opacity-60"
         = link @env, "Music", to: "/music", class: if assigns[:current] != "music", do: "opacity-60"
+        = link @env, "Sample Packs", to: "/samplepacks", class: if assigns[:current] != "samplepacks", do: "opacity-60"
         = link @env, "Now", to: "/now", class: if assigns[:current] != "now", do: "opacity-60"
         = link @env, "About", to: "/about", class: if assigns[:current] != "about", do: "opacity-60"
     = @children
-    = include(@env, "_includes/footer.slime", dark: true)
+    = include(@env, "_includes/footer.slime", dark: @env[:dark])
     = include(@env, "_includes/h_card.slime")
     = if Mix.env() == :prod do
       <script data-goatcounter="https://gabrielpoca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

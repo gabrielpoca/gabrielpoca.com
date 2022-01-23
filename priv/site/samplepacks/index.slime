@@ -1,0 +1,23 @@
+---
+layout: _includes/layout.slime
+current: samplepacks
+dark: false
+title: "Gabriel Poça | Sample Packs"
+---
+
+.relative.min-h-screen
+  .pt-8.px-4.mx-auto.text-xs class="md:container md:text-sm"
+    h1.mb-4.text-2xl.tracking-wide.font-bold Sample Packs
+
+    p.mb-1 All my sample packs are free.
+    p.mb-1 If you use any of them in your music, please let me hear it.
+    p.mb-12 Send me an email to #{link @env, "music@gabrielpoca.com", to: "mailto:music@gabrielpoca.com", class: "underline"}
+
+    article.w-64
+      img.w-64.mb-3 src="https://assets.gabrielpoca.com/file/gabrielpoca-site/samplepacks/2021 in Samples/cover.jpg"
+      h2.font-bold.mb-1 2021 in Samples
+      p.mb-1 A collection created by sampling the music I made in 2021.
+      p.mb-2 There are 33 samples with one track per instrument. Listen to the audio for a preview.
+      audio.mb-2 controls="true"
+        source src="https://assets.gabrielpoca.com/file/gabrielpoca-site/samplepacks/2021 in Samples/All.mp3" type="audio/mpeg"
+      a.underline.uppercase href="https://assets.gabrielpoca.com/file/gabrielpoca-site/samplepacks/2021 in Samples.zip" Download

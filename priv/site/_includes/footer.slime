@@ -1,4 +1,4 @@
-footer.py-20.items-end class="sm:text-sm #{if @env[:dark], do: "bg-black", else: ""}"
+footer.py-20.items-end.text-xs class="sm:text-sm #{if @env[:dark], do: "bg-black", else: ""}"
   .bg-my-purple.mx-auto.px-4.py-10 class="md:p-8 md:rounded md:container"
     .flex.flex-col class="sm:flex-row sm:flex-start"
       .border-2.border-my-purple-darker.rounded-full.w-24.h-24.overflow-hidden.flex-shrink-0.mb-4 class="sm:mx-auto sm:mb-0"
