@@ -17,9 +17,9 @@
           <description>
             <![CDATA[<%= include(@env, post[:input_file], %{layout: nil}) %>]]>
           </description>
+          <% url= String.replace(track["file"], "music/files", "https://assets.gabrielpoca.com/file/gabrielpoca-site/music") %>
           <enclosure
-            url="<%= url_for(track["file"]) %>"
-            length="<%= file_size(Still.Utils.get_input_path(track["file"])) %>"
+            url="<%= url %>"
             type="audio/mpeg" />
         </item>
       <% end %>

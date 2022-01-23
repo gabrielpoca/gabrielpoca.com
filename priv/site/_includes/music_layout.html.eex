@@ -1,6 +1,6 @@
 <ul class="sm:w-1/2 px-3">
   <%= Enum.map Map.get(assigns, :files, []), fn track -> %>
-    <% url =  url_for(track["file"]) %>
+    <% url =  String.replace(track["file"], "music/files", "https://assets.gabrielpoca.com/file/gabrielpoca-site/music") %>
     <% title = track["name"] %>
     <li x-data="{ url: `<%= url %>` }">
       <article class="py-2 text-white">
