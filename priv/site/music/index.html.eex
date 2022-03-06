@@ -13,6 +13,7 @@ title: "Gabriel Poça | Music"
       <div class="mb-8 pl-6 md:-ml-6">
         <%= link @env, "RSS", to: "music/rss.xml", class: "text-my-purple tracking-wide font-bold uppercase" %>
         <%= link @env, "Youtube", to: "https://www.youtube.com/channel/UCU6kRMDjfbSdP25r9xQBusA", class: "ml-4 text-my-purple tracking-wide font-bold uppercase" %>
+        <%= link @env, "Sample Packs", to: "/samplepacks", class: "ml-4 text-my-purple tracking-wide font-bold uppercase" %>
       </div>
       <div class="relative">
         <div

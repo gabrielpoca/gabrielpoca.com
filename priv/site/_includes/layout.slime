@@ -39,7 +39,6 @@ html.min-h-full.h-full.w-full lang="en"
         = link @env, "Home", to: "/", class: if assigns[:current] != "home", do: "opacity-60"
         = link @env, "Reading", to: "/books", class: if assigns[:current] != "reading", do: "opacity-60"
         = link @env, "Music", to: "/music", class: if assigns[:current] != "music", do: "opacity-60"
-        = link @env, "Sample Packs", to: "/samplepacks", class: if assigns[:current] != "samplepacks", do: "opacity-60"
         = link @env, "Now", to: "/now", class: if assigns[:current] != "now", do: "opacity-60"
         = link @env, "About", to: "/about", class: if assigns[:current] != "about", do: "opacity-60"
     = @children
