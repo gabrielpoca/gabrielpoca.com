@@ -30,8 +30,8 @@ html.min-h-full.h-full.w-full lang="en"
     meta http-equiv="Content-Type" content="text/html; charset=utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
 
-    = link_to_css("global.css")
-    = link_to_css("site.css")
+    = link_to_css(@env, "global.css")
+    = link_to_css(@env, "site.css")
 
   body.overscroll-none.antialiased.font-sans.min-h-full.h-full.overflow-x-hidden.w-full
     = unless assigns[:hide_nav] do

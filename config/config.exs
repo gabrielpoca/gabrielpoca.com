@@ -1,5 +1,7 @@
 import Config
 
+alias Still.Image
+
 alias Still.Preprocessor.{
   Frontmatter,
   EEx,
@@ -7,8 +9,7 @@ alias Still.Preprocessor.{
   OutputPath,
   AddLayout,
   Save,
-  AddContent,
-  Image
+  AddContent
 }
 
 config :still, Still.Preprocessor.Markdown, use_responsive_images: true
@@ -36,8 +37,8 @@ config :still,
   ],
   preprocessors: %{
     ".svg" => [AddContent],
-    ~r/\.jpe?g/ => [GabrielPoca.BlogPath, Image],
-    ".png" => [GabrielPoca.BlogPath, Image],
+    ~r/\.jpe?g/ => [GabrielPoca.BlogPath, Image.Preprocessor],
+    ".png" => [GabrielPoca.BlogPath, Image.Preprocessor],
     ".xml" => [AddContent, EEx, GabrielPoca.XMLPreprocessor, OutputPath, Save],
     ".html" => [AddContent, EEx, Frontmatter, OutputPath, AddLayout, Save],
     ".eex" => [AddContent, EEx, Frontmatter, OutputPath, AddLayout, Save],
