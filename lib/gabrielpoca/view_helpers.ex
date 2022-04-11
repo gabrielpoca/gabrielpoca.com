@@ -34,19 +34,20 @@ defmodule GabrielPoca.ViewHelpers do
     "sm:ml-#{space}"
   end
 
-  def book_rating(%{metadata: %{rating: rating}}) when is_binary(rating) do
-    Integer.parse(rating)
-  end
-
-  def book_rating(%{metadata: %{rating: rating}}) when is_nil(rating) do
-    nil
-  end
-
-  def book_rating(%{metadata: %{rating: rating}}) do
+  def book_rating(%{:"My Rating" => rating}) when is_binary(rating) do
+    {rating, _} = Integer.parse(rating)
     rating
   end
 
-  def book_has_content?(%{metadata: %{has_review: has_review}}) do
-    has_review
+  def book_rating(%{:"My Rating" => rating}) when is_nil(rating) do
+    nil
+  end
+
+  def book_rating(%{:"My Rating" => rating}) do
+    rating
+  end
+
+  def book_has_review?(%{:"My Review" => review}) do
+    review != ""
   end
 end

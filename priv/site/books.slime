@@ -5,8 +5,6 @@ dark: true
 title: Gabriel Poça | Reading
 ---
 
-- alias GabrielPoca.Books
-
 .bg-black.text-my-white
   .mx-auto class="md:container"
     .pt-20.-mt-16.px-4
@@ -16,22 +14,19 @@ title: Gabriel Poça | Reading
       p.mb-8.max-w-md
         | This is a list of most of the books I read since I started keeping track. Some of the dates are messed up because Goodreads.
 
-      = Enum.map sort_by_date(get_collections(@env, "book")), fn book ->
+      = Enum.map @goodreads, fn book ->
         .text-base.border-b.border-gray-500
           .py-3.relative.overflow-hidden
             .flex.flex-col class="md:flex-row md:items-center"
               .pr-2.flex-1 class="md:w-3/6"
-                = if book_has_content?(book) do
-                  = link @env, book[:metadata][:title], to: book[:output_file], class: "truncate block text-my-purple"
-                - else
-                  .truncate
-                    = book[:metadata][:title]
+                .truncate
+                  = book[:Title]
               div class="md:w-1/6"
                 .truncate
-                  = book[:metadata][:author]
+                  = book[:Author]
               .pr-2.mb-1.text-xs class="md:w-1/6 md:text-right"
-                time.italic datetime="#{book[:metadata][:date]}"
-                  = book[:metadata][:date]
+                time.italic datetime="#{book[:"Formatted Date Read"]}"
+                  = book[:"Formatted Date Read"]
               div class="md:w-1/6"
                 - rating = book_rating(book)
                 = if rating != 0 do
