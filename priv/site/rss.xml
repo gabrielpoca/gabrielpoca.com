@@ -5,6 +5,7 @@
     <description>Gabriel Poça's Blog</description>
     <link>https://gabrielpoca.com</link>
     <language>en-us</language>
+    <managingEditor>mail@gabrielpoca.com</managingEditor>
     <%= Enum.map sort_by_date(get_collections(@env, "post")), fn post -> %>
       <item>
         <title>
