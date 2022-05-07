@@ -17,15 +17,15 @@ html.min-h-full.h-full.w-full lang="en"
     meta property="og:url" content="#{@seo_url}"
     meta property="og:title" content="#{title}"
     meta property="og:description" content="#{@seo_description}"
-    meta property="og:image" content="#{assigns[:seo_img]}"
+    meta property="og:image" content="#{Application.get_env(:still, :domain)}#{url_for(assigns[:seo_img])}"
 
     meta property="twitter:card" content="summary_large_image"
     meta property="twitter:url" content="#{@seo_url}"
     meta property="twitter:title" content="#{title}"
     meta property="twitter:description" content="#{@seo_description}"
-    meta property="twitter:image" content="#{assigns[:seo_img]}"
+    meta property="twitter:image" content="#{Application.get_env(:still, :domain)}#{url_for(assigns[:seo_img])}"
 
-    link rel="icon" type="image/png" href="#{assigns[:favicon] || url_for("icon.png")}"
+    link rel="icon" type="image/png" href="#{url_for(assigns[:favicon] || "icon.png")}"
 
     meta http-equiv="Content-Type" content="text/html; charset=utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"

@@ -14,24 +14,27 @@ title: Gabriel Poça | Reading
       p.mb-8.max-w-md
         | This is a list of most of the books I read since I started keeping track. Some of the dates are messed up because Goodreads.
 
-      = Enum.map @goodreads, fn book ->
-        .text-base.border-b.border-gray-500
-          .py-3.relative.overflow-hidden
-            .flex.flex-col class="md:flex-row md:items-center"
-              .pr-2.flex-1 class="md:w-3/6"
-                .truncate
-                  = book[:Title]
-              div class="md:w-1/6"
-                .truncate
-                  = book[:Author]
-              .pr-2.mb-1.text-xs class="md:w-1/6 md:text-right"
-                time.italic datetime="#{book[:"Formatted Date Read"]}"
-                  = book[:"Formatted Date Read"]
-              div class="md:w-1/6"
-                - rating = book_rating(book)
-                = if rating != 0 do
-                  .flex
-                    = for _ <- 1..(rating) do
-                      <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7.5 0L9.18386 5.18237H14.6329L10.2245 8.38525L11.9084 13.5676L7.5 10.3647L3.09161 13.5676L4.77547 8.38525L0.367076 5.18237H5.81614L7.5 0Z" fill="#FFE3CF"/>
-                      </svg>
+      .flex.flex-wrap
+        = Enum.with_index(Data.global().goodreads) |> Enum.map fn {book, index} ->
+          .text-sm.leading-snug.w-40.pr-6.mb-6
+            .relative.overflow-hidden
+              .flex.flex-col
+                img src="#{book_cover(book)}" class="w-min h-min mb-1" style="max-width: 90%;max-height: 200px;"
+                .leading-4 = book["Title"]
+                .truncate.text-xs.italic class="mb-2.5 mt-0.5"
+                  | by&nbsp;
+                  = book["Author"]
+                div class="mb-0.5"
+                  - rating = book_rating(book)
+                  = if rating != 0 do
+                    .flex
+                      = for _ <- 1..(rating) do
+                        <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7.5 0L9.18386 5.18237H14.6329L10.2245 8.38525L11.9084 13.5676L7.5 10.3647L3.09161 13.5676L4.77547 8.38525L0.367076 5.18237H5.81614L7.5 0Z" fill="#FFE3CF"/>
+                        </svg>
+                = if book["My Review"] != "" do
+                  = link @env, to: "/books/reviews/#{index + 1}", class: "underline" do
+                    .text-xs.underline class="mb-0.5" Review
+                .text-xs
+                  time.italic datetime="#{book["Formatted Date Read"]}"
+                    = book["Formatted Date Read"]

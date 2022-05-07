@@ -2,10 +2,10 @@
 hide_nav: true
 layout: _includes/layout.slime
 title: "Launchpad 2nd Life"
-favicon: "<%= url_for("projects/launchpad/icon.png") %>"
+favicon: "projects/launchpad/icon.png"
 address: "0xF180611CFd4841690275fE4F56840116dB7ECeDE"
 email: "mail@gabrielpoca.com"
-seo_img: "<%= Application.get_env(:still, :domain) %><%= url_for("projects/launchpad/seo.jpeg") %>"
+seo_img: "projects/launchpad/seo.jpeg"
 seo_description: "Turn a Launchpad Mini into a powerful instrument on any DAW or synth"
 seo_url: https://gabrielpoca.com/projects/launchpad/
 ---
