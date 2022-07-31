@@ -2,6 +2,7 @@ backend:
   name: github
   repo: gabrielpoca/gabrielpoca.com
   base_url: https://auth.gabrielpoca.com
+  auth_scope: public_repo
 
 media_folder: ''
 public_folder: ''
