@@ -3,20 +3,20 @@ layout: _includes/layout.slime
 current: reading
 dark: true
 title: Gabriel Poça | Reading
-permalink: "books/reviews/<%= hd(pagination.items) + 1 %>.html"
+permalink: "books/reviews/<%= hd(pagination.items) %>.html"
 pagination:
-  data: Still.Data.global().goodreads |> Enum.with_index |> Enum.filter(fn {%{"My Review" => review}, _} -> review != "" end) |> Enum.map(fn {_, index} -> index end)
+  data: GabrielPoca.ViewHelpers.Book.all_with_reviews() |> Enum.map(&GabrielPoca.ViewHelpers.Book.id/1)
   size: 1
 ---
 
-- index = hd(@pagination.items)
-- book = Enum.at(Data.global().goodreads, index)
+- alias GabrielPoca.ViewHelpers.Book
+- id = hd(@pagination.items)
+- book = Book.all() |> Enum.find(& Book.id(&1) == id)
 
 .bg-black.text-my-white.min-h-screen
   .mx-auto class="sm:max-w-screen-md"
     .pt-20.-mt-16.px-4
       h1.text-lg.mt-4.mb-4.font-bold class="sm:text-3xl"
-        .inline "#{book["Title"]}" <br />
-        .italic.inline.text-base by #{book["Author"]}
-      
-      .prose.prose-lg = book["My Review"]
+        .inline "#{book["title"]}" <br />
+        .italic.inline.text-base by #{book["author"]}
+      .prose.prose-lg = book["review"]

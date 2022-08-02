@@ -33,43 +33,4 @@ defmodule GabrielPoca.ViewHelpers do
 
     "sm:ml-#{space}"
   end
-
-  def book_cover(book) do
-    cond do
-      book["ISBN"] != "\"\"" ->
-        isbn = Jason.decode!(book["ISBN"])
-        "https://covers.openlibrary.org/b/isbn/#{isbn}-M.jpg"
-
-      book["ISBN13"] != "=\"\"" ->
-        isbn =
-          book["ISBN13"]
-          |> String.replace_prefix("=", "")
-          |> Jason.decode!()
-
-        "https://covers.openlibrary.org/b/isbn/#{isbn}-M.jpg"
-
-      book["Book Id"] != "" ->
-        "https://covers.openlibrary.org/b/goodreads/#{book["Book Id"]}-M.jpg"
-
-      true ->
-        nil
-    end
-  end
-
-  def book_rating(%{"My Rating" => rating}) when is_binary(rating) do
-    {rating, _} = Integer.parse(rating)
-    rating
-  end
-
-  def book_rating(%{"My Rating" => rating}) when is_nil(rating) do
-    nil
-  end
-
-  def book_rating(%{"My Rating" => rating}) do
-    rating
-  end
-
-  def book_has_review?(%{"My Review" => review}) do
-    review != ""
-  end
 end

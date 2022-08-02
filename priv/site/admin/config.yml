@@ -41,35 +41,37 @@ collections:
         name: 'body'
         widget: 'markdown'
 
-  - name: 'books'
-    label: 'Book Review'
-    folder: 'priv/site/books'
+  - name: 'book_reviews'
+    label: 'Book Reviews'
+    extension: yml
+    folder: 'priv/site/_data/book_reviews'
+    media_folder: '../../_includes/book_covers'
+    public_folder: '_includes/book_covers'    
     create: true
     slug: '{{year}}{{month}}{{day}}_{{title}}'
     editor:
       preview: false
     fields:
-      - name: 'layout'
-        widget: 'hidden'
-        default: "_includes/book_layout.slime"
-      - name: 'dark'
-        widget: 'hidden'
-        default: true
-      - name: 'tag'
-        widget: 'hidden'
-        default: ["book"]
+      - label: 'ISBN'
+        name: 'isbn'
+        widget: 'string'
+        required: false
+      - label: 'ISBN13'
+        name: 'isbn13'
+        widget: 'string'
+        required: false
+      - label: 'Goodreads ID'
+        name: 'goodreads'
+        widget: 'string'
+        required: false  
       - label: 'Title'
         name: 'title'
         widget: 'string'
       - label: 'Author'
         name: 'author'
         widget: 'string'
-      - label: 'ISBN'
-        name: 'isbn'
-        widget: 'string'
-        required: false
-      - label: 'Date'
-        name: 'date'
+      - label: 'Date Read'
+        name: 'dateRead'
         widget: 'date'
         format: 'YYYY-MM-DD'
       - label: 'Rating'
@@ -77,11 +79,11 @@ collections:
         widget: 'number'
         min: 1
         max: 5
-      - label: 'Has Review?'
-        name: 'has_review'
-        widget: 'boolean'
-        default: false
-      - label: 'Body'
-        name: 'body'
+      - label: 'Review'
+        name: 'review'
         widget: 'markdown'
         required: false
+      - label: 'Cover'
+        name: 'cover'
+        widget: 'image'
+        allow_multiple: false

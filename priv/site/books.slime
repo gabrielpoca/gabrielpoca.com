@@ -5,6 +5,8 @@ dark: true
 title: Gabriel Poça | Reading
 ---
 
+- alias GabrielPoca.ViewHelpers.Book
+
 .bg-black.text-my-white
   .mx-auto class="md:container"
     .pt-20.-mt-16.px-4
@@ -15,26 +17,29 @@ title: Gabriel Poça | Reading
         | This is a list of most of the books I read since I started keeping track. Some of the dates are messed up because Goodreads.
 
       .flex.flex-wrap
-        = Enum.with_index(Data.global().goodreads) |> Enum.map fn {book, index} ->
+        = Book.all() |> Enum.map fn book ->
           .text-sm.leading-snug.w-40.pr-6.mb-6
             .relative.overflow-hidden
               .flex.flex-col
-                img src="#{book_cover(book)}" class="w-min h-min mb-1" style="max-width: 90%;max-height: 200px;"
-                .leading-4 = book["Title"]
+                = if Book.has_cover?(book) do
+                  = responsive_image(Book.cover(book), class: "w-min h-min mb-1", style: "max-width: 90%;max-height: 200px;")
+                - else
+                  .mb-1 style="min-height:200px;"
+                .leading-4 = book["title"]
                 .truncate.text-xs.italic class="mb-2.5 mt-0.5"
                   | by&nbsp;
-                  = book["Author"]
+                  = book["author"]
                 div class="mb-0.5"
-                  - rating = book_rating(book)
+                  - rating = Book.rating(book)
                   = if rating != 0 do
                     .flex
                       = for _ <- 1..(rating) do
                         <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M7.5 0L9.18386 5.18237H14.6329L10.2245 8.38525L11.9084 13.5676L7.5 10.3647L3.09161 13.5676L4.77547 8.38525L0.367076 5.18237H5.81614L7.5 0Z" fill="#FFE3CF"/>
                         </svg>
-                = if book["My Review"] != "" do
-                  = link @env, to: "/books/reviews/#{index + 1}", class: "underline" do
+                = if Book.has_review?(book) do
+                  = link @env, to: "/books/reviews/#{Book.id(book)}", class: "underline" do
                     .text-xs.underline class="mb-0.5" Review
                 .text-xs
-                  time.italic datetime="#{book["Formatted Date Read"]}"
-                    = book["Formatted Date Read"]
+                  time.italic datetime="#{book["dateRead"]}"
+                    = book["dateRead"]
