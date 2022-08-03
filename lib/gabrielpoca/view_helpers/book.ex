@@ -48,6 +48,8 @@ defmodule GabrielPoca.ViewHelpers.Book do
     review != "" && review != nil
   end
 
+  def has_review?(_), do: false
+
   def has_cover?(nil), do: false
 
   def has_cover?(%{"cover" => cover}) when not is_nil(cover), do: true
