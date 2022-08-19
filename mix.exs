@@ -23,7 +23,7 @@ defmodule GabrielPoca.MixProject do
 
   defp deps do
     [
-      {:still, github: "still-ex/still", ref: "master", override: true},
+      {:still, github: "still-ex/still", ref: "gp-perf-pagination", override: true},
       # {:still, path: "../still", override: true},
       # {:still, "~> 0.7"},
       {:jason, "~> 1.2"},

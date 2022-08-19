@@ -12,9 +12,11 @@ defmodule GabrielPoca.ViewHelpers.Book do
     all() |> Enum.filter(&has_review?/1)
   end
 
-  def id(%{"isbn" => isbn, "isbn13" => isbn13, "goodreads" => goodreads}) do
-    isbn13 || isbn || goodreads
-  end
+  def id(%{"isbn13" => isbn13}), do: isbn13
+
+  def id(%{"isbn" => isbn}), do: isbn
+
+  def id(%{"goodreads" => goodreads}), do: goodreads
 
   def id(_), do: nil
 
