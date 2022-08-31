@@ -1,4 +1,11 @@
-#!/bin/zsh
+#!/bin/bash -e -x
+
+mix local.hex --force
+mix local.rebar --force
+
+mix deps.get
+
+(cd priv/site/assets && npm install)
 
 (cd priv/site/assets && NODE_ENV=production npx tailwindcss -o ../global.css -i global.css --minify)
 
