@@ -45,8 +45,8 @@ collections:
     label: 'Book Reviews'
     extension: yml
     folder: 'priv/site/_data/book_reviews'
-    media_folder: '../../_includes/book_covers'
-    public_folder: '_includes/book_covers'    
+    media_folder: '../../_includes/book_cover'
+    public_folder: '_includes/book_cover'    
     create: true
     slug: '{{year}}{{month}}{{day}}_{{title}}'
     editor:
