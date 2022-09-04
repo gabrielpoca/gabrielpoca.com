@@ -19,13 +19,13 @@ jobs:
 
     steps:
       - run: 'git config --global url."https://github.com/".insteadOf git@github.com:'
-
       - run: 'git config --global url."https://".insteadOf git://'
 
       - uses: actions/checkout@v2
-        with:
-          submodules: true
-          lfs: 'true'
+
+      - run: |
+          git config user.email "you@example.com"
+          git config user.name "Your Name"
 
       - name: Install git-annnex
         run: |
@@ -37,8 +37,6 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
           # git-annex init
           # git annex enableremote
           git annex enableremote backblaze
