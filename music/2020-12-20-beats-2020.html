@@ -1,0 +1,159 @@
+<ul class="sm:w-1/2 px-3">
+  
+    
+    
+    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200808 Waking up.mp3` }">
+      <article class="py-2 text-white">
+        <div
+          x-cloak
+          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
+          x-show="$store.player.src === url">
+          <p>In the summer of 2020 I’ve acquired an MC707 and since then I’ve been in love with making music again. I’ve learned so much, and there’s so much more to learn. These are a few “beats” I made during the rest of the year. They were made with the MC707 and recorded into a DAW where I made some final touches.</p>
+        </div>
+        <audio
+          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200808 Waking up.mp3"
+          x-effect="if (url !== $store.player.src) $refs[url].pause()"
+          x-hide
+          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200808 Waking up.mp3"></audio>
+
+        <button
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          @click="$store.player.set($refs[url], url, `Waking Up`)">
+
+          <div class="flex flex-start w-full items-center">
+            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
+              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
+              </svg>
+              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
+                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
+                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
+              </svg>
+            </div>
+            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
+              <span class="truncate">Waking Up</span>
+              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2020-12-20</span>
+            </div>
+          </div>
+        </button>
+      </article>
+    </li>
+  
+    
+    
+    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200828 Return home.mp3` }">
+      <article class="py-2 text-white">
+        <div
+          x-cloak
+          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
+          x-show="$store.player.src === url">
+          <p>In the summer of 2020 I’ve acquired an MC707 and since then I’ve been in love with making music again. I’ve learned so much, and there’s so much more to learn. These are a few “beats” I made during the rest of the year. They were made with the MC707 and recorded into a DAW where I made some final touches.</p>
+        </div>
+        <audio
+          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200828 Return home.mp3"
+          x-effect="if (url !== $store.player.src) $refs[url].pause()"
+          x-hide
+          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200828 Return home.mp3"></audio>
+
+        <button
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          @click="$store.player.set($refs[url], url, `Return home`)">
+
+          <div class="flex flex-start w-full items-center">
+            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
+              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
+              </svg>
+              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
+                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
+                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
+              </svg>
+            </div>
+            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
+              <span class="truncate">Return home</span>
+              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2020-12-20</span>
+            </div>
+          </div>
+        </button>
+      </article>
+    </li>
+  
+    
+    
+    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201024 Haunted house.mp3` }">
+      <article class="py-2 text-white">
+        <div
+          x-cloak
+          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
+          x-show="$store.player.src === url">
+          <p>In the summer of 2020 I’ve acquired an MC707 and since then I’ve been in love with making music again. I’ve learned so much, and there’s so much more to learn. These are a few “beats” I made during the rest of the year. They were made with the MC707 and recorded into a DAW where I made some final touches.</p>
+        </div>
+        <audio
+          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201024 Haunted house.mp3"
+          x-effect="if (url !== $store.player.src) $refs[url].pause()"
+          x-hide
+          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201024 Haunted house.mp3"></audio>
+
+        <button
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          @click="$store.player.set($refs[url], url, `Haunted house`)">
+
+          <div class="flex flex-start w-full items-center">
+            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
+              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
+              </svg>
+              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
+                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
+                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
+              </svg>
+            </div>
+            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
+              <span class="truncate">Haunted house</span>
+              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2020-12-20</span>
+            </div>
+          </div>
+        </button>
+      </article>
+    </li>
+  
+    
+    
+    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201207 Growl.mp3` }">
+      <article class="py-2 text-white">
+        <div
+          x-cloak
+          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
+          x-show="$store.player.src === url">
+          <p>In the summer of 2020 I’ve acquired an MC707 and since then I’ve been in love with making music again. I’ve learned so much, and there’s so much more to learn. These are a few “beats” I made during the rest of the year. They were made with the MC707 and recorded into a DAW where I made some final touches.</p>
+        </div>
+        <audio
+          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201207 Growl.mp3"
+          x-effect="if (url !== $store.player.src) $refs[url].pause()"
+          x-hide
+          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201207 Growl.mp3"></audio>
+
+        <button
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          @click="$store.player.set($refs[url], url, `Growl`)">
+
+          <div class="flex flex-start w-full items-center">
+            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
+              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
+              </svg>
+              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
+                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
+                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
+              </svg>
+            </div>
+            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
+              <span class="truncate">Growl</span>
+              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2020-12-20</span>
+            </div>
+          </div>
+        </button>
+      </article>
+    </li>
+  
+</ul>

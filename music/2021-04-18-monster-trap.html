@@ -1,0 +1,42 @@
+<ul class="sm:w-1/2 px-3">
+  
+    
+    
+    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210402 Monster Trap.mp3` }">
+      <article class="py-2 text-white">
+        <div
+          x-cloak
+          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
+          x-show="$store.player.src === url">
+          <p>I’m proud of this instrumental. I’m not sure if someone would sing on it, but I enjoy listening to it. I did everything on the MC707, and there was no editing, mixing, or anything on a computer, which is precisely how I want to approach this hobby.</p><p>I started by creating a few progressions and melodies with the sounds you can hear in the instrumental. I then resampled those pieces without the drums and the bass and made a few more progressions and melodies. I repeated the cycle, and in the end, I had 4 sections that I felt went well together. Besides the internal sounds from MC707, I recorded an ambulance a couple of months ago.</p>
+        </div>
+        <audio
+          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210402 Monster Trap.mp3"
+          x-effect="if (url !== $store.player.src) $refs[url].pause()"
+          x-hide
+          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210402 Monster Trap.mp3"></audio>
+
+        <button
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          @click="$store.player.set($refs[url], url, `Monster Trap`)">
+
+          <div class="flex flex-start w-full items-center">
+            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
+              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
+              </svg>
+              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
+                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
+                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
+              </svg>
+            </div>
+            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
+              <span class="truncate">Monster Trap</span>
+              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2021-04-18</span>
+            </div>
+          </div>
+        </button>
+      </article>
+    </li>
+  
+</ul>

@@ -1,0 +1,121 @@
+<html class="min-h-full h-full w-full" lang="en"><head><title>Gabriel Poça | A bridge between Redux and Meteor</title><meta content="Gabriel Poça | A bridge between Redux and Meteor" name="title"><meta content="A bridge between Redux and Meteor" name="description"><meta content="website" property="og:type"><meta content="https://gabrielpoca.com/2016-04-28-a-bridge-between-redux-and-meteor/index.html" property="og:url"><meta content="Gabriel Poça | A bridge between Redux and Meteor" property="og:title"><meta content="A bridge between Redux and Meteor" property="og:description"><meta content="https://gabrielpoca.com/https://gabrielpoca.com/2016-04-28-a-bridge-between-redux-and-meteor/seo.png" property="og:image"><meta content="summary_large_image" property="twitter:card"><meta content="https://gabrielpoca.com/2016-04-28-a-bridge-between-redux-and-meteor/index.html" property="twitter:url"><meta content="Gabriel Poça | A bridge between Redux and Meteor" property="twitter:title"><meta content="A bridge between Redux and Meteor" property="twitter:description"><meta content="https://gabrielpoca.com/https://gabrielpoca.com/2016-04-28-a-bridge-between-redux-and-meteor/seo.png" property="twitter:image"><link href="/icon.png" rel="icon" type="image/png"><meta content="text/html; charset=utf-8" http-equiv="Content-Type"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link rel="stylesheet"  href="/global-LSjaseDdhYQReak1qfVEbw==.css" />
+<link rel="stylesheet"  href="/site--Z1K36JV3z4XqzIgy-g8zw==.css" />
+</head><body class="overscroll-none antialiased font-sans min-h-full h-full overflow-x-hidden w-full"><nav class="flex justify-end space-x-3 px-4 uppercase tracking-wide h-16 items-center z-40 relative text-xs font-bold md:px-8 md:space-x-4 md:text-sm text-my-purple"><a href="/" class="opacity-60">Home</a><a href="/books" class="opacity-60">Reading</a><a href="/music" class="opacity-60">Music</a><a href="/now" class="opacity-60">Now</a><a href="/about" class="opacity-60">About</a></nav><article class="bg-black text-my-white h-entry"><div class="text-center relative flex items-center justify-center -mt-16" style="height:80vh"><h1 class="p-name mb-8 text-4xl z-20 relative mx-auto px-8 sm:text-5xl sm:px-16">A bridge between Redux and Meteor</h1></div><div class="mx-auto py-8 px-6 sm:max-w-screen-sm"><div class="prose max-w-none prose-lg e-content"><p>The purpose of this article is to demonstrate how to use Redux on a Meteor application. You may find it is unnecessarily complex for your application, and that is ok, there are <a href="https://www.discovermeteor.com/blog/data-loading-react/" title="">other options</a> for you.</p><p>Redux is hot and shiny, and everyone wants to use it. I do enjoy using Redux, but the reasons for this approach go beyond the JavaScript fever:</p><ol><li> The front-end is always a jungle, but being able to write applications using the same technologies and structure across projects with different back-ends (such as Meteor, Rails or Express) allows us to setup faster. Or join a project faster. It also lets us write more guides and conventions, reducing the amount of decisions necessary for every project.</li><li> Collections, Session, and ReactiveVar, aren’t great to handle application state. You lose track of what triggered what. With Redux you get predictable state, you can look at the state at different times and see the actions that set off a change.</li></ol><p>Now, with NPM and modules support on 1.3, the doors are open for an easy integration. In this tutorial I will cover four topics:</p><ol><li> Installing React and Redux.</li><li> Connecting Collections to the Redux store.</li><li> Subscribing to publications.</li><li> Calling methods.</li></ol><p><strong>Note:</strong> I will assume you have a basic understanding of Meteor, React, and Redux (or any Flux implementation). The code I show here is not enough to make an application work, you should <a href="https://github.com/gabrielpoca/meteor-redux-demo/tree/7f71ae2dbba1c72ff5b93c2d8d10fdb646e6010c" title="">go here for a working example</a>.</p><h2>Installing React and Redux</h2><p>If you have ever gone through the hell of setting up Webpack, I have some good news for you:</p><pre><code>$ meteor create messages-app
+$ cd messages-app
+$ meteor remove autopublish insecure
+$ npm install --save react react-dom react-redux react-router redux redux-thunk
+$ rm client/* server/*</code></pre><p>For a router, <code class="inline">react-router</code> serves my purpose better than <code class="inline">flow-router</code>. You should also notice <code class="inline">redux-thunk</code> to allow for asynchronous action creators.</p><p>Ready to go!</p><h2>Connecting Collections to the Redux store</h2><p>Coming from Flux you will find that on Redux the Store is a little different. Here is a quick explanation from the <a href="http://redux.js.org/docs/api/Store.html" title="">Redux documentation</a>:</p><blockquote><p>If you’re coming from Flux, there is a single important difference you need to understand. Redux doesn’t have a Dispatcher or support many stores. Instead, there is just a single store with a single root reducing function. As your app grows, instead of adding stores, you split the root reducer into smaller reducers independently operating on the different parts of the state tree.</p></blockquote><p>The Store is the application state, and we should look at it as the only source of data we can use. This means we cannot access data from the Meteor collections directly and it has to come from the Store. To do this, we can observe the collections and dispatch changes to the Store.</p><p>Start by creating a collection:</p><p><em>lib/messages.js</em></p><pre><code class="javascript">// create a collection
+import { Mongo } from &quot;meteor/mongo&quot;;
+const Messages = new Mongo.Collection(&quot;messages&quot;);
+export default Messages;</code></pre><p>Then, on the client, observe for changes and dispatch an action to the Store with the new data.</p><p><em>client/setup.js</em></p><pre><code class="javascript">import React, { Component } from &quot;react&quot;;
+import { createStore, combineReducers } from &quot;redux&quot;;
+import { render } from &quot;react-dom&quot;;
+import { Tracker } from &quot;meteor/tracker&quot;;
+
+// import the messages collection
+import Messages from &quot;../lib/messages&quot;;
+
+const messagesReducer = (state = [], action) =&gt; {
+  switch (action.type) {
+    case &quot;SET_MESSAGES&quot;:
+      return action.messages;
+    default:
+      return state;
+  }
+};
+
+const reducers = combineReducers({ messages: messagesReducer });
+const store = createStore(reducers, {});
+
+// will run every time Messages changes
+Tracker.autorun(() =&gt; {
+  store.dispatch({
+    type: &quot;SET_MESSAGES&quot;,
+    messages: Messages.find().fetch(),
+  });
+});</code></pre><p>The Store will update with the Messages collection. This way our data will always be up to date on React.</p><p>We could optimize, but I will keep it simple in this tutorial. We could also automate this setup for every collection, but I’ll leave that for later.</p><h2>Subscribing to publications</h2><p>Working with an HTTP back-end, we would create a set of special components called <em>containers</em>. They have three responsibilities:</p><ol><li> Calling actions to load data from the back-end.</li><li> Connecting to the store.</li><li> Sending the data to the child components.</li></ol><p>We did not invent this concept. Many people <a href="https://medium.com/@learnreact/container-components-c0e67432e005#.wtehcfws1" title="">wrote about it</a>. The important thing to remember is that these components should not be rendering anything. Their only responsibility is to fetch data and send it to the component that will render stuff.</p><p>Our data already goes from the collections to the store, but after you remove <code class="inline">insecure</code> there will not be anything in the collections. We need a publication and a subscription.</p><p>Here is a quick publication for Messages:</p><p><em>server/publications.js</em></p><pre><code class="javascript">import { Meteor } from &quot;meteor/meteor&quot;;
+import Messages from &quot;../lib/messages&quot;;
+Meteor.publish(&quot;messages&quot;, function () {
+  return Messages.find({});
+});</code></pre><p>Subscriptions are tricky because we need to unsubscribe once the data is not necessary anymore. Which translates to: we need to unsubscribe when the container is removed. I wrote a high order component that abstracts this logic. The following is a simplified version, you can <a href="https://github.com/gabrielpoca/meteor-redux-demo/blob/7f71ae2dbba1c72ff5b93c2d8d10fdb646e6010c/client/helpers/SubscribeComponent.jsx" title="">go here for a robust solution</a>.</p><p><em>client/helpers/SubscribeComponent.jsx</em></p><pre><code class="javascript">import { Meteor } from &quot;meteor/meteor&quot;;
+import React, { Component } from &quot;react&quot;;
+
+export default (ComposedComponent) =&gt;
+  class extends Component {
+    constructor() {
+      super();
+      this.subs = {};
+    }
+
+    subscribe(name, ...args) {
+      if (this.subs[name]) this.subs[name].stop();
+
+      this.subs[name] = Meteor.subscribe(name, ...args);
+    }
+
+    componentWillUnmount() {
+      Object.keys(this.subs).map((key) =&gt; this.subs[key].stop());
+    }
+
+    render() {
+      return (
+        &lt;ComposedComponent
+          {...this.props}
+          subscribe={this.subscribe.bind(this)}
+          subscriptionReady={this.subscriptionReady.bind(this)}
+        /&gt;
+      );
+    }
+  };</code></pre><p>Using this high order component we can write a container that subscribes to the messages:</p><p><em>client/containers/App.jsx</em></p><pre><code class="javascript">import SubscribeComponent from &#39;../helpers/SubscribeComponent&#39;;
+import MessagesList from &#39;../components/MessagesList&#39;;
+
+class App extends Component {
+  componentWillMount() {
+    this.props.subscribe(&#39;messages&#39;);
+  }
+
+  render() {
+    return &lt;MessagesList {…this.props} /&gt;;
+  }
+}
+
+const mapStateToProps = state =&gt; {
+  return { messages: state.messages };
+};
+
+export default connect(mapStateToProps)(SubscribeComponent(App))</code></pre><p>I’m assuming there is a component called <code class="inline">MessagesList</code> that renders the list of messages. This component will always receive an up to date list of messages. The only thing missing would be to connect the Store and this container to the router. This can be accomplished by adding the following code.</p><p><em>client/setup.js</em></p><pre><code class="javascript">import { render } from &quot;react-dom&quot;;
+import { Provider } from &quot;react-redux&quot;;
+import { Router, Route, browserHistory } from &quot;react-router&quot;;
+
+import createStore from &quot;./store/createStore&quot;;
+import App from &quot;./containers/App&quot;;
+
+Meteor.startup(() =&gt; {
+  render(
+    &lt;Provider store={createStore()}&gt;
+      &lt;Router history={browserHistory}&gt;
+        &lt;Route path=&quot;/&quot; component={App} /&gt;
+      &lt;/Router&gt;
+    &lt;/Provider&gt;,
+    document.getElementById(&quot;app&quot;)
+  );
+});</code></pre><p>Please keep in mind that this is not a complete tutorial, the code will not work as there are some missing parts. <a href="https://github.com/gabrielpoca/meteor-redux-demo/tree/7f71ae2dbba1c72ff5b93c2d8d10fdb646e6010c" title="">Go here for a working example</a>.</p><h2>Calling methods</h2><p>I have already mentioned actions in the previous sections, but to establish a common understanding here is the definition from the Redux <a href="http://redux.js.org/docs/basics/Actions.html" title="">documentation</a>:</p><blockquote><p>Actions are payloads of information that send data from your application to your store. They are the only source of information for the store. (…) Actions are plain JavaScript objects. Actions must have a type property that indicates the type of action being performed. Types should typically be defined as string constants.</p></blockquote><p>We are already dispatching the list of messages using the type <code class="inline">&#39;SET_MESSAGES&#39;</code>.</p><p>Now another concept, Action Creators, also from the documentation:</p><blockquote><p>Action creators are exactly that—functions that create actions.</p></blockquote><p>You will use actions and action creators for everything: loading the messages from the back-end; creating a message; anything related user interactions.</p><p>On Meteor we usually do not make HTTP requests, we call methods. And if the method changes any collection you will see the Store update automatically.</p><p>Sometimes you may be interested in the return value from a method, or you may be dealing with data that only exists on the client. In those scenarios, you still want to dispatch that data to the store.</p><p>The following is a Meteor method that creates messages:</p><p><em>server/methods.js</em></p><pre><code class="javascript">import { Meteor } from &quot;meteor/meteor&quot;;
+import Messages from &quot;../lib/messages&quot;;
+
+Meteor.methods({
+  createMessage: function (message) {
+    Messages.insert({ text: message });
+  },
+});</code></pre><p>And our action creator that calls the method:</p><p><em>client/actions.js</em></p><pre><code class="javascript">export default createMessage = (message) =&gt; {
+  (dispatch) =&gt; Meteor.call(&quot;createMessage&quot;, message);
+};</code></pre><p>And the same action creator, but, this time, we are interested in the return value.</p><p><em>client/actions.js</em></p><pre><code class="javascript">export default createMessage = message =&gt; {
+  return dispatch =&gt; {
+    Meteor.call(&#39;createMessage&#39;, message, err =&gt; {
+      if (err)
+        dispatch({
+          type: ‘CREATE_MESSAGE_ERROR’,
+          err,
+        });
+    });
+  };
+}</code></pre><h2>Final Thoughts</h2><p>This approach is still under test, and I have more ideas to share on it, but I will leave them for a next article. I understand that this setup will nor work for everyone nor every application. For me, it provides a sense of structure and control that I could never find before with Blaze.</p><p>You should look at the <a href="https://github.com/gabrielpoca/meteor-redux-demo/tree/7f71ae2dbba1c72ff5b93c2d8d10fdb646e6010c" title="">working example</a>. Feel free to ask questions and leave your feedback, and for more <a href="https://subvisual.co/newsletter/" title="">subscribe to our newsletter</a>.</p></div></div><span class="h-card hidden p-author"><a class="p-name u-url" href="/" rel="author me">Gabriel Poça</a><a class="u-photo" href="/icon.png"></a><span class="p-note">Professional software engineer / amateur music maker / avid reader in the process of learning everything I can.</span></span><div class="hidden"><a class="u-url" href="/2016-04-28-a-bridge-between-redux-and-meteor/index.html">A bridge between Redux and Meteor</a><time class="dt-published" datetime="2016-04-28T00:00:00-00:00">2016-04-28</time></div></article><footer class="py-20 items-end text-xs sm:text-sm bg-black"><div class="bg-my-purple mx-auto px-4 py-10 md:p-8 md:rounded md:container"><div class="flex flex-col sm:flex-row sm:flex-start"><div class="border-2 border-my-purple-darker rounded-full w-24 h-24 overflow-hidden flex-shrink-0 mb-4 sm:mx-auto sm:mb-0"><img src="/_includes/eu-41840077-400w.jpg" srcset="/_includes/eu-41840077-100w.jpg 100w, /_includes/eu-41840077-200w.jpg 200w, /_includes/eu-41840077-300w.jpg 300w, /_includes/eu-41840077-400w.jpg 400w" class="w-full h-full"/></div><div class="flex-grow sm:ml-8"><p class="font-bold mb-1">Hey! <br /> Thanks for stopping by.</p><p class="flex-grow">And feel free to reach out to me on <a href="https://twitter.com/gabrielgpoca" rel="noopener noreferrer" target="_blank" class="underline underline-current-color text-hover-none">Twitter</a> or <a class="underline underline-current-color text-hover-none" href="mailto:mail@gabrielpoca.com">e-mail</a>.<br />I'm always available to listen, talk, share, or brainstorm.</p><p class="flex-grow">For more information see the <a href="/about" class="underline underline-current-color text-hover-none">about page</a>.</p><p class="flex-grow">You can subscribe to this blog using <a href="/rss.xml" class="underline underline-current-color text-hover-none">RSS</a>.</p></div></div></div></footer><span class="h-card hidden p-author"><a class="p-name u-url" href="/" rel="author me">Gabriel Poça</a><a class="u-photo" href="/icon.png"></a><span class="p-note">Professional software engineer / amateur music maker / avid reader in the process of learning everything I can.</span></span><script data-goatcounter="https://gabrielpoca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><link href="https://github.com/gabrielpoca" rel="me" /><link rel="webmention" href="https://webmention.io/gabrielpoca.com/webmention" /><link rel="pingback" href="https://webmention.io/gabrielpoca.com/xmlrpc" /></body></html>

@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Gabriel Poça</title>
+    <description>Gabriel Poça's Blog</description>
+    <link>https://gabrielpoca.com</link>
+    <language>en-us</language>
+    <managingEditor>mail@gabrielpoca.com</managingEditor>
+    
+      <item>
+        <title>
+          <![CDATA[Building Utrust And Advice On How To Scale A Product Team]]>
+        </title>
+        <link>/2022-02-25-building-utrust/</link>
+        <guid isPermaLink="false">/2022-02-25-building-utrust/</guid>
+        <pubDate>Fri, 25 Feb 2022 00:00:00 GMT</pubDate>
+        <description>
+          <![CDATA[<p>My coworker <a href="https://subvisual.com/blog/posts/large-scale-in-a-rush-utrust-ico">Miguel wrote about Utrust’s ICO</a> from the point of view of the tech team, and that got me thinking that we did some of our finest work at <a href="https://utrust.com/" title="">Utrust</a>. It’s one of the highlights of my career, and I would love to keep those memories and learnings around for the future. This is my attempt to distill some of the key learning points from the product and technology side that I think can be interesting to others. If there’s anything else you would like to know, feel free to <a href="https://twitter.com/gabrielgpoca">reach out to me on Twitter</a>.</p><p><strong>What is Utrust?</strong></p><p>Quick introduction: Utrust is an online payment gateway using cryptocurrencies. It’s available in many online stores and marketplaces. It started from an ICO, and it’s going full throttle. The main goal of  Utrust is to allow merchants to seamlessly accept crypto payments while buyers can be fully exposed to their ecosystem of choice and be protected by a trusted middleman.</p><p><strong>My role</strong></p><p>I always find it hard to describe my role because, in a small team, we tend to wear many hats. I’m a developer at the core, but my contributions usually go beyond that: hiring, team building, community, product management, devops, etc. But as we hired more people for Utrust, I focused more on our blockchain integrations and infrastructure.</p><h2>Using New and Old Technology</h2><p>Utrust’s backend was (primarily) written on Elixir, which was very new at the time. Some of us at <a href="https://subvisual.com/" title="">Subvisual</a> were already familiar with it, and we bet that Elixir would be the best decision for Utrust (Miguel also wrote about this). I’m not sure it was the best decision, but I can say that it was a good one.</p><p>At the time, we had been comfortably building with Ruby for many years, and it would have been the safe choice. But Elixir didn’t slow us down (quite the opposite), and using it made us happy. Because of that, we could do a better job and hire more talented developers (more on that later). We try to stick to proven technologies, but it’s also essential that we try new things.</p><p>Node.js also found its way into Utrust: back in 2017, most client libraries for blockchain projects were written in JavaScript. To use anything else meant trusting a third party or trusting ourselves to write that code. We couldn’t afford it, so we wrote a small Node.js RPC server in TypeScript to generate blockchain addresses and sign transactions. We had to write some of the typings ourselves because TypeScript wasn’t as popular back then. It was a simple solution that I don’t remember giving us any headaches. It was deployed as a separate service in a private network.</p><p>The point of all of this is: use <em>simple</em>, documented, and battle-tested technology. But don’t forget that there may be better ways to do things, and you should take small, controlled risks to learn and improve.</p><h2>Throwing money at problems</h2><p>Throwing money at problems is one of our core principles, and we should have it written down on a t-shirt. Throwing money at problems is not about wasting money; it’s about buying services instead of hiring (and managing) people. It’s cheaper to purchase services than to deploy and manage them ourselves. Your time is likely more valuable than the service you are trying not to pay for. We buy many services: AWS, Datadog, Sentry, Github, CircleCI, etc. This principle is fundamental for the way we work. Hiring and managing a team is much much more expensive than buying services.</p><p>Now, there’s a point where your company is so big that it’s cheaper to hire a team to deploy and manage some services, but it will take you a while to get there.</p><h2>Owning your system</h2><p>The underlying systems of Utrust are a wallet to receive money and a block explorer to verify transactions. The wallet generates addresses for payments and signs transactions to move the funds. The block explorer goes through the transactions in the chains and their mempools, looking for information relevant to the product.</p><p>For those interactions, we need to call blockchain nodes. You may be guessing that we paid some service(s) for those, and we did, but we also deployed our own. We forced ourselves to maintain a layer of abstraction to switch between our blockchain nodes and the services we use. It is a tricky job, and the nodes were the source of many headaches, but it helped us sleep at night, knowing that if a service goes down or something happens where they drop us, we could still operate by changing to our nodes.</p><p>Reading back on this section, it seems to go against the previous one of <strong>throwing money at problems</strong>, but the key takeaway is that you should <strong>own the most critical pieces of your system</strong>. If you can, have a layer of abstraction that allows you to change services. This isn’t always possible, and there’s a balance to be found, but keep that in mind because you don’t want to be in the hands of services. Their goals are usually not aligned with yours, and they will fail you. I’ve seen it happen many times.</p><h2>Always be deploying</h2><p>Every team is different, and what works for some may not work for others. I’m not saying that others don’t have anything to teach you, but I also have to point out that you shouldn’t trust everything others say. I’ve seen enough companies promote practices that don’t even work for them.</p><p>If you’re curious about what has always worked for me: create small teams, review progress frequently, make sure everyone is accountable. Let teams manage themselves. Don’t run sprints. Software development is not sprinting. We need enough time to have meaningful outputs. Don’t force people into busy works: estimations, shirt-sizing, etc. Break up your goals into deliverable working packages that can be built in a couple of months. Always be deploying.</p><p>If you need something more structured, start with <a href="https://basecamp.com/shapeup">Shape Up</a> and adjust to your needs.</p><h2>Attracting talent</h2><p>I’ve found that some people apply to our job openings because they’ve heard good things about Subvisual. How so? We organize the best conferences <a href="https://2016.rubyconf.pt/">1</a> <a href="https://www.alchemy.com/">2</a> <a href="https://mirrorconf.com/">3</a> and meetups <a href="https://www.meetup.com/bragajs/">1</a> <a href="https://www.meetup.com/braga-blockchain/">2</a>. We make a huge effort to ensure everyone has an awesome experience, and that matters.</p><p>On top of that, we also have partnerships inside the university; we speak at events; we have a summer camp program; an apprenticeship program; and many other moments where we interact with people and make a good impression. We also deliver the best work we can, and our clients help spread the word.</p><p>Besides our community, we had two other things in our favor: Elixir and Blockchain. The technologies you use are a marketing tool whether you like it or not. Those two allowed us to attract experienced developers in many countries. There weren’t a lot of Blockchain and Elixir jobs at the time, so our pipeline was full of talent. The downside is that we couldn’t hire experienced developers in Portugal, but we had decided that the tech team would be remote from the start.</p><h2>Building a team</h2><p>Attracting talent is step one, but the hiring process may be where you lose more people. Answer quickly and provide an excellent experience to applicants. Take controlled risks when hiring and make sure the people you hire align with you and will feel accomplished working with you. Don’t skip important steps in the process because a bad hire is more expensive than a missed opportunity.</p><p>I could go on about this subject forever, so here’s a quick set of ideas to improve how your team works: company retreats are the best thing ever, and you can see a before and after for the team. Try to run two a year. Conferences are also a good opportunity for team members to hang out and build relationships. Try renting an office for a couple of days before and/or after the conference. Encourage people to share and create moments just for that: our Friday Talks have been the stage for many. We even had a talk about bagpipe with a performance in the end. Encouraging people to share will make them feel welcomed and help them get to know each other. Something weird that I found worked great for us was having people taking turns answering/reporting/giving feedback on calls. Instead of asking if anyone has any feedback or anything to say, ask each person the question and wait for the answer. Do this every time, and you’ll be surprised: your developers may start convincing their friends to join them.</p><h2>Knowing when to leave</h2><p>Subvisual started to phase out from Utrust in 2019. I was one of the last ones to leave at the beginning of 2020. Miguel stayed for a couple more months. We could have stayed there longer, but, as consultants/partners/investors, our job was done: we built a team that could function without us. Now, two years after we left, <a href="https://www.coindesk.com/business/2022/01/11/elrond-foundation-acquires-crypto-payments-firm-utrust/" title="">Utrust has been acquired by Elrond</a> and I (and everyone at Subvisual) couldn’t be prouder of the team at Utrust.</p><p>I have to thank everyone I worked with at Utrust for some of the best years in my career.</p>]]>
+        </description>
+      </item>
+    
+      <item>
+        <title>
+          <![CDATA[Adding Netlify CMS to a website built with Still outside of Netlify]]>
+        </title>
+        <link>/2021-10-28-adding-netlify-cms-to-a-website-built-with-still-outside-of-netlify/</link>
+        <guid isPermaLink="false">/2021-10-28-adding-netlify-cms-to-a-website-built-with-still-outside-of-netlify/</guid>
+        <pubDate>Thu, 28 Oct 2021 00:00:00 GMT</pubDate>
+        <description>
+          <![CDATA[<p>A couple of days ago I added <a href="https://www.netlifycms.org/">Netlify CMS</a> to <a href="https://subvisual.com/blog/">Subvisual’s blog</a>. Our blog posts are written in markdown and published through git, so non-developers were always limited by the availability of developers to publish and make updates. With Netlify CMS, we can still use git and markdown, but at the same time have a web interface with a rich editor to get posts online.</p><p>I found the experience of using Netlify CMS so good that I had to get it on <a href="https://gabrielpoca.com">my blog</a>. But, while Subvisual’s blog is built with Gatsby and deployed to Netlify, mine is built with <a href="https://stillstatic.io">Still</a> and deployed to Github Pages, so getting it up and running is not as straightforward.</p><h2>Setup</h2><p><em>If you don’t have a website built with Still, check out the <a href="https://hexdocs.pm/still/getting_started.html">getting started</a> page.</em></p><p>From the <a href="https://www.netlifycms.org/docs/add-to-your-site/">docs</a>, we know that the first step is to put an HTML file somewhere to serve as the entrypoint for Netlify CMS. I’ve added mine to <code class="inline">priv/site/admin/index.html</code> and pasted the contents from the docs:</p><pre><code class="html">&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+  &lt;title&gt;Content Manager&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Include the script that builds the page and powers Netlify CMS --&gt;
+  &lt;script src=&quot;https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>By default, Still doesn’t know what to do with this file, so we’ll update <code class="inline">config/config.exs</code> and add the <code class="inline">admin</code> folder to the <code class="inline">pass_through_copy</code>, which will copy the folder over to the generated website.</p><pre><code class="elixir">config :still,
+  pass_through_copy:  [&quot;admin&quot;]</code></pre><p>Netlify CMS will be available in <code class="inline">http://localhost:3000/admin</code>, but we still have to configure it.</p><h2>Configuration</h2><p>Create a <code class="inline">config.yml</code> next to the <code class="inline">index.html</code>. This file will already be copied over to the generated website because of the config we wrote previously. I’m only going to address some parts of the config, but you can see the whole <a href="https://github.com/gabrielpoca/gabrielpoca.com/blob/master/priv/site/admin/config.yml">config on Github</a>.</p><p>The first part is to configure the backend:</p><pre><code class="yml">backend:
+  name: github
+  repo: gabrielpoca/gabrielpoca.com
+  base_url: https://auth.gabrielpoca.com</code></pre><p>The interesting part is the <code class="inline">base_url</code>, which points to a service I deployed. If I was using Netlify this would not be necessary. But I’ll address that later.</p><p>Next, I defined two collections: blog posts and book reviews. They are pretty similar, but the blog posts collection creates a folder per blog post. The trick is accomplished with the <code class="inline">path</code> option. The relevant sections:</p><pre><code class="yml">media_folder: &#39;&#39;
+public_folder: &#39;&#39;
+
+collections:
+  - name: &#39;post&#39;
+    label: &#39;Post&#39;
+    folder: &#39;priv/site/blog&#39;
+    create: true
+    slug: &#39;index&#39;
+    media_folder: &#39;&#39;
+    public_folder: &#39;&#39;
+    path: &#39;{{year}}-{{month}}-{{day}}-{{title}}/{{slug}}&#39;
+    fields:
+      - name: &#39;layout&#39;
+        widget: &#39;hidden&#39;
+        default: &quot;_includes/post_layout.slime&quot;
+      - name: &#39;tag&#39;
+        widget: &#39;hidden&#39;
+        default: [&quot;post&quot;]
+      - label: &#39;Cover&#39;
+        name: &#39;cover&#39;
+        widget: &#39;image&#39;
+        allow_multiple: false
+        required: false
+      - label: &#39;Title&#39;
+        name: &#39;title&#39;
+        widget: &#39;string&#39;
+      - label: &#39;Publish Date&#39;
+        name: &#39;date&#39;
+        widget: &#39;date&#39;
+        format: &#39;YYYY-MM-DD&#39;
+      - label: &#39;Body&#39;
+        name: &#39;body&#39;
+        widget: &#39;markdown&#39;</code></pre><p>Notice the <code class="inline">hidden</code> fields. Those will be included in generated frontmatter and I’ve set the mandatory options for each collection. Any image I upload will be placed next to the <code class="inline">index.md</code> file, inside each post’s folder This allows me to easily reference them from markdown with a relative path.</p><h2>Authentication</h2><p>For Subvisual’s website, I’ve used Netlify’s Identity service, which allows people without a Github account to contribute to our blog. This removes developers from the process and makes publishing available to everyone on the team.</p><p>For my website, I only want to authenticate using Github, but it’s not that simple because Github requires a <a href="https://github.com/netlify/netlify-cms/issues/663#issuecomment-335023723">server for authentication</a>. I can’t use the one provided by Netlify so I found <a href="https://github.com/vencax/netlify-cms-github-oauth-provider">netlify-cms-github-oauth-provider</a> which reverse-engineered the implementation of Netlify’s server, which means we don’t have to write a custom backend for Netlify CMS.</p><p>I won’t go into details on how I deploy and manage my services, but I think these environment variables are relevant:</p><pre><code>REDIRECT_URL=https://auth.gabrielpoca.com/callback
+SCOPES=public_repo</code></pre><p>The <code class="inline">REDIRECT_URL</code> has to point to the auth server and the <code class="inline">SCOPES</code> is limited to <code class="inline">public_repo</code> because I didn’t feel comfortable having an Oauth App with full access to every repo. The <code class="inline">public_repo</code> scope makes it safer.</p><p>I guess anyone can use my server but I honestly don’t recommend it.</p>]]>
+        </description>
+      </item>
+    
+      <item>
+        <title>
+          <![CDATA[Still building static websites in Elixir]]>
+        </title>
+        <link>/2021-04-27-announcing-still/</link>
+        <guid isPermaLink="false">/2021-04-27-announcing-still/</guid>
+        <pubDate>Tue, 27 Apr 2021 00:00:00 GMT</pubDate>
+        <description>
+          <![CDATA[<p>You know the saying: <em>You don’t get to 500 million users without making a few static sites</em>.</p><p><img alt="You don&#39;t get to 500 million users without making a few static sites" src="/2021-04-27-announcing-still/millions-21440013-1160w.jpeg" srcset="/2021-04-27-announcing-still/millions-21440013-290w.jpeg 290w, /2021-04-27-announcing-still/millions-21440013-580w.jpeg 580w, /2021-04-27-announcing-still/millions-21440013-870w.jpeg 870w, /2021-04-27-announcing-still/millions-21440013-1160w.jpeg 1160w" /></p><p>I enjoy building a website every once in a while, and I’ve been doing it since we designed websites in Photoshop, sliced them, and imported the slices to Dreamweaver. Things have come a long way, and now it’s easier than ever to make websites with drag-and-drop tools, a simple editor, or custom-made scripts.</p><p>There are many “modern” and “professional” tools to get you up to speed in no time. I think that it’s awesome that we can scaffold a project in a couple of seconds, write a React component, and there we have it, a static website super optimized for the modern “professional” world. But do we need all of that? Would it be possible to achieve the same thing without having to buy into a massive ecosystem of packages that keep breaking and making upgrades almost impossible? Should we be buying into those technologies just because that’s what everyone does?</p><p>Websites don’t have to be this complicated, and the browser already does a lot. We need simpler tools that don’t compromise on the developer experience and pack enough features to build a “modern” website. Other tools fit the description, but Elixir would do a much better job than everything else, as you’ll see in a bit.</p><h2>Modern development environment</h2><p>Tools like <a href="https://www.gatsbyjs.com/" title="">Gatsby</a> and <a href="https://nextjs.org/" title="">Next.js</a> changed the game for static websites. I remember going from Jekyll to Middleman and from the latter to Gatsby. Damn, Gatsby was fast at the time. The <a href="https://github.com/rails/sprockets" title="">asset pipeline</a> served us well, but it was time to say goodbye. It suddenly became easy to handle images, and extracting and inlining the above-the-fold CSS came by default.</p><p>Gatsby was great, but it soon became clear that our goals were not aligned. They still aren’t. Gatsby is huge. Upgrades were hard; documentation was sparse; and newer features increased its complexity but didn’t do us any favor. The abstractions were great until they stopped working, then you’re on your own, digging through all the layers.</p><p>If we were to build a “modern” and “professional” static site builder, what would we need? What would you expect? I know many people would say React, but do we really need a library that’s almost a new language, alongside its own runtime to write HTML? Let’s simplify, stay focused, and on track. <em>What do we actually need?</em></p><ul><li>A development server that automatically compiles the website and refreshes the browser on change.</li><li>An error overlay on the browser to show what’s failing and where.</li><li>Support for all kinds of assets.</li><li>A way to generate responsive images from a source image.</li><li>A templating engine.</li><li>A mechanism to add metadata to the pages of our website so that we can change the browser’s page title, or group pages together.</li><li>A straightforward way to extend it.</li></ul><h2>Why Elixir</h2><p>Why Elixir, you ask? Because we love Elixir. That’s it. There’s no other reason. We can also say that if there was a Elixir static site builder, we might not have built this one.</p><p>Elixir works well with other languages. One of my favorite packages to use is <a href="https://github.com/revelrylabs/elixir-nodejs" title="">elixir-nodejs</a>, which allows me to use NPM packages. Behind the scenes, it uses <a href="https://hexdocs.pm/elixir/Port.html" title="">Port</a> to talk with a pool of NodeJS processes. <a href="https://github.com/route/mogrify" title="">Mogrify</a> is also a nice wrapper for ImageMagick’s command line. You can also interact with C through NIFs to use something like <a href="https://github.com/scottdavis/sass.ex" title="">SASS</a>. Maybe you want to write your NIFs in Rust? <a href="https://github.com/rusterlium/rustler" title="">Rustler</a> has you covered. You can do these things in other languages, but when you bring OTP into the mix, your Elixir app becomes an operating system, managing other processes. That’s hard to beat.</p><p>We built <a href="https://stillstatic.io/" title="">Still</a>. You can write your templates in HTML, Slime, Markdown, or any other templating language you chose to add. You can embed Elixir everywhere: in your HTML, CSS, JS, Markdown, etc. You can just drop a module in the <em>lib</em> and call it from anywhere. Yeah, that simple. We built a processing pipeline that handles different types of content, and it’s easy to extend: just an Elixir module with one function. Do you <a href="https://stillstatic.io/" title="">still</a> want to use packages from NPM on the browser? There’s an <a href="https://github.com/still-ex/still_snowpack" title="">integration with Snowpack</a>. Do you want to see some websites built with still?</p><ul><li><p><a href="http://gabrielpoca.com/">http://gabrielpoca.com/</a> and its <a href="https://github.com/gabrielpoca/gabrielpoca.com/tree/master/priv/site">source code</a>.</p></li><li><p><a href="http://stillstatic.io/">http://stillstatic.io/</a> and its <a href="https://github.com/still-ex/still/tree/master/priv/site">source code</a>.</p></li><li><p><a href="https://alchemyconf.com/">https://alchemyconf.com/</a> and its <a href="https://github.com/subvisual/alchemyconf.com/tree/master/priv/site">source code</a>.</p></li></ul><p>Still doesn’t handle SCSS out of the box, but do you want it? Add the dependency:</p><pre><code class="elixir">defp deps do
+  [
+    {:sass, git: &quot;https://github.com/scottdavis/sass.ex&quot;, submodules: true},
+    {:still, git: &quot;https://github.com/still-ex/still&quot;}
+  ]
+end</code></pre><p>Add a preprocessor:</p><pre><code class="elixir">defmodule YourSite.SassPreprocessor do
+  use Still.Preprocessor
+
+  @impl true
+  def render(%{content: content} = file) do
+    {:ok, content} = Sass.compile(content)
+    %{file | extension: &quot;.css&quot;, content: content}
+  end
+end</code></pre><p>And you’re done. You can write SASS now. Do you also want to make some API requests during build time? Maybe fetch the number of stars from Github’s API?</p><pre><code class="elixir">defmodule YourSite.Github do
+  def stars do
+    {:ok, {_, _, body}} =
+      :httpc.request(
+        :get,
+        {&quot;https://api.github.com/repos/still-ex/still&quot;,
+         [{&#39;Accept&#39;, &#39;application/vnd.github.v3+json&#39;}]},
+        [],
+        []
+      )
+
+    body
+    |&gt; Jason.decode!()
+    |&gt; Map.get(&quot;stargazers_count&quot;)
+  end
+end</code></pre><p>Done, now just call this function from literally anywhere on your website:</p><pre><code>= link @env, to: &quot;https://github.com/still-ex/still&quot;, class: &quot;quote&quot; do
+  .small -- #{YourSite.stars} stargazers on GitHub</code></pre><p>Everything you need to get started is in there! If I caught your attention, you can find more information on the <a href="https://stillstatic.io/" title="">website</a>, the <a href="https://hexdocs.pm/still/getting_started.html" title="">docs</a> and on <a href="https://github.com/still-ex/still" title="">Github</a>. If you have questions, open an issue, or send me a message on <a href="https://twitter.com/gabrielgpoca" title="">Twitter</a>.</p><h2>So much left to do</h2><p><strong>Still</strong> is just starting, but you can already do a lot with it. We are focused on making it extendable while ensuring that it includes everything necessary to build great websites out of the box. If you want to be an open-source contributor, <a href="https://github.com/still-ex/still" title="">Still is also a great way to start</a>.</p><p><strong>If you liked our poster, in the beginning, we have a few more on our <a href="https://stillstatic.io/" title="">website</a>.</strong></p><p><em>You should probably get a ticket for Alchemy Conf. All proceeds are for charity, and you get to see some of the best speakers around.</em></p>]]>
+        </description>
+      </item>
+    
+      <item>
+        <title>
+          <![CDATA[The Worst Decision Of My Career]]>
+        </title>
+        <link>/2020-09-25-the-worst-decision-of-my-career/</link>
+        <guid isPermaLink="false">/2020-09-25-the-worst-decision-of-my-career/</guid>
+        <pubDate>Fri, 25 Sep 2020 00:00:00 GMT</pubDate>
+        <description>
+          <![CDATA[<p><em>This blog post was initially published on <a href="https://subvisual.com/blog/posts/the-worst-decision-of-my-career/">Subvisual’s blog</a>.</em></p><p>This is a reflection on software development and complexity. Let’s start with some quotes to make me look smart:</p><blockquote><p>A complex system that works is invariably found to have evolved from a simple system that worked. A complex system designed from scratch never works and cannot be patched up to make it work. You have to start over with a working simple system – <em>Gall’s law</em></p></blockquote><p>I only came across this quote recently, but I think that it summarizes what I’ve learned these past seven years. Another idea that I’ve found in a few books is that programming in isolation is problem-solving, but software engineering is all about managing complexity. This distinction between programming and software engineering makes sense to me, probably because of my mental models. I’m sure we can all disagree on this, but that’s not the topic of today. Complexity is.</p><h2>Complexity</h2><p>Almost everyone I know in the software industry wants to build products that solve real and challenging problems. Change the world! The last thing you want is to build another CRUD application. They are fine, but it gets boring after a while.</p><p>Most of us will get bored without novelty. That’s why the software industry has a recycling mechanism to keep things fresh and interesting for us: every once in a while a new, or different, language/framework will rise and light the path for a brighter future, overthrowing the existing standard, demanding that we learn it to be on top of the game.</p><p>We change our tools, but we keep building the same things over and over. I’ve been doing this long enough to see that we are just going in circles. Let’s be honest, most of us aren’t building life-changing products that wouldn’t have been possible ten years ago, so let’s not jump straight into another shiny technology that just came out and is going to solve all of our problems.</p><h2>Solutions, solutions, solutions</h2><blockquote><p>For a while, the solution to every problem I encountered was a Rails app. – <em>this one is mine</em></p></blockquote><p>Over the years, I’ve seen companies rewrite their products to change languages, frameworks, or architectures because they were told that the change would make their product better, run faster, and scale. By the way, you’re only a true Ruby developer after you’ve heard the question “but does it scale?” at least one hundred times (kidding, but it’ll happen).</p><p>Think about it, how many times were you sold a new programming language, technology, or a concept like microservices, serverless, event sourcing, clean architecture, micro frontends. There are many preachers in the software world.</p><p>At Subvisual, we started using Elixir a lot these past years, so I’ve learned a bit about the history of Erlang. If you don’t know, Erlang uses the Actor Model, and the interesting part is that the designers of Erlang only learned about the Actor Model after having designed Erlang. This is important because the designers of Erlang didn’t start with the intent of applying the Actor Model; it came as a solution to fault-tolerant distributed programming.</p><blockquote><p>If all you have is a hammer, everything looks like a nail <em>Abraham Maslow</em></p></blockquote><p>The designers of Erlang picked the right tool for the job and most of us want to do the same. Unfortunately, there’s usually more than one “tool” that would be “right,” but to know which ones, you need to know what “job” you’re solving. All of us <strong>should</strong> know this, but I keep learning about teams that fail to do it. There are so many companies, with a handful of experienced developers, that don’t know what they are building, don’t have a clear business yet, but their product is already built on complex architectures and technologies such as microservices, Kubernetes or event-sourcing.</p><h2>Improving</h2><p>Every project we start from scratch is an opportunity to do it right. We’ll think to ourselves: <em>This time I won’t fall into the same traps! I have learned my lessons, I’ve studied the books, and I even met some of my gurus that wrote them! This time I’ll follow “industry standards”!</em></p><p><em>I am the “architect”; I will design the perfect system! Without me, none of this will be possible. Those mindless programmers have no idea what they are doing. I, and only I, am the true heir of Martin Fowler!</em></p><p>This was a bit dramatic, but I needed a break from all of that whining. I know it’s easy to fall into these traps. It’s even easier when your company raised money, and everyone is expecting you to deliver the absolute best product ever because they are paying you for it! This is why your starting team is so important; they have to withstand the pressure. They must know that to build the grand vision, they have to go one step at a time.</p><h2>The decision</h2><p>I’ve made many bad decisions, and I’ve been fortunate enough to suffer the consequences of those decisions. A lot of developers don’t get to experience consequences, so they never learn.</p><p>So what was the worst decision of my career? I don’t know. But the title of this blog post is inspired by something an old colleague said. At the time, we were working for a product company that reached for event-driven architecture and event-sourcing too soon. They knew little about their market, and the choices the software team made were crippling their ability to change. Business rules were almost set in stone. Migrating data was a pain and the source of many bugs. And unfortunately, because the team didn’t have experience with event-sourcing, the event store, which kept the state of all services, was also being used as an event-bus to communicate between services. Because of that, it was possible to couple one service to the internal state of another, which happened a lot. This almost invisible coupling made everything worse.</p><p>What did we do against such an unpredictable system? We took it apart: merging services that were too coupled; defining clear boundaries between services; moving some services away from the event-store into a traditional database; making some communication channels synchronous; writing integration and end-to-end tests.</p><p>When we were finished it was still an unnecessarily complex system, but it was one that we could change with some confidence. After that, we defined a long-term plan for the product’s architecture and technology, but we didn’t implement it. We waited for the right moment when something was starting to slow us down to make a small step in that direction. When the business goals changed, we changed our long-term plan, and once again made small steps in that direction when we felt the need for it.</p><p>Eventually, complexity found its way again into the codebase, but it was fine because the codebase was evolving slowing, adding and removing complexity when necessary.</p><h2>Making the right call</h2><p>Was that the worst decision of his career? I don’t think so. The issue with him going for event-sourcing and event-driven architecture was that it wasn’t the right moment, but my colleague didn’t know that. He thought the goals for the next years were well defined, but unfortunately, they never are.</p><p>Should you use microservices or event-sourcing? Maybe, it depends on the context and the client. The decisions I make are the best that I can with the information that I have. For instance, when I’m part of the team that’s starting a product, the technology we pick will depend on how we’ll hire: if you want to build an office in Portugal, we have to make sure we have developers for that technology available. We have to think things through, and some things you only learn from experience. This applies to the systems we design as well. I’ve seen enough people design around what they believe the product will become in two years to know that those designs always fail to accommodate the changes that will come. So we design systems for small, incremental changes. Do the smallest thing that will get us started and doesn’t compromise our ability to change once we know what the business needs.</p>]]>
+        </description>
+      </item>
+    
+      <item>
+        <title>
+          <![CDATA[React state management and side-effects with Redux and RxJS]]>
+        </title>
+        <link>/2020-06-09-react-state-management-and-side-effects-with-redux-and-rxjs/</link>
+        <guid isPermaLink="false">/2020-06-09-react-state-management-and-side-effects-with-redux-and-rxjs/</guid>
+        <pubDate>Tue,  9 Jun 2020 00:00:00 GMT</pubDate>
+        <description>
+          <![CDATA[<p>In React, state management can take many shapes. I remember when the <a href="https://facebook.github.io/flux/">Flux architecture</a> was the hot new thing. Eventually Redux became the standard, but new libraries are published all the time, especially when we get React APIs that fundamentally change how we build applications. React Hooks are the most recent example of that, and I believe Redux adapted itself nicely to it.</p><p>For side-effects, I don’t even know what the game was. I’ve seen people use a wide range of solutions, from nothing to Redux-Sagas. I’ve had my share of obscure Redux middlewares.</p><p>Over the years I worked on many front-end projects. I don’t always enjoy it, but I’ve found some libraries that make it more pleasant. One of those libraries is RxJS. I found it because of <a href="https://rxdb.info/">RxDB</a>, which combines RxJS and PouchDB to create the best thing I’ve used so far to build offline-first web apps.</p><p>RxJS can be many things, but I only use it to manage side-effects. You may be thinking that if I’m using RxJS I don’t need Redux. It’s pretty easy to build a Redux clone using <em>BehaviorSubject</em> and <em>scan</em>. But the truth is that I would be writing a lot of plumbing code, which Redux already does for me. I would eventually arrive at the same solution or, most likely, a worse one. And I wouldn’t be able to use the community-supported packages. I know this because I did try to do it.</p><p>Back to Redux for state management, and RxJS for side effects. We just need one other library, to combines these two: <a href="https://redux-observable.js.org/">redux-observables</a>.</p><p>In redux-observarbles we work with epics. An epic is a function which takes a stream of actions and returns a stream of actions. <strong>Actions in, actions out.</strong> Let’s take this example from the docs:</p><pre><code class="js">const pingEpic = (action$) =&gt;
+  action$.pipe(
+    filter((action) =&gt; action.type === &quot;PING&quot;),
+    mapTo({ type: &quot;PONG&quot; })
+  );
+
+// later...
+dispatch({ type: &quot;PING&quot; });</code></pre><p>In this example, the <code class="inline">pingEpic</code> listens for actions <code class="inline">PING</code> and dispatches a <code class="inline">PONG</code> action when it finds one. This would be the same as:</p><pre><code class="js">dispatch({ type: &quot;PING&quot; });
+dispatch({ type: &quot;PONG&quot; });</code></pre><p>Keep in mind that you’re not transforming the first action into the second. Actions that you receive in the epic have already finished running through the reducers. Here’s an epic I wrote recently to debounce search requests:</p><pre><code class="js">export const notesSearchEpic = (action$) =&gt;
+  action$.pipe(
+    ofType(&quot;NOTES_SEARCH&quot;),
+    throttle(() =&gt; interval(200), { trailing: true }),
+    mergeMap(({ payload }) =&gt; Notes.search(payload).then(notesSearchResult))
+  );</code></pre><p>In this one, we listen for actions of type <code class="inline">NOTES_SEARCH</code>, throttle them, run the search, and dispatch the results. The <code class="inline">notesSearchResult</code> is an action creator. The action <code class="inline">NOTES_SEARCH</code> is used both to update the reducer with the current search query, but also to initialize this side-effect.</p><h2>Similar libraries</h2><p>Before we move to more advanced examples, you should know that if the only thing you need is to dispatch asynchronous actions, <a href="https://github.com/reduxjs/redux-thunk">redux-thunk</a> is more than enough.</p><p>One question that shows up all the time is, how does it compare to redux-sagas? Having also used redux-sagas in production, I can say that I find the declarative style of redux-observables a lot nicer. It’s also important to remember that RxJS is a generic async library, which you can use in a lot of contexts. That being said, there’s value in learning redux-sagas, as the concepts behind it are useful, for instance when you’re working with event sourcing.</p><p>I was looking for a nice example to show the difference between a flow written in sagas and RxJS. I found <a href="https://hackmd.io/@2qVnJRlJRHCk20dvVxsySA/H1xLHUQ8e?type=view">this website</a> with a bunch of them. Here’s a user session flow written in sagas:</p><pre><code class="js">import { take, put, call, fork, cancel } from &quot;redux-saga/effects&quot;;
+import Api from &quot;...&quot;;
+
+function* loginWatcher() {
+  const { user, password } = yield take(&quot;login_request&quot;);
+  const task = yield fork(authorize, user, password);
+  const action = yield take([&quot;logout&quot;, &quot;login_error&quot;]);
+
+  if (action.type === &quot;logout&quot;) {
+    yield cancel(task);
+    yield put({ type: &quot;login_cancel&quot; });
+  }
+}
+
+function* authorize(user, password) {
+  try {
+    const token = yield call(Api.getUserToken, user, password);
+    yield put({ type: &quot;login_success&quot;, token });
+  } catch (error) {
+    yield put({ type: &quot;login_error&quot;, error });
+  }
+}</code></pre><p>The exact same flow, now written in redux-observarbles:</p><pre><code class="js">const authEpic = action$ =&gt;
+    action$
+        .ofType(&#39;login_request&#39;)
+        .flatMap(({ payload: { user, password }})=&gt;
+            Observable
+                .ajax
+                .get(&#39;/api/userToken&#39;, { user, password })
+                .map(({ token }) =&gt; ({ type: &#39;login_success&#39;, token }))
+                .takeUntil(action$.ofType(&#39;login_cancel&#39;, &#39;logout&#39;))
+                .catch(error =&gt; of({ type: &#39;login_error&#39;, error }))</code></pre><p>I’m sure you can find examples that benefit sagas in terms of readability, but I like this example because it showcases how different both styles are. The redux-sagas example is pretty similar to something I had in production 3 years ago.</p><h2>TypeScript</h2><p>TypeScript is one of those things that can transform a JavaScript hater into a puppy. I’ve seen it first-hand. But let’s remember that it is not a silver bullet, and it doesn’t prevent runtime errors (I guess Elm’s the only language promising such thing). TypeScript cannot be an excuse not to write tests. It’s a tool, and it’s a nice one. Now on with the show.</p><p>The first time I tried to use TypeScript in a React project was a shitshow. This was years ago when using high-order components was the real deal. We weren’t even using render props at the time. Using TypeScript was terrible. Just trying to figure out the type for a component that was connected to the router was a headache. Things are much nicer now, as you can see in the following examples.</p><p>Let’s start with the action:</p><pre><code class="ts">export const notesSearch = createAction(&quot;NOTES_SEARCH&quot;)&lt;string&gt;();
+export const notesSearchResult = createAction(&quot;NOTES_SEARCH_RESULT&quot;)&lt;
+  SearchResult[]
+&gt;();
+
+export type NotesActionTypes =
+  | ReturnType&lt;typeof notesSearchResult&gt;
+  | ReturnType&lt;typeof notesSearch&gt;;
+// actions</code></pre><p>The <code class="inline">createAction</code> function is a little helper I wrote. It creates an action creator function with a <code class="inline">type</code> property using the dispatched type.</p><pre><code class="ts">type BaseType = string;
+
+export default function createAction&lt;T extends BaseType&gt;(type: T) {
+  return function &lt;K = undefined&gt;() {
+    const builder = function (payload?: K): { type: T; payload: K } {
+      return {
+        type,
+        payload: payload,
+      };
+    };
+
+    builder.type = type;
+
+    return builder;
+  };
+}</code></pre><p>The reducer saves the actions’ payloads to the store.</p><pre><code class="ts">// reducer
+import { NotesState } from &quot;../models/types&quot;;
+
+import { NotesActionTypes, notesSearch, notesSearchResult } from &quot;./actions&quot;;
+
+export function notesReducer(
+  state: NotesState,
+  action: NotesActionTypes
+): NotesState {
+  switch (action.type) {
+    case notesSearch.type:
+      return { ...state, searchQuery: action.payload };
+
+    case notesSearchResult.type:
+      return { ...state, searchResult: action.payload };
+
+    default:
+      return state || initalState;
+  }
+}</code></pre><p>The component uses a selector to fetch the search query parameter we set in the reducer and dispatches the search action when the input changes.</p><pre><code class="ts">export function HomePage() {
+  const query = useSelector(getSearchQuery);
+
+  ...
+
+  return (
+    ...
+      &lt;Search
+        value={query}
+        onChange={(ev) =&gt; dispatch(notesSearch(ev.target.value))}
+        placeholder=&quot;Search...&quot;
+      /&gt;
+    ...
+  )
+}</code></pre><p>The action that transforms a search query into search results is the one you saw above, now in TypeScript:</p><pre><code class="ts">export const notesSearchEpic = (
+  action$: ActionsObservable&lt;ReturnType&lt;typeof notesSearch&gt;&gt;
+) =&gt;
+  action$.pipe(
+    ofType(notesSearch.type),
+    throttle(() =&gt; interval(200), { trailing: true }),
+    mergeMap(({ payload }) =&gt; Notes.search(payload).then(notesSearchResult))
+  );</code></pre><p>This setup works for me and for the people I worked with. I’ve tried a few libraries for state management and side-effects, but these are the most pleasant ones to work with. If you’re curious about how this works in practice, <a href="https://github.com/subvisual/notedown">we’ve published the source code for an app that uses all of these libraries</a>.</p><p>Reach out to me on <a href="https://twitter.com/gabrielgpoca">Twitter</a> if you have any comments or questions. I’ll try to answer them.</p><p>Stay safe.</p>]]>
+        </description>
+      </item>
+    
+      <item>
+        <title>
+          <![CDATA[A bit more lua in your vim]]>
+        </title>
+        <link>/2019-11-13-a-bit-more-lua-in-your-vim/</link>
+        <guid isPermaLink="false">/2019-11-13-a-bit-more-lua-in-your-vim/</guid>
+        <pubDate>Wed, 13 Nov 2019 00:00:00 GMT</pubDate>
+        <description>
+          <![CDATA[<p>Following up on the <a href="https://gabrielpoca.com/2019-11-02-a-little-bit-of-lua-in-your-vim/">previous entry about lua in vim</a>, in this one I document other ways in which I used lua to improve my setup.</p><p>Anyone using Neovim should know that it has support for floating windows: real windows that can float around. You can do all kinds of cool stuff with it. Here it is in action:</p><blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/neovim?src=hash&amp;ref_src=twsrc%5Etfw">#neovim</a> floating window test with vim-iced (part 2)<br>Floating debugger info<a href="https://t.co/wAITDpmvip">https://t.co/wAITDpmvip</a><a href="https://twitter.com/hashtag/clojure?src=hash&amp;ref_src=twsrc%5Etfw">#clojure</a> <a href="https://t.co/5lebGKybiD">pic.twitter.com/5lebGKybiD</a></p>&mdash; 飯塚将志@にびいろClojure (@uochan) <a href="https://twitter.com/uochan/status/1101445517865771013?ref_src=twsrc%5Etfw">March 1, 2019</a></blockquote><p>So this is how the story begins: one day my friend, and teammate, <a href="https://twitter.com/naps62">Miguel</a> was showing me something on his computer, when I saw him doing something like this:</p><p><a href="https://asciinema.org/a/278565"><img src="https://asciinema.org/a/278565.svg" alt="asciicast" /></a></p><p>He was opening fzf inside a floating window! I immediately ran to my desk and copied the code that does this from his dotfiles. The relevant parts are <a href="https://github.com/naps62/dotfiles/blob/b6df1166ce3b65ab408147a58201aa9c2cccd691/config/nvim/rc/functions.vim#L69-L87">here</a> and <a href="https://github.com/naps62/dotfiles/blob/f5a3ed135ce210ae3b29268b6122cb5d863375cc/config/nvim/rc/plugins.vim#L226">here</a>. He got it somewhere from the Github.</p><p>I was in love with this for a while!… Until I realized that it didn’t work great when I was using Vim in smaller tmux splits. I need something more “intelligent” that took into account the editor’s size. Since my VimScript skills are non-existent, I replaced his implementation with Lua.</p><p>Here’s what I want:</p><ul><li>if the editor is small (when I’m in a split with 1/4 of the screen’s size) it uses a full window instead of a floating one.</li><li>the floating window’s width is 90% of the editor’s width, but if the editor’s width is small, it uses full width minus 4 columns from each side.</li><li>a floating window’s height is 3/4 of the editor’s height to a max of 30 lines.</li></ul><p>The code, with comments, so it’s easier to understand:</p><pre><code class="lua">function NavigationFloatingWin()
+  -- get the editor&#39;s max width and height
+  local width = vim.api.nvim_get_option(&quot;columns&quot;)
+  local height = vim.api.nvim_get_option(&quot;lines&quot;)
+
+  -- create a new, scratch buffer, for fzf
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_buf_set_option(buf, &#39;buftype&#39;, &#39;nofile&#39;)
+
+  -- if the editor is big enough
+  if (width &gt; 150 or height &gt; 35) then
+    -- fzf&#39;s window height is 3/4 of the max height, but not more than 30
+    local win_height = math.min(math.ceil(height * 3 / 4), 30)
+    local win_width
+
+    -- if the width is small
+    if (width &lt; 150) then
+      -- just subtract 8 from the editor&#39;s width
+      win_width = math.ceil(width - 8)
+    else
+      -- use 90% of the editor&#39;s width
+      win_width = math.ceil(width * 0.9)
+    end
+
+    -- settings for the fzf window
+    local opts = {
+      relative = &quot;editor&quot;,
+      width = win_width,
+      height = win_height,
+      row = math.ceil((height - win_height) / 2),
+      col = math.ceil((width - win_width) / 2)
+    }
+
+    -- create a new floating window, centered in the editor
+    local win = vim.api.nvim_open_win(buf, true, opts)
+  end
+end</code></pre><p>To make it work, place the code in a file such as <code class="inline">~/.config/nvim/lua/navigation/init.lua</code>, and in your vim configuration put something like this:</p><pre><code class="vim">&quot; load lua functions for navigation
+lua require(&quot;navigation&quot;)
+let g:fzf_layout = { &#39;window&#39;: &#39;lua NavigationFloatingWin()&#39; }</code></pre><p>Once again, I know that you can do this with VimScript, but I can’t. And, because I know there are more like me out there, I hope this helps you, and my future self as well.</p>]]>
+        </description>
+      </item>
+    
+      <item>
+        <title>
+          <![CDATA[A little bit of lua in your vim]]>
+        </title>
+        <link>/2019-11-02-a-little-bit-of-lua-in-your-vim/</link>
+        <guid isPermaLink="false">/2019-11-02-a-little-bit-of-lua-in-your-vim/</guid>
+        <pubDate>Sat,  2 Nov 2019 00:00:00 GMT</pubDate>
+        <description>
+          <![CDATA[<p>One of the reasons why I love Vim so much is because I can easily change it to my needs. My Vim configuration is a living organism that evolves with my knowledge, taste and career.</p><p>Unfortunately, VimScript never clicked for me, so whenever I needed to do something more complex in Vim, I would <a href="https://gabrielpoca.com/2017-09-04-vim-ruby/">rely in other languages, like Ruby</a>. This has worked reasonably well for me, but since Neovim <a href="https://neovim.io/roadmap/">added built-in support for a lua</a>, I’ve been waiting to have the time, and the use-case, to try it out.</p><p>This is what I want to accomplish: four shortcuts that open up four different neovim terminals. Whenever I hit one of the shortcuts, I get a new terminal. If this terminal was already created, I want to open it instead. I also don’t want to see these terminals in my buffer list.</p><p>This is something I already have with tmux, but the ergonomics are a bit weird. Doing it in neovim would be great for my workflow, but that’s not the topic of this blog post. On with the code.</p><p>The following piece of code is everything there is. I added some comments to make it easier to understand.</p><pre><code class="lua">-- to save terminals
+list_of_terms = {}
+
+function Terminal(nr, ...)
+  -- if the terminal with nr exists, set the current buffer to it
+  if list_of_terms[nr] then
+    -- change to the terminal
+    vim.api.nvim_set_current_buf(list_of_terms[nr])
+  -- if the terminal doesn&#39;t exist
+  else
+    -- create a buffer that&#39;s is unlisted and not a scratch buffer
+    local buf = vim.api.nvim_create_buf(false, false)
+    -- change to that buffer
+    vim.api.nvim_set_current_buf(buf)
+    -- create a terinal in the new buffer using my favorite shell
+    vim.api.nvim_call_function(&quot;termopen&quot;, {&quot;/bin/zsh&quot;})
+    -- save a reference to that buffer
+    list_of_terms[nr] = buf
+  end
+  -- change to insert mode
+  vim.api.nvim_command(&quot;:startinsert&quot;)
+end</code></pre><p>I save this code in <code class="inline">~/.config/nvim/lua/navigation/init.lua</code>. Now, in one of my Vim configuration files, I import the lua navigation package, and map the function created in Lua to the shortcuts.</p><pre><code class="vim">&quot; require the lua module
+lua require(&quot;navigation&quot;)
+&quot; map the Terminal function in the lua module to some shortcuts
+nnoremap &lt;silent&gt; &lt;leader&gt;kh :lua Terminal(1)&lt;cr&gt;
+nnoremap &lt;silent&gt; &lt;leader&gt;kj :lua Terminal(2)&lt;cr&gt;
+nnoremap &lt;silent&gt; &lt;leader&gt;kk :lua Terminal(3)&lt;cr&gt;
+nnoremap &lt;silent&gt; &lt;leader&gt;kl :lua Terminal(4)&lt;cr&gt;</code></pre><p>That is all! One of my ideas to improve this is changing of the shortcuts to immediately open up programs that I used more frequently. For that I could change the function to accept a new argument to use instead of <code class="inline">/bin/zsh</code>. I could do something like <code class="inline">nnoremap &lt;silent&gt; &lt;leader&gt;kl :lua Terminal(2, &quot;tig&quot;)</code> to get <em>tig</em>.</p><p>I’m sharing this not because this is a great use-case to use lua, I’m sure you can do this easily with VimScript (I can’t), but because it wasn’t easy to figure out which functions to call and how. I hope F˝ helps someone (or my future self).</p>]]>
+        </description>
+      </item>
+    
+      <item>
+        <title>
+          <![CDATA[Apps on the P2P Web - DatSplit]]>
+        </title>
+        <link>/2018-08-25-apps-on-the-p2p-web-datsplit/</link>
+        <guid isPermaLink="false">/2018-08-25-apps-on-the-p2p-web-datsplit/</guid>
+        <pubDate>Sat, 25 Aug 2018 00:00:00 GMT</pubDate>
+        <description>
+          <![CDATA[<p><em>This blog post is the second in the series Apps on the P2P web. If you are not familiar with Dat or the Beaker Browser, I recommend reading the <a href="/2018-06-04-apps-on-the-p2p-web-beaker-browser">introduction blog post</a> first.</em></p><p>In this blog post, we are building a decentralised clone of <a href="https://www.splitwise.com/">Splitwise</a> that runs on the <a href="https://beakerbrowser.com/">Beaker Browser</a>. Splitwise is a service where a group of people can keep track of shared expenses. You can add expenses to a group, and Splitwise tells you who owes what to whom.</p><p>I’ve selected some features for us to implement that prove that a lot of what Splitwise does can be accomplished in the Beaker Browser:</p><ul><li>Create groups.</li><li>Invite members to a group.</li><li>Join an existing group.</li><li>Add expenses to a group.</li><li>Calculate how much each person owes to the group.</li></ul><p>I’m calling my application <strong>DatSplit</strong>. The <a href="https://github.com/gabrielpoca/datsplit">source code is here</a> and the <a href="dat://datsplit-gabrielpoca.hashbase.io/">application is here</a> (it requires the Beaker Browser).</p><h2>Privacy</h2><p>Our priority is privacy. We have to make sure that only the members of a group can see and share the groups’ data. This is were Dat comes it: each Dat archive is given a public and a private key. You use the public key to share the archive. When you have a public key, Dat will hash it to create a discovery key, that it uses to ask the network for data. This means that only the people you give the public key to will be able to access the information on it.</p><p>Dat guarantees privacy on the network, but what about privacy between groups that have members in common? This an issue that we solve we proper design. In a scenario where you belong to two groups you would have three Dat archives:</p><ul><li>a private archive for the first group</li><li>a private archive for the second group</li><li>and a public archive for DatSplit’s code that anyone can see. The code in this archive will use Beaker Browser’s APIs to create group archives, and it will keep a reference to them in localStorage. As long as those references stay in the localStorage, no one can see it, and the groups stay isolated.</li></ul><h2>What is a group?</h2><p>A group is a list of people and expenses. To be in a group, you need an archive where you can keep track of expenses and members. You and the other members will exchange public keys and add each other in your archives. You will add expenses to your archive, and check the other members’ archives for new expenses, that you will merge into yours. This is how expenses are propagated between members. We can put some mechanisms in place for you to approve expenses from someone else that involve you.</p><h2>What is in a group?</h2><p>With the public key to a Dat archive, you can see every file and folder in it. Each group will a file named <em>data.json</em> where DatSplit keeps track of the expenses and members. We are calling this file the database.</p><p>A member synchronises with the group by looking in the databases of the other members for changes and applying them to his database. To make this process easier our database will be an <a href="http://www.cqrs.nu/Faq/event-sourcing">event store</a>. On an event store, we keep track of changes (events) to our database instead of its current state. A change is an event that indicates that something happened. We never delete the events. If all our database has is a list of events, it’s simple to find what events are new since the last time we checked.</p><p>Our database will have events of the following types:</p><ul><li>Add Peer</li><li>Add Transaction</li></ul><p>We could have other events such as “Approve Peer” and “Approve Transaction” to inform the members of who agree with an action.</p><p>Each event has the following structure:</p><ul><li>unique uuid</li><li>public key of the person who created</li><li>payload</li></ul><p>Here’s an example:</p><pre><code class="json">{
+  &quot;type&quot;: &quot;PEER_ADDED&quot;,
+  &quot;payload&quot;: {
+    &quot;name&quot;: &quot;Gabriel&quot;,
+    &quot;url&quot;: &quot;dat://e3503b270839c7df&quot;
+  },
+  &quot;uuid&quot;: &quot;3ca7665b-b6cd-46f6-8722-743c0a1b2bfa&quot;,
+  &quot;url&quot;: &quot;dat://e3503b270839c7df&quot;
+}</code></pre><p>We could include a signature of the payload to make sure no one is creating events in someone else’s name. I think the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">Web Crypto API</a> would be the perfect fit for this.</p><h2>Current state projection</h2><p>Event stores are great to keep track of changes, but they are hard to query. We need the current state of the group so we can build an interface to interact with it. For that, we need a projection that transforms our events into something like this:</p><pre><code class="js">{
+  peers: [...]
+  transactions: [...]
+}</code></pre><p>The projection listens for new events on the event store and processes them to create the current state.</p><pre><code class="js">class Projection {
+  constructor(eventStore) {
+    this.state = { peers: {}, transactions: {}, name: &quot;Me&quot; };
+
+    eventStore.onChange(this.processEvents);
+  }
+
+  processEvents(events) {
+    events.map(this.processEvent);
+  }
+
+  processEvent(event) {
+    const state = { ...this.state };
+
+    switch (event.type) {
+      case &quot;TRANSACTION_ADDED&quot;: {
+        const { description, from, to, amount, currency, id } = event.payload;
+
+        const transaction = extend({
+          description,
+          from,
+          to,
+          amount,
+          currency,
+          id,
+          date: event.timestamp,
+        });
+
+        state.transactions[id] = transaction;
+        break;
+      }
+      case &quot;PEER_ADDED&quot;: {
+        const { name, url } = event.payload;
+
+        if (!state.peers[url]) {
+          state.peers[url] = { name, url };
+        }
+
+        break;
+      }
+      default:
+        break;
+    }
+
+    this.state = state;
+  }
+
+  //more code
+}</code></pre><h2>Reading and writing databases</h2><p>Now that we understand the how the database works, we can get our hands dirty with the Beaker Browser’s APIs.</p><p>We start by creating and initializing a group:</p><pre><code class="js">// create dat archive
+DatArchive.create({
+  title: &quot;My new DatSplit group&quot;,
+}).then((archive) =&gt; {
+  const { url } = archive;
+
+  // save to localstorage
+  const groups = JSON.stringify([url]);
+  localStorage.setItem(&quot;DatSplitGroups&quot;, groups);
+
+  // create an event to add the current user
+  const addPeerEvent = addPeer(url, {
+    name: getName(),
+    url,
+  });
+
+  // write to data.json an object with an array of events on the key &quot;events&quot;
+  archive.writeFile(&quot;data.json&quot;, JSON.stringify({ events: [addPeerEvent] }));
+});</code></pre><p>Now that we have a group, we can write events to it:</p><pre><code class="js">// we don&#39;t want to overwrite existing events, so we first read the existing events
+const events = JSON.parse(await archive.readFile(&#39;/data.json&#39;)).events
+
+// push a new event
+events.push({
+  type: &#39;TRANSACTION_ADDED&quot;,
+  uuid: newID(), // generates a unique id
+  url: url, // current user&#39;s URL
+  payload: { ... ], // details about the transaction
+  timestamp: new Date(), // current date
+})
+
+// write to the database
+archive.writeFile(&#39;/data.json&#39;,JSON.stringify({ events }));</code></pre><p>When we exchange public keys with another member, we can read his database and merge new events into ours:</p><pre><code class="js">// instantiate an archive
+const member2URL = `...`;
+const member2Archive = new DatArchive(member2URL);
+
+// read and filter events we already have
+const member2Events = JSON.parse(await member2Archive.readFile(&quot;/data.json&quot;))
+  .events;
+const newEvents = member2Events.filter(filterNewEvents);
+
+// merge with existing events
+events.push(newEvents);
+
+// write to the database
+archive.writeFile(&quot;/data.json&quot;, JSON.stringify({ events }));</code></pre><p>This code could run periodically to keep the databases up to date.</p><h2>Conflict Resolution</h2><p>You may be wondering about conflict resolution, but there’s no need for conflict resolution because there are no conflicting updates! The database is an append-only log, and the events’ order is not relevant. We need to keep track of what happened, not when it happened.</p><h2>Closing thoughts</h2><p>The purpose of this blog post is to give a quick overview on what we can do with the Beaker Browser and which APIs to use. I promise to try and answer any question you have. You can find the <a href="https://github.com/gabrielpoca/datsplit">source code here</a> and the <a href="dat://datsplit-gabrielpoca.hashbase.io/">application here</a> (open in the Beaker Browser).</p><p>We could build a lot of functionality on top of these primitives. There could be a system in place where you had to send an event to accept new members or transactions. You could leverage the Web Crypto API to make sure no one is adding events in someone else’s name.</p><p>Unfortunately, the Beaker Browser doesn’t seem to have enough adoption yet to build these type of applications. We could make so much without centralised systems.</p><p>See you next time!</p>]]>
+        </description>
+      </item>
+    
+      <item>
+        <title>
+          <![CDATA[Apps on the P2P Web - Beaker Browser]]>
+        </title>
+        <link>/2018-06-04-apps-on-the-p2p-web-beaker-browser/</link>
+        <guid isPermaLink="false">/2018-06-04-apps-on-the-p2p-web-beaker-browser/</guid>
+        <pubDate>Mon,  4 Jun 2018 00:00:00 GMT</pubDate>
+        <description>
+          <![CDATA[<p>The <a href="https://beakerbrowser.com/">Beaker Browser</a> is a peer-to-peer browser to navigate the decentralized web. With this browser, you no loner need Dropbox to send a file across the room. With the Beaker Browser you no longer need AWS to host a website because you can host one from your own machine.</p><p>Behind the scenes, the Beaker Browser uses <a href="https://datproject.org/">Dat</a>, a data sharing protocol. Each website you host, or read, could be a Dat archive. You can create as many archives as you want, and each will have a public key that you can share with others so they can access your website, or web app.</p><p>If you’re hosting a website from your computer, every change you make will propagate automatically. In fact, if you’re reading a website you own, the Beaker Browser has APIs that allow your webiste to change its own source code. You can also fork someone’s website and host your version of it.</p><p>If you were building Twitter in this fashion, your tweets could be a JSON file in the website’s archive. Each tweet would be appended to the list of tweets. If someone has access to your website, they can take your JSON file, merge it with theirs and create a feed. You can take a group of people writing to their own archive and merge all their tweets in your feed.</p><p>This is how <a href="https://github.com/Rotonde/rotonde-client">Rotonde</a> works: everyone has a feed and a link to the feeds they follow. When you write something on this network it will update a file on your computer. When you follow someone, you use their website’s address to find their feed and display it.</p><p>This is an interesting new paradigm for me, and in this this series, Apps on the P2P web, I’m going to recreate, as far as I can, existing web application in a peer-to-peer fashion.</p><p>In my next blog post I’m going to build something that I use a lot: <a href="https://splitwise.com">Splitwise</a>.</p>]]>
+        </description>
+      </item>
+    
+      <item>
+        <title>
+          <![CDATA[How to program Vim using Ruby]]>
+        </title>
+        <link>/2017-09-04-vim-ruby/</link>
+        <guid isPermaLink="false">/2017-09-04-vim-ruby/</guid>
+        <pubDate>Mon,  4 Sep 2017 00:00:00 GMT</pubDate>
+        <description>
+          <![CDATA[<p>I recently started working in an Angular project where I’m not able to use <a href="https://github.com/tpope/vim-projectionist">vim-projectionist</a> to navigate the code. vim-projectionist is awesome, and I’ve grown used to it. Searching for files by name, in a code base with hundreds of files, started to become painful and I needed an alternative. Because I couldn’t find a plug-in that satisfied my needs, I decided to do it myself. In this article, I hope to demonstrate how you can program Vim using Ruby.</p><p>Let’s say that you have an HTML file that looks like this:</p><pre><code class="html">...
+&lt;div class=&quot;timepicker&quot;&gt;
+  &lt;timepicker&gt; ... &lt;/timepicker&gt;
+&lt;/div&gt;
+...</code></pre><p>When the cursor is on line two or four (the <code class="inline">timepicker</code> tag), you want to trigger a shortcut that opens the JavaScript file for the directive <code class="inline">timepicker</code>.</p><h2>Ruby to the rescue</h2><p>In this project, every directive is in the folder <code class="inline">javascript/directives/</code>, where the directive’s name is also the file’s name. If the name has more than one word, such as <em>chart-timepicker</em>, the file name would be snake case: <em>chart_timepicker</em>.</p><p>I’m assuming you don’t know enough VimScript to make this work (I don’t), but fear not, if you compiled Vim with Ruby support, this will be enough:</p><pre><code class="ruby">function! AngularTemplateToDirective()
+ruby &lt;&lt; EOF
+  @buffer = VIM::Buffer.current # get current bufer
+  match = @buffer.line.match(/&lt;\/?([\w-]+)/) # match current line
+
+  if match
+    directive = match[1].gsub(&quot;-&quot;, &quot;_&quot;) # get directive&#39;s file name
+    VIM.command(&quot;:e javascript/directives/#{directive}.js&quot;) # open file
+  end
+EOF
+endfunction
+
+autocmd BufRead,BufNewFile *assets/templates*.html nnoremap &lt;silent&gt; &lt;C-]&gt; :call AngularTemplateToDirective()&lt;cr&gt;</code></pre><p>It’s a Vim function that you can trigger with <code class="inline">C-]</code> or call with <code class="inline">:call AngularTemplateToDirective()</code> (or map to a shortcut). Notice that it uses a module called <code class="inline">VIM</code> on line three. That module comes from Vim and it allows us to control it from the Ruby. If you want to learn more use <code class="inline">:help ruby</code> inside Vim.</p><p>This function fetches the current buffer and the current line. If the line matches an HTML tag (something like <code class="inline">&lt;timepicker&gt;</code> , <code class="inline">&lt;/timepicker&gt;</code> or <code class="inline">&lt;timepicker something&gt;</code>), it takes the tag’s name, turns it to snakecase, and opens the corresponding directive’s file.</p><p>Cool right? Five years using Vim and there’s still so much to learn!</p><h2>A little more advanced</h2><p>With the function above, you can open directives from the HTML. How nice would it be to open CSS files from the HTML as well?</p><p>Taking the previous HTML example, when I’m in a line with <code class="inline">class=&quot;timepicker&quot;</code> I want to open the <a href="http://getbem.com/">BEM</a> component named <code class="inline">timepicker</code> that, by convention, sits in <code class="inline">stylesheets/components/timepicker.scss</code>.</p><p>Building on the previous implementation, you first check if the current line contains <code class="inline">class=&quot;</code>, if not then look for the tag using the code from before. If it does match, you extract the component’s name from the class, turn it into snake case and open the file:</p><pre><code class="ruby">function! AngularTemplateToDirectiveOrCSS()
+ruby &lt;&lt; EOF
+  @buffer = VIM::Buffer.current
+
+  if @buffer.line.include?(&quot;class=&quot;)
+    match = @buffer.line.match(/class=&quot;([\w-]+)&quot;/)
+
+    if match
+      file = match[1].split(&quot;__&quot;)[0].split(&quot;--&quot;)[0].gsub(&quot;-&quot;, &quot;_&quot;)
+      VIM.command(&quot;:e app/assets/stylesheets/application_nsx/components/#{file}.scss&quot;)
+    end
+  else
+    match = @buffer.line.match(/&lt;\/?([\w\-]+)/)
+
+    if match
+      directive = match[1].gsub(&quot;-&quot;, &quot;_&quot;)
+      VIM.command(&quot;:e app/assets/javascripts/angular/directives/#{directive}.js&quot;)
+    end
+  end
+EOF
+endfunction</code></pre><p>I know that this code could be better, but I’m not concerned with that because it’s part of my Vim configuration, I’m always changing it, and it actually works!</p><p>I hope that you’ve found something new in this blog post. If you’re looking for more ideas for your Vim setup, check out <a href="https://subvisual.co/blog/posts/133-super-powered-vim-part-i-projections/">this blog post from Miguel</a>.</p>]]>
+        </description>
+      </item>
+    
+      <item>
+        <title>
+          <![CDATA[How to build offline web applications with CouchDB and PouchDB]]>
+        </title>
+        <link>/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/</link>
+        <guid isPermaLink="false">/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/</guid>
+        <pubDate>Thu, 20 Apr 2017 00:00:00 GMT</pubDate>
+        <description>
+          <![CDATA[<p>You may have heard about <a href="https://developers.google.com/web/fundamentals/getting-started/codelabs/your-first-pwapp/">Progressive Web Apps (PWAs)</a>. These are web applications that leverage the new Web APIs to look and feel like native applications. There is plenty <a href="https://whatwebcando.today/">the web can do today</a> that was only available to native applications before: push notifications; icons on the home screen; offline mode. PWAs are an opportunity to rethink how we build the web and learn from native applications.</p><p>When I first started reading about offline applications, CouchDB was popping up all the time. Offline applications are distributed systems, so we need to take into account data reconciliation and conflict resolution. This is when CouchDB comes into play with an out of the box solution.</p><p>This is the article that I wish I had found when I first started working with CouchDB. It explains how CouchDB works, its limitations, and how we can use it to build offline web applications.</p><h2>Understanding CouchDB</h2><p><a href="http://couchdb.apache.org/">CouchDB</a> is a database. It sells itself with this sentence:</p><p><em>Seamless multi-master sync, that scales from Big Data to Mobile, with an Intuitive HTTP/JSON API and designed for Reliability.</em></p><p>It is confusing; especially the part about <em>Big Data to Mobile</em>. And it doesn’t stop there. Allow me to add some more confusion to the mix with a list of things that come with CouchDB that you wouldn’t expect in a database:</p><ol><li> A built-in reverse proxy</li><li> Support for user accounts, with password hashing and multiple forms of authentication (such as cookies, oauth or tokens).</li><li> Document conflict resolution.</li><li> A changes feed.</li><li> Built-in web interface.</li></ol><p>Some will say that <a href="http://nolanlawson.com/2013/11/15/couchdb-doesnt-want-to-be-your-database-it-wants-to-be-your-web-site">CouchDB is trying to be your application server</a>. For this article, I will focus on what we can use to build offline applications.</p><p>There is another great piece of technology that we need: <a href="http://pouchdb.com">PouchDB</a>. It’s a database inspired by CouchDB, that runs in the browser and allows applications to store data locally, while offline, and later synchronise it with CouchDB.</p><p>Quick recap: CouchDB is a database that you run on your server and has some esoteric capabilities, such as the HTTP/JSON API. CouchDB implements a replication protocol that allows two instances in a cluster to synchronise both ways. PouchDB is a database that runs on the browser and synchronises with CouchDB, like any other instance of a cluster.</p><p>In the following sections I explain how both these technologies work.</p><h3>How data is stored in CouchDB</h3><p>CouchDB is a document-oriented NoSQL database. An instance of CouchDB hosts many databases. Each database can have documents. A document is a JSON object. CouchDB provides a RESTful HTTP API to read and update documents.</p><p>If your CouchDB instance lives in <code class="inline">/couchdb</code>, then one of your databases would live in <code class="inline">/couchdb/database1</code>, and a document would live in <code class="inline">/couchdb/database1/document_id</code>. There are special databases, such as <code class="inline">_users</code> that stores CouchDB’s users. There are also special documents such as <code class="inline">_security</code> that control access to a database.</p><p>CouchDB has views for querying and reporting on documents. Views are defined by JavaScript functions that map keys to values. We can also write reduce functions, in JavaScript, that summarise data.</p><p>Because CouchDB speaks HTTP/JSON we can easily bypass our web server, and make requests to it from the browser. We don’t have to, but that’s what PouchDB expects us to do. When PouchDB syncs, it generates HTTP requests that match CouchDB’s API, so there’s no point in transforming them.</p><p>Is this safe? A database exposed to the world doesn’t sound safe at all, but CouchDB has user accounts and permissions. When PouchDB connects to CouchDB, it needs to send some credentials (password, token, cookie, etc), just like with any other web application.</p><h3>Managing user accounts in CouchDB</h3><p>How do we create accounts in CouchDB? We can have a web application (in Rails or Phoenix) that has admin credentials and exposes an endpoint that validates information and creates accounts in CouchDB. I don’t usually run CouchDB as my primary database; if I’m running Phoenix, my primary database would probably be PostgreSQL, and Phoenix would be responsible for creating user records in PostgreSQL and CouchDB accounts.</p><p>I had a hard time understanding how CouchDB fits in my system, so I made a diagram with the different interactions when registering and authenticating requests.</p><p><img alt="A sequence diagram with the browser, the web application and CouchDB" src="/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/diagram-117648135-1244w.png" srcset="/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/diagram-117648135-311w.png 311w, /2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/diagram-117648135-622w.png 622w, /2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/diagram-117648135-933w.png 933w, /2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/diagram-117648135-1244w.png 1244w" /></p><p>The first request is made to Phoenix, sending the new user’s email and password. Phoenix will validate both and create an account, inserting a record in PostgreSQL. After, it takes the id of the new user and sends a request to CouchDB to create an account for that user (the id will be his username in CouchDB). It uses the id, not the email, because it needs a value that doesn’t change. Everything up until this point should be in a transaction to make sure there is a CouchDB database for every user.</p><p>When both databases have the user, Phoenix encrypts the user’s id with a key &amp;mdash;that I generated and it’s only known to Phoenix and CouchDB&amp;mdash;, and returns the resulting token to the browser. The browser then takes that token and the user’s id, and uses them to make authenticated requests to CouchDB. Because it has the same key as Phoenix &amp;mdash;the one that only the two of them know&amp;mdash;, it will validate the requests.</p><p>With this we can leverage Phoenix’s authentication system to authorise users in CouchDB. The method described here is called Proxy Authentication and you can read more about it in <a href="http://docs.couchdb.org/en/2.0.0/api/server/authn.html#proxy-authentication">CouchDB’s documentation</a>. There are other authentication mechanisms in CouchDB that could fit your use case better.</p><h3>One database per user</h3><p>CouchDB offers a minimal read level security: databases can have admins and readers, there is no document level security. Because of that, if you grant a user access to the database, he will be able to read every document in it. Doesn’t sound good does it?</p><p>This is why most applications use one database per user. If it seems unreasonable, know <a href="http://mail-archives.apache.org/mod_mbox/couchdb-user/201401.mbox/%3C52CEB873.7080404@ironicdesign.com%3E">it is common to have 100k databases in a Cloudant account</a> (Cloudant is a CouchDB provider). Databases are lightweight.</p><p>In the context of one database per user, know that PouchDB replicates a single database, not the entire instance. Running PouchDB in your client, you need to specify which database you want to replicate from a CouchDB instance. You can run multiple instances of PouchDB, but everything is already prepared to use this level of permissions.</p><p>This works great if you have an app where each user’s data is fairly well segmented. However, as soon as you want to allow a user to access another user’s data, or you want to create aggregate queries across multiple users’ data, the one-database-per-user pattern starts to break down.</p><p>There’s a <a href="https://github.com/etrepum/couchperuser">plugin that automates the creation of a private database for each user</a>, but with CouchDB 2 you only need to <a href="http://docs.couchdb.org/en/2.0.0/config/couch-peruser.html?highlight=per%20user">enable it in the configuration</a>.</p><h3>Data Replication</h3><p>CouchDB is a peer-based distributed database. It allows users to read and update the same data (shared across multiple instances) while disconnected. CouchDB has the ability to synchronise two copies of the same database. If there is a conflict, both revisions will be saved, and a heuristic will determine which revision wins. Both databases will have the same winner, but you can write your own mechanisms of conflict resolution.</p><h3>Configuring CouchDB</h3><p>CouchDB has a built-in web interface called Fauxton. It can be reached at <code class="inline">http://couchdb-url:5984/_utils</code>. Fauxton can be used for setup, configuration, querying, and most administrative tasks.</p><p><img alt="A screenshot of Fauxton" src="/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/couchdbweb-78205794-1132w.png" srcset="/2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/couchdbweb-78205794-283w.png 283w, /2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/couchdbweb-78205794-566w.png 566w, /2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/couchdbweb-78205794-849w.png 849w, /2017-04-20-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/couchdbweb-78205794-1132w.png 1132w" /></p><p>CouchDB can also be configured through a text file at <code class="inline">/etc/couchdb/local.ini</code>. Take the following example of a configuration file:</p><pre><code>[admins]
+admin = mysecretpassword
+
+[cors]
+origins = http://localhost, https://localhost, http://couch.mydev.name:8080
+
+[couch_peruser]
+enable = true</code></pre><p>In this file we create an admin, configure CORS, and enable the plugin that ensures that a private database exist for each document in the <code class="inline">_users</code> database.</p><p>I usually configure CouchDB through this file because it allows me to save it to my repository and quickly create similar instances. CouchDB doesn’t require much configuration and everything works out-of-the-box; you only need to create the first admin. For our offline applications we may need to enable <code class="inline">couch_peruser</code>, but you have to evaluate and decide if you need the private database.</p><h2>Understanding PouchDB</h2><p>PouchDB’s official description, from the docs:</p><p><em>It enables applications to store data locally while offline, then synchronize it with CouchDB and compatible servers when the application is back online, keeping the user’s data in sync no matter where they next login.</em></p><p>PouchDB is a database that runs in the browser and synchronises with CouchDB. It’s not necessary to have CouchDB to use PouchDB, and you can use it just to have a nice abstraction over <a href="https://developer.mozilla.org/en/docs/Web/API/IndexedDB_API">IndexDB</a> and <a href="https://en.wikipedia.org/wiki/Web_SQL_Database">Web SQL</a>.</p><p>I found that CouchDB + PouchDB solves a couple of use-cases well, but becomes unpleasant to work with if you need data that is shared between multiple users and requires different access levels.</p><h3>Getting started with PouchDB</h3><p>In this article I’m not going to build a demonstration application, I’m only going to show the code needed to get started and synchronise an instance of PouchDB with a database in CouchDB.</p><p>We start by requiring creating a local database:</p><pre><code class="javascript">import PouchDB from &quot;pouchdb-browser&quot;;
+
+const db = new PouchDB(&quot;documents&quot;);</code></pre><p>You can create a document in that database:</p><pre><code class="javascript">db.post({ text: &quot;Such a beautiful day&quot; });</code></pre><p>Now that we have a local database, we create another instance of PouchDB that uses a remote storage (CouchDB), instead of Web SQL or IndexDB.</p><pre><code class="javascript">const remoteDatabase = new PouchDB(`http://couchdb-url/documents`);</code></pre><p>Finally, we synchronise the databases both ways.</p><pre><code class="javascript">PouchDB.sync(db, remoteDatabase, {
+  live: true,
+  heartbeat: false,
+  timeout: false,
+  retry: true,
+});</code></pre><p>In this example I’m enabling replication in both ways and real time. I’m also enabling retry, which will make PouchDB reconnect if the connection goes down. It has a heuristic to choose how much time to wait between reconnection attempts.</p><p>A common question about PouchDB is how much data can we store with it? Chrome, Firefox and Safari are only limited by disk space. You can read more about it in <a href="https://pouchdb.com/faq.html#data_limits">PouchDB’s FAQ</a>.</p><h3>Authenticating with CouchDB</h3><p>If you skimmed over the previous sections, please go back and read the section about CouchDB’s user accounts because the information I present there is important to understand the following examples.</p><p>In our previous example, we synced a local PouchDB database to a CouchDB database, but we didn’t use any form of authentication. In this section we’ll demonstrate how to sync with each user’s private database. Because we enabled a database per user, we know that our users have a private database in CouchDB. The private database is named after the user’s username (which is the user’s id in PostgreSQL) in the following format <code class="inline">userdb-{hex encoded username}</code>.</p><p>We start by creating a database and maybe adding some documents to it:</p><pre><code class="javascript">import PouchDB from &quot;pouchdb-browser&quot;;
+
+const db = new PouchDB(&quot;documents&quot;);
+
+db.post({ text: &quot;Such a beautifull day&quot; });</code></pre><p>I will now assume that you have authenticated your user, and you have his username and CouchDB token (the ones I talked about in the section about CouchDB’s user accounts). Finally, we create a remote database sending the username and token in the AJAX headers.</p><pre><code class="javascript">export sync = (currentUser) =&gt; {
+  const remoteDatabase = new PouchDB(`${COUCHDB_URL}/userdb-${hexEncode(currentUser.id)}`, {
+    skipSetup: true,
+    ajax: {
+      headers: {
+        &#39;X-Auth-CouchDB-UserName&#39;: `${currentUser.id}`,
+        &#39;X-Auth-CouchDB-Roles&#39;: &#39;users&#39;,
+        &#39;X-Auth-CouchDB-Token&#39;: currentUser.couchdb_token,
+        &#39;Content-Type&#39;: &#39;application/json; charset=utf-8&#39;
+      }
+    }
+  })
+
+  PouchDB.sync(db, remoteDatabase, {
+    live: true,
+    heartbeat: false,
+    timeout: false,
+    retry: true
+  })
+}</code></pre><p>The databases are now in sync. But we didn’t have to wait for it to start querying the database. Once it is instantiated, we can start working with the data we have locally; that is the selling point of offline applications.</p><h2>Hosting and Learning Material</h2><p>There are two more topics I feel obliged to address &amp;mdash;hosting and documentation&amp;mdash; because it is where I think CouchDB falls short.</p><p>I use Heroku a lot. Call me lazy, but when I’m working on a small team, or by myself, I like to know that my application is going to keep running with little maintenance. Heroku doesn’t support CouchDB, and all the CouchDB providers I found are expensive for me. The most popular one seems to be <a href="https://cloudant.com/">Cloudant</a>; you can judge for yourself. For now, I’m running on Digital Ocean, but this isn’t the ideal scenario for me.</p><p>I noticed there aren’t many blog posts on CouchDB; there are a couple of introductory blog posts to PouchDB and that’s it. I also know many companies running CouchDB + PouchDB in production, but there doesn’t seem to be a big open source application we can learn from.</p><p>This isn’t my first attempt at CouchDB + PouchDB. A couple of years ago I walked the same road and gave up. I was about to give up this time too, but to be fair, it was my fault for not paying attention to the documentation, because it’s very thorough. CouchDB’s documentation has been without a doubt a great help.</p><h2>Final words</h2><p>I would recommend CouchDB + PouchDB to anyone building offline experiences. It does not work for every use case, but, when it does, it makes building applications a joy. I also intend to check out the competition: <a href="https://github.com/Kinto/kinto">Kinto</a>. I don’t know yet how different it is from CouchDB, but I would like to know if it shines where CouchDB falls short.</p>]]>
+        </description>
+      </item>
+    
+      <item>
+        <title>
+          <![CDATA[A bridge between Redux and Meteor]]>
+        </title>
+        <link>/2016-04-28-a-bridge-between-redux-and-meteor/</link>
+        <guid isPermaLink="false">/2016-04-28-a-bridge-between-redux-and-meteor/</guid>
+        <pubDate>Thu, 28 Apr 2016 00:00:00 GMT</pubDate>
+        <description>
+          <![CDATA[<p>The purpose of this article is to demonstrate how to use Redux on a Meteor application. You may find it is unnecessarily complex for your application, and that is ok, there are <a href="https://www.discovermeteor.com/blog/data-loading-react/" title="">other options</a> for you.</p><p>Redux is hot and shiny, and everyone wants to use it. I do enjoy using Redux, but the reasons for this approach go beyond the JavaScript fever:</p><ol><li> The front-end is always a jungle, but being able to write applications using the same technologies and structure across projects with different back-ends (such as Meteor, Rails or Express) allows us to setup faster. Or join a project faster. It also lets us write more guides and conventions, reducing the amount of decisions necessary for every project.</li><li> Collections, Session, and ReactiveVar, aren’t great to handle application state. You lose track of what triggered what. With Redux you get predictable state, you can look at the state at different times and see the actions that set off a change.</li></ol><p>Now, with NPM and modules support on 1.3, the doors are open for an easy integration. In this tutorial I will cover four topics:</p><ol><li> Installing React and Redux.</li><li> Connecting Collections to the Redux store.</li><li> Subscribing to publications.</li><li> Calling methods.</li></ol><p><strong>Note:</strong> I will assume you have a basic understanding of Meteor, React, and Redux (or any Flux implementation). The code I show here is not enough to make an application work, you should <a href="https://github.com/gabrielpoca/meteor-redux-demo/tree/7f71ae2dbba1c72ff5b93c2d8d10fdb646e6010c" title="">go here for a working example</a>.</p><h2>Installing React and Redux</h2><p>If you have ever gone through the hell of setting up Webpack, I have some good news for you:</p><pre><code>$ meteor create messages-app
+$ cd messages-app
+$ meteor remove autopublish insecure
+$ npm install --save react react-dom react-redux react-router redux redux-thunk
+$ rm client/* server/*</code></pre><p>For a router, <code class="inline">react-router</code> serves my purpose better than <code class="inline">flow-router</code>. You should also notice <code class="inline">redux-thunk</code> to allow for asynchronous action creators.</p><p>Ready to go!</p><h2>Connecting Collections to the Redux store</h2><p>Coming from Flux you will find that on Redux the Store is a little different. Here is a quick explanation from the <a href="http://redux.js.org/docs/api/Store.html" title="">Redux documentation</a>:</p><blockquote><p>If you’re coming from Flux, there is a single important difference you need to understand. Redux doesn’t have a Dispatcher or support many stores. Instead, there is just a single store with a single root reducing function. As your app grows, instead of adding stores, you split the root reducer into smaller reducers independently operating on the different parts of the state tree.</p></blockquote><p>The Store is the application state, and we should look at it as the only source of data we can use. This means we cannot access data from the Meteor collections directly and it has to come from the Store. To do this, we can observe the collections and dispatch changes to the Store.</p><p>Start by creating a collection:</p><p><em>lib/messages.js</em></p><pre><code class="javascript">// create a collection
+import { Mongo } from &quot;meteor/mongo&quot;;
+const Messages = new Mongo.Collection(&quot;messages&quot;);
+export default Messages;</code></pre><p>Then, on the client, observe for changes and dispatch an action to the Store with the new data.</p><p><em>client/setup.js</em></p><pre><code class="javascript">import React, { Component } from &quot;react&quot;;
+import { createStore, combineReducers } from &quot;redux&quot;;
+import { render } from &quot;react-dom&quot;;
+import { Tracker } from &quot;meteor/tracker&quot;;
+
+// import the messages collection
+import Messages from &quot;../lib/messages&quot;;
+
+const messagesReducer = (state = [], action) =&gt; {
+  switch (action.type) {
+    case &quot;SET_MESSAGES&quot;:
+      return action.messages;
+    default:
+      return state;
+  }
+};
+
+const reducers = combineReducers({ messages: messagesReducer });
+const store = createStore(reducers, {});
+
+// will run every time Messages changes
+Tracker.autorun(() =&gt; {
+  store.dispatch({
+    type: &quot;SET_MESSAGES&quot;,
+    messages: Messages.find().fetch(),
+  });
+});</code></pre><p>The Store will update with the Messages collection. This way our data will always be up to date on React.</p><p>We could optimize, but I will keep it simple in this tutorial. We could also automate this setup for every collection, but I’ll leave that for later.</p><h2>Subscribing to publications</h2><p>Working with an HTTP back-end, we would create a set of special components called <em>containers</em>. They have three responsibilities:</p><ol><li> Calling actions to load data from the back-end.</li><li> Connecting to the store.</li><li> Sending the data to the child components.</li></ol><p>We did not invent this concept. Many people <a href="https://medium.com/@learnreact/container-components-c0e67432e005#.wtehcfws1" title="">wrote about it</a>. The important thing to remember is that these components should not be rendering anything. Their only responsibility is to fetch data and send it to the component that will render stuff.</p><p>Our data already goes from the collections to the store, but after you remove <code class="inline">insecure</code> there will not be anything in the collections. We need a publication and a subscription.</p><p>Here is a quick publication for Messages:</p><p><em>server/publications.js</em></p><pre><code class="javascript">import { Meteor } from &quot;meteor/meteor&quot;;
+import Messages from &quot;../lib/messages&quot;;
+Meteor.publish(&quot;messages&quot;, function () {
+  return Messages.find({});
+});</code></pre><p>Subscriptions are tricky because we need to unsubscribe once the data is not necessary anymore. Which translates to: we need to unsubscribe when the container is removed. I wrote a high order component that abstracts this logic. The following is a simplified version, you can <a href="https://github.com/gabrielpoca/meteor-redux-demo/blob/7f71ae2dbba1c72ff5b93c2d8d10fdb646e6010c/client/helpers/SubscribeComponent.jsx" title="">go here for a robust solution</a>.</p><p><em>client/helpers/SubscribeComponent.jsx</em></p><pre><code class="javascript">import { Meteor } from &quot;meteor/meteor&quot;;
+import React, { Component } from &quot;react&quot;;
+
+export default (ComposedComponent) =&gt;
+  class extends Component {
+    constructor() {
+      super();
+      this.subs = {};
+    }
+
+    subscribe(name, ...args) {
+      if (this.subs[name]) this.subs[name].stop();
+
+      this.subs[name] = Meteor.subscribe(name, ...args);
+    }
+
+    componentWillUnmount() {
+      Object.keys(this.subs).map((key) =&gt; this.subs[key].stop());
+    }
+
+    render() {
+      return (
+        &lt;ComposedComponent
+          {...this.props}
+          subscribe={this.subscribe.bind(this)}
+          subscriptionReady={this.subscriptionReady.bind(this)}
+        /&gt;
+      );
+    }
+  };</code></pre><p>Using this high order component we can write a container that subscribes to the messages:</p><p><em>client/containers/App.jsx</em></p><pre><code class="javascript">import SubscribeComponent from &#39;../helpers/SubscribeComponent&#39;;
+import MessagesList from &#39;../components/MessagesList&#39;;
+
+class App extends Component {
+  componentWillMount() {
+    this.props.subscribe(&#39;messages&#39;);
+  }
+
+  render() {
+    return &lt;MessagesList {…this.props} /&gt;;
+  }
+}
+
+const mapStateToProps = state =&gt; {
+  return { messages: state.messages };
+};
+
+export default connect(mapStateToProps)(SubscribeComponent(App))</code></pre><p>I’m assuming there is a component called <code class="inline">MessagesList</code> that renders the list of messages. This component will always receive an up to date list of messages. The only thing missing would be to connect the Store and this container to the router. This can be accomplished by adding the following code.</p><p><em>client/setup.js</em></p><pre><code class="javascript">import { render } from &quot;react-dom&quot;;
+import { Provider } from &quot;react-redux&quot;;
+import { Router, Route, browserHistory } from &quot;react-router&quot;;
+
+import createStore from &quot;./store/createStore&quot;;
+import App from &quot;./containers/App&quot;;
+
+Meteor.startup(() =&gt; {
+  render(
+    &lt;Provider store={createStore()}&gt;
+      &lt;Router history={browserHistory}&gt;
+        &lt;Route path=&quot;/&quot; component={App} /&gt;
+      &lt;/Router&gt;
+    &lt;/Provider&gt;,
+    document.getElementById(&quot;app&quot;)
+  );
+});</code></pre><p>Please keep in mind that this is not a complete tutorial, the code will not work as there are some missing parts. <a href="https://github.com/gabrielpoca/meteor-redux-demo/tree/7f71ae2dbba1c72ff5b93c2d8d10fdb646e6010c" title="">Go here for a working example</a>.</p><h2>Calling methods</h2><p>I have already mentioned actions in the previous sections, but to establish a common understanding here is the definition from the Redux <a href="http://redux.js.org/docs/basics/Actions.html" title="">documentation</a>:</p><blockquote><p>Actions are payloads of information that send data from your application to your store. They are the only source of information for the store. (…) Actions are plain JavaScript objects. Actions must have a type property that indicates the type of action being performed. Types should typically be defined as string constants.</p></blockquote><p>We are already dispatching the list of messages using the type <code class="inline">&#39;SET_MESSAGES&#39;</code>.</p><p>Now another concept, Action Creators, also from the documentation:</p><blockquote><p>Action creators are exactly that—functions that create actions.</p></blockquote><p>You will use actions and action creators for everything: loading the messages from the back-end; creating a message; anything related user interactions.</p><p>On Meteor we usually do not make HTTP requests, we call methods. And if the method changes any collection you will see the Store update automatically.</p><p>Sometimes you may be interested in the return value from a method, or you may be dealing with data that only exists on the client. In those scenarios, you still want to dispatch that data to the store.</p><p>The following is a Meteor method that creates messages:</p><p><em>server/methods.js</em></p><pre><code class="javascript">import { Meteor } from &quot;meteor/meteor&quot;;
+import Messages from &quot;../lib/messages&quot;;
+
+Meteor.methods({
+  createMessage: function (message) {
+    Messages.insert({ text: message });
+  },
+});</code></pre><p>And our action creator that calls the method:</p><p><em>client/actions.js</em></p><pre><code class="javascript">export default createMessage = (message) =&gt; {
+  (dispatch) =&gt; Meteor.call(&quot;createMessage&quot;, message);
+};</code></pre><p>And the same action creator, but, this time, we are interested in the return value.</p><p><em>client/actions.js</em></p><pre><code class="javascript">export default createMessage = message =&gt; {
+  return dispatch =&gt; {
+    Meteor.call(&#39;createMessage&#39;, message, err =&gt; {
+      if (err)
+        dispatch({
+          type: ‘CREATE_MESSAGE_ERROR’,
+          err,
+        });
+    });
+  };
+}</code></pre><h2>Final Thoughts</h2><p>This approach is still under test, and I have more ideas to share on it, but I will leave them for a next article. I understand that this setup will nor work for everyone nor every application. For me, it provides a sense of structure and control that I could never find before with Blaze.</p><p>You should look at the <a href="https://github.com/gabrielpoca/meteor-redux-demo/tree/7f71ae2dbba1c72ff5b93c2d8d10fdb646e6010c" title="">working example</a>. Feel free to ask questions and leave your feedback, and for more <a href="https://subvisual.co/newsletter/" title="">subscribe to our newsletter</a>.</p>]]>
+        </description>
+      </item>
+    
+      <item>
+        <title>
+          <![CDATA[Offline Web Apps with Meteor]]>
+        </title>
+        <link>/2014-11-26-offline-web-apps-with-meteor/</link>
+        <guid isPermaLink="false">/2014-11-26-offline-web-apps-with-meteor/</guid>
+        <pubDate>Wed, 26 Nov 2014 00:00:00 GMT</pubDate>
+        <description>
+          <![CDATA[<p>This blog post was written for <a href="http://blog.groupbuddies.com/posts/45-offline-web-apps-with-meteor">Group Buddies Blog</a>.</p><p>In this blog post I’m presenting a solution to make Meteor apps work completely offline. In fact, Meteor apps already work offline, as long as the user doesn’t close the browser.</p><p>If you don’t know what Meteor is or how it works, I recommend that you take a look at the <a href="http://docs.meteor.com/#/basic/">meteor docs</a> before moving forward.</p><p>One of the principles of Meteor is “Data on the Wire”, i.e., each client receives all assets upon connection, after which only data is sent between the client and the server.</p><p>Another principle is “Database Everywhere”, i.e., each client has a subset of the server database that responds to the same operations with the same api.</p><p>When offline, a client has everything needed to keep the app running. This article focuses on how to allow a user to reopen the application, while being offline, after the browser has been closed.</p><h2>Persisting assets</h2><p>HTML5 made some progress in allowing web applications to be accessible offline. The result of it is the ApplicationCache interface. Since many people don’t know, or understand, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache">AppCache</a>, here’s how it is defined in MDN (Mozilla Developer Network).</p><blockquote><p>Developers can use the Application Cache (AppCache) interface to specify resources that the browser should cache and make available to offline users. Applications that are cached load and work correctly even if users click the refresh button when they are offline.</p></blockquote><p>AppCache stores all the application assets and allows a user to open them when there is no internet connection. For more details on AppCache I recommend <a href="http://www.html5rocks.com/en/tutorials/appcache/beginner/">this guide</a>.</p><p>To start using AppCache on a Meteor application just add the package:</p><pre><code>meteor add appcache</code></pre><p>Don’t worry if the console logs say the app has more that 5 MB ( which is the recommended maximum). When Meteor builds for production it concatenates and minifies the assets. If it’s still more that 5 MB maybe you need to exclude some assets from AppCache.</p><p>For instance, you can tell AppCache not to save an image:</p><pre><code>Meteor.AppCache.config
+  onlineOnly: [
+    &#39;/bg.png&#39;
+    ]</code></pre><p>The <a href="https://github.com/meteor/meteor/wiki/AppCache">documentation</a> is a good follow up on this topic.</p><h2>Persisting data</h2><p>The client side database is in-memory. When offline, Meteor will store both the current working database and a list of messages to send to the server on reconnect. There is no (official) way to persist this data to disk, and for this reason the information is lost when the browser is closed.</p><p>To overcome this limitation, there is <a href="https://github.com/GroundMeteor/db">GroundDB</a>, a fast and thin layer providing Meteor with offline database and methods, saving them into the <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage#localStorage"><code class="inline">localStorage</code></a>.</p><p>To start using GroundDB add the package.</p><pre><code>meteor add ground:db</code></pre><p>Now your subscriptions will be available when you’re offline. If you’re using IronRouter you should not use the <code class="inline">waitOn</code> feature, since this is going to make the application hold until the server responds. Instead, subscribe to the data you want offline on the application startup. For instance, in the file <code class="inline">lib/router.coffee</code> you can have something like the following:</p><pre><code>if Meteor.isClient
+  subscribed = false
+  Tracker.autorun () -&gt;
+    if Meteor.user() &amp;&amp; !subscribed
+      Meteor.subscribe &#39;users&#39;
+      Meteor.subscribe &#39;trips&#39;
+      Meteor.subscribe &#39;expenses&#39;
+      Meteor.subscribe &#39;notifications&#39;
+      subscribed = true</code></pre><p>This way the data will always be on <code class="inline">localStorage</code> when the user goes offline. This also means that you need to care about the amount of information that you save locally.</p><p>If you are interested in this topic, this <a href="https://groups.google.com/forum/#!searchin/meteor-talk/minimongo$20offline/meteor-talk/tGto0cCsvXA/dH3uZjEd9y4J">google groups thread</a> is a good follow up.</p><h2>Summary</h2><p>Making an offline web application requires a different ways of thinking about a solution, and there are many plenty problems to solve. These packages help pushing forward on making offline web applications. Feel free to ask questions, I’m not an expert but I’ll try my best to answer.</p><p>As an example, you can run <a href="https://github.com/groupbuddies/tripl.it.git">tripl.it</a> and see it’s source code. It’s a mobile application that works offline.</p>]]>
+        </description>
+      </item>
+    
+      <item>
+        <title>
+          <![CDATA[Tutorial: HTML Audio Capture streaming to Node.js (no browser extensions)]]>
+        </title>
+        <link>/2014-06-24-streaming-microphone-from-browser-to-nodejs-no-plugin/</link>
+        <guid isPermaLink="false">/2014-06-24-streaming-microphone-from-browser-to-nodejs-no-plugin/</guid>
+        <pubDate>Tue, 24 Jun 2014 00:00:00 GMT</pubDate>
+        <description>
+          <![CDATA[<p>I’m taking the time to write the tutorial I wish I had some months ago. My task was to set up some user voice recording mechanism in the browser. It should record for about one hour, non-stop, saving to a server. The idea was to use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia" title="">getUserMedia()</a> API. No browser extensions should be used.</p><p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia" title="">getUserMedia()</a> API allows web apps to request access to a media device such as a camera or microphone. It yields raw PCM data.</p><h2>Round One</h2><p>We approached the task looking for the smallest change that solved the problem. We did it using <a href="https://github.com/muaz-khan/WebRTC-Experiment/tree/master/RecordRTC" title="">RecordRTC</a>. It records the microphone in the browser. When finished, we can upload it to a server through a normal request. Let me show you how it works.</p><p>Add the RecordRTC library.</p><pre><code class="html">&lt;script src=&quot;//www.WebRTC-Experiment.com/RecordRTC.js&quot;&gt;&lt;/script&gt;</code></pre><p>Request access to the microphone.</p><pre><code class="javascript">var session = {
+  audio: true,
+  video: false,
+};
+var recordRTC = null;
+navigator.getUserMedia(
+  session,
+  function (mediaStream) {
+    recordRTC = RecordRTC(MediaStream);
+    recordRTC.startRecording();
+  },
+  onError
+);</code></pre><p>When finished recording, stop and upload to a server.</p><pre><code class="javascript">recordRTC.stopRecording(function (audioURL) {
+  var formData = new FormData();
+  formData.append(&quot;edition[audio]&quot;, recordRTC.getBlob());
+  $.ajax({
+    type: &quot;POST&quot;,
+    url: &quot;some/path&quot;,
+    data: formData,
+    contentType: false,
+    cache: false,
+    processData: false,
+  });
+});</code></pre><p>The code works, but you shouldn’t write code like this, it’s just an example.</p><h3>Drawbacks</h3><p>Audio is recorded in wav format. An one hour recording, with one channel, can take around 500mb. This is a problem for the browser limited memory. Also the upload would take ages! It wasn’t working.</p><h2>Round Two</h2><p>After reading the source code from <a href="https://github.com/muaz-khan/WebRTC-Experiment/tree/master/RecordRTC" title="">RecordRTC</a> (ugly) and <a href="https://github.com/mattdiamond/Recorderjs" title="">RecorderJS</a>, I realised that using a <a href="https://developer.mozilla.org/en-US/docs/Web/API/ScriptProcessorNode">ScriptProcessorNode</a> I can write JavaScript to send data chunks (audio samples) from the microphone to a server.</p><p>Turns out it’s harder than it seems, mostly because of the lack of information. There are a couple of related Stack Overflow answers (I will add them in the end), but I won’t bother you with this. Let’s move on to the code.</p><h3>Reading data from the microphone</h3><p>First request microphone access.</p><pre><code class="javascript">var session = {
+  audio: true,
+  video: false,
+};
+var recordRTC = null;
+navigator.getUserMedia(session, initializeRecorder, onError);</code></pre><p>Having the microphone stream you can use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext" title="">AudioContext</a> interface to make the audio (PCM data) go through different processing nodes before reaching its destination. There are nodes for gain, compressor, panner, and much more. We are going to write a custom node, so we can access the audio samples. For that we add a <a href="https://developer.mozilla.org/en-US/docs/Web/API/ScriptProcessorNode">ScriptProcessorNode</a>.</p><pre><code class="javascript">function initializeRecorder(stream) {
+  var audioContext = window.AudioContext;
+  var context = new audioContext();
+  var audioInput = context.createMediaStreamSource(stream);
+  var bufferSize = 2048;
+  // create a javascript node
+  var recorder = context.createJavaScriptNode(bufferSize, 1, 1);
+  // specify the processing function
+  recorder.onaudioprocess = recorderProcess;
+  // connect stream to our recorder
+  audioInput.connect(recorder);
+  // connect our recorder to the previous destination
+  recorder.connect(context.destination);
+}</code></pre><p>After this, every audio sample will go through the <code class="inline">recorderProcess</code> function.</p><pre><code class="javascript">function recorderProcess(e) {
+  var left = e.inputBuffer.getChannelData(0);
+}</code></pre><p>We have now PCM data samples from the left channel. Since we are recording in mono we only need the left channel. Now moving on to streaming these chunks to the server.</p><h3>Communication</h3><p>We are using WebSockets to send the samples to the server. The server is going to be written in Node.js.</p><p>I started with <a href="http://socket.io/" title="">Socket.IO</a>. When things didn’t work I realised Socket.IO doesn’t support binary communication (in fact, it does now, I made this before it did). <a href="http://binaryjs.com/" title="">BinaryJS</a> does support binary communication, so I moved to it.</p><p><strong>Setup BinaryJS</strong></p><p>First add the BinaryJS library.</p><pre><code class="html">&lt;script src=&quot;http://cdn.binaryjs.com/0/binary.js&quot;&gt;&lt;/script&gt;</code></pre><p>Now start a connection.</p><pre><code class="javascript">var client = new BinaryClient(&quot;ws://localhost:9001&quot;);</code></pre><p>When ready, create a write stream.</p><pre><code class="javascript">client.on(&#39;open&#39;, function() {
+  // for the sake of this example let&#39;s put the stream in the window
+  window.Stream = client.createStream();
+}</code></pre><p>Going back to our custom node let’s send the audio to the stream.</p><pre><code class="javascript">function recorderProcess(e) {
+  var left = e.inputBuffer.getChannelData(0);
+  window.Stream.write(left);
+}</code></pre><p>Everything should be ready on the client side now. Our <code class="inline">recorderProcess</code> function is called for each audio chunk, and each is sent to the server.</p><p>But we aren’t ready yet! There is one important step missing. WebAudio samples are in Float32. If you choose to send them like this you need to know that <a href="https://developer.mozilla.org/en-US/docs/Web/API/Uint16Array">endianness does matter</a>. I chose to convert them to 16 bit signed integers:</p><pre><code class="javascript">function convertFloat32ToInt16(buffer) {
+  l = buffer.length;
+  buf = new Int16Array(l);
+  while (l--) {
+    buf[l] = Math.min(1, buffer[l]) * 0x7fff;
+  }
+  return buf.buffer;
+}
+
+function recorderProcess(e) {
+  var left = e.inputBuffer.getChannelData(0);
+  window.Stream.write(convertFloat32ToInt16(left));
+}</code></pre><p>We are now done with the client code. Moving on to the server.</p><h3>Setting up a server</h3><p>I’m not getting into much detail on the server, I’m just going to show how to put these chunks in a playable media file. I’m assuming you already have <a href="http://nodejs.org/" title="">Node.js</a> installed.</p><p>We need <a href="http://binaryjs.com/" title="">BinaryJS</a>, and <a href="https://github.com/TooTallNate/node-wav" title="">node-wav</a> on the server. The first is for communication, and the second accepts raw audio data and outputs a WAV file with a valid WAVE header.</p><pre><code class="bash">npm init
+npm install binaryjs
+npm install wav</code></pre><p>Now create the <code class="inline">index.js</code> file and start the BinaryJS server.</p><pre><code class="javascript">var binaryServer = require(&#39;binaryjs&#39;).BinaryServer;
+var wav = require(&#39;wav&#39;);
+
+var server = binaryServer({port: 9001});
+
+server.on(&#39;connection&#39;, function(client) {
+  ...
+});</code></pre><p>Inside the <code class="inline">server.on(&#39;connection&#39;, function)</code> callback node-wav is going to help pipe the stream into a file.</p><pre><code class="javascript">var fileWriter = null;
+
+client.on(&quot;stream&quot;, function (stream, meta) {
+  var fileWriter = new wav.FileWriter(&quot;demo.wav&quot;, {
+    channels: 1,
+    sampleRate: 48000,
+    bitDepth: 16,
+  });
+  stream.pipe(fileWriter);
+  stream.on(&quot;end&quot;, function () {
+    fileWriter.end();
+  });
+});
+
+client.on(&quot;close&quot;, function () {
+  if (fileWriter != null) {
+    fileWriter.end();
+  }
+});</code></pre><p>For a better understanding you should read <a href="https://github.com/TooTallNate/node-wav" title="">node-wav</a> document. In fact, you should read the source code since there isn’t much documentation. Simply put, <code class="inline">wav.FileWriter</code> accepts a pcm stream and sends it to a media file, setting the right header for the file.</p><p>Notice the settings for <code class="inline">wav.FileWriter</code> are hardcoded, but they can be sent through the stream. Parameters like sample rate change for each client.</p><h2>Setup complete</h2><p>You are ready to start recording. There is still a long way to go from here. You should probably support restoring the connection if it goes down, and append the audio to the same media.</p><h2>Wrap it up</h2><p>You can now start from here and build your own platform with audio recording. Maybe a personal note-taking platform.</p><p>This solution allows you to record the microphone while not worrying about upload time and audio loss. The full source code is <a href="https://github.com/gabrielpoca/browser-pcm-stream">here</a>. Feel free to leave any questions and comments.</p><h3>StackOverflow related answers</h3><ul><li><a href="http://stackoverflow.com/questions/21079972/sound-card-detection-for-web/21080953#21080953">Sound card detection for web</a></li><li><a href="http://stackoverflow.com/questions/20876152/playing-pcm-stream-from-web-audio-api-on-node-js">Playing PCM stream from Web Audio API on Node.js</a></li><li><a href="http://stackoverflow.com/questions/20850396/stream-recorded-audio-from-browser-to-server">Stream recorded audio from browser to server</a></li></ul>]]>
+        </description>
+      </item>
+    
+  </channel>
+</rss>

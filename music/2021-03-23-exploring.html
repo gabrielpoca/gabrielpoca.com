@@ -1,0 +1,42 @@
+<ul class="sm:w-1/2 px-3">
+  
+    
+    
+    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210323 Exploring.mp3` }">
+      <article class="py-2 text-white">
+        <div
+          x-cloak
+          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
+          x-show="$store.player.src === url">
+          <p>I built most of the sections on the MC707 and recorded them into Reaper to arrange and mix. I wanted to move everything into Reaper because I struggle with transitions between sections, and working on it on the computer feels easier. I’m not sure whether these sections don’t work well together, or I don’t know how to make them work together. You can also see that my drums still suck. My next one is almost finished, and I’m pretty confident that I improved in both of these areas.</p>
+        </div>
+        <audio
+          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210323 Exploring.mp3"
+          x-effect="if (url !== $store.player.src) $refs[url].pause()"
+          x-hide
+          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210323 Exploring.mp3"></audio>
+
+        <button
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          @click="$store.player.set($refs[url], url, `Exploring`)">
+
+          <div class="flex flex-start w-full items-center">
+            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
+              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
+              </svg>
+              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
+                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
+                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
+              </svg>
+            </div>
+            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
+              <span class="truncate">Exploring</span>
+              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2021-03-23</span>
+            </div>
+          </div>
+        </button>
+      </article>
+    </li>
+  
+</ul>

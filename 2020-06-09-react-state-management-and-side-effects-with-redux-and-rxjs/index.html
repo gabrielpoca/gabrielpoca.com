@@ -1,0 +1,109 @@
+<html class="min-h-full h-full w-full" lang="en"><head><title>Gabriel Poça | React state management and side-effects with Redux and RxJS</title><meta content="Gabriel Poça | React state management and side-effects with Redux and RxJS" name="title"><meta content="React state management and side-effects with Redux and RxJS" name="description"><meta content="website" property="og:type"><meta content="https://gabrielpoca.com/2020-06-09-react-state-management-and-side-effects-with-redux-and-rxjs/index.html" property="og:url"><meta content="Gabriel Poça | React state management and side-effects with Redux and RxJS" property="og:title"><meta content="React state management and side-effects with Redux and RxJS" property="og:description"><meta content="https://gabrielpoca.com/https://gabrielpoca.com/2020-06-09-react-state-management-and-side-effects-with-redux-and-rxjs/seo.png" property="og:image"><meta content="summary_large_image" property="twitter:card"><meta content="https://gabrielpoca.com/2020-06-09-react-state-management-and-side-effects-with-redux-and-rxjs/index.html" property="twitter:url"><meta content="Gabriel Poça | React state management and side-effects with Redux and RxJS" property="twitter:title"><meta content="React state management and side-effects with Redux and RxJS" property="twitter:description"><meta content="https://gabrielpoca.com/https://gabrielpoca.com/2020-06-09-react-state-management-and-side-effects-with-redux-and-rxjs/seo.png" property="twitter:image"><link href="/icon.png" rel="icon" type="image/png"><meta content="text/html; charset=utf-8" http-equiv="Content-Type"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link rel="stylesheet"  href="/global-LSjaseDdhYQReak1qfVEbw==.css" />
+<link rel="stylesheet"  href="/site--Z1K36JV3z4XqzIgy-g8zw==.css" />
+</head><body class="overscroll-none antialiased font-sans min-h-full h-full overflow-x-hidden w-full"><nav class="flex justify-end space-x-3 px-4 uppercase tracking-wide h-16 items-center z-40 relative text-xs font-bold md:px-8 md:space-x-4 md:text-sm text-my-purple"><a href="/" class="opacity-60">Home</a><a href="/books" class="opacity-60">Reading</a><a href="/music" class="opacity-60">Music</a><a href="/now" class="opacity-60">Now</a><a href="/about" class="opacity-60">About</a></nav><article class="bg-black text-my-white h-entry"><div class="text-center relative flex items-center justify-center -mt-16" style="height:80vh"><h1 class="p-name mb-8 text-4xl z-20 relative mx-auto px-8 sm:text-5xl sm:px-16">React state management and side-effects with Redux and RxJS</h1></div><div class="mx-auto py-8 px-6 sm:max-w-screen-sm"><div class="prose max-w-none prose-lg e-content"><p>In React, state management can take many shapes. I remember when the <a href="https://facebook.github.io/flux/">Flux architecture</a> was the hot new thing. Eventually Redux became the standard, but new libraries are published all the time, especially when we get React APIs that fundamentally change how we build applications. React Hooks are the most recent example of that, and I believe Redux adapted itself nicely to it.</p><p>For side-effects, I don’t even know what the game was. I’ve seen people use a wide range of solutions, from nothing to Redux-Sagas. I’ve had my share of obscure Redux middlewares.</p><p>Over the years I worked on many front-end projects. I don’t always enjoy it, but I’ve found some libraries that make it more pleasant. One of those libraries is RxJS. I found it because of <a href="https://rxdb.info/">RxDB</a>, which combines RxJS and PouchDB to create the best thing I’ve used so far to build offline-first web apps.</p><p>RxJS can be many things, but I only use it to manage side-effects. You may be thinking that if I’m using RxJS I don’t need Redux. It’s pretty easy to build a Redux clone using <em>BehaviorSubject</em> and <em>scan</em>. But the truth is that I would be writing a lot of plumbing code, which Redux already does for me. I would eventually arrive at the same solution or, most likely, a worse one. And I wouldn’t be able to use the community-supported packages. I know this because I did try to do it.</p><p>Back to Redux for state management, and RxJS for side effects. We just need one other library, to combines these two: <a href="https://redux-observable.js.org/">redux-observables</a>.</p><p>In redux-observarbles we work with epics. An epic is a function which takes a stream of actions and returns a stream of actions. <strong>Actions in, actions out.</strong> Let’s take this example from the docs:</p><pre><code class="js">const pingEpic = (action$) =&gt;
+  action$.pipe(
+    filter((action) =&gt; action.type === &quot;PING&quot;),
+    mapTo({ type: &quot;PONG&quot; })
+  );
+
+// later...
+dispatch({ type: &quot;PING&quot; });</code></pre><p>In this example, the <code class="inline">pingEpic</code> listens for actions <code class="inline">PING</code> and dispatches a <code class="inline">PONG</code> action when it finds one. This would be the same as:</p><pre><code class="js">dispatch({ type: &quot;PING&quot; });
+dispatch({ type: &quot;PONG&quot; });</code></pre><p>Keep in mind that you’re not transforming the first action into the second. Actions that you receive in the epic have already finished running through the reducers. Here’s an epic I wrote recently to debounce search requests:</p><pre><code class="js">export const notesSearchEpic = (action$) =&gt;
+  action$.pipe(
+    ofType(&quot;NOTES_SEARCH&quot;),
+    throttle(() =&gt; interval(200), { trailing: true }),
+    mergeMap(({ payload }) =&gt; Notes.search(payload).then(notesSearchResult))
+  );</code></pre><p>In this one, we listen for actions of type <code class="inline">NOTES_SEARCH</code>, throttle them, run the search, and dispatch the results. The <code class="inline">notesSearchResult</code> is an action creator. The action <code class="inline">NOTES_SEARCH</code> is used both to update the reducer with the current search query, but also to initialize this side-effect.</p><h2>Similar libraries</h2><p>Before we move to more advanced examples, you should know that if the only thing you need is to dispatch asynchronous actions, <a href="https://github.com/reduxjs/redux-thunk">redux-thunk</a> is more than enough.</p><p>One question that shows up all the time is, how does it compare to redux-sagas? Having also used redux-sagas in production, I can say that I find the declarative style of redux-observables a lot nicer. It’s also important to remember that RxJS is a generic async library, which you can use in a lot of contexts. That being said, there’s value in learning redux-sagas, as the concepts behind it are useful, for instance when you’re working with event sourcing.</p><p>I was looking for a nice example to show the difference between a flow written in sagas and RxJS. I found <a href="https://hackmd.io/@2qVnJRlJRHCk20dvVxsySA/H1xLHUQ8e?type=view">this website</a> with a bunch of them. Here’s a user session flow written in sagas:</p><pre><code class="js">import { take, put, call, fork, cancel } from &quot;redux-saga/effects&quot;;
+import Api from &quot;...&quot;;
+
+function* loginWatcher() {
+  const { user, password } = yield take(&quot;login_request&quot;);
+  const task = yield fork(authorize, user, password);
+  const action = yield take([&quot;logout&quot;, &quot;login_error&quot;]);
+
+  if (action.type === &quot;logout&quot;) {
+    yield cancel(task);
+    yield put({ type: &quot;login_cancel&quot; });
+  }
+}
+
+function* authorize(user, password) {
+  try {
+    const token = yield call(Api.getUserToken, user, password);
+    yield put({ type: &quot;login_success&quot;, token });
+  } catch (error) {
+    yield put({ type: &quot;login_error&quot;, error });
+  }
+}</code></pre><p>The exact same flow, now written in redux-observarbles:</p><pre><code class="js">const authEpic = action$ =&gt;
+    action$
+        .ofType(&#39;login_request&#39;)
+        .flatMap(({ payload: { user, password }})=&gt;
+            Observable
+                .ajax
+                .get(&#39;/api/userToken&#39;, { user, password })
+                .map(({ token }) =&gt; ({ type: &#39;login_success&#39;, token }))
+                .takeUntil(action$.ofType(&#39;login_cancel&#39;, &#39;logout&#39;))
+                .catch(error =&gt; of({ type: &#39;login_error&#39;, error }))</code></pre><p>I’m sure you can find examples that benefit sagas in terms of readability, but I like this example because it showcases how different both styles are. The redux-sagas example is pretty similar to something I had in production 3 years ago.</p><h2>TypeScript</h2><p>TypeScript is one of those things that can transform a JavaScript hater into a puppy. I’ve seen it first-hand. But let’s remember that it is not a silver bullet, and it doesn’t prevent runtime errors (I guess Elm’s the only language promising such thing). TypeScript cannot be an excuse not to write tests. It’s a tool, and it’s a nice one. Now on with the show.</p><p>The first time I tried to use TypeScript in a React project was a shitshow. This was years ago when using high-order components was the real deal. We weren’t even using render props at the time. Using TypeScript was terrible. Just trying to figure out the type for a component that was connected to the router was a headache. Things are much nicer now, as you can see in the following examples.</p><p>Let’s start with the action:</p><pre><code class="ts">export const notesSearch = createAction(&quot;NOTES_SEARCH&quot;)&lt;string&gt;();
+export const notesSearchResult = createAction(&quot;NOTES_SEARCH_RESULT&quot;)&lt;
+  SearchResult[]
+&gt;();
+
+export type NotesActionTypes =
+  | ReturnType&lt;typeof notesSearchResult&gt;
+  | ReturnType&lt;typeof notesSearch&gt;;
+// actions</code></pre><p>The <code class="inline">createAction</code> function is a little helper I wrote. It creates an action creator function with a <code class="inline">type</code> property using the dispatched type.</p><pre><code class="ts">type BaseType = string;
+
+export default function createAction&lt;T extends BaseType&gt;(type: T) {
+  return function &lt;K = undefined&gt;() {
+    const builder = function (payload?: K): { type: T; payload: K } {
+      return {
+        type,
+        payload: payload,
+      };
+    };
+
+    builder.type = type;
+
+    return builder;
+  };
+}</code></pre><p>The reducer saves the actions’ payloads to the store.</p><pre><code class="ts">// reducer
+import { NotesState } from &quot;../models/types&quot;;
+
+import { NotesActionTypes, notesSearch, notesSearchResult } from &quot;./actions&quot;;
+
+export function notesReducer(
+  state: NotesState,
+  action: NotesActionTypes
+): NotesState {
+  switch (action.type) {
+    case notesSearch.type:
+      return { ...state, searchQuery: action.payload };
+
+    case notesSearchResult.type:
+      return { ...state, searchResult: action.payload };
+
+    default:
+      return state || initalState;
+  }
+}</code></pre><p>The component uses a selector to fetch the search query parameter we set in the reducer and dispatches the search action when the input changes.</p><pre><code class="ts">export function HomePage() {
+  const query = useSelector(getSearchQuery);
+
+  ...
+
+  return (
+    ...
+      &lt;Search
+        value={query}
+        onChange={(ev) =&gt; dispatch(notesSearch(ev.target.value))}
+        placeholder=&quot;Search...&quot;
+      /&gt;
+    ...
+  )
+}</code></pre><p>The action that transforms a search query into search results is the one you saw above, now in TypeScript:</p><pre><code class="ts">export const notesSearchEpic = (
+  action$: ActionsObservable&lt;ReturnType&lt;typeof notesSearch&gt;&gt;
+) =&gt;
+  action$.pipe(
+    ofType(notesSearch.type),
+    throttle(() =&gt; interval(200), { trailing: true }),
+    mergeMap(({ payload }) =&gt; Notes.search(payload).then(notesSearchResult))
+  );</code></pre><p>This setup works for me and for the people I worked with. I’ve tried a few libraries for state management and side-effects, but these are the most pleasant ones to work with. If you’re curious about how this works in practice, <a href="https://github.com/subvisual/notedown">we’ve published the source code for an app that uses all of these libraries</a>.</p><p>Reach out to me on <a href="https://twitter.com/gabrielgpoca">Twitter</a> if you have any comments or questions. I’ll try to answer them.</p><p>Stay safe.</p></div></div><span class="h-card hidden p-author"><a class="p-name u-url" href="/" rel="author me">Gabriel Poça</a><a class="u-photo" href="/icon.png"></a><span class="p-note">Professional software engineer / amateur music maker / avid reader in the process of learning everything I can.</span></span><div class="hidden"><a class="u-url" href="/2020-06-09-react-state-management-and-side-effects-with-redux-and-rxjs/index.html">React state management and side-effects with Redux and RxJS</a><time class="dt-published" datetime="2020-06-09T00:00:00-00:00">2020-06-09</time></div></article><footer class="py-20 items-end text-xs sm:text-sm bg-black"><div class="bg-my-purple mx-auto px-4 py-10 md:p-8 md:rounded md:container"><div class="flex flex-col sm:flex-row sm:flex-start"><div class="border-2 border-my-purple-darker rounded-full w-24 h-24 overflow-hidden flex-shrink-0 mb-4 sm:mx-auto sm:mb-0"><img src="/_includes/eu-41840077-400w.jpg" srcset="/_includes/eu-41840077-100w.jpg 100w, /_includes/eu-41840077-200w.jpg 200w, /_includes/eu-41840077-300w.jpg 300w, /_includes/eu-41840077-400w.jpg 400w" class="w-full h-full"/></div><div class="flex-grow sm:ml-8"><p class="font-bold mb-1">Hey! <br /> Thanks for stopping by.</p><p class="flex-grow">And feel free to reach out to me on <a href="https://twitter.com/gabrielgpoca" rel="noopener noreferrer" target="_blank" class="underline underline-current-color text-hover-none">Twitter</a> or <a class="underline underline-current-color text-hover-none" href="mailto:mail@gabrielpoca.com">e-mail</a>.<br />I'm always available to listen, talk, share, or brainstorm.</p><p class="flex-grow">For more information see the <a href="/about" class="underline underline-current-color text-hover-none">about page</a>.</p><p class="flex-grow">You can subscribe to this blog using <a href="/rss.xml" class="underline underline-current-color text-hover-none">RSS</a>.</p></div></div></div></footer><span class="h-card hidden p-author"><a class="p-name u-url" href="/" rel="author me">Gabriel Poça</a><a class="u-photo" href="/icon.png"></a><span class="p-note">Professional software engineer / amateur music maker / avid reader in the process of learning everything I can.</span></span><script data-goatcounter="https://gabrielpoca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><link href="https://github.com/gabrielpoca" rel="me" /><link rel="webmention" href="https://webmention.io/gabrielpoca.com/webmention" /><link rel="pingback" href="https://webmention.io/gabrielpoca.com/xmlrpc" /></body></html>
