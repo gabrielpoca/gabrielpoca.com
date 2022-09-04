@@ -31,13 +31,14 @@ jobs:
       - run: |
           git config user.email "you@example.com"
           git config user.name "Your Name"
+          git pull
 
       - name: Setup git-annex
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          git-annex init
+          # git-annex init
           # git annex enableremote
           git annex enableremote backblaze
           # git annex initremote backblaze type=S3 signature=v4 host=s3.us-west-002.backblazeb2.com bucket=gabrielpoca-site protocol=https encryption=none
