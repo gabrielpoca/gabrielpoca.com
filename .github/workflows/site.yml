@@ -18,19 +18,19 @@ jobs:
           - stable
 
     steps:
-      - run: 'git config --global url."https://github.com/".insteadOf git@github.com:'
-      - run: 'git config --global url."https://".insteadOf git://'
+      # - run: 'git config --global url."https://github.com/".insteadOf git@github.com:'
+      # - run: 'git config --global url."https://".insteadOf git://'
+
+      - name: Install git-annnex
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git-annex
 
       - uses: actions/checkout@v2
 
       - run: |
           git config user.email "you@example.com"
           git config user.name "Your Name"
-
-      - name: Install git-annnex
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y git-annex
 
       - name: Setup git-annex
         env:
