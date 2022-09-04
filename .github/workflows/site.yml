@@ -31,7 +31,7 @@ jobs:
         run: sudo apt-get install -y git-annex
 
       - name: Setup git-annex
-        run: git annex initremote backblaze type=S3 signature=v4 host=s3.us-west-002.backblazeb2.com bucket=gabrielpoca-site protocol=https encryption=none
+        run: git-annex init && git annex initremote backblaze type=S3 signature=v4 host=s3.us-west-002.backblazeb2.com bucket=gabrielpoca-site protocol=https encryption=none
 
       - uses: actions/setup-node@v2
         with:
