@@ -2,6 +2,7 @@
 layout: _includes/layout.slime
 current: now
 title: "Gabriel Poça | Now"
+dark: true
 ---
 
 .bg-black.min-h-full

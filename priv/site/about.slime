@@ -2,6 +2,7 @@
 layout: _includes/layout.slime
 current: about
 title: "Gabriel Poça | About"
+dark: true
 ---
 
 .bg-black.min-h-full
