@@ -6,7 +6,7 @@ on:
 
 jobs:
   site:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -18,51 +18,14 @@ jobs:
           - stable
 
     steps:
-      - name: Install git-annnex
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y git-annex
+      - run: 'git config --global url."https://github.com/".insteadOf git@github.com:'
+
+      - run: 'git config --global url."https://".insteadOf git://'
 
       - uses: actions/checkout@v2
-
-      - name: Git config for git-annex
-        run: |
-          git pull
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-
-      - name: Setup git-annex special remote
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: |
-          git annex enableremote backblaze
-
-      - uses: actions/cache@v3
-        id: cache
         with:
-          path: ~/.annex-cache
-          key: v1
-
-      - name: Setup git-annex cache
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-          mkdir -p ~/.annex-cache
-          cd ~/.annex-cache && git init --bare . && git annex init && git config annex.hardlink true && git annex untrust here
-
-      - name: Fetch files from git-annex cache or from special remote
-        run: |
-          git remote add cache ~/.annex-cache
-          git config remote.cache.annex-speculate-present true
-          git config remote.cache.annex-cost 10
-          git config remote.cache.annex-pull false
-          git config remote.cache.annex-push false
-          git config remote.cache.fetch do-not-fetch-from-this-remote:
-          git annex get --all
-
-      - name: Update git-annex cache
-        run: |
-          git annex copy --to cache
+          submodules: true
+          lfs: 'true'
 
       - uses: actions/setup-node@v2
         with:
