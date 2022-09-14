@@ -74,5 +74,5 @@ defmodule GabrielPoca.ViewHelpers.Book do
 
   defp cover_file(nil), do: nil
 
-  defp cover_file(id), do: Path.join(["_includes", "book_covers", "#{id}.jpg"])
+  defp cover_file(id), do: Path.join(["books", "_covers", "#{id}.jpg"])
 end
