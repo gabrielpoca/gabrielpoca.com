@@ -24,7 +24,7 @@ defmodule GabrielPoca.MixProject do
   defp deps do
     [
       {:still,
-       github: "still-ex/still", ref: "23679a4015b3302dcb013dd8899e2710a71b6e67", override: true},
+       github: "still-ex/still", ref: "ce8d3fd6bacf4a4108bc85adb5cc5e177d8393d5", override: true},
       # {:still, path: "../still", override: true},
       # {:still, "~> 0.7"},
       {:jason, "~> 1.2"},
