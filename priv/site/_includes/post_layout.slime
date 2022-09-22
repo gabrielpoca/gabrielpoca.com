@@ -3,9 +3,9 @@ layout: _includes/layout.slime
 dark: true
 title_prefix: "Gabriel Poça | "
 ---
-article.bg-black.text-my-white.h-entry
-  .text-center.relative.flex.items-center.justify-center.-mt-16 style="height:80vh"
-    h1.p-name.mb-8.text-4xl.z-20.relative.mx-auto.px-8 class="sm:text-5xl sm:px-16"
+article
+  .text-center.relative.flex.items-center.justify-center style="height:85vh"
+    h1.mb-8.text-4xl.font-bold.z-20.relative.px-8.max-w-screen-lg.sm_text-5xl
       = @title
 
     = if assigns[:cover] do
@@ -13,10 +13,8 @@ article.bg-black.text-my-white.h-entry
       .overlay.absolute.top-0.left-0.w-full.h-full.bg-black.z-10.opacity-70
       = responsive_image(cover_file, class: "absolute top-0 left-0 w-full h-full bg-indigo-50 z-0 object-cover object-center")
 
-  .mx-auto.py-8.px-6 class="sm:max-w-screen-sm"
+  .container.pb-32.pt-12
+    h2.mb-6.section-heading
+      | Blog Post
     div.prose.max-w-none.prose-lg.e-content
       = @children
-  = include(@env, "_includes/h_card.slime")
-  .hidden
-    a.u-url href="/#{@output_file}" = @title
-    time.dt-published  datetime="#{@date}T00:00:00-00:00" = @date

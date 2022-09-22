@@ -19,3 +19,148 @@
   font-weight: bold;
   src: url(<%=url_for("/fonts/FiraSansCondensed-Bold.ttf")%>);
 }
+
+@font-face {
+  font-family: 'Matter';
+  src: url('<%= url_for("/fonts/Matter-Bold.eot") %>');
+  src: local('Matter Bold'), local('Matter-Bold'),
+        url('<%= url_for("/fonts/Matter-Bold.eot?#iefix") %>') format('embedded-opentype'),
+        url('<%= url_for("/fonts/Matter-Bold.woff2") %>') format('woff2'),
+        url('<%= url_for("/fonts/Matter-Bold.woff") %>') format('woff'),
+        url('<%= url_for("/fonts/Matter-Bold.ttf") %>') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* @font-face { */
+/*   font-family: 'Matter'; */
+/*   src: url('<%= url_for("/fonts/Matter-BoldItalic.eot") %>'); */
+/*   src: local('Matter Bold Italic'), local('Matter-BoldItalic'), */
+/*         url('<%= url_for("/fonts/Matter-BoldItalic.eot?#iefix") %>') format('embedded-opentype'), */
+/*         url('<%= url_for("/fonts/Matter-BoldItalic.woff2") %>') format('woff2'), */
+/*         url('<%= url_for("/fonts/Matter-BoldItalic.woff") %>') format('woff'), */
+/*         url('<%= url_for("/fonts/Matter-BoldItalic.ttf") %>') format('truetype'); */
+/*   font-weight: bold; */
+/*   font-style: italic; */
+/* } */
+
+/* @font-face { */
+/*   font-family: 'Matter'; */
+/*   src: url('<%= url_for("/fonts/Matter-SemiBold.eot") %>'); */
+/*   src: local('Matter SemiBold'), local('Matter-SemiBold'), */
+/*       url('<%= url_for("/fonts/Matter-SemiBold.eot?#iefix") %>') format('embedded-opentype'), */
+/*       url('<%= url_for("/fonts/Matter-SemiBold.woff2") %>') format('woff2'), */
+/*       url('<%= url_for("/fonts/Matter-SemiBold.woff") %>') format('woff'), */
+/*       url('<%= url_for("/fonts/Matter-SemiBold.ttf") %>') format('truetype'); */
+/*   font-weight: 600; */
+/*   font-style: normal; */
+/* } */
+
+/* @font-face { */
+/*   font-family: 'Matter'; */
+/*   src: url('<%= url_for("/fonts/Matter-MediumItalic.eot") %>'); */
+/*   src: local('Matter Medium Italic'), local('Matter-MediumItalic'), */
+/*         url('<%= url_for("/fonts/Matter-MediumItalic.eot?#iefix") %>') format('embedded-opentype'), */
+/*         url('<%= url_for("/fonts/Matter-MediumItalic.woff2") %>') format('woff2'), */
+/*         url('<%= url_for("/fonts/Matter-MediumItalic.woff") %>') format('woff'), */
+/*         url('<%= url_for("/fonts/Matter-MediumItalic.ttf") %>') format('truetype'); */
+/*   font-weight: 500; */
+/*   font-style: italic; */
+/* } */
+
+/* @font-face { */
+/*   font-family: 'Matter'; */
+/*   src: url('<%= url_for("/fonts/Matter-Heavy.eot") %>'); */
+/*   src: local('Matter Heavy'), local('Matter-Heavy'), */
+/*         url('<%= url_for("/fonts/Matter-Heavy.eot?#iefix") %>') format('embedded-opentype'), */
+/*         url('<%= url_for("/fonts/Matter-Heavy.woff2") %>') format('woff2'), */
+/*         url('<%= url_for("/fonts/Matter-Heavy.woff") %>') format('woff'), */
+/*         url('<%= url_for("/fonts/Matter-Heavy.ttf") %>') format('truetype'); */
+/*   font-weight: 900; */
+/*   font-style: normal; */
+/* } */
+
+/* @font-face { */
+/*   font-family: 'Matter'; */
+/*   src: url('<%= url_for("/fonts/Matter-LightItalic.eot") %>'); */
+/*   src: local('Matter Light Italic'), local('Matter-LightItalic'), */
+/*         url('<%= url_for("/fonts/Matter-LightItalic.eot?#iefix") %>') format('embedded-opentype'), */
+/*         url('<%= url_for("/fonts/Matter-LightItalic.woff2") %>') format('woff2'), */
+/*         url('<%= url_for("/fonts/Matter-LightItalic.woff") %>') format('woff'), */
+/*         url('<%= url_for("/fonts/Matter-LightItalic.ttf") %>') format('truetype'); */
+/*   font-weight: 300; */
+/*   font-style: italic; */
+/* } */
+
+@font-face {
+  font-family: 'Matter';
+  src: url('<%= url_for("/fonts/Matter-Medium.eot") %>');
+  src: local('Matter Medium'), local('Matter-Medium'),
+        url('<%= url_for("/fonts/Matter-Medium.eot?#iefix") %>') format('embedded-opentype'),
+        url('<%= url_for("/fonts/Matter-Medium.woff2") %>') format('woff2'),
+        url('<%= url_for("/fonts/Matter-Medium.woff") %>') format('woff'),
+        url('<%= url_for("/fonts/Matter-Medium.ttf") %>') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* @font-face { */
+/*   font-family: 'Matter'; */
+/*   src: url('<%= url_for("/fonts/Matter-SemiBoldItalic.eot") %>'); */
+/*   src: local('Matter SemiBold Italic'), local('Matter-SemiBoldItalic'), */
+/*         url('<%= url_for("/fonts/Matter-SemiBoldItalic.eot?#iefix") %>') format('embedded-opentype'), */
+/*         url('<%= url_for("/fonts/Matter-SemiBoldItalic.woff2") %>') format('woff2'), */
+/*         url('<%= url_for("/fonts/Matter-SemiBoldItalic.woff") %>') format('woff'), */
+/*         url('<%= url_for("/fonts/Matter-SemiBoldItalic.ttf") %>') format('truetype'); */
+/*   font-weight: 600; */
+/*   font-style: italic; */
+/* } */
+
+/* @font-face { */
+/*   font-family: 'Matter'; */
+/*   src: url('<%= url_for("/fonts/Matter-HeavyItalic.eot") %>'); */
+/*   src: local('Matter Heavy Italic'), local('Matter-HeavyItalic'), */
+/*         url('<%= url_for("/fonts/Matter-HeavyItalic.eot?#iefix") %>') format('embedded-opentype'), */
+/*         url('<%= url_for("/fonts/Matter-HeavyItalic.woff2") %>') format('woff2'), */
+/*         url('<%= url_for("/fonts/Matter-HeavyItalic.woff") %>') format('woff'), */
+/*         url('<%= url_for("/fonts/Matter-HeavyItalic.ttf") %>') format('truetype'); */
+/*   font-weight: 900; */
+/*   font-style: italic; */
+/* } */
+
+/* @font-face { */
+/*   font-family: 'Matter'; */
+/*   src: url('<%= url_for("/fonts/Matter-Light.eot") %>'); */
+/*   src: local('Matter Light'), local('Matter-Light'), */
+/*         url('<%= url_for("/fonts/Matter-Light.eot?#iefix") %>') format('embedded-opentype'), */
+/*         url('<%= url_for("/fonts/Matter-Light.woff2") %>') format('woff2'), */
+/*         url('<%= url_for("/fonts/Matter-Light.woff") %>') format('woff'), */
+/*         url('<%= url_for("/fonts/Matter-Light.ttf") %>') format('truetype'); */
+/*   font-weight: 300; */
+/*   font-style: normal; */
+/* } */
+
+@font-face {
+  font-family: 'Matter';
+  src: url('<%= url_for("/fonts/Matter-Regular.eot") %>');
+  src: local('Matter Regular'), local('Matter-Regular'),
+        url('<%= url_for("/fonts/Matter-Regular.eot?#iefix") %>') format('embedded-opentype'),
+        url('<%= url_for("/fonts/Matter-Regular.woff2") %>') format('woff2'),
+        url('<%= url_for("/fonts/Matter-Regular.woff") %>') format('woff'),
+        url('<%= url_for("/fonts/Matter-Regular.ttf") %>') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Matter';
+  src: url('<%= url_for("/fonts/Matter-RegularItalic.eot") %>');
+  src: local('Matter Regular Italic'), local('Matter-RegularItalic'),
+        url('<%= url_for("/fonts/Matter-RegularItalic.eot?#iefix") %>') format('embedded-opentype'),
+        url('<%= url_for("/fonts/Matter-RegularItalic.woff2") %>') format('woff2'),
+        url('<%= url_for("/fonts/Matter-RegularItalic.woff") %>') format('woff'),
+        url('<%= url_for("/fonts/Matter-RegularItalic.ttf") %>') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+

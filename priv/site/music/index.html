@@ -5,34 +5,38 @@ dark: true
 title: "Gabriel Poça | Music"
 ---
 
-<div class="bg-black pb-24 sm:pb-0">
-  <div class="relative min-h-screen">
-    <div
-      class="pt-20 -mt-16 font-mono text-xs text-my-white mx-auto md:container md:text-sm"
-      x-data="{open: false, state: 'play'}">
-      <div class="mb-8 pl-6 md:-ml-6">
-        <%= link @env, "RSS", to: "music/rss.xml", class: "text-my-purple tracking-wide font-bold uppercase" %>
-        <%= link @env, "Youtube", to: "https://www.youtube.com/channel/UCU6kRMDjfbSdP25r9xQBusA", class: "ml-4 text-my-purple tracking-wide font-bold uppercase" %>
-        <%= link @env, "Sample Packs", to: "/samplepacks", class: "ml-4 text-my-purple tracking-wide font-bold uppercase" %>
-      </div>
-      <div class="relative">
-        <div
-          style="background: rgba(46, 8, 82, 0.3);"
-          class="h-full w-1/2 absolute top-0 right-0 pointer-events-none invisible sm:visible"></div>
-        <ul
-          style="background: linear-gradient(180deg, #C283F6 0%, #72409C 0.01%, #4A107F 48.96%, #370863 77.08%, #1D0631 100%);"
-          class="sm:max-h-full sm:h-60 sm:overflow-y-scroll">
-          <%= Enum.map sort_by_date(get_collections(@env, "music")), fn post -> %>
-            <li class="w-full" id="#{post.input_file}">
-              <%= include(@env, post.input_file) %>
-            </li>
-          <% end %>
-        </ul>
+<div class="pt-40 md_ml-12">
+  <div class="min-h-screen container">
+    <div class="pt-20 -mt-16 mx-auto md:container" x-data="{open: false, state: 'play'}">
+      <div class="flex flex-col space-x-8 md_flex-row md_justify-between">
+        <div class="flex-grow">
+          <h2 class="mb-6 section-heading">
+            Music
+          </h2>
+          <div class="md_mb-32">
+            <ul class="">
+              <%= Enum.map sort_by_date(get_collections(@env, "music")), fn post -> %>
+                <li class="" id="#{post.input_file}">
+                  <%= include(@env, post.input_file) %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="flex-shrink-0">
+          <h3 class="mb-4 mt-4 md_mt-10 section-subheading">
+            Other Links
+          </h3>
+          <div class="flex flex-col space-y-3 mb-32">
+            <%= link @env, "RSS", to: "music/rss.xml", class: "" %>
+            <%= link @env, "Youtube", to: "https://www.youtube.com/channel/UCU6kRMDjfbSdP25r9xQBusA", class: "" %>
+            <%= link @env, "Sample Packs", to: "/samplepacks", class: "" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
 
 <script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
 

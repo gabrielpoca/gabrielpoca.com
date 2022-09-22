@@ -13,10 +13,16 @@ pagination:
 - id = hd(@pagination.items)
 - book = Book.all() |> Enum.find(& Book.id(&1) == id)
 
-.bg-black.text-my-white.min-h-screen
-  .mx-auto class="sm:max-w-screen-md"
-    .pt-20.-mt-16.px-4
-      h1.text-lg.mt-4.mb-4.font-bold class="sm:text-3xl"
+div style="min-height:85vh"
+  .container.py-40
+    .mb-5.section-heading
+      | Book Review
+
+    .flex.md_space-x-8.mb-10.md_flex-row.flex-col
+      = if Book.has_cover?(book) do
+        = responsive_image(Book.cover(book), class: "w-32 mb-4 md_mb-0")
+      h1.text-xl.md_text-4xl.font-medium
         .inline "#{book["title"]}" <br />
-        .italic.inline.text-base by #{book["author"]}
-      .prose.prose-lg = book["review"]
+        .inline.text-base by #{book["author"]}
+    h2.section-subheading.mb-4 Review
+    .prose.prose-lg = book["review"]

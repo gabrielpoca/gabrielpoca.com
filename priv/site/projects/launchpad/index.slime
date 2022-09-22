@@ -15,7 +15,7 @@ nav.flex.justify-start.px-8.uppercase.tracking-wide.h-16.items-center.z-40.relat
     = responsive_image("icon.png", class: "w-8")
     span.ml-2 Gabriel Poça
 
-.bg-black.min-h-full
+.min-h-full
   .w-full.max-w-lg.mx-auto.text-my-white.mx-auto.-mt-16.py-32.px-4 style="min-height:85vh"
     .flex.mb-8.items-center
       = include(@env, "projects/launchpad/icon.svg")

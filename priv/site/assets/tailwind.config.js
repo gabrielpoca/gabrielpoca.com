@@ -1,10 +1,28 @@
 module.exports = {
+  separator: '_',
   purge:
     process.env.NODE_ENV === "production"
       ? ["../*.slime", "../*.eex", "../**/*.slime", "../**/*.eex"]
       : [],
-  darkMode: false,
+  darkMode: 'class',
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '1rem',
+        lg: '1rem',
+        xl: '1rem',
+        '2xl': '1rem',
+      },
+      screens: {
+        sm: '800px',
+        md: '800px',
+        lg: '800px',
+        xl: '800px',
+        '2xl': '800px',
+      }
+    },
     extend: {
       animation: {
         "gradient-x": "gradient-x 7s ease infinite",
@@ -27,36 +45,27 @@ module.exports = {
         "almost-almost-full": "90vh",
       },
       colors: {
-        "my-white": "#ffceae",
-        "my-pink-light": "#fca5a5",
-        "my-purple-light": "#DFC7F4",
-        "my-purple": "#cb90f9",
-        "my-purple-darker": "#1D0631",
-        "my-orange": "#ff6500",
+        "my-white": "#FAF3FF",
+        // "my-pink-light": "#fca5a5",
+        // "my-purple-light": "#DFC7F4",
+        "my-purple": "#BF6AFF",
+        // "my-purple-darker": "#1D0631",
+        // "my-orange": "#ff6500",
+        fuchsia: {
+          darker: '#200237',
+          dark: '#40046F',
+          DEFAULT: '#bf6aff'
+        },
         black: {
           DEFAULT: "#090909",
           light: "#151515",
         },
       },
       fontFamily: {
-        sans: ["FiraSansCondensed", "system-ui"],
+        sans: ["Matter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"],
         mono: ["FiraMono", "monospace"],
       },
       typography: (theme) => ({
-        music: {
-          css: {
-            fontFamily: theme("fontFamily.sans"),
-            color: theme("colors.white"),
-            lineHeight: 1.4,
-            fontSize: theme("fontSize.base"),
-            a: {
-              color: theme("colors.my-purple"),
-              "&:hover": {
-                color: theme("colors.my-orange"),
-              },
-            },
-          },
-        },
         lg: {
           css: {
             color: theme("colors.my-white"),
@@ -101,13 +110,18 @@ module.exports = {
               backgroundColor: theme("colors.white"),
               padding: theme("spacing.3"),
             },
+            'a code': {
+              color: theme("colors.my-white"),
+              fontWeight: "600",
+              backgroundColor: theme("colors.black.light"),
+            },
             code: {
               color: theme("colors.my-white"),
               fontWeight: "600",
               backgroundColor: theme("colors.black.light"),
             },
             pre: {
-              backgroundColor: theme("colors.black.light"),
+              backgroundColor: theme("colors.black.DEFAULT"),
               color: "inherit",
               lineHeight: 1.3,
               marginLeft: `-${theme("spacing.3")}`,
@@ -145,7 +159,9 @@ module.exports = {
     },
     screens: {
       sm: "600px",
-      md: "900px",
+      md: "800px",
+      lg: "1200px",
+      xl: "2000px",
     },
   },
   variants: {
@@ -153,7 +169,7 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/typography"),
-    function ({ addUtilities, theme } = opts) {
+    function({ addUtilities, theme } = opts) {
       const extendUnderline = {
         ".underline": {
           textDecoration: "underline",

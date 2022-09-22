@@ -5,9 +5,10 @@ title: "Gabriel Poça | Now"
 dark: true
 ---
 
-.bg-black.min-h-full
-  .w-full.max-w-lg.mx-auto.text-my-white.mx-auto.-mt-16.pt-20.px-4 style="min-height:85vh"
-    h1.text-2xl.mb-6.tracking-wide.font-bold What I'm doing now
+div style="min-height:85vh"
+  .container.py-40
+    h1.mb-5.section-heading
+      | Now
 
     p.mb-4
       | I spent the first part of the year (2021) at #{link @env, "Qonto", to: "https://qonto.com/en", class: "underline"},

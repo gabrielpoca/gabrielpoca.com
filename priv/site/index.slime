@@ -4,28 +4,31 @@ current: home
 dark: true
 ---
 
-.bg-black
-  .relative.p-4.pt-20.text-my-white.-mt-16.h-almost-almost-full class="md:pt-36 md:h-almost-full"
-    .absolute.left-0.w-full.bottom-0.h-full
-      = responsive_image "_includes/banner.jpeg", class: "object-cover object-left-bottom h-full w-full", transformations: {"interlace", "plane"}
-    .container.mx-auto.flex.justify-end
-      .w-80.relative
-        h1.text-2xl.mb-4.font-bold class="sm:text-3xl"
-          | Hi! <br /> I'm Gabriel Poça!
+.absolute.top-0.left-0.pointer-events-none class="md_w-5/6 w-4/5"
+  <svg style="max-width: 100%; height: auto;" width="1145" height="1167" viewBox="0 0 1145 1167" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 0 0 L 1145 0 L 0 1167" fill="#2F2F2F" />
+  </svg>
 
-        p.text-sm class="sm:text-base"
-          | I'm a software developer working in the Fintech and Medtech industries. I'm
-            into all kinds of things, such as books, making music or customizing my
-            editor.
+.text-my-white.pt-56.-mt-16.relative
+  .container
+    h1.mb-4.font-bold.text-2xl.sm_text-3xl.md_text-4xl.text-shadow
+      | Hi! <br /> My name is Gabriel Poça
 
-  .text-my-white.mx-auto.-mt-16.pt-28.px-4 class="md:container"
-    div
-      h2.uppercase.text-xl.mb-6.tracking-wide.font-bold class="sm:text-2xl"
-        | Blog
+    .flex.flex-col.md_flex-row
+      .mr-12.max-w-sm
+        p.text-sm.mb-2
+          | I'm a software developer working in Web3 and Fintech. I've built and contributed to many successful products.
+        p.text-sm.mb-2
+          | I'm also into making music.
+        p.text-sm
+          | See the #{link @env, "about", to: "/about", class: "underline"} for more information.
+      = responsive_image("_includes/me.jpg", class: "w-64 sm_w-72 md_w-80 pt-10 self-end")
 
-      ul
-        = Enum.map sort_by_date(get_collections(@env, "post")), fn post ->
-          li.pb-4
-            = link @env, post[:metadata][:title], to: post[:output_file], class: "text-base text-my-purple sm:text-xl"
-            .text-xs class="sm:text-sm"
-              = post[:metadata][:date]
+.py-32.relative.container
+  h2.mb-6.section-heading
+    | Writing
+
+  ul
+    = Enum.map sort_by_date(get_collections(@env, "post")), fn post ->
+      li.pb-6
+        = link @env, post[:metadata][:title], to: post[:output_file], class: "text-base font-medium"

@@ -5,12 +5,13 @@ title: "Gabriel Poça | About"
 dark: true
 ---
 
-.bg-black.min-h-full
-  .w-full.max-w-lg.mx-auto.text-my-white.mx-auto.-mt-16.pt-20.px-4 style="min-height:85vh"
-    .relative.rounded-full.w-32.h-32.mx-auto.mb-8.mt-6.overflow-hidden
-      = responsive_image("_includes/eu.jpg", class: "w-full h-full relative")
+div style="min-height:85vh"
+  .container.py-40
+    .relative.max-w-xs.mx-auto.mb-8.overflow-hidden
+      = responsive_image("_includes/sei.jpeg", class: "w-full relative object-contain")
 
-    h1.text-2xl.mb-6.tracking-wide.font-bold About Me
+    h1.mb-5.section-heading
+      | About
 
     .prose.prose-lg
       p.mb-4
