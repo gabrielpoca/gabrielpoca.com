@@ -5,8 +5,9 @@ header.flex.justify-between.px-4.md_px-8.items-center.absolute.top-0.left-0.w-fu
     = responsive_image("_includes/me small.png", class: "w-8 mr-3")
     span.invisible.sm_visible.text-sm.font-bold Gabriel Poça
 
+  - base_class = "hidden md_block"
   nav.flex.justify-end.space-x-2.sm_space-x-5.uppercase.tracking-widest.h-16.items-center.z-10.relative.text-xs.font-bold
-    = link @env, "Home", to: "/", class: if current != "home", do: "font-normal"
+    = link @env, "Home", to: "/", class: if current != "home", do: "font-normal #{base_class}", else: base_class
     = link @env, "Reading", to: "/books", class: if current != "reading", do: "font-normal"
     = link @env, "Music", to: "/music", class: if current != "music", do: "font-normal"
     = link @env, "Now", to: "/now", class: if current != "now", do: "font-normal"
