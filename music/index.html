@@ -1,1272 +1,1500 @@
-<html class="min-h-full h-full w-full" lang="en"><head><title>Gabriel Poça | Music</title><meta content="Gabriel Poça | Music" name="title"><meta content="Hi! I'm a professional software engineer / amateur music maker / avid reader in the process of learning everything I can. This is a place where I organize some information about what I'm doing." name="description"><meta content="website" property="og:type"><meta content="https://gabrielpoca.com" property="og:url"><meta content="Gabriel Poça | Music" property="og:title"><meta content="Hi! I'm a professional software engineer / amateur music maker / avid reader in the process of learning everything I can. This is a place where I organize some information about what I'm doing." property="og:description"><meta content="https://gabrielpoca.com/" property="og:image"><meta content="summary_large_image" property="twitter:card"><meta content="https://gabrielpoca.com" property="twitter:url"><meta content="Gabriel Poça | Music" property="twitter:title"><meta content="Hi! I'm a professional software engineer / amateur music maker / avid reader in the process of learning everything I can. This is a place where I organize some information about what I'm doing." property="twitter:description"><meta content="https://gabrielpoca.com/" property="twitter:image"><link href="/icon.png" rel="icon" type="image/png"><meta content="text/html; charset=utf-8" http-equiv="Content-Type"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link rel="stylesheet"  href="/global-6gZG2tczcT3JAwqDe3EZkA==.css" />
-<link rel="stylesheet"  href="/site--Z1K36JV3z4XqzIgy-g8zw==.css" />
-</head><body class="overscroll-none antialiased font-sans min-h-full h-full overflow-x-hidden w-full"><nav class="flex justify-end space-x-3 px-4 uppercase tracking-wide h-16 items-center z-40 relative text-xs font-bold md:px-8 md:space-x-4 md:text-sm text-my-purple"><a href="/" class="opacity-60">Home</a><a href="/books" class="opacity-60">Reading</a><a href="/music" class="">Music</a><a href="/now" class="opacity-60">Now</a><a href="/about" class="opacity-60">About</a></nav>
-<div class="bg-black pb-24 sm:pb-0">
-  <div class="relative min-h-screen">
-    <div
-      class="pt-20 -mt-16 font-mono text-xs text-my-white mx-auto md:container md:text-sm"
-      x-data="{open: false, state: 'play'}">
-      <div class="mb-8 pl-6 md:-ml-6">
-        <a href="/music/rss.xml" class="text-my-purple tracking-wide font-bold uppercase">RSS</a>
-        <a href="https://www.youtube.com/channel/UCU6kRMDjfbSdP25r9xQBusA" rel="noopener noreferrer" target="_blank" class="ml-4 text-my-purple tracking-wide font-bold uppercase">Youtube</a>
-        <a href="/samplepacks" class="ml-4 text-my-purple tracking-wide font-bold uppercase">Sample Packs</a>
-      </div>
-      <div class="relative">
-        <div
-          style="background: rgba(46, 8, 82, 0.3);"
-          class="h-full w-1/2 absolute top-0 right-0 pointer-events-none invisible sm:visible"></div>
-        <ul
-          style="background: linear-gradient(180deg, #C283F6 0%, #72409C 0.01%, #4A107F 48.96%, #370863 77.08%, #1D0631 100%);"
-          class="sm:max-h-full sm:h-60 sm:overflow-y-scroll">
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+<html class="min-h-full h-full w-full dark" lang="en"><head><title>Gabriel Poça | Music</title><meta content="Gabriel Poça | Music" name="title"><meta content="Hi! I'm a professional software engineer / amateur music maker / avid reader in the process of learning everything I can. This is a place where I organize some information about what I'm doing." name="description"><meta content="website" property="og:type"><meta content="https://gabrielpoca.com" property="og:url"><meta content="Gabriel Poça | Music" property="og:title"><meta content="Hi! I'm a professional software engineer / amateur music maker / avid reader in the process of learning everything I can. This is a place where I organize some information about what I'm doing." property="og:description"><meta content="https://gabrielpoca.com/" property="og:image"><meta content="summary_large_image" property="twitter:card"><meta content="https://gabrielpoca.com" property="twitter:url"><meta content="Gabriel Poça | Music" property="twitter:title"><meta content="Hi! I'm a professional software engineer / amateur music maker / avid reader in the process of learning everything I can. This is a place where I organize some information about what I'm doing." property="twitter:description"><meta content="https://gabrielpoca.com/" property="twitter:image"><link href="/icon.png" rel="icon" type="image/png"><meta content="text/html; charset=utf-8" http-equiv="Content-Type"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link rel="stylesheet"  href="/global-a3t2m3FQIGbduTQseQ2LOQ==.css" />
+<link rel="stylesheet"  href="/site-mEL6LQbJJlCImN4ZkVYbKg==.css" />
+</head><body class="overscroll-none antialiased font-sans min-h-full h-full overflow-x-hidden w-full bg-black-light text-my-white"><header class="flex justify-between px-4 md_px-8 items-center absolute top-0 left-0 w-full z-20 text-my-purple"><a href="/" class="flex items-center -mt-1"><img src="/_includes/me small-109857605-256w.png" srcset="/_includes/me small-109857605-64w.png 64w, /_includes/me small-109857605-128w.png 128w, /_includes/me small-109857605-192w.png 192w, /_includes/me small-109857605-256w.png 256w" class="w-8 mr-3"/><span class="invisible sm_visible text-sm font-bold">Gabriel Poça</span></a><nav class="flex justify-end space-x-2 sm_space-x-5 uppercase tracking-widest h-16 items-center z-10 relative text-xs font-bold"><a href="/" class="font-normal">Home</a><a href="/books" class="font-normal">Reading</a><a href="/music" class="font-normal">Music</a><a href="/now" class="font-normal">Now</a><a href="/about" class="font-normal">About</a></nav></header>
+<div class="pt-40 md_ml-12">
+  <div class="min-h-screen container">
+    <div class="pt-20 -mt-16 mx-auto md:container" x-data="{open: false, state: 'play'}">
+      <div class="flex flex-col space-x-8 md_flex-row md_justify-between">
+        <div class="flex-grow">
+          <h2 class="mb-6 section-heading">
+            Music
+          </h2>
+          <div class="md_mb-32">
+            <ul class="">
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220426 Low Fish.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220426 Low Fish.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220426 Low Fish.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Low Fish`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Low Fish</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2022-04-26</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Low Fish</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220305 Weird Dance.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220305 Weird Dance.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220305 Weird Dance.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Weird Dance`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Weird Dance</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2022-03-05</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Weird Dance</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211111 79.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <div class="mt-4" style="position:relative;padding-top:56.25%;">  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/I4_ZrGFJXoU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211111 79.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211111 79.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `79`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">79</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2021-11-11</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">79</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <div class="mt-4" style="position:relative;padding-top:56.25%;">  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/I4_ZrGFJXoU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211103 Late Halloween.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <div class="mt-4" style="position:relative;padding-top:56.25%;">  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/mISoTj5vz_w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211103 Late Halloween.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211103 Late Halloween.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Late Halloween`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Late Halloween</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2021-11-03</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Late Halloween</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <div class="mt-4" style="position:relative;padding-top:56.25%;">  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/mISoTj5vz_w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211019 Monster Arrival.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <div class="mt-4" style="position:relative;padding-top:56.25%;">  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/_jKTnOzd-jY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211019 Monster Arrival.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211019 Monster Arrival.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Monster Arrival`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Monster Arrival</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2021-10-19</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Monster Arrival</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <div class="mt-4" style="position:relative;padding-top:56.25%;">  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/_jKTnOzd-jY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210925 My Fault.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>I’m struggling to combine my different ideas in a song. Most work in isolation, but when I try to put two together it doesn’t work. Making transitions on the 707 is also not a great experience, but I’m trying to not use anything outside of it to make sure I learn the machine to its limits. In this song, I even got to change the sound of the main piano.</p><div class="mt-4" style="position:relative;padding-top:56.25%;">  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/KohaXaWs1gs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210925 My Fault.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210925 My Fault.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `My Fault`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">My Fault</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2021-09-25</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">My Fault</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>I’m struggling to combine my different ideas in a song. Most work in isolation, but when I try to put two together it doesn’t work. Making transitions on the 707 is also not a great experience, but I’m trying to not use anything outside of it to make sure I learn the machine to its limits. In this song, I even got to change the sound of the main piano.</p><div class="mt-4" style="position:relative;padding-top:56.25%;">  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/KohaXaWs1gs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210814 Whatever.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>Starting to use voices in my songs with the MC707. I’m also trying to rely more on the machine and accept its limitations. This song was performend and recorded directly. Here’s the session:</p><div class="mt-4" style="position:relative;padding-top:56.25%;">  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/_1Nv0Iz6zzk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210814 Whatever.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210814 Whatever.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Whatever`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Whatever</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2021-08-23</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Whatever</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>Starting to use voices in my songs with the MC707. I’m also trying to rely more on the machine and accept its limitations. This song was performend and recorded directly. Here’s the session:</p><div class="mt-4" style="position:relative;padding-top:56.25%;">  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/_1Nv0Iz6zzk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210626 Alone.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>I think that I’m getting better making transitions between sections and arranging my tracks. The MC707 is still my only instrument. I still don’t know which genre I want to make, but I know that I like having my sketches at the end of my tracks as a surprise. I’ve started to upload these tracks to</p><a href="https://www.youtube.com/channel/UCU6kRMDjfbSdP25r9xQBusA" rel="noopener noreferrer" target="_blank">Youtube</a><p>I’m not that confident about the name of the channel, but I think that it works as a placeholder for now.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210626 Alone.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210626 Alone.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Alone`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Alone</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2021-08-07</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Alone</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>I think that I’m getting better making transitions between sections and arranging my tracks. The MC707 is still my only instrument. I still don’t know which genre I want to make, but I know that I like having my sketches at the end of my tracks as a surprise. I’ve started to upload these tracks to</p><a href="https://www.youtube.com/channel/UCU6kRMDjfbSdP25r9xQBusA" rel="noopener noreferrer" target="_blank">Youtube</a><p>I’m not that confident about the name of the channel, but I think that it works as a placeholder for now.</p>
+        </div>
       </article>
     </li>
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210604 Bee in a Monster's Cave.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>I think that I’m getting better making transitions between sections and arranging my tracks. The MC707 is still my only instrument. I still don’t know which genre I want to make, but I know that I like having my sketches at the end of my tracks as a surprise. I’ve started to upload these tracks to</p><a href="https://www.youtube.com/channel/UCU6kRMDjfbSdP25r9xQBusA" rel="noopener noreferrer" target="_blank">Youtube</a><p>I’m not that confident about the name of the channel, but I think that it works as a placeholder for now.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210604 Bee in a Monster's Cave.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210604 Bee in a Monster's Cave.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Bee in a Monster's Cave`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Bee in a Monster's Cave</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2021-08-07</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Bee in a Monster's Cave</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>I think that I’m getting better making transitions between sections and arranging my tracks. The MC707 is still my only instrument. I still don’t know which genre I want to make, but I know that I like having my sketches at the end of my tracks as a surprise. I’ve started to upload these tracks to</p><a href="https://www.youtube.com/channel/UCU6kRMDjfbSdP25r9xQBusA" rel="noopener noreferrer" target="_blank">Youtube</a><p>I’m not that confident about the name of the channel, but I think that it works as a placeholder for now.</p>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210528 Fall.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>I get a feeling that I’m not very good at naming tracks. This one also exists as a Jam on Youtube.</p><div class="mt-4" style="position:relative;padding-top:56.25%;">  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/lxvOqPqA_ho" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210528 Fall.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210528 Fall.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Fall`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Fall</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2021-05-28</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Fall</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>I get a feeling that I’m not very good at naming tracks. This one also exists as a Jam on Youtube.</p><div class="mt-4" style="position:relative;padding-top:56.25%;">  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/lxvOqPqA_ho" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210402 Monster Trap.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>I’m proud of this instrumental. I’m not sure if someone would sing on it, but I enjoy listening to it. I did everything on the MC707, and there was no editing, mixing, or anything on a computer, which is precisely how I want to approach this hobby.</p><p>I started by creating a few progressions and melodies with the sounds you can hear in the instrumental. I then resampled those pieces without the drums and the bass and made a few more progressions and melodies. I repeated the cycle, and in the end, I had 4 sections that I felt went well together. Besides the internal sounds from MC707, I recorded an ambulance a couple of months ago.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210402 Monster Trap.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210402 Monster Trap.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Monster Trap`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Monster Trap</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2021-04-18</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Monster Trap</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>I’m proud of this instrumental. I’m not sure if someone would sing on it, but I enjoy listening to it. I did everything on the MC707, and there was no editing, mixing, or anything on a computer, which is precisely how I want to approach this hobby.</p><p>I started by creating a few progressions and melodies with the sounds you can hear in the instrumental. I then resampled those pieces without the drums and the bass and made a few more progressions and melodies. I repeated the cycle, and in the end, I had 4 sections that I felt went well together. Besides the internal sounds from MC707, I recorded an ambulance a couple of months ago.</p>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210323 Exploring.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>I built most of the sections on the MC707 and recorded them into Reaper to arrange and mix. I wanted to move everything into Reaper because I struggle with transitions between sections, and working on it on the computer feels easier. I’m not sure whether these sections don’t work well together, or I don’t know how to make them work together. You can also see that my drums still suck. My next one is almost finished, and I’m pretty confident that I improved in both of these areas.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210323 Exploring.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210323 Exploring.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Exploring`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Exploring</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2021-03-23</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Exploring</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>I built most of the sections on the MC707 and recorded them into Reaper to arrange and mix. I wanted to move everything into Reaper because I struggle with transitions between sections, and working on it on the computer feels easier. I’m not sure whether these sections don’t work well together, or I don’t know how to make them work together. You can also see that my drums still suck. My next one is almost finished, and I’m pretty confident that I improved in both of these areas.</p>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210201 Bar fight.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>Trying something different.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210201 Bar fight.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210201 Bar fight.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Bar fight`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Bar fight</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2021-02-01</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Bar fight</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>Trying something different.</p>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200808 Waking up.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>In the summer of 2020 I’ve acquired an MC707 and since then I’ve been in love with making music again. I’ve learned so much, and there’s so much more to learn. These are a few “beats” I made during the rest of the year. They were made with the MC707 and recorded into a DAW where I made some final touches.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200808 Waking up.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200808 Waking up.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Waking Up`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Waking Up</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2020-12-20</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Waking Up</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>In the summer of 2020 I’ve acquired an MC707 and since then I’ve been in love with making music again. I’ve learned so much, and there’s so much more to learn. These are a few “beats” I made during the rest of the year. They were made with the MC707 and recorded into a DAW where I made some final touches.</p>
+        </div>
       </article>
     </li>
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200828 Return home.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>In the summer of 2020 I’ve acquired an MC707 and since then I’ve been in love with making music again. I’ve learned so much, and there’s so much more to learn. These are a few “beats” I made during the rest of the year. They were made with the MC707 and recorded into a DAW where I made some final touches.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200828 Return home.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200828 Return home.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Return home`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Return home</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2020-12-20</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Return home</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>In the summer of 2020 I’ve acquired an MC707 and since then I’ve been in love with making music again. I’ve learned so much, and there’s so much more to learn. These are a few “beats” I made during the rest of the year. They were made with the MC707 and recorded into a DAW where I made some final touches.</p>
+        </div>
       </article>
     </li>
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201024 Haunted house.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>In the summer of 2020 I’ve acquired an MC707 and since then I’ve been in love with making music again. I’ve learned so much, and there’s so much more to learn. These are a few “beats” I made during the rest of the year. They were made with the MC707 and recorded into a DAW where I made some final touches.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201024 Haunted house.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201024 Haunted house.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Haunted house`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Haunted house</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2020-12-20</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Haunted house</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>In the summer of 2020 I’ve acquired an MC707 and since then I’ve been in love with making music again. I’ve learned so much, and there’s so much more to learn. These are a few “beats” I made during the rest of the year. They were made with the MC707 and recorded into a DAW where I made some final touches.</p>
+        </div>
       </article>
     </li>
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201207 Growl.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>In the summer of 2020 I’ve acquired an MC707 and since then I’ve been in love with making music again. I’ve learned so much, and there’s so much more to learn. These are a few “beats” I made during the rest of the year. They were made with the MC707 and recorded into a DAW where I made some final touches.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201207 Growl.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201207 Growl.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Growl`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Growl</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2020-12-20</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Growl</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>In the summer of 2020 I’ve acquired an MC707 and since then I’ve been in love with making music again. I’ve learned so much, and there’s so much more to learn. These are a few “beats” I made during the rest of the year. They were made with the MC707 and recorded into a DAW where I made some final touches.</p>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/mixed_feelings_piano.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>I was really digging the piano loop from the previous entry, so I decided to put a little more work into it. This is what I came up with. The “song” has two parts, all instruments are VSTs that I played in the launchpad, the voices are recordings that I did in the past except one that’s from Youtube. I didn’t put a lot of effort into the drums because I got tired of it before I had time to get there.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/mixed_feelings_piano.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/mixed_feelings_piano.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Mixed Feelings Piano`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Mixed Feelings Piano</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2019-05-27</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Mixed Feelings Piano</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>I was really digging the piano loop from the previous entry, so I decided to put a little more work into it. This is what I came up with. The “song” has two parts, all instruments are VSTs that I played in the launchpad, the voices are recordings that I did in the past except one that’s from Youtube. I didn’t put a lot of effort into the drums because I got tired of it before I had time to get there.</p>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/jazzy_mind_f.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>I was playing around with the piano and trying to build a nice, and complicated, chord progression. The result is the piano you hear. Loved it. Threw a couple of synths on top of it. Even better! It gets a bit crazy by th end. It was a good session.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/jazzy_mind_f.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/jazzy_mind_f.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Loop: Jazzy Mind F***`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Loop: Jazzy Mind F***</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2019-05-26</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Loop: Jazzy Mind F***</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>I was playing around with the piano and trying to build a nice, and complicated, chord progression. The result is the piano you hear. Loved it. Threw a couple of synths on top of it. Even better! It gets a bit crazy by th end. It was a good session.</p>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/night_bass.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>In this loop I’m mostly experimenting with kicks and bass. There are two bassses, one only enter after the “drop”, the idea was to make it sound like a growl. The whole porpose of this experiment was to try and make a drop.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/night_bass.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/night_bass.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Loop: Night Bass`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Loop: Night Bass</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2019-05-25</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Loop: Night Bass</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>In this loop I’m mostly experimenting with kicks and bass. There are two bassses, one only enter after the “drop”, the idea was to make it sound like a growl. The whole porpose of this experiment was to try and make a drop.</p>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/lofi_piano.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>In this experiment I made a Lo-Fi Piano Synthesizer. No audio samples in that piano. I think it sounds awesome.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/lofi_piano.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/lofi_piano.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Synth: Lo-Fi Piano`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Synth: Lo-Fi Piano</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2019-05-24</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Synth: Lo-Fi Piano</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>In this experiment I made a Lo-Fi Piano Synthesizer. No audio samples in that piano. I think it sounds awesome.</p>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/kill_the_piano.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>Two little loops I’ve been playing around with. Both have a sample + some VST instruments on top. I feel that using a couple of samples make the song feel more organic and rough, I can never get that feeling when I only use VST instruments. I guess I have to level up my editing skills.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/kill_the_piano.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/kill_the_piano.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Loop: Kill the piano`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Loop: Kill the piano</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2019-05-23</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Loop: Kill the piano</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>Two little loops I’ve been playing around with. Both have a sample + some VST instruments on top. I feel that using a couple of samples make the song feel more organic and rough, I can never get that feeling when I only use VST instruments. I guess I have to level up my editing skills.</p>
+        </div>
       </article>
     </li>
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/before.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>Two little loops I’ve been playing around with. Both have a sample + some VST instruments on top. I feel that using a couple of samples make the song feel more organic and rough, I can never get that feeling when I only use VST instruments. I guess I have to level up my editing skills.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/before.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/before.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Loop: Before`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Loop: Before</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2019-05-23</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Loop: Before</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>Two little loops I’ve been playing around with. Both have a sample + some VST instruments on top. I feel that using a couple of samples make the song feel more organic and rough, I can never get that feeling when I only use VST instruments. I guess I have to level up my editing skills.</p>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/nothing_left_to_prove.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>I put a lot of effort into this track, but I can’t make myself finish it. I think it’s a better investment of my time to make more tracks than making this one “perfect”. There’s a main sample, some VSTs and drum sounds I collected from the web. The voice samples are from a TV Show my girlfriend happen to be watching at the time.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/nothing_left_to_prove.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/nothing_left_to_prove.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Nothing left to prove`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Nothing left to prove</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2019-05-22</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Nothing left to prove</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>I put a lot of effort into this track, but I can’t make myself finish it. I think it’s a better investment of my time to make more tracks than making this one “perfect”. There’s a main sample, some VSTs and drum sounds I collected from the web. The voice samples are from a TV Show my girlfriend happen to be watching at the time.</p>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-            <li class="w-full" id="#{post.input_file}">
-              <ul class="sm:w-1/2 px-3">
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_8.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>I’ve been playing around with the &lt;a href=”<a href="https://www.lexaloffle.com/pico-8.php%22">https://www.lexaloffle.com/pico-8.php”</a> rel=”noopener noreferrer” target=”_blank”&gt;Pico-8&lt;/a&gt;.</p><p>It’s a fun console that’s all about limitations. There are 8 instruments to play with, and each song can only have 4 tracks. After a couple of days the limitations become liberating.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_8.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_8.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Pico 8 Experiment 1`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Pico 8 Experiment 1</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2019-05-21</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Pico 8 Experiment 1</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>I’ve been playing around with the &lt;a href=”<a href="https://www.lexaloffle.com/pico-8.php%22">https://www.lexaloffle.com/pico-8.php”</a> rel=”noopener noreferrer” target=”_blank”&gt;Pico-8&lt;/a&gt;.</p><p>It’s a fun console that’s all about limitations. There are 8 instruments to play with, and each song can only have 4 tracks. After a couple of days the limitations become liberating.</p>
+        </div>
       </article>
     </li>
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_0.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>I’ve been playing around with the &lt;a href=”<a href="https://www.lexaloffle.com/pico-8.php%22">https://www.lexaloffle.com/pico-8.php”</a> rel=”noopener noreferrer” target=”_blank”&gt;Pico-8&lt;/a&gt;.</p><p>It’s a fun console that’s all about limitations. There are 8 instruments to play with, and each song can only have 4 tracks. After a couple of days the limitations become liberating.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_0.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_0.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Pico 8 Experiment 2`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Pico 8 Experiment 2</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2019-05-21</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Pico 8 Experiment 2</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>I’ve been playing around with the &lt;a href=”<a href="https://www.lexaloffle.com/pico-8.php%22">https://www.lexaloffle.com/pico-8.php”</a> rel=”noopener noreferrer” target=”_blank”&gt;Pico-8&lt;/a&gt;.</p><p>It’s a fun console that’s all about limitations. There are 8 instruments to play with, and each song can only have 4 tracks. After a couple of days the limitations become liberating.</p>
+        </div>
       </article>
     </li>
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_3.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>I’ve been playing around with the &lt;a href=”<a href="https://www.lexaloffle.com/pico-8.php%22">https://www.lexaloffle.com/pico-8.php”</a> rel=”noopener noreferrer” target=”_blank”&gt;Pico-8&lt;/a&gt;.</p><p>It’s a fun console that’s all about limitations. There are 8 instruments to play with, and each song can only have 4 tracks. After a couple of days the limitations become liberating.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_3.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_3.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Pico 8 Experiment 3`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Pico 8 Experiment 3</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2019-05-21</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Pico 8 Experiment 3</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>I’ve been playing around with the &lt;a href=”<a href="https://www.lexaloffle.com/pico-8.php%22">https://www.lexaloffle.com/pico-8.php”</a> rel=”noopener noreferrer” target=”_blank”&gt;Pico-8&lt;/a&gt;.</p><p>It’s a fun console that’s all about limitations. There are 8 instruments to play with, and each song can only have 4 tracks. After a couple of days the limitations become liberating.</p>
+        </div>
       </article>
     </li>
   
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_11.mp3` }">
-      <article class="py-2 text-white">
-        <div
-          x-cloak
-          class="prose sm:overflow-y-scroll max-h-full prose-music px-4 pt-6 pb-2 opacity-80 sm:absolute sm:top-0 sm:right-0 sm:w-1/2"
-          x-show="$store.player.src === url">
-          <p>I’ve been playing around with the &lt;a href=”<a href="https://www.lexaloffle.com/pico-8.php%22">https://www.lexaloffle.com/pico-8.php”</a> rel=”noopener noreferrer” target=”_blank”&gt;Pico-8&lt;/a&gt;.</p><p>It’s a fun console that’s all about limitations. There are 8 instruments to play with, and each song can only have 4 tracks. After a couple of days the limitations become liberating.</p>
-        </div>
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_11.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
           src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_11.mp3"></audio>
 
+        <div :text="$store.player.playing(url)"></div>
         <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent py-2 w-full text-left flex items-center"
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
           @click="$store.player.set($refs[url], url, `Pico 8 Experiment 4`)">
 
-          <div class="flex flex-start w-full items-center">
-            <div class="opacity-80 border-2 h-6 w-6 rounded-full mr-4 flex items-center justify-center flex-shrink-0">
-              <svg x-show="!$store.player.isPlaying || $store.player.src !== url" style="margin-left:3px;" class="play h-3 w-3 max-h-full" width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 7L0.5 13.0622V0.937822L11 7Z" fill="white"/>
-              </svg>
-              <svg x-cloak x-show="$store.player.isPlaying && $store.player.src === url" viewbox="-1 0 30 30" style="margin-left:-2px;" class="play h-3 w-3 max-h-full">
-                <line x1="10" y1="5" x2="10" y2="25" stroke-width="5" stroke="#fff" />
-                <line x1="20" y1="5" x2="20" y2="25" stroke-width="5"  stroke="#fff" />
-              </svg>
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
             </div>
-            <div class="inline flex justify-between flex-grow items-center overflow-hidden">
-              <span class="truncate">Pico 8 Experiment 4</span>
-              <span class="pl-2 text-xs opacity-60 whitespace-nowrap">2019-05-21</span>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Pico 8 Experiment 4</span>
             </div>
           </div>
         </button>
+        <div
+          x-cloak
+          class="prose prose-lg mt-1"
+          x-show="$store.player.src === url">
+          <p>I’ve been playing around with the &lt;a href=”<a href="https://www.lexaloffle.com/pico-8.php%22">https://www.lexaloffle.com/pico-8.php”</a> rel=”noopener noreferrer” target=”_blank”&gt;Pico-8&lt;/a&gt;.</p><p>It’s a fun console that’s all about limitations. There are 8 instruments to play with, and each song can only have 4 tracks. After a couple of days the limitations become liberating.</p>
+        </div>
       </article>
     </li>
   
 </ul>
 
-            </li>
-          
-        </ul>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+        <div class="flex-shrink-0">
+          <h3 class="mb-4 mt-4 md_mt-10 section-subheading">
+            Other Links
+          </h3>
+          <div class="flex flex-col space-y-3 mb-32">
+            <a href="/music/rss.xml" class="">RSS</a>
+            <a href="https://www.youtube.com/channel/UCU6kRMDjfbSdP25r9xQBusA" rel="noopener noreferrer" target="_blank" class="">Youtube</a>
+            <a href="/samplepacks" class="">Sample Packs</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-
 <script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
 
-<script  src="/music/index-E8aE-zjXuk-BfXia-gj5VA==.js"></script>
+<script  src="/music/index-9jL5WhuszKjVLzauQIVdXw==.js"></script>
 
-<footer class="py-20 items-end text-xs sm:text-sm bg-black"><div class="bg-my-purple mx-auto px-4 py-10 md:p-8 md:rounded md:container"><div class="flex flex-col sm:flex-row sm:flex-start"><div class="border-2 border-my-purple-darker rounded-full w-24 h-24 overflow-hidden flex-shrink-0 mb-4 sm:mx-auto sm:mb-0"><img src="/_includes/eu-41840077-400w.jpg" srcset="/_includes/eu-41840077-100w.jpg 100w, /_includes/eu-41840077-200w.jpg 200w, /_includes/eu-41840077-300w.jpg 300w, /_includes/eu-41840077-400w.jpg 400w" class="w-full h-full"/></div><div class="flex-grow sm:ml-8"><p class="font-bold mb-1">Hey! <br /> Thanks for stopping by.</p><p class="flex-grow">And feel free to reach out to me on <a href="https://twitter.com/gabrielgpoca" rel="noopener noreferrer" target="_blank" class="underline underline-current-color text-hover-none">Twitter</a> or <a class="underline underline-current-color text-hover-none" href="mailto:mail@gabrielpoca.com">e-mail</a>.<br />I'm always available to listen, talk, share, or brainstorm.</p><p class="flex-grow">For more information see the <a href="/about" class="underline underline-current-color text-hover-none">about page</a>.</p><p class="flex-grow">You can subscribe to this blog using <a href="/rss.xml" class="underline underline-current-color text-hover-none">RSS</a>.</p></div></div></div></footer><span class="h-card hidden p-author"><a class="p-name u-url" href="/" rel="author me">Gabriel Poça</a><a class="u-photo" href="/icon.png"></a><span class="p-note">Professional software engineer / amateur music maker / avid reader in the process of learning everything I can.</span></span><script data-goatcounter="https://gabrielpoca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><link href="https://github.com/gabrielpoca" rel="me" /><link rel="webmention" href="https://webmention.io/gabrielpoca.com/webmention" /><link rel="pingback" href="https://webmention.io/gabrielpoca.com/xmlrpc" /></body></html>
+<div class="h-4 bg-fuchsia-darker w-full"></div><div class="h-4 bg-fuchsia-dark w-full"></div><footer class="relative flex footer-bg-color text-sm"><img src="/_includes/footer/bg-27398931-11568w.jpg" srcset="/_includes/footer/bg-27398931-2892w.jpg 2892w, /_includes/footer/bg-27398931-5784w.jpg 5784w, /_includes/footer/bg-27398931-8676w.jpg 8676w, /_includes/footer/bg-27398931-11568w.jpg 11568w" class="absolute bottom-0 left-0 h-full object-left-bottom w-full object-cover xl_object-contain"/><div class="relative container pt-28 pb-52 sm_pt-40 sm_pb-60"><p class="font-bold mb-1">Hey! <br /> Thanks for stopping by.</p><p class="flex-grow">And feel free to reach out to me on <a href="https://twitter.com/gabrielgpoca" rel="noopener noreferrer" target="_blank" class="underline underline-current-color text-hover-none">Twitter</a> or <a class="underline underline-current-color text-hover-none" href="mailto:mail@gabrielpoca.com">e-mail</a>.<br />I'm always available to listen, talk, share, or brainstorm.</p><p class="flex-grow">For more information see the <a href="/about" class="underline underline-current-color text-hover-none">about page</a>.</p><p class="flex-grow">You can subscribe to this blog using <a href="/rss.xml" class="underline underline-current-color text-hover-none">RSS</a>.</p></div></footer><script data-goatcounter="https://gabrielpoca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body></html>

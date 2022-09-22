@@ -45,8 +45,8 @@ collections:
     label: 'Book Reviews'
     extension: yml
     folder: 'priv/site/_data/book_reviews'
-    media_folder: '../../_includes/book_covers'
-    public_folder: '_includes/book_covers'    
+    media_folder: '../../books/_covers'
+    public_folder: 'books/_covers'
     create: true
     slug: '{{year}}{{month}}{{day}}_{{title}}'
     editor:
@@ -63,7 +63,7 @@ collections:
       - label: 'Goodreads ID'
         name: 'goodreads'
         widget: 'string'
-        required: false  
+        required: false
       - label: 'Title'
         name: 'title'
         widget: 'string'
