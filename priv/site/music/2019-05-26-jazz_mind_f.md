@@ -1,7 +1,7 @@
 ---
 files:
   - name: "Loop: Jazzy Mind F***"
-    file: "music/files/jazzy_mind_f.mp3"
+    file: "music/jazzy_mind_f.mp3"
 layout: _includes/music_layout.html.eex
 date: 2019-05-26
 title: "Loop: Jazzy Mind F***"

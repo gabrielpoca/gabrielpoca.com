@@ -1,6 +1,6 @@
 <ul class="">
   <%= Enum.map Map.get(assigns, :files, []), fn track -> %>
-    <% url =  String.replace(track["file"], "music/files", "https://assets.gabrielpoca.com/file/gabrielpoca-site/music") %>
+    <% url = "https://assets.gabrielpoca.com/" <> track["file"] %>
     <% title = track["name"] %>
     <li x-data="{ url: `<%= url %>` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">

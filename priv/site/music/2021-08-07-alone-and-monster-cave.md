@@ -1,9 +1,9 @@
 ---
 files:
   - name: "Alone"
-    file: "music/files/210626 Alone.mp3"
+    file: "music/210626 Alone.mp3"
   - name: "Bee in a Monster's Cave"
-    file: "music/files/210604 Bee in a Monster's Cave.mp3"
+    file: "music/210604 Bee in a Monster's Cave.mp3"
 date: "2021-08-07"
 layout: _includes/music_layout.html.eex
 title: "Alone && Bee in a Monster's Cave"

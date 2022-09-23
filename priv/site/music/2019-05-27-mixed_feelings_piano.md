@@ -1,7 +1,7 @@
 ---
 files:
   - name: "Mixed Feelings Piano"
-    file: music/files/mixed_feelings_piano.mp3
+    file: music/mixed_feelings_piano.mp3
 layout: _includes/music_layout.html.eex
 date: 2019-05-27
 title: Mixed Feelings Piano

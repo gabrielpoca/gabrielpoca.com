@@ -1,7 +1,7 @@
 ---
 files:
   - name: "Nothing left to prove"
-    file: music/files/nothing_left_to_prove.mp3
+    file: music/nothing_left_to_prove.mp3
 layout: _includes/music_layout.html.eex
 title: "Nothing left to prove"
 date: 2019-05-22

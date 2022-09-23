@@ -5,5 +5,5 @@ tag:
   - music
 files:
   - name: "Weird Dance"
-    file: "music/files/220305 Weird Dance.mp3"
+    file: "music/220305 Weird Dance.mp3"
 ---

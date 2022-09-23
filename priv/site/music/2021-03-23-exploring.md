@@ -1,7 +1,7 @@
 ---
 files:
   - name: "Exploring"
-    file: "music/files/210323 Exploring.mp3"
+    file: "music/210323 Exploring.mp3"
 date: 2021-03-23
 layout: _includes/music_layout.html.eex
 title: "Exploring"

@@ -1,9 +1,9 @@
 ---
 files:
   - name: "Loop: Kill the piano"
-    file: music/files/kill_the_piano.mp3
+    file: music/kill_the_piano.mp3
   - name: "Loop: Before"
-    file: music/files/before.mp3
+    file: music/before.mp3
 layout: _includes/music_layout.html.eex
 date: 2019-05-23
 title: "Loop: Kill the piano & Before"
