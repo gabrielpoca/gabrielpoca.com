@@ -16,11 +16,11 @@ module.exports = {
         '2xl': '1rem',
       },
       screens: {
-        sm: '800px',
-        md: '800px',
-        lg: '800px',
-        xl: '800px',
-        '2xl': '800px',
+        sm: '720px',
+        md: '720px',
+        lg: '720px',
+        xl: '720px',
+        '2xl': '720px',
       }
     },
     extend: {
@@ -68,9 +68,13 @@ module.exports = {
       typography: (theme) => ({
         lg: {
           css: {
-            color: theme("colors.my-white"),
             lineHeight: 1.4,
             fontSize: 20,
+          },
+        },
+        DEFAULT: {
+          css: {
+            color: theme("colors.my-white"),
             a: {
               color: "inherit",
               textDecorationThickness: "0.15rem",

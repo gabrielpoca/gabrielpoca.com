@@ -46,11 +46,6 @@
   @apply bg-gradient-to-r from-red-500 via-my-purple to-pink-500 animate-gradient-x;
 }
 
-html,
-body {
-  font-size: 20px;
-}
-
 [x-cloak] {
   display: none !important;
 }

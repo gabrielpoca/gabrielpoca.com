@@ -1,13 +1,13 @@
 .h-4.bg-fuchsia-darker.w-full
 .h-4.bg-fuchsia-dark.w-full
-footer.relative.flex.footer-bg-color.text-sm
+footer.relative.flex.footer-bg-color
   = responsive_image("_includes/footer/bg.jpg", class: "absolute bottom-0 left-0 h-full object-left-bottom w-full object-cover xl_object-contain")
   .relative.container.pt-28.pb-52.sm_pt-40.sm_pb-60
-    p.font-bold.mb-1
+    p.font-bold.mb-2
       | Hey! <br /> Thanks for stopping by.
-    p.flex-grow
+    p.flex-grow.mb-2
       | And feel free to reach out to me on #{link @env, "Twitter", to: "https://twitter.com/gabrielgpoca", class: "underline underline-current-color text-hover-none"}
       |  or <a class="underline underline-current-color text-hover-none" href="mailto:mail@gabrielpoca.com">e-mail</a>.<br />
       | I'm always available to listen, talk, share, or brainstorm.
-    p.flex-grow For more information see the #{link @env, "about page", to: "/about", class: "underline underline-current-color text-hover-none"}.
+    p.flex-grow.mb-2 For more information see the #{link @env, "about page", to: "/about", class: "underline underline-current-color text-hover-none"}.
     p.flex-grow You can subscribe to this blog using #{link @env, "RSS", to: "rss.xml", class: "underline underline-current-color text-hover-none"}.

@@ -13,7 +13,7 @@ div style="min-height:85vh"
     h1.mb-5.section-heading
       | About
 
-    .prose.prose-lg
+    div
       p.mb-4
         | I'm currently working at #{link @env, "Subvisual", to: "https://subvisual.com/"}. In fact, I've been at Subvisual since 2013, but during that time I've worked for long periods of time for other companies, such as #{link @env, "Utrust", to: "https://utrust.com/"}, where I was for two years.
 

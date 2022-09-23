@@ -9,7 +9,7 @@ dark: true
     <path d="M 0 0 L 1145 0 L 0 1167" fill="#2F2F2F" />
   </svg>
 
-.text-my-white.pt-56.-mt-16.relative
+.pt-40.relative
   .container
     h1.mb-4.font-bold.text-2xl.sm_text-3xl.md_text-4xl.text-shadow
       | Hi! <br /> My name is Gabriel Poça
@@ -31,4 +31,4 @@ dark: true
   ul
     = Enum.map sort_by_date(get_collections(@env, "post")), fn post ->
       li.pb-6
-        = link @env, post[:metadata][:title], to: post[:output_file], class: "text-base font-medium"
+        = link @env, post[:metadata][:title], to: post[:output_file], class: "text-base sm_text-lg font-medium"
