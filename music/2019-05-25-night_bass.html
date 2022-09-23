@@ -3,7 +3,7 @@
     
     
     <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/night_bass.mp3` }">
-      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-xs">
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
           x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/night_bass.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
@@ -16,7 +16,7 @@
           @click="$store.player.set($refs[url], url, `Loop: Night Bass`)">
 
           <div class="flex flex-start w-full items-center relative">
-            <div class="h-6 w-6 flex-shrink-0 md_absolute md_top-0.5 md_-left-8">
+            <div class="h-6 w-6 flex-shrink-0 mr-4 md_absolute md_-left-10">
               <div x-show="!$store.player.playing(url)" class="w-full">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="12" cy="12" r="11.5" stroke="white"/>
@@ -40,7 +40,7 @@
         </button>
         <div
           x-cloak
-          class="prose prose-lg mt-1"
+          class="prose mt-1"
           x-show="$store.player.src === url">
           <p>In this loop I’m mostly experimenting with kicks and bass. There are two bassses, one only enter after the “drop”, the idea was to make it sound like a growl. The whole porpose of this experiment was to try and make a drop.</p>
         </div>
