@@ -2,13 +2,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/kill_the_piano.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/kill_the_piano.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/kill_the_piano.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/kill_the_piano.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/kill_the_piano.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/kill_the_piano.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -49,13 +49,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/before.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/before.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/before.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/before.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/before.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/before.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button

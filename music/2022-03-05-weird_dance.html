@@ -2,13 +2,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220305 Weird Dance.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/220305 Weird Dance.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220305 Weird Dance.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/220305 Weird Dance.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220305 Weird Dance.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/220305 Weird Dance.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button

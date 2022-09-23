@@ -17,13 +17,67 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220426 Low Fish.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/220722 Sad Hunt.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220426 Low Fish.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/220722 Sad Hunt.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220426 Low Fish.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/220722 Sad Hunt.mp3"></audio>
+
+        <div :text="$store.player.playing(url)"></div>
+        <button
+          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
+          @click="$store.player.set($refs[url], url, `Sad Hunt`)">
+
+          <div class="flex flex-start w-full items-center relative">
+            <div class="h-6 w-6 flex-shrink-0 mr-4 md_absolute md_-left-10">
+              <div x-show="!$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+              </div>
+              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+              </div>
+            </div>
+            <div class="inline overflow-hidden">
+              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Sad Hunt</span>
+            </div>
+          </div>
+        </button>
+        <div
+          x-cloak
+          class="prose mt-1"
+          x-show="$store.player.src === url">
+          
+        </div>
+      </article>
+    </li>
+  
+</ul>
+
+                </li>
+              
+                <li class="" id="#{post.input_file}">
+                  <ul class="">
+  
+    
+    
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/220426 Low Fish.mp3` }">
+      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
+        <audio
+          x-ref="https://assets.gabrielpoca.com/music/220426 Low Fish.mp3"
+          x-effect="if (url !== $store.player.src) $refs[url].pause()"
+          x-hide
+          src="https://assets.gabrielpoca.com/music/220426 Low Fish.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -71,13 +125,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220305 Weird Dance.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/220305 Weird Dance.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220305 Weird Dance.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/220305 Weird Dance.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/220305 Weird Dance.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/220305 Weird Dance.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -125,13 +179,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211111 79.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/211111 79.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211111 79.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/211111 79.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211111 79.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/211111 79.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -179,13 +233,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211103 Late Halloween.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/211103 Late Halloween.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211103 Late Halloween.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/211103 Late Halloween.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211103 Late Halloween.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/211103 Late Halloween.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -233,13 +287,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211019 Monster Arrival.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/211019 Monster Arrival.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211019 Monster Arrival.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/211019 Monster Arrival.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/211019 Monster Arrival.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/211019 Monster Arrival.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -287,13 +341,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210925 My Fault.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/210925 My Fault.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210925 My Fault.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/210925 My Fault.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210925 My Fault.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/210925 My Fault.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -341,13 +395,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210814 Whatever.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/210814 Whatever.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210814 Whatever.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/210814 Whatever.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210814 Whatever.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/210814 Whatever.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -395,13 +449,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210626 Alone.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/210626 Alone.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210626 Alone.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/210626 Alone.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210626 Alone.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/210626 Alone.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -442,13 +496,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210604 Bee in a Monster's Cave.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/210604 Bee in a Monster's Cave.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210604 Bee in a Monster's Cave.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/210604 Bee in a Monster's Cave.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210604 Bee in a Monster's Cave.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/210604 Bee in a Monster's Cave.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -496,13 +550,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210528 Fall.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/210528 Fall.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210528 Fall.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/210528 Fall.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210528 Fall.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/210528 Fall.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -550,13 +604,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210402 Monster Trap.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/210402 Monster Trap.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210402 Monster Trap.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/210402 Monster Trap.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210402 Monster Trap.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/210402 Monster Trap.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -604,13 +658,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210323 Exploring.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/210323 Exploring.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210323 Exploring.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/210323 Exploring.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210323 Exploring.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/210323 Exploring.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -658,13 +712,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210201 Bar fight.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/210201 Bar fight.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210201 Bar fight.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/210201 Bar fight.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/210201 Bar fight.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/210201 Bar fight.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -719,13 +773,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200808 Waking up.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/200808 Waking up.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200808 Waking up.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/200808 Waking up.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200808 Waking up.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/200808 Waking up.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -766,13 +820,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200828 Return home.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/200828 Return home.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200828 Return home.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/200828 Return home.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/200828 Return home.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/200828 Return home.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -813,13 +867,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201024 Haunted house.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/201024 Haunted house.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201024 Haunted house.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/201024 Haunted house.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201024 Haunted house.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/201024 Haunted house.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -860,13 +914,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201207 Growl.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/201207 Growl.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201207 Growl.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/201207 Growl.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/201207 Growl.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/201207 Growl.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -914,13 +968,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/mixed_feelings_piano.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/mixed_feelings_piano.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/mixed_feelings_piano.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/mixed_feelings_piano.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/mixed_feelings_piano.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/mixed_feelings_piano.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -968,13 +1022,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/jazzy_mind_f.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/jazzy_mind_f.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/jazzy_mind_f.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/jazzy_mind_f.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/jazzy_mind_f.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/jazzy_mind_f.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -1022,13 +1076,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/night_bass.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/night_bass.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/night_bass.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/night_bass.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/night_bass.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/night_bass.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -1076,13 +1130,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/lofi_piano.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/lofi_piano.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/lofi_piano.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/lofi_piano.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/lofi_piano.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/lofi_piano.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -1130,13 +1184,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/kill_the_piano.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/kill_the_piano.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/kill_the_piano.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/kill_the_piano.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/kill_the_piano.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/kill_the_piano.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -1177,13 +1231,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/before.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/before.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/before.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/before.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/before.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/before.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -1231,13 +1285,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/nothing_left_to_prove.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/nothing_left_to_prove.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/nothing_left_to_prove.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/nothing_left_to_prove.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/nothing_left_to_prove.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/nothing_left_to_prove.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -1285,13 +1339,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_8.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/dancer_music_8.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_8.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/dancer_music_8.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_8.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/dancer_music_8.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -1332,13 +1386,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_0.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/dancer_music_0.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_0.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/dancer_music_0.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_0.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/dancer_music_0.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -1379,13 +1433,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_3.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/dancer_music_3.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_3.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/dancer_music_3.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_3.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/dancer_music_3.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
@@ -1426,13 +1480,13 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_11.mp3` }">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/dancer_music_11.mp3` }">
       <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
         <audio
-          x-ref="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_11.mp3"
+          x-ref="https://assets.gabrielpoca.com/music/dancer_music_11.mp3"
           x-effect="if (url !== $store.player.src) $refs[url].pause()"
           x-hide
-          src="https://assets.gabrielpoca.com/file/gabrielpoca-site/music/dancer_music_11.mp3"></audio>
+          src="https://assets.gabrielpoca.com/music/dancer_music_11.mp3"></audio>
 
         <div :text="$store.player.playing(url)"></div>
         <button
