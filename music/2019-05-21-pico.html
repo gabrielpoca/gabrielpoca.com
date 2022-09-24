@@ -2,46 +2,36 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/music/dancer_music_8.mp3` }">
-      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
-        <audio
-          x-ref="https://assets.gabrielpoca.com/music/dancer_music_8.mp3"
-          x-effect="if (url !== $store.player.src) $refs[url].pause()"
-          x-hide
-          src="https://assets.gabrielpoca.com/music/dancer_music_8.mp3"></audio>
-
-        <div :text="$store.player.playing(url)"></div>
-        <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
-          @click="$store.player.set($refs[url], url, `Pico 8 Experiment 1`)">
-
-          <div class="flex flex-start w-full items-center relative">
-            <div class="h-6 w-6 flex-shrink-0 mr-4 md_absolute md_-left-10">
-              <div x-show="!$store.player.playing(url)" class="w-full">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/dancer_music_8.mp3`, title: `Pico 8 Experiment 1`}">
+      <article class="mb-5 max-w-md">
+        <div class="flex flex-start w-full items-center relative">
+          <button
+            @click="$store.player.set(url, title)"
+            class="h-6 w-6 flex-shrink-0 mr-4 md_absolute md_-left-10">
+            <div x-show="!$store.player.playing(url)" class="w-full">
+              <svg class="w-full h-full" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="12" cy="12" r="11.5" stroke="white"/>
   <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
 </svg>
 
-              </div>
-              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            </div>
+            <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+              <svg class="w-full h-full" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="12" cy="12" r="11.5" stroke="white"/>
   <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
   <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
 </svg>
 
-              </div>
             </div>
-            <div class="inline overflow-hidden">
-              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Pico 8 Experiment 1</span>
-            </div>
-          </div>
-        </button>
+          </button>
+          <button @click="$store.player.open(url)" class="inline overflow-hidden">
+            <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Pico 8 Experiment 1</span>
+          </button>
+        </div>
         <div
           x-cloak
-          class="prose mt-1"
-          x-show="$store.player.src === url">
+          class="prose mt-2 md_mt-1"
+          x-show="$store.player.opened[url]">
           <p>I’ve been playing around with the &lt;a href=”<a href="https://www.lexaloffle.com/pico-8.php%22">https://www.lexaloffle.com/pico-8.php”</a> rel=”noopener noreferrer” target=”_blank”&gt;Pico-8&lt;/a&gt;.</p><p>It’s a fun console that’s all about limitations. There are 8 instruments to play with, and each song can only have 4 tracks. After a couple of days the limitations become liberating.</p>
         </div>
       </article>
@@ -49,46 +39,36 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/music/dancer_music_0.mp3` }">
-      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
-        <audio
-          x-ref="https://assets.gabrielpoca.com/music/dancer_music_0.mp3"
-          x-effect="if (url !== $store.player.src) $refs[url].pause()"
-          x-hide
-          src="https://assets.gabrielpoca.com/music/dancer_music_0.mp3"></audio>
-
-        <div :text="$store.player.playing(url)"></div>
-        <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
-          @click="$store.player.set($refs[url], url, `Pico 8 Experiment 2`)">
-
-          <div class="flex flex-start w-full items-center relative">
-            <div class="h-6 w-6 flex-shrink-0 mr-4 md_absolute md_-left-10">
-              <div x-show="!$store.player.playing(url)" class="w-full">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/dancer_music_0.mp3`, title: `Pico 8 Experiment 2`}">
+      <article class="mb-5 max-w-md">
+        <div class="flex flex-start w-full items-center relative">
+          <button
+            @click="$store.player.set(url, title)"
+            class="h-6 w-6 flex-shrink-0 mr-4 md_absolute md_-left-10">
+            <div x-show="!$store.player.playing(url)" class="w-full">
+              <svg class="w-full h-full" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="12" cy="12" r="11.5" stroke="white"/>
   <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
 </svg>
 
-              </div>
-              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            </div>
+            <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+              <svg class="w-full h-full" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="12" cy="12" r="11.5" stroke="white"/>
   <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
   <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
 </svg>
 
-              </div>
             </div>
-            <div class="inline overflow-hidden">
-              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Pico 8 Experiment 2</span>
-            </div>
-          </div>
-        </button>
+          </button>
+          <button @click="$store.player.open(url)" class="inline overflow-hidden">
+            <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Pico 8 Experiment 2</span>
+          </button>
+        </div>
         <div
           x-cloak
-          class="prose mt-1"
-          x-show="$store.player.src === url">
+          class="prose mt-2 md_mt-1"
+          x-show="$store.player.opened[url]">
           <p>I’ve been playing around with the &lt;a href=”<a href="https://www.lexaloffle.com/pico-8.php%22">https://www.lexaloffle.com/pico-8.php”</a> rel=”noopener noreferrer” target=”_blank”&gt;Pico-8&lt;/a&gt;.</p><p>It’s a fun console that’s all about limitations. There are 8 instruments to play with, and each song can only have 4 tracks. After a couple of days the limitations become liberating.</p>
         </div>
       </article>
@@ -96,46 +76,36 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/music/dancer_music_3.mp3` }">
-      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
-        <audio
-          x-ref="https://assets.gabrielpoca.com/music/dancer_music_3.mp3"
-          x-effect="if (url !== $store.player.src) $refs[url].pause()"
-          x-hide
-          src="https://assets.gabrielpoca.com/music/dancer_music_3.mp3"></audio>
-
-        <div :text="$store.player.playing(url)"></div>
-        <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
-          @click="$store.player.set($refs[url], url, `Pico 8 Experiment 3`)">
-
-          <div class="flex flex-start w-full items-center relative">
-            <div class="h-6 w-6 flex-shrink-0 mr-4 md_absolute md_-left-10">
-              <div x-show="!$store.player.playing(url)" class="w-full">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/dancer_music_3.mp3`, title: `Pico 8 Experiment 3`}">
+      <article class="mb-5 max-w-md">
+        <div class="flex flex-start w-full items-center relative">
+          <button
+            @click="$store.player.set(url, title)"
+            class="h-6 w-6 flex-shrink-0 mr-4 md_absolute md_-left-10">
+            <div x-show="!$store.player.playing(url)" class="w-full">
+              <svg class="w-full h-full" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="12" cy="12" r="11.5" stroke="white"/>
   <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
 </svg>
 
-              </div>
-              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            </div>
+            <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+              <svg class="w-full h-full" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="12" cy="12" r="11.5" stroke="white"/>
   <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
   <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
 </svg>
 
-              </div>
             </div>
-            <div class="inline overflow-hidden">
-              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Pico 8 Experiment 3</span>
-            </div>
-          </div>
-        </button>
+          </button>
+          <button @click="$store.player.open(url)" class="inline overflow-hidden">
+            <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Pico 8 Experiment 3</span>
+          </button>
+        </div>
         <div
           x-cloak
-          class="prose mt-1"
-          x-show="$store.player.src === url">
+          class="prose mt-2 md_mt-1"
+          x-show="$store.player.opened[url]">
           <p>I’ve been playing around with the &lt;a href=”<a href="https://www.lexaloffle.com/pico-8.php%22">https://www.lexaloffle.com/pico-8.php”</a> rel=”noopener noreferrer” target=”_blank”&gt;Pico-8&lt;/a&gt;.</p><p>It’s a fun console that’s all about limitations. There are 8 instruments to play with, and each song can only have 4 tracks. After a couple of days the limitations become liberating.</p>
         </div>
       </article>
@@ -143,46 +113,36 @@
   
     
     
-    <li x-data="{ url: `https://assets.gabrielpoca.com/music/dancer_music_11.mp3` }">
-      <article x-data="{ playing: $store.player.isPlaying}" class="mb-5 max-w-md">
-        <audio
-          x-ref="https://assets.gabrielpoca.com/music/dancer_music_11.mp3"
-          x-effect="if (url !== $store.player.src) $refs[url].pause()"
-          x-hide
-          src="https://assets.gabrielpoca.com/music/dancer_music_11.mp3"></audio>
-
-        <div :text="$store.player.playing(url)"></div>
-        <button
-          class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent w-full"
-          @click="$store.player.set($refs[url], url, `Pico 8 Experiment 4`)">
-
-          <div class="flex flex-start w-full items-center relative">
-            <div class="h-6 w-6 flex-shrink-0 mr-4 md_absolute md_-left-10">
-              <div x-show="!$store.player.playing(url)" class="w-full">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/dancer_music_11.mp3`, title: `Pico 8 Experiment 4`}">
+      <article class="mb-5 max-w-md">
+        <div class="flex flex-start w-full items-center relative">
+          <button
+            @click="$store.player.set(url, title)"
+            class="h-6 w-6 flex-shrink-0 mr-4 md_absolute md_-left-10">
+            <div x-show="!$store.player.playing(url)" class="w-full">
+              <svg class="w-full h-full" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="12" cy="12" r="11.5" stroke="white"/>
   <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
 </svg>
 
-              </div>
-              <div x-cloak x-show="$store.player.playing(url)" class="w-full">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            </div>
+            <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+              <svg class="w-full h-full" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="12" cy="12" r="11.5" stroke="white"/>
   <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
   <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
 </svg>
 
-              </div>
             </div>
-            <div class="inline overflow-hidden">
-              <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Pico 8 Experiment 4</span>
-            </div>
-          </div>
-        </button>
+          </button>
+          <button @click="$store.player.open(url)" class="inline overflow-hidden">
+            <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">Pico 8 Experiment 4</span>
+          </button>
+        </div>
         <div
           x-cloak
-          class="prose mt-1"
-          x-show="$store.player.src === url">
+          class="prose mt-2 md_mt-1"
+          x-show="$store.player.opened[url]">
           <p>I’ve been playing around with the &lt;a href=”<a href="https://www.lexaloffle.com/pico-8.php%22">https://www.lexaloffle.com/pico-8.php”</a> rel=”noopener noreferrer” target=”_blank”&gt;Pico-8&lt;/a&gt;.</p><p>It’s a fun console that’s all about limitations. There are 8 instruments to play with, and each song can only have 4 tracks. After a couple of days the limitations become liberating.</p>
         </div>
       </article>
