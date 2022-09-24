@@ -5,7 +5,21 @@ dark: true
 title: "Gabriel Poça | Music"
 ---
 
-<div class="pt-40 md_ml-12">
+<div x-data class="pt-40 md_ml-12">
+  <div
+    x-cloak
+    x-show="$store.player.src"
+    class="fixed bottom-0 left-0 w-full h-24 bg-black z-20 flex items-center">
+    <button @click="$store.player.playPause()" class="w-12 h-12 mx-3 grow-0">
+      <div x-show="!$store.player.playing()" class="h-full w-full">
+        <%= include(@env, "_includes/play.svg") %>
+      </div>
+      <div x-cloak x-show="$store.player.playing()" class="h-full w-full">
+        <%= include(@env, "_includes/pause.svg") %>
+      </div>
+    </button>
+    <div id="waveform" class="w-full h-16"></div>
+  </div>
   <div class="min-h-screen container">
     <div class="pt-20 -mt-16 mx-auto md:container" x-data="{open: false, state: 'play'}">
       <div class="flex flex-col space-x-8 md_flex-row md_justify-between">
@@ -16,9 +30,9 @@ title: "Gabriel Poça | Music"
           <div class="md_mb-32">
             <ul class="">
               <%= Enum.map sort_by_date(get_collections(@env, "music")), fn post -> %>
-                <li class="" id="#{post.input_file}">
-                  <%= include(@env, post.input_file) %>
-                </li>
+              <li class="" id="#{post.input_file}">
+                <%= include(@env, post.input_file) %>
+              </li>
               <% end %>
             </ul>
           </div>
@@ -38,6 +52,7 @@ title: "Gabriel Poça | Music"
   </div>
 </div>
 
-<script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script src="https://unpkg.com/wavesurfer.js"></script>
 
 <%= link_to_js @env, "music/index.js" %>
