@@ -2,7 +2,7 @@ module.exports = {
   separator: '_',
   purge:
     process.env.NODE_ENV === "production"
-      ? ["../*.slime", "../*.eex", "../**/*.slime", "../**/*.eex"]
+      ? ["../*.slime", "../*.eex", "../**/*.slime", "../**/*.eex", "../**/*.html", "../**/*.css"]
       : [],
   darkMode: 'class',
   theme: {
