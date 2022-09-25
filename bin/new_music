@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require 'date'
+
+date_small = ARGV.shift
+date = Date.parse(date_small)
+date_full = "#{date.year}-#{date.strftime('%m')}-#{date.strftime('%d')}"
+
+name = ARGV.join(" ")
+
+contents = %{---
+date: "#{date_full}"
+layout: "_includes/music_layout.html.eex"
+title: "#{name}"
+tag:
+  - music
+files:
+  - name: "#{name}"
+    file: "music/#{date_small} #{name}.mp3"
+    peak: "music/#{date_small} #{name}.json"
+---}
+
+file = "priv/site/music/#{date_full}-#{name.downcase.split(' ').join('-')}.md"
+
+out_file = File.new(file, "w")
+out_file.puts contents
+out_file.close
