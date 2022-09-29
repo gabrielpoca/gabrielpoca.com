@@ -8,6 +8,7 @@ document.addEventListener("alpine:init", () => {
     normalize: true,
     height: 64,
     responsive: true,
+    backend: 'MediaElement'
   });
 
   wavesurfer.on("play", () => {
@@ -65,11 +66,8 @@ document.addEventListener("alpine:init", () => {
 
           const json = await response.json();
 
-          wavesurfer.backend.setPeaks(json.data);
-          wavesurfer.drawBuffer();
-          wavesurfer.getArrayBuffer(this.src, data => wavesurfer.loadArrayBuffer(data));
+          wavesurfer.load(this.src, json.data);
         } catch (e) {
-          wavesurfer.backend.setPeaks(null);
           wavesurfer.load(this.src);
         }
       }
