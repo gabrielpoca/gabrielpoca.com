@@ -1,0 +1,40 @@
+<ul class="">
+  
+    
+    
+    <li x-data="{ url: `https://assets.gabrielpoca.com/music/220830 I Know.mp3`, title: `I Know`}">
+      <article class="mb-5 max-w-md">
+        <div class="flex flex-start w-full items-center relative">
+          <button
+            @click="$store.player.set(url, title)"
+            class="h-6 w-6 flex-shrink-0 mr-4 md_absolute md_-left-10">
+            <div x-show="!$store.player.playing(url)" class="w-full">
+              <svg class="w-full h-full" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <path d="M9.04261 6.88346L17.9063 12.0009L9.04261 17.1183L9.04261 6.88346Z" stroke="white"/>
+</svg>
+
+            </div>
+            <div x-cloak x-show="$store.player.playing(url)" class="w-full">
+              <svg class="w-full h-full" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="11.5" stroke="white"/>
+  <line x1="9.5" y1="6" x2="9.5" y2="17" stroke="white"/>
+  <line x1="14.5" y1="6" x2="14.5" y2="17" stroke="white"/>
+</svg>
+
+            </div>
+          </button>
+          <button @click="$store.player.open(url)" class="inline overflow-hidden">
+            <span class="truncate" :class="$store.player.selected(url) ? 'font-bold' : ''">I Know</span>
+          </button>
+        </div>
+        <div
+          x-cloak
+          class="prose mt-2 md_mt-1"
+          x-show="$store.player.opened[url]">
+          <p>First beat on the SP404 MK2.</p>
+        </div>
+      </article>
+    </li>
+  
+</ul>
